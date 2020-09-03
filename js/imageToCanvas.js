@@ -5,3 +5,7 @@ function setImageIntoCanvas(d, imgId, canvasId) {
     var ctx = c.getContext("2d");
     ctx.drawImage(img, 10, 10, 150, 180);
 }
+
+function flipSkin(d, srcCanvasId) {
+    var srcCanvas = d.getElementById(srcCanvasId);
+}

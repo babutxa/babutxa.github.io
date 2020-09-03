@@ -6,14 +6,18 @@
 <p>Image to use:</p>
 <img id="myImage" src="images/skinTextureExample.png" style="width:100px">
   
-<p><button onclick="setImageIntoCanvas(document, 'myImage', 'myCanvas')">
+<p><button onclick="setImageIntoCanvas(document, 'myImage', 'mySrcCanvas')">
     Set image into a canvas
 </button></p>
 
 <p>Canvas:</p>
-<canvas id="myCanvas" width="240" height="297" style="border:1px solid #d3d3d3;">
+<canvas id="mySrcCanvas" style="border:1px solid #d3d3d3;">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
+
+<p><button onclick="flipSkin(document, 'mySrcCanvas')">
+    Flip Skin
+</button></p>
 
 <script src="js/imageToCanvas.js"></script>
 
