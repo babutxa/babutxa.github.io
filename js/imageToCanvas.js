@@ -20,12 +20,16 @@ function flipSkin(d, imgId) {
     var srcCtx = srcCanvas.getContext("2d");
     srcCtx.drawImage(img, 0, 0);
 
-    // create dest canvas
-    var destCanvas = document.createElement('canvas');
-    destCanvas.id = "destCanvasId";
-    destCanvas.width = srcCanvas.width;
-    destCanvas.height = srcCanvas.height;
-    destCanvas.style.border = "1px solid #00d300";
+    // create dest canvas if necessary
+    var destCanvas =  document.getElementById('destCanvasId');
+    if (typeof(destCanvas) == 'undefined' | element == null) {
+        // Create one
+        destCanvas = document.createElement('canvas');
+        destCanvas.id = "destCanvasId";
+        destCanvas.width = srcCanvas.width;
+        destCanvas.height = srcCanvas.height;
+        destCanvas.style.border = "1px solid #00d300";
+    }
 
     var destCtx = destCanvas.getContext("2d");
     var destImgData = destCtx.getImageData(0, 0, destCanvas.width, destCanvas.height);
