@@ -6,11 +6,12 @@ function setImageIntoCanvas(d, imgId, canvasId) {
     ctx.drawImage(img, 0, 0);
 };
 
-function flipSkin(imgId) {
+function flipSkin(d, imgId) {
     var img = document.getElementById(imgId);
  
     // create source canvas
     var srcCanvas = document.createElement('canvas');
+    srcCanvas.id = "srcCanvasId";
     srcCanvas.width = img.width;
     srcCanvas.height = img.height;
     srcCanvas.style.border = "1px solid #d30000";
