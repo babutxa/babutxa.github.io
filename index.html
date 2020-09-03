@@ -13,14 +13,26 @@
 
 <h1>Flip minecraft skin texture</h1>
 <p>Image to use:</p>
+
+<p>Image to use:</p>
 <img id="minecraftSkinTextureToFlip" src="images/skinTextureExample.png" style="width:100px">
 
-<button onclick="imageToCanvas(myImage, myCanvas)">Set image into a canvas</button>
+<p><button onclick="setImageIntoCanvas()">Set image into a canvas</button></p>
 
 <p>Canvas:</p>
-<canvas id="mySrcCanvas" width="240" style="border:1px solid#d3d3d3;">
-    Your browser does not support the HTML5 canvas tag.
+<canvas id="myCanvas" width="240" height="297" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
 </canvas>
+
+
+<script>
+function setImageIntoCanvas() {
+  var c = document.getElementById("myCanvas");
+  var ctx = c.getContext("2d");
+  var img = document.getElementById("minecraftSkinTextureToFlip");
+  ctx.drawImage(img, 10, 10, 150, 180);
+}
+</script>
 
 
 
