@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html>
 <body>
+
+<script src="js/imageToCanvas.js"></script>
+
+
 <h1>Hello World</h1>
-<script type="text/javascript" src="js/alert.js"></script>
 <button onclick="document.getElementById('myImage').src='images/pic_bulbon.gif'">Turn on the light</button>
 <img id="myImage" src="images/pic_bulboff.gif" style="width:100px">
 <button onclick="document.getElementById('myImage').src='images/pic_bulboff.gif'">Turn off the light</button>
 
+
 <h1>Flip minecraft skin texture</h1>
+<p>Image to use:</p>
 <img id="minecraftSkinTextureToFlip" src="images/skinTextureExample.png" style="width:100px">
-<button onclick="document.getElementById('minecraftSkinTextureToFlip').src='images/pic_bulboff.gif'">Flip skin texture</button>
+
+var myImage = document.getElementById("minecraftSkinTextureToFlip");
+var myCanvas = doucment.getElementById("mySrcCanvas");
+<button onclick="imageToCanvas(myImage, myCanvas)">Set image into a canvas</button>
+
+<p>Canvas:</p>
+<canvas id="mySrcCanvas" width="240" style="border:1px solid#d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+
+
 
 <p>I'm hosted with GitHub Pages.</p>
+
 </body>
 </html>
