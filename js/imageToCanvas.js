@@ -6,7 +6,7 @@ function setImageIntoCanvas(d, imgId, canvasId) {
     ctx.drawImage(img, 0, 0);
 };
 
-function flipSkin(d, imgId, srcCanvasId) {
+function flipSkin(d, imgId) {
     var img = document.getElementById(imgId);
  
     // create source canvas
