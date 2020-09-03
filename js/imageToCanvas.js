@@ -29,7 +29,7 @@ function flipSkin(d, srcCanvasId) {
         destImgData.data[i+2] = 255 - srcImgData.data[i+2];
         destImgData.data[i+3] = 255;
     }
-    ctx.putImageData(destImgData, 0, 0); 
+    destCtx.putImageData(destImgData, 0, 0); 
 
     // add destCanvas to body
     var body = d.getElementsByTagName("body")[0];
