@@ -6,12 +6,11 @@ function setImageIntoCanvas(d, imgId, canvasId) {
     ctx.drawImage(img, 0, 0);
 };
 
-function flipSkin(d, imgId) {
+function flipSkin(imgId) {
     var img = document.getElementById(imgId);
  
     // create source canvas
     var srcCanvas = document.createElement('canvas');
-    srcCanvas.id = "srcCanvasId";
     srcCanvas.width = img.width;
     srcCanvas.height = img.height;
     srcCanvas.style.border = "1px solid #d30000";
@@ -47,7 +46,6 @@ function flipSkin(d, imgId) {
     destCtx.putImageData(destImgData, 0, 0); 
 
     // add destCanvas to body
-    var body = d.getElementsByTagName("body")[0];
-    //body.appendChild(srcCanvas);
+    var body = document.getElementsByTagName("body")[0];
     body.appendChild(destCanvas);
 };
