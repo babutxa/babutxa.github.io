@@ -4,7 +4,7 @@ function setImageIntoCanvas(d, imgId, canvasId) {
     var c = d.getElementById(canvasId);
     var ctx = c.getContext("2d");
     ctx.drawImage(img, 0, 0);
-}
+};
 
 function flipSkin(d, srcCanvasId) {
     var c = d.getElementById(srcCanvasId);
@@ -20,4 +20,4 @@ function flipSkin(d, srcCanvasId) {
       imgData.data[i+3] = 255;
     }
     ctx.putImageData(imgData, 0, 0); 
-}
+};
