@@ -13,7 +13,9 @@ function flipSkin(d, imgId) {
     var srcCanvas = document.createElement('canvas');
     srcCanvas.width = img.width;
     srcCanvas.height = img.height;
+    srcCanvas.style.border = "1px solid #d30000";
     var srcCtx = srcCanvas.getContext("2d");
+
  
     // put image into source canvas
     srcCtx.drawImage(img, 0, 0);
