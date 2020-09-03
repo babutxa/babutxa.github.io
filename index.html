@@ -2,7 +2,6 @@
 <html>
 <body>
 
-<script src="js/imageToCanvas.js"></script>
 
 
 <h1>Hello World</h1>
@@ -13,8 +12,6 @@
 
 <h1>Flip minecraft skin texture</h1>
 <p>Image to use:</p>
-
-<p>Image to use:</p>
 <img id="minecraftSkinTextureToFlip" src="images/skinTextureExample.png" style="width:100px">
 
 <p><button onclick="setImageIntoCanvas()">Set image into a canvas</button></p>
@@ -24,18 +21,7 @@
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 
-
-<script>
-function setImageIntoCanvas() {
-  var c = document.getElementById("myCanvas");
-  var ctx = c.getContext("2d");
-  var img = document.getElementById("minecraftSkinTextureToFlip");
-  ctx.drawImage(img, 10, 10, 150, 180);
-}
-</script>
-
-
-
+<script src="js/imageToCanvas.js"></script>
 
 <p>I'm hosted with GitHub Pages.</p>
 

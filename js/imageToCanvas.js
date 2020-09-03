@@ -1,8 +1,7 @@
 
-var myImage = document.getElementById("minecraftSkinTextureToFlip");
-var myCanvas = doucment.getElementById("mySrcCanvas");
-
-function imageToCanvas(myImage, myCanvas) {
-    var myCanvasContext = myCanvas.getContext("2d");
-    myCanvasContext.drawImage(myImage, 10, 10);
-}
+function setImageIntoCanvas() {
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    var img = document.getElementById("minecraftSkinTextureToFlip");
+    ctx.drawImage(img, 10, 10, 150, 180);
+  }
