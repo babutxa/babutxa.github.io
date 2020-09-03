@@ -12,9 +12,11 @@
 
 <h1>Flip minecraft skin texture</h1>
 <p>Image to use:</p>
-<img id="minecraftSkinTextureToFlip" src="images/skinTextureExample.png" style="width:100px">
-
-<p><button onclick="setImageIntoCanvas(document)">Set image into a canvas</button></p>
+<img id="myImage" src="images/skinTextureExample.png" style="width:100px">
+  
+<p><button onclick="setImageIntoCanvas(document.getElementById('myCanvas'), document.getElementById('myImage'))">
+    Set image into a canvas
+</button></p>
 
 <p>Canvas:</p>
 <canvas id="myCanvas" width="240" height="297" style="border:1px solid #d3d3d3;">
