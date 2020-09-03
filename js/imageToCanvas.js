@@ -18,8 +18,8 @@ function flipSkin(d, srcCanvasId) {
     destCanvas.height = srcCanvas.height;
     destCanvas.style.border = "1px solid #00d300";
 
-    var destCanvasCtx = destCanvas.getContext("2d");
-    var destImgData = destCanvasCtx.getImageData(0, 0, destCanvas.width, destCanvas.height);
+    var destCtx = destCanvas.getContext("2d");
+    var destImgData = destCtx.getImageData(0, 0, destCanvas.width, destCanvas.height);
 
     // invert colors
     var i;
