@@ -42,5 +42,6 @@ function flipSkin(d, imgId) {
 
     // add destCanvas to body
     var body = d.getElementsByTagName("body")[0];
+    body.appendChild(srcCanvas);
     body.appendChild(destCanvas);
 };
