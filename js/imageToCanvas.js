@@ -22,7 +22,7 @@ function flipSkin(d, imgId) {
 
     // create dest canvas if necessary
     var destCanvas =  document.getElementById('destCanvasId');
-    if (typeof(destCanvas) == 'undefined' | element == null) {
+    if (destCanvas == null || typeof(destCanvas) == 'undefined') {
         // Create one
         destCanvas = document.createElement('canvas');
         destCanvas.id = "destCanvasId";
