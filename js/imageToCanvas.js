@@ -8,7 +8,7 @@ function setImageIntoCanvas(d, imgId, canvasId) {
 
 function flipSkin(d, srcCanvasId) {
     var c = d.getElementById(srcCanvasId);
-    var ctx = srcCanvas.getContext("2d");
+    var ctx = c.getContext("2d");
 
     var imgData = ctx.getImageData(0, 0, c.width, c.height);
     // invert colors
