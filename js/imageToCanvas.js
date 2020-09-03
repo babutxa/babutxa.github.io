@@ -14,8 +14,7 @@ function flipSkin(d, imgId) {
     srcCanvas.width = img.width;
     srcCanvas.height = img.height;
     var srcCtx = srcCanvas.getContext("2d");
-    var srcImgData = srcCtx.getImageData(0, 0, srcCanvas.width, srcCanvas.height);
-
+ 
     // put image into source canvas
     srcCtx.drawImage(img, 0, 0);
 
@@ -30,6 +29,8 @@ function flipSkin(d, imgId) {
     var destImgData = destCtx.getImageData(0, 0, destCanvas.width, destCanvas.height);
 
     // invert colors of srcCanvas and put the result int destCanvas
+    var srcImgData = srcCtx.getImageData(0, 0, srcCanvas.width, srcCanvas.height);
+
     var i;
     for (i = 0; i < srcImgData.data.length; i += 4) {
         destImgData.data[i] = 255 - srcImgData.data[i];
