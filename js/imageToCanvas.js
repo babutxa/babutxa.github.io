@@ -18,20 +18,13 @@ function mirrorImage(ctx, image, x = 0, y = 0, horizontal = false, vertical = fa
 
 function flipSkin(imgId) {
     var fullImg = document.getElementById(imgId);
- 
-    // create full source image canvas
-    var fullImgCanvas = document.createElement('canvas');
-    fullImgCanvas.id = "srcCanvasId";
-    fullImgCanvas.width = fullImg.width;
-    fullImgCanvas.height = fullImg.height;
-    fullImgCanvas.style.border = "1px solid #d30000";
 
-    // put full image into canvas
-    var fullImgCtx = fullImgCanvas.getContext("2d");
-    fullImgCtx.drawImage(fullImg, 0, 0);
-
-    // get a crop of full image
-    var img = fullImgCtx.getImageData(0, 0, 8, 8); //x, y, with, height
+    //crop (0,0) (8,8)
+    var cropCanvas = document.createElement('canvas');
+    cropCanvas.id = "cropCanvasId";
+    cropCanvas.width = 8;
+    cropCanvas.height = 8;  
+    cropCanvas.drawImage(fullImg, 0, 0, 8, 8, 0, 0, 8, 8);
 
     // create dest canvas if necessary
     var destCanvas = document.getElementById('destCanvasId');
@@ -39,14 +32,14 @@ function flipSkin(imgId) {
         // Create one
         destCanvas = document.createElement('canvas');
         destCanvas.id = "destCanvasId";
-        destCanvas.width = img.width;
-        destCanvas.height = img.height;
+        destCanvas.width = cropCanvas.width;
+        destCanvas.height = cropCanvas.height;
         destCanvas.style.border = "1px solid #00d300";
     }
     var destCtx = destCanvas.getContext("2d");
 
     // flip horizontal
-    mirrorImage(destCtx, img, 0, 0, true, false);
+    mirrorImage(destCtx, cropCanvas, 0, 0, true, false);
 
     // add destCanvas to body
     var body = document.getElementsByTagName("body")[0];
