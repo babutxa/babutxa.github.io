@@ -1,4 +1,44 @@
+// arguments
+// ctx : the context on which to draw the mirrored image
+// image : the image to mirror
+// x,y : the top left of the rendered image
+// horizontal : boolean if true mirror along X
+// vertical : boolean if true mirror along y
+function mirrorImage(ctx, image, x = 0, y = 0, horizontal = false, vertical = false){
+    ctx.save();  // save the current canvas state
+    ctx.setTransform(
+        horizontal ? -1 : 1, 0, // set the direction of x axis
+        0, vertical ? -1 : 1,   // set the direction of y axis
+        x + horizontal ? image.width : 0, // set the x origin
+        y + vertical ? image.height : 0   // set the y origin
+    );
+    ctx.drawImage(image, 0, 0);
+    ctx.restore(); // restore the state as it was when this function was called
+}
+
 function flipSkin(imgId) {
+    var img = document.getElementById(imgId);
+    
+    // create dest canvas if necessary
+    var destCanvas =  document.getElementById('destCanvasId');
+    if (destCanvas == null || typeof(destCanvas) == 'undefined') {
+        // Create one
+        destCanvas = document.createElement('canvas');
+        destCanvas.id = "destCanvasId";
+        destCanvas.width = srcCanvas.width;
+        destCanvas.height = srcCanvas.height;
+        destCanvas.style.border = "1px solid #00d300";
+    }
+    var destCtx = destCanvas.getContext("2d");
+
+    mirrorImage(destCtx, img, 0, 0, true, false);
+
+    // add destCanvas to body
+    var body = document.getElementsByTagName("body")[0];
+    body.appendChild(destCanvas);
+}
+
+function flipSkin_old(imgId) {
     var img = document.getElementById(imgId);
  
     // create source canvas
