@@ -83,6 +83,15 @@ function flipSkin(imgId) {
     processBlock(fullImg, 52, 20, legR, legH, 20, 12, resCanvas);
     processBlock(fullImg, 52, 24, legR, legH, 20, 0, resCanvas);
     processBlock(fullImg, 52, 16, legR, legH, 20, 8, resCanvas);
+
+     // right leg (RL) -> left leg (LL)
+     processBlock(fullImg, 16, 4, legR, legR, 48, 20, resCanvas, true, true);
+     processBlock(fullImg, 16, 8, legR, legR, 48, 24, resCanvas, true, true);
+     processBlock(fullImg, 20, 4, legR, legH, 52, 28, resCanvas);
+     processBlock(fullImg, 20, 12, legR, legH, 52, 20, resCanvas);
+     processBlock(fullImg, 20, 0, legR, legH, 52, 24, resCanvas);
+     processBlock(fullImg, 20, 8, legR, legH, 52, 16, resCanvas);
+    
   
 
 
