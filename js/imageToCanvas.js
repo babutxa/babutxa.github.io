@@ -16,14 +16,14 @@ function mirrorImage(ctx, image, x = 0, y = 0, horizontal = false, vertical = fa
     ctx.restore(); // restore the state as it was when this function was called
 }
 
-function processBlock(fullImg, sx, sy, w, h, dx, dy, dCanvas) {
+function processBlock(fullImg, srow, scol, w, h, drow, dcol, dCanvas) {
     // crop 
     var cropCanvas = document.createElement('canvas');
     cropCanvas.id = "cropCanvasId";
     cropCanvas.width = w;
     cropCanvas.height = h;
     cropContext = cropCanvas.getContext("2d");
-    cropContext.drawImage(fullImg, sx, sy, w, h, 0, 0, w, h);
+    cropContext.drawImage(fullImg, scol, srow, w, h, 0, 0, w, h);
 
     // create auxiliary canvas to put the flip result in
     auxCanvas = document.createElement('canvas');
@@ -37,7 +37,7 @@ function processBlock(fullImg, sx, sy, w, h, dx, dy, dCanvas) {
 
     // put the result into resCanvas
     dContext = dCanvas.getContext("2d");
-    dContext.drawImage(auxCanvas, 0, 0, w, h, dx, dy, w, h);
+    dContext.drawImage(auxCanvas, 0, 0, w, h, dcol, drow, w, h);
 }
 
 function flipSkin(imgId) {
