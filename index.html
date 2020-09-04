@@ -5,13 +5,27 @@
 <h1>Flip minecraft skin texture</h1>
 
 <p>Select skin texture:</p>
-<input type="file" id="input">
+<input type="file" id="picSkinTexture">
 
 <script>
-input.onchange = function(e) { 
-    var selectedFile = document.getElementById('input').files[0].mozFullPath;
-    var img = document.getElementById('myImage');
-    img.src = selectedFile;
+document.getElementById('picSkinTexture').onchange = function (evt) {
+    var tgt = evt.target || window.event.srcElement,
+        files = tgt.files;
+
+    // FileReader support
+    if (FileReader && files && files.length) {
+        var fr = new FileReader();
+        fr.onload = function () {
+            document.getElementById('myImage').src = fr.result;
+        }
+        fr.readAsDataURL(files[0]);
+    }
+
+    // Not supported
+    else {
+        // fallback -- perhaps submit the input to an iframe and temporarily store
+        // them on the server until the user's session ends.
+    }
 };
 </script>
 
