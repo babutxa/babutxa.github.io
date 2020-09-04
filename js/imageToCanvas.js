@@ -84,17 +84,31 @@ function flipSkin(imgId) {
     processBlock(fullImg, 52, 24, legR, legH, 20, 0, resCanvas);
     processBlock(fullImg, 52, 16, legR, legH, 20, 8, resCanvas);
 
-     // right leg (RL) -> left leg (LL)
-     processBlock(fullImg, 16, 4, legR, legR, 48, 20, resCanvas, true, true);
-     processBlock(fullImg, 16, 8, legR, legR, 48, 24, resCanvas, true, true);
-     processBlock(fullImg, 20, 4, legR, legH, 52, 28, resCanvas);
-     processBlock(fullImg, 20, 12, legR, legH, 52, 20, resCanvas);
-     processBlock(fullImg, 20, 0, legR, legH, 52, 24, resCanvas);
-     processBlock(fullImg, 20, 8, legR, legH, 52, 16, resCanvas);
+    // right leg (RL) -> left leg (LL)
+    processBlock(fullImg, 16, 4, legR, legR, 48, 20, resCanvas, true, true);
+    processBlock(fullImg, 16, 8, legR, legR, 48, 24, resCanvas, true, true);
+    processBlock(fullImg, 20, 4, legR, legH, 52, 28, resCanvas);
+    processBlock(fullImg, 20, 12, legR, legH, 52, 20, resCanvas);
+    processBlock(fullImg, 20, 0, legR, legH, 52, 24, resCanvas);
+    processBlock(fullImg, 20, 8, legR, legH, 52, 16, resCanvas);
+
+    // left leg 2 (LL2) -> right leg 2 (RL2)
+    processBlock(fullImg, 48, 4, legR, legR, 32, 4, resCanvas, true, true);
+    processBlock(fullImg, 48, 8, legR, legR, 32, 8, resCanvas, true, true);
+    processBlock(fullImg, 52, 12, legR, legH, 36, 4, resCanvas);
+    processBlock(fullImg, 52, 4, legR, legH, 36, 12, resCanvas);
+    processBlock(fullImg, 52, 8, legR, legH, 36, 0, resCanvas);
+    processBlock(fullImg, 52, 0, legR, legH, 36, 8, resCanvas);
+
+    // right leg 2 (RL2) -> left leg 2 (LL2)
+    //dst[48:52, 4:8] = processBlock(fullImg, src[16+16:20+16, 4:8], resCanvas, true, true);
+    //dst[48:52, 8:12] = processBlock(fullImg, src[16+16:20+16, 8:12], resCanvas, true, true);
+    //dst[52:64, 12+0:16+0] = processBlock(fullImg, src[20+16:32+16, 4:8], legR, legH, ?, ?, resCanvas);
+    //dst[52:64, 4+0:8+0] = processBlock(fullImg, src[20+16:32+16, 12:16], legR, legH, ?, ?, resCanvas);
+    //dst[52:64, 8+0:12+0] = processBlock(fullImg, src[20+16:32+16, 0:4], legR, legH, ?, ?,  rsCanvas);
+    //dst[52:64, 0+0:4+0] = processBlock(fullImg, src[20+16:32+16, 8:12], legR, legH, ?, ?, resCanvas);
+
     
-  
-
-
     // add resCanvas to body
     var body = document.getElementsByTagName("body")[0];
     body.appendChild(resCanvas);
