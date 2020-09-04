@@ -101,14 +101,17 @@ function flipSkin(imgId) {
     processBlock(fullImg, 52, 0, legR, legH, 36, 8, resCanvas);
 
     // right leg 2 (RL2) -> left leg 2 (LL2)
-    //dst[48:52, 4:8] = processBlock(fullImg, src[16+16:20+16, 4:8], resCanvas, true, true);
-    //dst[48:52, 8:12] = processBlock(fullImg, src[16+16:20+16, 8:12], resCanvas, true, true);
-    //dst[52:64, 12+0:16+0] = processBlock(fullImg, src[20+16:32+16, 4:8], legR, legH, ?, ?, resCanvas);
-    //dst[52:64, 4+0:8+0] = processBlock(fullImg, src[20+16:32+16, 12:16], legR, legH, ?, ?, resCanvas);
-    //dst[52:64, 8+0:12+0] = processBlock(fullImg, src[20+16:32+16, 0:4], legR, legH, ?, ?,  rsCanvas);
-    //dst[52:64, 0+0:4+0] = processBlock(fullImg, src[20+16:32+16, 8:12], legR, legH, ?, ?, resCanvas);
+    processBlock(fullImg, 32, 4, legR, legR, 48, 4, resCanvas, true, true);
+    processBlock(fullImg, 32, 8, legR, legR, 48, 8, resCanvas, true, true);
+    processBlock(fullImg, 36, 4, legR, legH, 52, 12, resCanvas);
+    processBlock(fullImg, 36, 12, legR, legH, 52, 4, resCanvas);
+    processBlock(fullImg, 36, 0, legR, legH, 52, 8,  rsCanvas);
+    processBlock(fullImg, 36, 8, legR, legH, 52, 0, resCanvas);
 
     
+  
+
+
     // add resCanvas to body
     var body = document.getElementsByTagName("body")[0];
     body.appendChild(resCanvas);
