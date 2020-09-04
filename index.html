@@ -17,6 +17,7 @@ document.getElementById('picSkinTexture').onchange = function (evt) {
         var fr = new FileReader();
         fr.onload = function () {
             document.getElementById('myImage').src = fr.result;
+            flipSkin('myImage');
         }
         fr.readAsDataURL(files[0]);
     }
@@ -29,13 +30,9 @@ document.getElementById('picSkinTexture').onchange = function (evt) {
 };
 </script>
 
-<p>Image to use:</p>
+<p>Selected image:</p>
 <img id="myImage" src="images/1_8_texturemap_slim.png" width="64px" height="64px">
   
-<p><button onclick="flipSkin('myImage')">
-    Flip skin
-</button></p>
-
 <p>Flipped skin:</p>
 
 <script src="js/imageToCanvas.js"></script>
