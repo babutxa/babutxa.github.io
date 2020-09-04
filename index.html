@@ -9,7 +9,7 @@
 
 <script>
 input.onchange = function(e) { 
-    const selectedFile = document.getElementById('input').files[0].mozFullPath;
+    var selectedFile = document.getElementById('input').files[0].mozFullPath;
     var img = document.getElementById('myImage');
     img.src = selectedFile;
 };
