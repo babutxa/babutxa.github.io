@@ -22,10 +22,11 @@ function flipSkin(imgId) {
     //crop (0,0) (8,8)
     var cropCanvas = document.createElement('canvas');
     cropCanvas.id = "cropCanvasId";
-    cropCanvas.width = 8;
-    cropCanvas.height = 8;
+    var n = 32;
+    cropCanvas.width = n;
+    cropCanvas.height = n;
     cropContext = cropCanvas.getContext("2d");
-    cropContext.drawImage(fullImg, 0, 0, 8, 8, 0, 0, 8, 8);
+    cropContext.drawImage(fullImg, 0, 0, n, n, 0, 0, n, n);
 
     // create dest canvas if necessary
     var destCanvas = document.getElementById('destCanvasId');
