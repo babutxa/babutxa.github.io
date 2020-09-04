@@ -54,7 +54,7 @@ function flipSkin(imgId) {
         resCanvas.style.border = "1px solid #00d300";
     }
 
-    processBlock(fullImage, resCanvas, 0, 0, 32, 32, 0, 0);
+    processBlock(fullImg, resCanvas, 0, 0, 32, 32, 0, 0);
 
     // add resCanvas to body
     var body = document.getElementsByTagName("body")[0];
