@@ -133,14 +133,6 @@ function flipSkin(imgId) {
     processBlock(fullImg, 52, 36, slimArmR, bodyH, 20, 51, resCanvas);
 
     // slim right arm -> slim left arm
-    processBlock(fullImg, 16, 44, slimArmR, armlegR, 16, 44, resCanvas, true, true);
-    processBlock(fullImg, 16, 47, slimArmR, armlegR, 16, 47, resCanvas, true, true);
-    processBlock(fullImg, 20, 40, armlegR, bodyH, 20, 40, resCanvas);
-    processBlock(fullImg, 20, 44, slimArmR, bodyH, 20, 44, resCanvas);
-    processBlock(fullImg, 20, 47, armlegR, bodyH, 20, 47, resCanvas);
-    processBlock(fullImg, 20, 51, slimArmR, bodyH, 20, 51, resCanvas);
-
-    // slim left arm 2 -> slim right arm 2
     processBlock(fullImg, 16, 44, slimArmR, armlegR, 48, 36, resCanvas, true, true);
     processBlock(fullImg, 16, 47, slimArmR, armlegR, 48, 39, resCanvas, true, true);
     processBlock(fullImg, 20, 40, armlegR, bodyH, 52, 39, resCanvas);
@@ -148,21 +140,21 @@ function flipSkin(imgId) {
     processBlock(fullImg, 20, 47, armlegR, bodyH, 52, 32, resCanvas);
     processBlock(fullImg, 20, 51, slimArmR, bodyH, 52, 36, resCanvas);
 
-/*
-dst[16+16:20+16, 44:47] = fv(src[48:52, 36+16:39+16])
-dst[16+16:20+16, 47:50] = fv(src[48:52, 39+16:42+16])
-dst[20+16:32+16, 40:44] = fh(src[52:64, 39+16:43+16])
-dst[20+16:32+16, 44:47] = fh(src[52:64, 43+16:46+16])
-dst[20+16:32+16, 47:51] = fh(src[52:64, 32+16:36+16])
-dst[20+16:32+16, 51:54] = fh(src[52:64, 36+16:39+16])
+    // slim left arm 2 -> slim right arm 2
+    processBlock(fullImg, 48, 52, slimArmR, armlegR, 32, 44, resCanvas, true, true);
+    processBlock(fullImg, 48, 55, slimArmR, armlegR, 32, 47, resCanvas, true, true);
+    processBlock(fullImg, 52, 55, armlegR, bodyH, 36, 40, resCanvas);
+    processBlock(fullImg, 52, 59, slimArmR, bodyH, 36, 44, resCanvas);
+    processBlock(fullImg, 52, 48, armlegR, bodyH, 36, 47, resCanvas);
+    processBlock(fullImg, 52, 52, slimArmR, bodyH, 36, 51, resCanvas);
 
-dst[48:52, 36+16:39+16] = fv(src[16+16:20+16, 44:47])
-dst[48:52, 39+16:42+16] = fv(src[16+16:20+16, 47:50])
-dst[52:64, 39+16:43+16] = fh(src[20+16:32+16, 40:44])
-dst[52:64, 43+16:46+16] = fh(src[20+16:32+16, 44:47])
-dst[52:64, 32+16:36+16] = fh(src[20+16:32+16, 47:51])
-dst[52:64, 36+16:39+16] = fh(src[20+16:32+16, 51:54])
-*/
+    // slim right arm 2 -> slim left arm 2
+    processBlock(fullImg, 32, 44, slimArmR, armlegR, 48, 52, resCanvas, true, true);
+    processBlock(fullImg, 32, 47, slimArmR, armlegR, 48, 55, resCanvas, true, true);
+    processBlock(fullImg, 36, 40, armlegR, bodyH, 52, 55, resCanvas);
+    processBlock(fullImg, 36, 44, slimArmR, bodyH, 52, 59, resCanvas);
+    processBlock(fullImg, 36, 47, armlegR, bodyH, 52, 48, resCanvas);
+    processBlock(fullImg, 36, 51, slimArmR, bodyH, 52, 52, resCanvas);
 
     // add resCanvas to body
     var body = document.getElementsByTagName("body")[0];
