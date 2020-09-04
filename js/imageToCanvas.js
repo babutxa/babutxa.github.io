@@ -16,7 +16,8 @@ function mirrorImage(ctx, image, x = 0, y = 0, horizontal = false, vertical = fa
     ctx.restore(); // restore the state as it was when this function was called
 }
 
-function processBlock(fullImg, srow, scol, w, h, drow, dcol, dCanvas) {
+function processBlock(fullImg, srow, scol, w, h, drow, dcol, dCanvas,
+    fliph = false, flipv = false) {
     // crop 
     var cropCanvas = document.createElement('canvas');
     cropCanvas.id = "cropCanvasId";
@@ -33,7 +34,7 @@ function processBlock(fullImg, srow, scol, w, h, drow, dcol, dCanvas) {
     var auxCtx = auxCanvas.getContext("2d");
 
     // flip horizontal
-    mirrorImage(auxCtx, cropCanvas, 0, 0, true, false);
+    mirrorImage(auxCtx, cropCanvas, 0, 0, fliph, flipv);
 
     // put the result into resCanvas
     dContext = dCanvas.getContext("2d");
@@ -56,15 +57,23 @@ function flipSkin(imgId) {
 
     var blockW = 8;
     var blockH = 8;
-    processBlock(fullImg, 0, 8, blockW, blockH, 0, 8, resCanvas);
-    processBlock(fullImg, 0, 16, blockW, blockH, 0, 16, resCanvas);
-    processBlock(fullImg, 0, 40, blockW, blockH, 0, 40, resCanvas);
-    processBlock(fullImg, 0, 48, blockW, blockH, 0, 48, resCanvas);
 
+    // head1
+    processBlock(fullImg, 0, 8, blockW, blockH, 0, 8, resCanvas, true, true);
+    processBlock(fullImg, 0, 16, blockW, blockH, 0, 16, resCanvas, true, true);
     processBlock(fullImg, 8, 0, blockW, blockH, 8, 16, resCanvas);
     processBlock(fullImg, 8, 8, blockW, blockH, 8, 24, resCanvas);
     processBlock(fullImg, 8, 16, blockW, blockH, 8, 0, resCanvas);
     processBlock(fullImg, 8, 24, blockW, blockH, 8, 8, resCanvas);
+
+    // head2
+    processBlock(fullImg, 0, 40, blockW, blockH, 0, 40, resCanvas, true, true);
+    processBlock(fullImg, 0, 48, blockW, blockH, 0, 48, resCanvas, true, true);
+    processBlock(fullImg, 8, 32, blockW, blockH, 8, 48, resCanvas);
+    processBlock(fullImg, 8, 40, blockW, blockH, 8, 56, resCanvas);
+    processBlock(fullImg, 8, 48, blockW, blockH, 8, 32, resCanvas);
+    processBlock(fullImg, 8, 56, blockW, blockH, 8, 40, resCanvas);
+
   
 
 
