@@ -16,36 +16,49 @@ function mirrorImage(ctx, image, x = 0, y = 0, horizontal = false, vertical = fa
     ctx.restore(); // restore the state as it was when this function was called
 }
 
+function processBlock(fullImg, sx, sy, w, h, dx, dy, dCanvas) {
+    // crop 
+    var cropCanvas = document.createElement('canvas');
+    cropCanvas.id = "cropCanvasId";
+    cropCanvas.width = w;
+    cropCanvas.height = h;
+    cropContext = cropCanvas.getContext("2d");
+    cropContext.drawImage(fullImg, sx, sy, w, h, 0, 0, w, h);
+
+    // create auxiliary canvas to put the flip result in
+    auxCanvas = document.createElement('canvas');
+    auxCanvas.id = "destCanvasId";
+    auxCanvas.width = cropCanvas.width;
+    auxCanvas.height = cropCanvas.height;
+    var auxCtx = destCanvas.getContext("2d");
+
+    // flip horizontal
+    mirrorImage(auxCtx, cropCanvas, 0, 0, true, false);
+
+    // put the result into resCanvas
+    dContext = dCanvas.getContext("2d");
+    dContext.drawImage(auxCanvas, dx, dy);
+}
+
 function flipSkin(imgId) {
     var fullImg = document.getElementById(imgId);
 
-    //crop (0,0) (8,8)
-    var cropCanvas = document.createElement('canvas');
-    cropCanvas.id = "cropCanvasId";
-    var n = 32;
-    cropCanvas.width = n;
-    cropCanvas.height = n;
-    cropContext = cropCanvas.getContext("2d");
-    cropContext.drawImage(fullImg, 0, 0, n, n, 0, 0, n, n);
-
-    // create dest canvas if necessary
-    var destCanvas = document.getElementById('destCanvasId');
-    if (destCanvas == null || typeof(destCanvas) == 'undefined') {
+    // create res canvas if necessary
+    var resCanvas = document.getElementById('resCanvasId');
+    if (resCanvas == null || typeof(resCanvas) == 'undefined') {
         // Create one
-        destCanvas = document.createElement('canvas');
-        destCanvas.id = "destCanvasId";
-        destCanvas.width = cropCanvas.width;
-        destCanvas.height = cropCanvas.height;
-        destCanvas.style.border = "1px solid #00d300";
+        resCanvas = document.createElement('canvas');
+        resCanvas.id = "resCanvasId";
+        resCanvas.width = fullImg.width;
+        resCanvas.height = fullImg.height;
+        resCanvas.style.border = "1px solid #00d300";
     }
-    var destCtx = destCanvas.getContext("2d");
 
-    // flip horizontal
-    mirrorImage(destCtx, cropCanvas, 0, 0, true, false);
+    processBlock(fullImage, resCanvas, 0, 0, 32, 32, 0, 0);
 
-    // add destCanvas to body
+    // add resCanvas to body
     var body = document.getElementsByTagName("body")[0];
-    body.appendChild(destCanvas);
+    body.appendChild(resCanvas);
 }
 
 function flipSkin_old(imgId) {
