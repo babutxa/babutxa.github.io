@@ -59,6 +59,7 @@ function flipSkin(imgId) {
     var blockH = 8;
     var legR = 4;
     var legH = 12;
+    var bodyH = 12;
 
     // head
     processBlock(fullImg, 0, 8, blockW, blockH, 0, 8, resCanvas, true, true);
@@ -108,8 +109,13 @@ function flipSkin(imgId) {
     processBlock(fullImg, 36, 0, legR, legH, 52, 8,  resCanvas);
     processBlock(fullImg, 36, 8, legR, legH, 52, 0, resCanvas);
 
-    
-  
+    // body
+    processBlock(fullImg, 16, 20, 4, 8, 16, 20, resCanvas, true, true);
+    processBlock(fullImg, 16, 28, 4, 8, 16, 28, resCanvas, true, true);
+    processBlock(fullImg, 20, 28, 4, bodyH, 20, 16, resCanvas);
+    processBlock(fullImg, 20, 32, 8, bodyH, 20, 20, resCanvas);
+    processBlock(fullImg, 20, 20, 8, bodyH, 20, 32, resCanvas);
+    processBlock(fullImg, 20, 16, 4, bodyH, 20, 28, resCanvas);
 
 
     // add resCanvas to body
