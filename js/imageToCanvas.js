@@ -37,7 +37,7 @@ function processBlock(fullImg, sx, sy, w, h, dx, dy, dCanvas) {
     var auxCtx = auxCanvas.getContext("2d");
 
     // flip horizontal
-    // mirrorImage(auxCtx, cropCanvas, 0, 0, true, false);
+    mirrorImage(auxCtx, cropCanvas, 0, 0, true, false);
 
     // put the result into resCanvas
     dContext = dCanvas.getContext("2d");
