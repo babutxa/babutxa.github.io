@@ -25,6 +25,10 @@ function processBlock(fullImg, sx, sy, w, h, dx, dy, dCanvas) {
     cropContext = cropCanvas.getContext("2d");
     cropContext.drawImage(fullImg, sx, sy, w, h, 0, 0, w, h);
 
+    // debug purposes
+    var body = document.getElementsByTagName("body")[0];
+    body.appendChild(cropCanvas);
+
     // create auxiliary canvas to put the flip result in
     auxCanvas = document.createElement('canvas');
     auxCanvas.id = "destCanvasId";
