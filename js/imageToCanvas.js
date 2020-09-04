@@ -60,6 +60,7 @@ function flipSkin(imgId) {
     var legR = 4;
     var legH = 12;
     var bodyH = 12;
+    var slimArmR = 3;
 
     // head
     processBlock(fullImg, 0, 8, blockW, blockH, 0, 8, resCanvas, true, true);
@@ -125,7 +126,35 @@ function flipSkin(imgId) {
     processBlock(fullImg, 36, 20, 8, bodyH, 36, 32, resCanvas);
     processBlock(fullImg, 36, 16, 4, bodyH, 36, 28, resCanvas);
 
+    // slim arm
+    processBlock(fullImg, 48, 36, slimArmR, 4, 16, 44, resCanvas, true, true);
+    processBlock(fullImg, 48, 39, slimArmR, 4, 16, 47, resCanvas, true, true);
+    processBlock(fullImg, 52, 39, 4, bodyH, 20, 40, resCanvas);
+    processBlock(fullImg, 52, 43, 4, bodyH, 20, 44, resCanvas);
+    processBlock(fullImg, 52, 32, 4, bodyH, 20, 47, resCanvas);
+    processBlock(fullImg, 52, 36, 4, bodyH, 20, 51, resCanvas);
 
+/*dst[48:52, 36:39] = fv(src[16:20, 44:47])
+dst[48:52, 39:42] = fv(src[16:20, 47:50])
+dst[52:64, 39:43] = fh(src[20:32, 40:44])
+dst[52:64, 43:46] = fh(src[20:32, 44:47])
+dst[52:64, 32:36] = fh(src[20:32, 47:51])
+dst[52:64, 36:39] = fh(src[20:32, 51:54])
+
+dst[16+16:20+16, 44:47] = fv(src[48:52, 36+16:39+16])
+dst[16+16:20+16, 47:50] = fv(src[48:52, 39+16:42+16])
+dst[20+16:32+16, 40:44] = fh(src[52:64, 39+16:43+16])
+dst[20+16:32+16, 44:47] = fh(src[52:64, 43+16:46+16])
+dst[20+16:32+16, 47:51] = fh(src[52:64, 32+16:36+16])
+dst[20+16:32+16, 51:54] = fh(src[52:64, 36+16:39+16])
+
+dst[48:52, 36+16:39+16] = fv(src[16+16:20+16, 44:47])
+dst[48:52, 39+16:42+16] = fv(src[16+16:20+16, 47:50])
+dst[52:64, 39+16:43+16] = fh(src[20+16:32+16, 40:44])
+dst[52:64, 43+16:46+16] = fh(src[20+16:32+16, 44:47])
+dst[52:64, 32+16:36+16] = fh(src[20+16:32+16, 47:51])
+dst[52:64, 36+16:39+16] = fh(src[20+16:32+16, 51:54])
+*/
 
     // add resCanvas to body
     var body = document.getElementsByTagName("body")[0];
