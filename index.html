@@ -7,6 +7,14 @@
 <p>Select skin texture:</p>
 <input type="file" id="input">
 
+<script>
+input.onchange = function(e) { 
+    const selectedFile = document.getElementById('input').files[0];
+    var img = document.getElementById('myImage');
+    img.src = selectedFile;
+};
+</script>
+
 <p>Image to use:</p>
 <img id="myImage" src="images/1_8_texturemap_slim.png" width="64px" height="64px">
   
