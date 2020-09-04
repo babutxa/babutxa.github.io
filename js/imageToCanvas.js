@@ -25,8 +25,8 @@ function flipSkin(imgId) {
         // Create one
         destCanvas = document.createElement('canvas');
         destCanvas.id = "destCanvasId";
-        destCanvas.width = srcCanvas.width;
-        destCanvas.height = srcCanvas.height;
+        destCanvas.width = img.width;
+        destCanvas.height = img.height;
         destCanvas.style.border = "1px solid #00d300";
     }
     var destCtx = destCanvas.getContext("2d");
