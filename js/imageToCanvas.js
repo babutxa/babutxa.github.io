@@ -30,7 +30,7 @@ function processBlock(fullImg, sx, sy, w, h, dx, dy, dCanvas) {
     auxCanvas.id = "destCanvasId";
     auxCanvas.width = cropCanvas.width;
     auxCanvas.height = cropCanvas.height;
-    var auxCtx = destCanvas.getContext("2d");
+    var auxCtx = auxCanvas.getContext("2d");
 
     // flip horizontal
     mirrorImage(auxCtx, cropCanvas, 0, 0, true, false);
