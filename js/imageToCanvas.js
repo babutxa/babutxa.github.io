@@ -55,101 +55,100 @@ function flipSkin(imgId) {
         resCanvas.style.border = "1px solid #00d300";
     }
 
-    var blockW = 8;
-    var blockH = 8;
-    var legR = 4;
-    var legH = 12;
+    var headR = 8;
     var bodyH = 12;
+    var armlegR = 4;
     var slimArmR = 3;
-
+ 
     // head
-    processBlock(fullImg, 0, 8, blockW, blockH, 0, 8, resCanvas, true, true);
-    processBlock(fullImg, 0, 16, blockW, blockH, 0, 16, resCanvas, true, true);
-    processBlock(fullImg, 8, 0, blockW, blockH, 8, 16, resCanvas);
-    processBlock(fullImg, 8, 8, blockW, blockH, 8, 24, resCanvas);
-    processBlock(fullImg, 8, 16, blockW, blockH, 8, 0, resCanvas);
-    processBlock(fullImg, 8, 24, blockW, blockH, 8, 8, resCanvas);
+    processBlock(fullImg, 0, 8, headR, headR, 0, 8, resCanvas, true, true);
+    processBlock(fullImg, 0, 16, headR, headR, 0, 16, resCanvas, true, true);
+    processBlock(fullImg, 8, 0, headR, headR, 8, 16, resCanvas);
+    processBlock(fullImg, 8, 8, headR, headR, 8, 24, resCanvas);
+    processBlock(fullImg, 8, 16, headR, headR, 8, 0, resCanvas);
+    processBlock(fullImg, 8, 24, headR, headR, 8, 8, resCanvas);
 
     // head2
-    processBlock(fullImg, 0, 40, blockW, blockH, 0, 40, resCanvas, true, true);
-    processBlock(fullImg, 0, 48, blockW, blockH, 0, 48, resCanvas, true, true);
-    processBlock(fullImg, 8, 32, blockW, blockH, 8, 48, resCanvas);
-    processBlock(fullImg, 8, 40, blockW, blockH, 8, 56, resCanvas);
-    processBlock(fullImg, 8, 48, blockW, blockH, 8, 32, resCanvas);
-    processBlock(fullImg, 8, 56, blockW, blockH, 8, 40, resCanvas);
+    processBlock(fullImg, 0, 40, headR, headR, 0, 40, resCanvas, true, true);
+    processBlock(fullImg, 0, 48, headR, headR, 0, 48, resCanvas, true, true);
+    processBlock(fullImg, 8, 32, headR, headR, 8, 48, resCanvas);
+    processBlock(fullImg, 8, 40, headR, headR, 8, 56, resCanvas);
+    processBlock(fullImg, 8, 48, headR, headR, 8, 32, resCanvas);
+    processBlock(fullImg, 8, 56, headR, headR, 8, 40, resCanvas);
 
     // left leg (LL) -> right leg (RL)
-    processBlock(fullImg, 48, 20, legR, legR, 16, 4, resCanvas, true, true);
-    processBlock(fullImg, 48, 24, legR, legR, 16, 8, resCanvas, true, true);
-    processBlock(fullImg, 52, 28, legR, legH, 20, 4, resCanvas);
-    processBlock(fullImg, 52, 20, legR, legH, 20, 12, resCanvas);
-    processBlock(fullImg, 52, 24, legR, legH, 20, 0, resCanvas);
-    processBlock(fullImg, 52, 16, legR, legH, 20, 8, resCanvas);
+    processBlock(fullImg, 48, 20, armlegR, armlegR, 16, 4, resCanvas, true, true);
+    processBlock(fullImg, 48, 24, armlegR, armlegR, 16, 8, resCanvas, true, true);
+    processBlock(fullImg, 52, 28, armlegR, bodyH, 20, 4, resCanvas);
+    processBlock(fullImg, 52, 20, armlegR, bodyH, 20, 12, resCanvas);
+    processBlock(fullImg, 52, 24, armlegR, bodyH, 20, 0, resCanvas);
+    processBlock(fullImg, 52, 16, armlegR, bodyH, 20, 8, resCanvas);
 
     // right leg (RL) -> left leg (LL)
-    processBlock(fullImg, 16, 4, legR, legR, 48, 20, resCanvas, true, true);
-    processBlock(fullImg, 16, 8, legR, legR, 48, 24, resCanvas, true, true);
-    processBlock(fullImg, 20, 4, legR, legH, 52, 28, resCanvas);
-    processBlock(fullImg, 20, 12, legR, legH, 52, 20, resCanvas);
-    processBlock(fullImg, 20, 0, legR, legH, 52, 24, resCanvas);
-    processBlock(fullImg, 20, 8, legR, legH, 52, 16, resCanvas);
+    processBlock(fullImg, 16, 4, armlegR, armlegR, 48, 20, resCanvas, true, true);
+    processBlock(fullImg, 16, 8, armlegR, armlegR, 48, 24, resCanvas, true, true);
+    processBlock(fullImg, 20, 4, armlegR, bodyH, 52, 28, resCanvas);
+    processBlock(fullImg, 20, 12, armlegR, bodyH, 52, 20, resCanvas);
+    processBlock(fullImg, 20, 0, armlegR, bodyH, 52, 24, resCanvas);
+    processBlock(fullImg, 20, 8, armlegR, bodyH, 52, 16, resCanvas);
 
     // left leg 2 (LL2) -> right leg 2 (RL2)
-    processBlock(fullImg, 48, 4, legR, legR, 32, 4, resCanvas, true, true);
-    processBlock(fullImg, 48, 8, legR, legR, 32, 8, resCanvas, true, true);
-    processBlock(fullImg, 52, 12, legR, legH, 36, 4, resCanvas);
-    processBlock(fullImg, 52, 4, legR, legH, 36, 12, resCanvas);
-    processBlock(fullImg, 52, 8, legR, legH, 36, 0, resCanvas);
-    processBlock(fullImg, 52, 0, legR, legH, 36, 8, resCanvas);
+    processBlock(fullImg, 48, 4, armlegR, armlegR, 32, 4, resCanvas, true, true);
+    processBlock(fullImg, 48, 8, armlegR, armlegR, 32, 8, resCanvas, true, true);
+    processBlock(fullImg, 52, 12, armlegR, bodyH, 36, 4, resCanvas);
+    processBlock(fullImg, 52, 4, armlegR, bodyH, 36, 12, resCanvas);
+    processBlock(fullImg, 52, 8, armlegR, bodyH, 36, 0, resCanvas);
+    processBlock(fullImg, 52, 0, armlegR, bodyH, 36, 8, resCanvas);
 
     // right leg 2 (RL2) -> left leg 2 (LL2)
-    processBlock(fullImg, 32, 4, legR, legR, 48, 4, resCanvas, true, true);
-    processBlock(fullImg, 32, 8, legR, legR, 48, 8, resCanvas, true, true);
-    processBlock(fullImg, 36, 4, legR, legH, 52, 12, resCanvas);
-    processBlock(fullImg, 36, 12, legR, legH, 52, 4, resCanvas);
-    processBlock(fullImg, 36, 0, legR, legH, 52, 8,  resCanvas);
-    processBlock(fullImg, 36, 8, legR, legH, 52, 0, resCanvas);
+    processBlock(fullImg, 32, 4, armlegR, armlegR, 48, 4, resCanvas, true, true);
+    processBlock(fullImg, 32, 8, armlegR, armlegR, 48, 8, resCanvas, true, true);
+    processBlock(fullImg, 36, 4, armlegR, bodyH, 52, 12, resCanvas);
+    processBlock(fullImg, 36, 12, armlegR, bodyH, 52, 4, resCanvas);
+    processBlock(fullImg, 36, 0, armlegR, bodyH, 52, 8,  resCanvas);
+    processBlock(fullImg, 36, 8, armlegR, bodyH, 52, 0, resCanvas);
 
     // body
-    processBlock(fullImg, 16, 20, 8, 4, 16, 20, resCanvas, true, true);
-    processBlock(fullImg, 16, 28, 8, 4, 16, 28, resCanvas, true, true);
-    processBlock(fullImg, 20, 28, 4, bodyH, 20, 16, resCanvas);
-    processBlock(fullImg, 20, 32, 8, bodyH, 20, 20, resCanvas);
-    processBlock(fullImg, 20, 20, 8, bodyH, 20, 32, resCanvas);
-    processBlock(fullImg, 20, 16, 4, bodyH, 20, 28, resCanvas);
+    processBlock(fullImg, 16, 20, headR, armlegR, 16, 20, resCanvas, true, true);
+    processBlock(fullImg, 16, 28, headR, armlegR, 16, 28, resCanvas, true, true);
+    processBlock(fullImg, 20, 28, armlegR, bodyH, 20, 16, resCanvas);
+    processBlock(fullImg, 20, 32, headR, bodyH, 20, 20, resCanvas);
+    processBlock(fullImg, 20, 20, headR, bodyH, 20, 32, resCanvas);
+    processBlock(fullImg, 20, 16, armlegR, bodyH, 20, 28, resCanvas);
 
     // body 2
-    processBlock(fullImg, 32, 20, 8, 4, 32, 20, resCanvas, true, true);
-    processBlock(fullImg, 32, 28, 8, 4, 32, 28, resCanvas, true, true);
-    processBlock(fullImg, 36, 28, 4, bodyH, 36, 16, resCanvas);
-    processBlock(fullImg, 36, 32, 8, bodyH, 36, 20, resCanvas);
-    processBlock(fullImg, 36, 20, 8, bodyH, 36, 32, resCanvas);
-    processBlock(fullImg, 36, 16, 4, bodyH, 36, 28, resCanvas);
+    processBlock(fullImg, 32, 20, headR, armlegR, 32, 20, resCanvas, true, true);
+    processBlock(fullImg, 32, 28, headR, armlegR, 32, 28, resCanvas, true, true);
+    processBlock(fullImg, 36, 28, armlegR, bodyH, 36, 16, resCanvas);
+    processBlock(fullImg, 36, 32, headR, bodyH, 36, 20, resCanvas);
+    processBlock(fullImg, 36, 20, headR, bodyH, 36, 32, resCanvas);
+    processBlock(fullImg, 36, 16, armlegR, bodyH, 36, 28, resCanvas);
 
     // slim left arm -> slim right arm
-    processBlock(fullImg, 48, 36, slimArmR, 4, 16, 44, resCanvas, true, true);
-    processBlock(fullImg, 48, 39, slimArmR, 4, 16, 47, resCanvas, true, true);
-    processBlock(fullImg, 52, 39, 4, bodyH, 20, 40, resCanvas);
-    processBlock(fullImg, 52, 43, 4, bodyH, 20, 44, resCanvas);
-    processBlock(fullImg, 52, 32, 4, bodyH, 20, 47, resCanvas);
-    processBlock(fullImg, 52, 36, 4, bodyH, 20, 51, resCanvas);
+    processBlock(fullImg, 48, 36, slimArmR, armlegR, 16, 44, resCanvas, true, true);
+    processBlock(fullImg, 48, 39, slimArmR, armlegR, 16, 47, resCanvas, true, true);
+    processBlock(fullImg, 52, 39, armlegR, bodyH, 20, 40, resCanvas);
+    processBlock(fullImg, 52, 43, slimArmR, bodyH, 20, 44, resCanvas);
+    processBlock(fullImg, 52, 32, armlegR, bodyH, 20, 47, resCanvas);
+    processBlock(fullImg, 52, 36, slimArmR, bodyH, 20, 51, resCanvas);
 
-    // slim left arm -> slim right arm
-    processBlock(fullImg, 16, 44, slimArmR, 4, 16, 44, resCanvas, true, true);
-    processBlock(fullImg, 16, 47, slimArmR, 4, 16, 47, resCanvas, true, true);
-    processBlock(fullImg, 20, 40, 4, bodyH, 20, 40, resCanvas);
-    processBlock(fullImg, 20, 44, 4, bodyH, 20, 44, resCanvas);
-    processBlock(fullImg, 20, 47, 4, bodyH, 20, 47, resCanvas);
-    processBlock(fullImg, 20, 51, 4, bodyH, 20, 51, resCanvas);
+    // slim right arm -> slim left arm
+    processBlock(fullImg, 16, 44, slimArmR, armlegR, 16, 44, resCanvas, true, true);
+    processBlock(fullImg, 16, 47, slimArmR, armlegR, 16, 47, resCanvas, true, true);
+    processBlock(fullImg, 20, 40, armlegR, bodyH, 20, 40, resCanvas);
+    processBlock(fullImg, 20, 44, slimArmR, bodyH, 20, 44, resCanvas);
+    processBlock(fullImg, 20, 47, armlegR, bodyH, 20, 47, resCanvas);
+    processBlock(fullImg, 20, 51, slimArmR, bodyH, 20, 51, resCanvas);
 
+    // slim left arm 2 -> slim right arm 2
+    processBlock(fullImg, 16, 44, slimArmR, armlegR, 48, 36, resCanvas, true, true);
+    processBlock(fullImg, 16, 47, slimArmR, armlegR, 48, 39, resCanvas, true, true);
+    processBlock(fullImg, 20, 40, armlegR, bodyH, 52, 39, resCanvas);
+    processBlock(fullImg, 20, 44, slimArmR, bodyH, 52, 43, resCanvas);
+    processBlock(fullImg, 20, 47, armlegR, bodyH, 52, 32, resCanvas);
+    processBlock(fullImg, 20, 51, slimArmR, bodyH, 52, 36, resCanvas);
 
-/*dst[48:52, 36:39] = fv(src[16:20, 44:47])
-dst[48:52, 39:42] = fv(src[16:20, 47:50])
-dst[52:64, 39:43] = fh(src[20:32, 40:44])
-dst[52:64, 43:46] = fh(src[20:32, 44:47])
-dst[52:64, 32:36] = fh(src[20:32, 47:51])
-dst[52:64, 36:39] = fh(src[20:32, 51:54])
-
+/*
 dst[16+16:20+16, 44:47] = fv(src[48:52, 36+16:39+16])
 dst[16+16:20+16, 47:50] = fv(src[48:52, 39+16:42+16])
 dst[20+16:32+16, 40:44] = fh(src[52:64, 39+16:43+16])
