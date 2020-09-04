@@ -126,13 +126,22 @@ function flipSkin(imgId) {
     processBlock(fullImg, 36, 20, 8, bodyH, 36, 32, resCanvas);
     processBlock(fullImg, 36, 16, 4, bodyH, 36, 28, resCanvas);
 
-    // slim arm
+    // slim left arm -> slim right arm
     processBlock(fullImg, 48, 36, slimArmR, 4, 16, 44, resCanvas, true, true);
     processBlock(fullImg, 48, 39, slimArmR, 4, 16, 47, resCanvas, true, true);
     processBlock(fullImg, 52, 39, 4, bodyH, 20, 40, resCanvas);
     processBlock(fullImg, 52, 43, 4, bodyH, 20, 44, resCanvas);
     processBlock(fullImg, 52, 32, 4, bodyH, 20, 47, resCanvas);
     processBlock(fullImg, 52, 36, 4, bodyH, 20, 51, resCanvas);
+
+    // slim left arm -> slim right arm
+    processBlock(fullImg, 16, 44, slimArmR, 4, 16, 44, resCanvas, true, true);
+    processBlock(fullImg, 16, 47, slimArmR, 4, 16, 47, resCanvas, true, true);
+    processBlock(fullImg, 20, 40, 4, bodyH, 20, 40, resCanvas);
+    processBlock(fullImg, 20, 44, 4, bodyH, 20, 44, resCanvas);
+    processBlock(fullImg, 20, 47, 4, bodyH, 20, 47, resCanvas);
+    processBlock(fullImg, 20, 51, 4, bodyH, 20, 51, resCanvas);
+
 
 /*dst[48:52, 36:39] = fv(src[16:20, 44:47])
 dst[48:52, 39:42] = fv(src[16:20, 47:50])
