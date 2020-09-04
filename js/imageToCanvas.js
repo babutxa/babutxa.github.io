@@ -25,10 +25,6 @@ function processBlock(fullImg, sx, sy, w, h, dx, dy, dCanvas) {
     cropContext = cropCanvas.getContext("2d");
     cropContext.drawImage(fullImg, sx, sy, w, h, 0, 0, w, h);
 
-    // debug purposes
-    var body = document.getElementsByTagName("body")[0];
-    body.appendChild(cropCanvas);
-
     // create auxiliary canvas to put the flip result in
     auxCanvas = document.createElement('canvas');
     auxCanvas.id = "destCanvasId";
@@ -58,7 +54,12 @@ function flipSkin(imgId) {
         resCanvas.style.border = "1px solid #00d300";
     }
 
-    processBlock(fullImg, 0, 0, 32, 32, 0, 0, resCanvas);
+    var blockW = 8;
+    var blockH = 8;
+    processBlock(fullImg, 0, 8, blockW, blockH, 0, 8, resCanvas);
+    processBlock(fullImg, 0, 16, blockW, blockH, 0, 16, resCanvas);
+    processBlock(fullImg, 0, 40, blockW, blockH, 0, 40, resCanvas);
+    processBlock(fullImg, 0, 48, blockW, blockH, 0, 48, resCanvas);
 
     // add resCanvas to body
     var body = document.getElementsByTagName("body")[0];
