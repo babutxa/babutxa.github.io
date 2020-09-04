@@ -37,7 +37,7 @@ function processBlock(fullImg, sx, sy, w, h, dx, dy, dCanvas) {
 
     // put the result into resCanvas
     dContext = dCanvas.getContext("2d");
-    dContext.drawImage(auxCanvas, dx, dy);
+    dContext.drawImage(auxCanvas, 0, 0, w, h, dx, dy, w, h);
 }
 
 function flipSkin(imgId) {
