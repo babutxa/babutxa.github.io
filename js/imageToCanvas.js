@@ -6,7 +6,7 @@ function picSkinTextureOnChange(evt) {
     if (FileReader && files && files.length) {
         var fr = new FileReader();
         fr.readAsDataURL(files[0]);
-        fr.onload = fileReaderOnLoad(e);
+        fr.onload = fileReaderOnLoad(evt);
     }
 
     // Not supported
