@@ -5,29 +5,7 @@
 <h1>Flip minecraft skin texture</h1>
 
 <p>Select skin texture:</p>
-<input type="file" id="picSkinTexture">
-
-<script>
-document.getElementById('picSkinTexture').onchange = function (evt) {
-    var tgt = evt.target || window.event.srcElement,
-        files = tgt.files;
-
-    // FileReader support
-    if (FileReader && files && files.length) {
-        var fr = new FileReader();
-        fr.onload = function () {
-            document.getElementById('myImage').src = fr.result;
-        }
-        fr.readAsDataURL(files[0]);
-    }
-
-    // Not supported
-    else {
-        // fallback -- perhaps submit the input to an iframe and temporarily store
-        // them on the server until the user's session ends.
-    }
-};
-</script>
+<input type="file" id="picSkinTexture" onchange="picSkinTextureOnChange(this.value)">
 
 <p>Selected skin image:</p>
 <img id="myImage" src="images/1_8_texturemap_slim.png" width="64px" height="64px">
