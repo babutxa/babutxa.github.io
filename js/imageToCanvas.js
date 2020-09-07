@@ -1,12 +1,19 @@
-function picSkinTextureOnChange(evt) {
+function picSkinTextureOnChange(evt, imgId) {
     var tgt = evt.target || window.event.srcElement,
         files = tgt.files;
 
     // FileReader support
     if (FileReader && files && files.length) {
         var fr = new FileReader();
-        fr.onload = fileReaderOnLoad();
         fr.readAsDataURL(files[0]);
+        fr.onload = function() {
+            var fullImg = document.getElementById(imgId);
+            fullImg.src = fr.result;
+            flipSkin(fullImg);
+        };
+        fr.onerror = function() {
+            console.log(fr.error);
+        };    
      }
 
     // Not supported
@@ -15,13 +22,6 @@ function picSkinTextureOnChange(evt) {
         // them on the server until the user's session ends.
     }
 };
-
-function fileReaderOnLoad() {
-    console.log(this.result);
-    document.getElementById('myImage').src = this.result;
-    flipSkin('myImage');
-}
-
 
 // arguments
 // ctx : the context on which to draw the mirrored image
@@ -66,8 +66,8 @@ function processBlock(fullImg, srow, scol, w, h, drow, dcol, dCanvas,
     dContext.drawImage(auxCanvas, 0, 0, w, h, dcol, drow, w, h);
 }
 
-function flipSkin(imgId) {
-    var fullImg = document.getElementById(imgId);
+function flipSkin(fullImg) {
+    //var fullImg = document.getElementById(imgId);
 
     // create res canvas if necessary
     var resCanvas = document.getElementById('resCanvasId');
