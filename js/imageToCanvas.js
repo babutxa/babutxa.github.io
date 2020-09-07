@@ -72,7 +72,7 @@ function flipSkin(imgId) {
     // delete old canvas
     var oldcanv = document.getElementById('resCanvasId');
     if (oldcanv != null) {
-        document.removeChild(oldcanv);
+        oldcanv.parentNode.removeChild(oldcanv);
     }
 
     // create a new clear canvas
