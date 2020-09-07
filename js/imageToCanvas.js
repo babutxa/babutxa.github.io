@@ -6,10 +6,7 @@ function picSkinTextureOnChange(evt) {
     if (FileReader && files && files.length) {
         var fr = new FileReader();
         fr.readAsDataURL(files[0]);
-        fr.onload = function () {
-            document.getElementById('myImage').src = fr.result;
-            flipSkin('myImage');
-        }
+        fr.onload = fileReaderOnLoad(e);
     }
 
     // Not supported
@@ -18,6 +15,11 @@ function picSkinTextureOnChange(evt) {
         // them on the server until the user's session ends.
     }
 };
+
+function fileReaderOnLoad(e) {
+    document.getElementById('myImage').src = e.target.result;
+    flipSkin('myImage');
+}
 
 
 // arguments
