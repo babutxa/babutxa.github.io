@@ -7,9 +7,9 @@ function picSkinTextureOnChange(evt) {
         var fr = new FileReader();
         fr.onload = function () {
             document.getElementById('myImage').src = fr.result;
-            flipSkin('myImage');
         }
         fr.readAsDataURL(files[0]);
+        flipSkin('myImage');
     }
 
     // Not supported
