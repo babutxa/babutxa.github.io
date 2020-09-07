@@ -69,16 +69,18 @@ function processBlock(fullImg, srow, scol, w, h, drow, dcol, dCanvas,
 function flipSkin(imgId) {
     var fullImg = document.getElementById(imgId);
 
-    // create res canvas if necessary
-    var resCanvas = document.getElementById('resCanvasId');
-    if (resCanvas == null || typeof(resCanvas) == 'undefined') {
-        // Create one
-        resCanvas = document.createElement('canvas');
-        resCanvas.id = "resCanvasId";
-        resCanvas.width = fullImg.width;
-        resCanvas.height = fullImg.height;
-        resCanvas.style.border = "1px solid #00d300";
+    // delete old canvas
+    var oldcanv = document.getElementById('resCanvasId');
+    if (oldcanv == null) {
+        document.removeChild(oldcanv);
     }
+    
+    // create a new clear canvas
+    var resCanvas = document.createElement('canvas');
+    resCanvas.id = "resCanvasId";
+    resCanvas.width = fullImg.width;
+    resCanvas.height = fullImg.height;
+    resCanvas.style.border = "1px solid #00d300";
 
     var headR = 8;
     var bodyH = 12;
