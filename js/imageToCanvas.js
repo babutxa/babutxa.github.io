@@ -9,7 +9,7 @@ function picSkinTextureOnChange(evt, imgId) {
         fr.onload = function() {
             var fullImg = document.getElementById(imgId);
             fullImg.src = fr.result;
-            flipSkin(fullImg);
+            flipSkin(imgId);
         };
         fr.onerror = function() {
             console.log(fr.error);
@@ -66,8 +66,8 @@ function processBlock(fullImg, srow, scol, w, h, drow, dcol, dCanvas,
     dContext.drawImage(auxCanvas, 0, 0, w, h, dcol, drow, w, h);
 }
 
-function flipSkin(fullImg) {
-    //var fullImg = document.getElementById(imgId);
+function flipSkin(imgId) {
+    var fullImg = document.getElementById(imgId);
 
     // create res canvas if necessary
     var resCanvas = document.getElementById('resCanvasId');
