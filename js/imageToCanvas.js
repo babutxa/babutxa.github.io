@@ -183,6 +183,9 @@ function flipSkin(imgId) {
     processBlock(fullImg, 36, 47, armlegR, bodyH, 52, 48, resCanvas);
     processBlock(fullImg, 36, 51, slimArmR, bodyH, 52, 52, resCanvas);
 
+    resContext = resCanvas.getContext("2d");
+    resContext.drawImage(resCanvas, 0, 0);
+
     // add resCanvas to body
     var body = document.getElementsByTagName("body")[0];
     body.appendChild(resCanvas);
