@@ -5,11 +5,11 @@ function picSkinTextureOnChange(evt) {
     // FileReader support
     if (FileReader && files && files.length) {
         var fr = new FileReader();
+        fr.readAsDataURL(files[0]);
         fr.onload = function () {
             document.getElementById('myImage').src = fr.result;
+            flipSkin('myImage');
         }
-        fr.readAsDataURL(files[0]);
-        flipSkin('myImage');
     }
 
     // Not supported
