@@ -16,9 +16,13 @@ input[type="file"] {
 }
 
 .header {
-    background-color: #00d890;
-    color: #ffffff;
-    padding: 12px;
+    background-color: #1d1d1d;
+    color: #ccc;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 40px;
+    padding-left: 40px;
+    margin-bottom: 12px;
   }
 
 .row::after {
