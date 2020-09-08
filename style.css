@@ -17,7 +17,7 @@ input[type="file"] {
 
 .header {
     background-color: #1d1d1d;
-    color: #ccc;
+    color: rgba(204, 204, 204, 0.979);
     padding-top: 2px;
     padding-bottom: 2px;
     padding-left: 40px;
