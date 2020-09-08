@@ -1,22 +1,34 @@
 <!DOCTYPE html>
 <html>
 <body>
+    
+<script src="js/imageToCanvas.js"></script>
 
 <h1>Flip minecraft skin texture</h1>
 
-<p>Select skin texture:</p>
-<input type="file" id="picSkinTexture" onchange="picSkinTextureOnChange(this.value, 'myImage')">
+<p>Select skin texture image:</p>
+<input type="file" id="picSkinTexture" onchange="picSkinTextureOnChange(this.value, 'myImageId')">
 
+<div class="resultBlock">
 <p>Selected skin image:</p>
-<img id="myImage" src="images/1_8_texturemap_slim.png" width="64px" height="64px">
+<img id="myImageId" src="" onload="flipSkin('myImageId')">
   
-<p><button onclick="flipSkin('myImage')">
-    Flip skin
-</button></p>
-
 <p>Flipped skin:</p>
+<canvas id="myCanvasId"></canvas>
 
-<script src="js/imageToCanvas.js"></script>
+<p><a href="#" class="button" id="btn-download" download="my-file-name.png">Download</a></p>
+</div>
+
+<script>
+    setResultVisible(false);
+    var button = document.getElementById('btn-download');
+    var myCanvas = document.getElementById('myCanvasId');
+    button.addEventListener('click', function (e) {
+        var dataURL = myCanvas.toDataURL('image/png');
+        button.href = dataURL;
+    });
+</script>
+
 
 </body>
 </html>

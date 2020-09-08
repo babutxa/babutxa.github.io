@@ -9,7 +9,6 @@ function picSkinTextureOnChange(evt, imgId) {
         fr.onload = function() {
             var fullImg = document.getElementById(imgId);
             fullImg.src = fr.result;
-            flipSkin(imgId);
         };
         fr.onerror = function() {
             console.log(fr.error);
@@ -62,25 +61,26 @@ function processBlock(fullImg, srow, scol, w, h, drow, dcol, dCanvas,
     mirrorImage(auxCtx, cropCanvas, 0, 0, fliph, flipv);
 
     // put the result into resCanvas
-    dContext = dCanvas.getContext("2d");
+    var dContext = dCanvas.getContext("2d");
     dContext.drawImage(auxCanvas, 0, 0, w, h, dcol, drow, w, h);
 }
 
 function flipSkin(imgId) {
     var fullImg = document.getElementById(imgId);
 
-    // delete old canvas
-    var oldcanv = document.getElementById('resCanvasId');
-    if (oldcanv != null) {
-        oldcanv.parentNode.removeChild(oldcanv);
+    if (fullImg.width != 64 && fullImg.height != 64) {
+        alert("The skin texture size should be 64x64.");
+        setResultVisible(false);
+        return;
     }
 
-    // create a new clear canvas
-    var resCanvas = document.createElement('canvas');
-    resCanvas.id = "resCanvasId";
-    resCanvas.width = fullImg.width;
-    resCanvas.height = fullImg.height;
+    // delete old canvas
+    var resCanvas = document.getElementById('myCanvasId');
+    resCanvas.width = 64;
+    resCanvas.height = 64;
     resCanvas.style.border = "1px solid #00d300";
+    const resContext = resCanvas.getContext('2d');
+    resContext.clearRect(0, 0, resCanvas.width, resCanvas.height);
 
     var headR = 8;
     var bodyH = 12;
@@ -183,10 +183,18 @@ function flipSkin(imgId) {
     processBlock(fullImg, 36, 47, armlegR, bodyH, 52, 48, resCanvas);
     processBlock(fullImg, 36, 51, slimArmR, bodyH, 52, 52, resCanvas);
 
-    resContext = resCanvas.getContext("2d");
-    resContext.drawImage(resCanvas, 0, 0);
+    // show result
+    setResultVisible(true);
+}
 
-    // add resCanvas to body
-    var body = document.getElementsByTagName("body")[0];
-    body.appendChild(resCanvas);
+function setResultVisible(value) {
+    if (value == true) {
+        [].forEach.call(document.querySelectorAll('.resultBlock'), function (el) {
+            el.style.visibility = 'visible';
+        });    
+    } else {
+        [].forEach.call(document.querySelectorAll('.resultBlock'), function (el) {
+            el.style.visibility = 'hidden';
+        });            
+    }
 }
