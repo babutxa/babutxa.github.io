@@ -1,4 +1,4 @@
-function picSkinTextureOnChange(evt, imgId) {
+function picSkinTextureOnChange(evt, imgId1, imgId2) {
     var tgt = evt.target || window.event.srcElement,
         files = tgt.files;
 
@@ -7,8 +7,11 @@ function picSkinTextureOnChange(evt, imgId) {
         var fr = new FileReader();
         fr.readAsDataURL(files[0]);
         fr.onload = function() {
-            var fullImg = document.getElementById(imgId);
-            fullImg.src = fr.result;
+            var fullImg1 = document.getElementById(imgId1);
+            fullImg1.src = fr.result;
+
+            var fullImg2 = document.getElementById(imgId2);
+            fullImg2.src = fr.result;
         };
         fr.onerror = function() {
             console.log(fr.error);
@@ -184,6 +187,11 @@ function flipSkin(imgId) {
 
     // show result
     setResultVisible(true);
+
+    //
+    dataUrl = resCanvas.toDataURL(),
+    imageFoo = document.getElementById('resultImageId');
+    imageFoo.src = dataUrl;
 }
 
 function setResultVisible(value) {
