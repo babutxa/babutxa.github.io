@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+      
 <body>
     
 <script src="js/imageToCanvas.js"></script>
 
 <h1>Flip minecraft skin texture</h1>
-
-<p>Select skin texture image:</p>
-<input type="file" id="picSkinTexture" onchange="picSkinTextureOnChange(this.value, 'myImageId')">
+<label class="custom-button">
+    <input type="file" id="picSkinTexture" class="custom-button" onchange="picSkinTextureOnChange(this.value, 'myImageId')"/>
+    Select skin texture image
+</label>
 
 <div class="resultBlock">
 <p>Selected skin image:</p>
@@ -16,7 +22,7 @@
 <p>Flipped skin:</p>
 <canvas id="myCanvasId"></canvas>
 
-<p><a href="#" class="button" id="btn-download" download="my-file-name.png">Download</a></p>
+<p><a href="#" class="custom-button" id="btn-download" download="my-file-name.png">Download</a></p>
 </div>
 
 <script>

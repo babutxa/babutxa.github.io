@@ -78,7 +78,6 @@ function flipSkin(imgId) {
     var resCanvas = document.getElementById('myCanvasId');
     resCanvas.width = 64;
     resCanvas.height = 64;
-    resCanvas.style.border = "1px solid #00d300";
     const resContext = resCanvas.getContext('2d');
     resContext.clearRect(0, 0, resCanvas.width, resCanvas.height);
 
