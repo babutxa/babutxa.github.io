@@ -14,6 +14,11 @@ a {
 input[type="file"] {
     display: none;
 }
+.minecraft {
+    height: 100px;
+    background-image: url("images/minecraft-top.jpg");
+    background-repeat: repeat-x;  
+}
 
 .header {
     background-color: #1d1d1d;
@@ -23,7 +28,7 @@ input[type="file"] {
     padding-left: 40px;
     padding-left: 40px;
     margin-bottom: 12px;
-  }
+}
 
 .row::after {
     content: "";
