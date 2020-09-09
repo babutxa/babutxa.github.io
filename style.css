@@ -38,8 +38,8 @@ input[type="file"] {
 }
 
 .custom-button {
-    color: #dfedb1;
-    border: 2px solid #dfedb1;
+    color: rgb(204, 204, 204);;
+    border: 2px solid rgb(204, 204, 204);
     border-radius: 6px;
     display: inline-block;
     padding: 12px;
@@ -49,8 +49,8 @@ input[type="file"] {
 }
 
 .custom-button:hover {
-    color: #ace000;
-    border: 2px solid #ace000;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
 }
 
 /* For mobile phones: */
