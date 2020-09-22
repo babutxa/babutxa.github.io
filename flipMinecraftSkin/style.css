@@ -11,6 +11,10 @@ body {
 p {
     color: rgb(196, 196, 196);
   }
+  
+label {
+    color: rgb(196, 196, 196);
+  }
 
 a {
     text-decoration: none;
