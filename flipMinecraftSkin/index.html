@@ -27,17 +27,32 @@
 <h1>Flip Minecraft skin texture</h1>
 </div>
 
-<div class="col-12">
+<p>
+Did you make your skin backward by mistake? <br>
+Correct it in two simple steps. <br>
+First upload the valid .png image of the "wrong" skin.<br> 
+It will be automatically corrected!!<br>
+Then download the "corrected" skin and enjoy it.<br>
+</p>
+
 <label class="custom-button">
     <input type="file" accept="image/png" id="picSkinTexture" class="custom-button" onchange="picSkinTextureOnChange(this.value, 'myImageId', 'displayImageId')"/>
     Select skin texture image
 </label>
-</div>
 
 <div class="resultBlock">
-<img id="displayImageId" class="col-5" src="">
-<img id="resultImageId" class="col-5" src="">
-<p><a href="#" class="custom-button" id="btn-download" download="flipped_skin_64x64.png">Download flipped skin</a></p>
+    <div class="row">
+        <div class="column">
+          <label>Your skin</label>
+          <img id="displayImageId" src="" style="width:100%">
+        </div>
+        <div class="column">
+          <label>Flipped skin</label>
+          <img id="resultImageId" src="" style="width:100%">
+        </div>
+    </div>
+
+    <p><a href="#" class="custom-button" id="btn-download" download="flipped_skin_64x64.png">Download flipped skin</a></p>
 </div>
 
 <script>

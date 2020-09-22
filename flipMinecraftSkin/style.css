@@ -1,3 +1,8 @@
+
+* {
+    box-sizing: border-box;
+  }
+
 body {
     background-color: #757575;
     padding: 20px;
@@ -10,6 +15,10 @@ p {
 a {
     text-decoration: none;
   }
+
+img {
+    border: 1px rgb(196, 196, 196) solid;
+}
 
 input[type="file"] {
     display: none;
@@ -26,7 +35,6 @@ input[type="file"] {
     color: #dfedb1;
     padding-top: 2px;
     padding-bottom: 2px;
-    padding-left: 40px;
     padding-left: 40px;
     margin-bottom: 12px;
 }
@@ -54,18 +62,22 @@ input[type="file"] {
 }
 
 /* For mobile phones: */
-[class*="col-"] {
+.column {
+    float: left;
     width: 100%;
-}
-    
+    padding: 5px;
+  } 
+
 @media only screen and (min-width: 600px) {
     /* For tablets: */
-    .col-s-5 {width: 49.66%;}
-    .col-s-12 {width: 100%;}
+    .column {width: 50%;}
 }
             
 @media only screen and (min-width: 768px) {
     /* For desktop: */
-    .col-5 {width: 49.66%;}
-    .col-12 {width: 100%;}
+    .column {width: 25%;}
 }
+
+  
+
+  
