@@ -54,19 +54,20 @@ Then download the "corrected" skin.<br>
 </p>
 
 <label class="custom-button">
-    <input type="file" accept="image/png" id="picSkinTexture" class="custom-button" onchange="picSkinTextureOnChange(this.value, 'myImageId', 'displayImageId')"/>
+    <input type="file" accept="image/png" id="picSkinTexture" class="custom-button" onchange="picSkinTextureOnChange(this.value, 'myImageId', 'displayImageId')" onclick="this.value=null"/>
     Select skin texture image
 </label>
 
+<label><input type="checkbox" id="slimArmsToggle">Slim arms</label>
 
     <div class="row">
         <div class="column">
           <label>Backward skin</label>
-          <img id="displayImageId" src="images/flipped_skin_64x64.png" style="width:100%">
+          <img id="displayImageId" src="images/skin_template_flipped.png" style="width:100%; image-rendering: pixelated">
         </div>
         <div class="column">
           <label>Corrected skin</label>
-          <img id="resultImageId" src="images/1.8_slim_arms.png" style="width:100%">
+          <img id="resultImageId" src="images/skin_template.png" style="width:100%; image-rendering: pixelated">
         </div>
     </div>
     
