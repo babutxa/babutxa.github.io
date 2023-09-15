@@ -61,7 +61,7 @@ function displaySchools(profileFilter) {
   schoolList.innerHTML = ""; // Clear the previous list
 
   schoolsData.forEach((school) => {
-    if (!profileFilter || school.profiles.includes(profileFilter)) {
+    if (!profileFilter || school.profiles.some((profile) => profile.profileName === profileFilter)) {
       const listItem = document.createElement("li");
       listItem.textContent = `${school.schoolName} - Profiles: ${school.profiles.join(", ")}`;
       schoolList.appendChild(listItem);
