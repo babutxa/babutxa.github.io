@@ -57,13 +57,13 @@ const schoolsData = [
 
 // Function to display the schoolsData on the web page
 function displayAllSchools() {
-  const schoolList = document.getElementById("schoolListFull");
+  const schoolListFull = document.getElementById("schoolListFull");
 
   // Loop through the schoolsData and create list items for each school
   schoolsData.forEach((school) => {
     const listItem = document.createElement("li");
     listItem.textContent = `${school.schoolName} -> Profiles: ${school.profiles.map(profile => profile.profileName).join(", ")}`;
-    schoolList.appendChild(listItem);
+    schoolListFull.appendChild(listItem);
   });
 }
 
