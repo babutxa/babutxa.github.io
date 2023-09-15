@@ -68,14 +68,14 @@ function displaySchoolsData(data) {
 }
 
 // Function to display the list of schools based on the selected profile filter.
-function displaySchools(profileFilter) {
+function displaySchools(data, profileFilter) {
   const schoolList = document.getElementById("schoolList");
   schoolList.innerHTML = ""; // Clear the previous list
 
-  schoolsData.forEach((school) => {
+  data.forEach((school) => {
     if (!profileFilter || school.profiles.some((profile) => profile.profileName === profileFilter)) {
       const listItem = document.createElement("li");
-      listItem.textContent = `${school.schoolName} - Profiles: ${school.profiles.map(profile.profileName).join(", ")}`;
+      listItem.textContent = `${school.schoolName} - Profiles: ${school.profiles.map(profile => profile.profileName).join(", ")}`;
       schoolList.appendChild(listItem);
     }
   });
