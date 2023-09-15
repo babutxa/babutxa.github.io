@@ -10,6 +10,7 @@
     <script id="MathJax-script" async
           src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
+    <script src="js/displaySchools.js"></script>
 </head>
 
     
@@ -33,11 +34,12 @@
     <option value="WR">WR</option>
     <option value="M">M</option>
 </select>
+    
 <ul id="schoolList"></ul>
-<script src="js/displaySchools.js">displaySchools("All")</script>
+<script>displaySchools("All")</script>
 
 <label for="profileFilter">All:</label>
-<script src="js/displaySchools.js">displaySchoolsData(schoolsData)</script>
+<script>displaySchoolsData(schoolsData)</script>
     
 </div>
 </body>
