@@ -1,5 +1,5 @@
 // Fetch and store your school data (e.g., from a JSON file or an API).
-const schoolsData = [[
+const schoolsData = [
   {
     "schoolName": "Kantonsschule Stadelhofen",
     "city": "Zürich",
