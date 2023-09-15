@@ -62,7 +62,7 @@ function displaySchoolsData(data) {
   // Loop through the schoolsData and create list items for each school
   data.forEach((school) => {
     const listItem = document.createElement("li");
-    listItem.textContent = `School Name: ${school.schoolName}, Profiles: ${school.profiles.map(profile => profile.profileName).join(", ")}`;
+    listItem.textContent = `${school.schoolName} -> Profiles: ${school.profiles.map(profile => profile.profileName).join(", ")}`;
     schoolList.appendChild(listItem);
   });
 }
