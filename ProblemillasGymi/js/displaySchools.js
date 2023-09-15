@@ -56,11 +56,11 @@ const schoolsData = [
 ];
 
 // Function to display the schoolsData on the web page
-function displaySchoolsData(data, id) {
-  const schoolList = document.getElementById(id);
+function displayAllSchools() {
+  const schoolList = document.getElementById("schoolListFull");
 
   // Loop through the schoolsData and create list items for each school
-  data.forEach((school) => {
+  schoolsData.forEach((school) => {
     const listItem = document.createElement("li");
     listItem.textContent = `${school.schoolName} -> Profiles: ${school.profiles.map(profile => profile.profileName).join(", ")}`;
     schoolList.appendChild(listItem);
@@ -68,11 +68,11 @@ function displaySchoolsData(data, id) {
 }
 
 // Function to display the list of schools based on the selected profile filter.
-function displaySchools(data, profileFilter, id) {
-  const schoolList = document.getElementById(id);
+function displaySchools(profileFilter) {
+  const schoolList = document.getElementById("schoolList");
   schoolList.innerHTML = ""; // Clear the previous list
 
-  data.forEach((school) => {
+  schoolsData.forEach((school) => {
     if (!profileFilter || school.profiles.some((profile) => profile.profileName === profileFilter)) {
       const listItem = document.createElement("li");
       listItem.textContent = `${school.schoolName} - Profiles: ${school.profiles.map(profile => profile.profileName).join(", ")}`;
