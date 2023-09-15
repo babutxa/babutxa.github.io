@@ -56,8 +56,8 @@ const schoolsData = [
 ];
 
 // Function to display the schoolsData on the web page
-function displaySchoolsData(data) {
-  const schoolList = document.getElementById("schoolList");
+function displaySchoolsData(data, id) {
+  const schoolList = document.getElementById(id);
 
   // Loop through the schoolsData and create list items for each school
   data.forEach((school) => {
@@ -68,8 +68,8 @@ function displaySchoolsData(data) {
 }
 
 // Function to display the list of schools based on the selected profile filter.
-function displaySchools(data, profileFilter) {
-  const schoolList = document.getElementById("schoolList");
+function displaySchools(data, profileFilter, id) {
+  const schoolList = document.getElementById(id);
   schoolList.innerHTML = ""; // Clear the previous list
 
   data.forEach((school) => {
