@@ -55,6 +55,18 @@ const schoolsData = [
   // Add more schools and profiles as needed
 ];
 
+// Function to display the schoolsData on the web page
+function displaySchoolsData(data) {
+  const schoolList = document.getElementById("schoolList");
+
+  // Loop through the schoolsData and create list items for each school
+  data.forEach((school) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = `School Name: ${school.schoolName}, Profiles: ${school.profiles.map(profile => profile.profileName).join(", ")}`;
+    schoolList.appendChild(listItem);
+  });
+}
+
 // Function to display the list of schools based on the selected profile filter.
 function displaySchools(profileFilter) {
   const schoolList = document.getElementById("schoolList");
