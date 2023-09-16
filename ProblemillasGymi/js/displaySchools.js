@@ -52,6 +52,78 @@ const schoolsData = [
     ],
     "lOrK": ["L", "K"]
   }, 
+  {
+    "schoolName": "Realgymnasium Rämibühl",
+    "city": "Zürich",
+    "profiles": [
+      {"profileName": "A",  "subjects": ["L", "Gr", "E"]}, 
+      {"profileName": "N",  "subjects": ["It", "E", "Sp"]}
+    ],
+    "lOrK": ["L"]
+  }, 
+  {
+    "schoolName": "Kantonsschule Küsnacht",
+    "city": "Zürich",
+    "profiles": [
+      {"profileName": "N",  "subjects": ["It", "E", "Sp"]}, 
+      {"profileName": "M", "subjects": ["BG", "Mu"]}
+    ],
+    "lOrK": ["L", "K"]
+  }, 
+  {
+    "schoolName": "Kantonsschule Wiedikon",
+    "city": "Zürich",
+    "profiles": [
+      {"profileName": "A",  "subjects": ["L", "It", "E"]}, 
+      {"profileName": "N",  "subjects": ["It", "E", "Sp"]}, 
+      {"profileName": "M", "subjects": ["BG", "Mu"]}
+    ],
+    "lOrK": ["L", "K"]
+  },
+  {
+    "schoolName": "Kantonsschule Hohe Promenade",
+    "city": "Zürich",
+    "profiles": [
+      {"profileName": "A",  "subjects": ["L", "Gr", "It", "E", "Sp", "Ru"]}, 
+      {"profileName": "N",  "subjects": ["It", "E", "Sp", "Ru"]}, 
+    ],
+    "lOrK": ["L"]
+  }, 
+  {
+    "schoolName": "Kantonsschule Enge",
+    "city": "Zürich",
+    "profiles": [
+      {"profileName": "N",  "subjects": ["It", "E", "Sp", "Ru"]}, 
+      {"profileName": "WR", "subjects": ["WR"]}, 
+    ],
+    "lOrK": ["K"]
+  },
+  {
+    "schoolName": "Kantonsschule Hottingen",
+    "city": "Zürich",
+    "profiles": [ 
+      {"profileName": "WR", "subjects": ["WR"]}, 
+    ],
+    "lOrK": ["K"]
+  },
+  {
+    "schoolName": "Liceo Artistico",
+    "city": "Zürich",
+    "profiles": [
+      {"profileName": "M", "subjects": ["BG"]}
+    ],
+    "lOrK": ["K"]
+  }, 
+  {
+    "schoolName": "Kunst und Sportgymnasium am MNG Rämibül",
+    "city": "Zürich",
+    "profiles": [
+      {"profileName": "N",  "subjects": ["It", "F", "E"]}, 
+      {"profileName": "MN", "subjects": ["BC"]}, 
+      {"profileName": "M", "subjects": ["Mu"]}
+    ],
+    "lOrK": ["L", "K"]
+  }, 
   // Add more schools and profiles as needed
 ];
 
