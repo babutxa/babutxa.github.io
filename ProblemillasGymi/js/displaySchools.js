@@ -130,6 +130,8 @@ const schoolsData = [
 // Function to display the filtered schoolsData on the web page
 function filterAndDisplayData() {
   const schoolListFull = document.getElementById("schoolListFull");
+  schoolListFull.innerHTML = ""; // Clear the previous list
+
   
   const profileFilter = document.getElementById("profileFilter").value;
   const subjectFilter = document.getElementById("subjectFilter").value;
@@ -140,7 +142,7 @@ function filterAndDisplayData() {
        ) {
       const listItem = document.createElement("li");
       listItem.textContent = `${school.schoolName} - Profiles: ${school.profiles.map(profile => profile.profileName).join(", ")}`;
-      schoolList.appendChild(listItem);
+      schoolListFull.appendChild(listItem);
     }
   });
 }
