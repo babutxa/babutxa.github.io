@@ -81,9 +81,5 @@ function displaySchools(profileFilter) {
   });
 }
 
-// Event listener for filter selection changes.
-document.getElementById("profileFilter").addEventListener("change", (event) => {
-  const selectedProfile = event.target.value;
-  displaySchools(selectedProfile);
-});
+
 
