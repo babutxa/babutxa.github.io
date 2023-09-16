@@ -34,6 +34,7 @@
     <option value="WR">Wirtschaftlich-Rechtliches Profil</option>
     <option value="M">Musisches Profil</option>
 </select>
+    
 <label for="subjectFilter">Schwerpunktfächer:</label>
 <select id="subjectFilter">
     <option value="">All</option>
@@ -64,7 +65,12 @@
 
 <label>All:</label>
 <ul id="schoolListFull"></ul>
-<script>filterAndDisplayData()</script>
+<script>
+    // Event listener for filter selection changes.
+    document.getElementById("profileFilter").addEventListener("change", filterAndDisplayData);
+    document.getElementById("subjectFilter").addEventListener("change", filterAndDisplayData);
+    filterAndDisplayData()
+</script>
     
 </div>
 </body>
