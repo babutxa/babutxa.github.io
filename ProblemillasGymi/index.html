@@ -25,7 +25,7 @@
 </p>
 
 <h1>School List</h1>
-<label for="profileFilter">Filter by Profile:</label>
+<label for="profileFilter">Profil:</label>
 <select id="profileFilter">
     <option value="">All</option>
     <option value="A">Altsprachliches Profile</option>
@@ -34,8 +34,26 @@
     <option value="WR">Wirtschaftlich-Rechtliches Profil</option>
     <option value="M">Musisches Profil</option>
 </select>
+<label for="subjectFilter">Schwerpunktfächer:</label>
+<select id="subjectFilter">
+    <option value="">All</option>
+    <option value="L">Latein</option>
+    <option value="Gr">Griechisch</option>
+    <option value="It">Italienisch</option>
+    <option value="F">Französisch</option>
+    <option value="E">Englisch</option>
+    <option value="Sp">Spanisch</option>
+    <option value="Ru">Russisch</option>
+    <option value="PM">Physik und Anwendungen der Mathematik</option>
+    <option value="BC">Biologie und Chemie</option>
+    <option value="WR">Wirtschaft und Recht</option>
+    <option value="BG">Bildnerisches Gestalten</option>
+    <option value="Mu">Musik</option>
+</select>
+
+    
 <ul id="schoolList"></ul>
-<script>
+<script>    
     // Event listener for filter selection changes.
     document.getElementById("profileFilter").addEventListener("change", (event) => {
       const selectedProfile = event.target.value;
