@@ -138,8 +138,8 @@ function filterAndDisplayData() {
 
   schoolsData.forEach((school) => {
     if ((!profileFilter || school.profiles.some((profile) => profile.profileName === profileFilter)) &&
-        (!subjectFilter || school.profiles.some((profile) => profile.subjects === subjectFilter))
-       ) {
+        (!subjectFilter || school.profiles.some((profile) => profile.subjects.includes(subjectFilter)))
+       ){
       const listItem = document.createElement("li");
       listItem.textContent = `${school.schoolName} - Profiles: ${school.profiles.map(profile => profile.profileName).join(", ")}`;
       schoolListFull.appendChild(listItem);
