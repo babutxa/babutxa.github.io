@@ -127,6 +127,24 @@ const schoolsData = [
   // Add more schools and profiles as needed
 ];
 
+// Function to display the filtered schoolsData on the web page
+function filterAndDisplayData() {
+  const schoolListFull = document.getElementById("schoolListFull");
+  
+  const profileFilter = document.getElementById("profileFilter").value;
+  const subjectFilter = document.getElementById("subjectFilter").value;
+
+  schoolsData.forEach((school) => {
+    if ((!profileFilter || school.profiles.some((profile) => profile.profileName === profileFilter)) &&
+        (!subjectFilter || school.profiles.some((profile) => profile.subjects === subjectFilter))
+       ) {
+      const listItem = document.createElement("li");
+      listItem.textContent = `${school.schoolName} - Profiles: ${school.profiles.map(profile => profile.profileName).join(", ")}`;
+      schoolList.appendChild(listItem);
+    }
+  });
+}
+
 // Function to display the schoolsData on the web page
 function displayAllSchools() {
   const schoolListFull = document.getElementById("schoolListFull");
