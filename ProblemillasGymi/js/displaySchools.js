@@ -137,9 +137,25 @@ function filterAndDisplayData() {
   const subjectFilter = document.getElementById("subjectFilter").value;
 
   schoolsData.forEach((school) => {
-    if ((!profileFilter || school.profiles.some((profile) => profile.profileName === profileFilter)) &&
-        (!subjectFilter || school.profiles.some((profile) => profile.subjects.includes(subjectFilter)))
-       ){
+  
+    let addItem = false;
+    if (!profileFilter && !subjectFilter) { // no filters
+      addItem = true;
+    } else if (profileFilter && !subjectFilter) { // only profile filter
+      if (school.profiles.some((profile) => profile.profileName === profileFilter)) {
+        addItem = true;
+      }    
+    } else if (!profileFilter && subjectFilter) { // only subject filter
+      if (school.profiles.some((profile) => profile.subjects.includes(subjectFilter))) {
+        addItem = true;
+      }   
+    } else {
+      if (school.profiles.some((profile) => (profile.profileName === profileFilter && profile.subjects.includes(subjectFilter)))) {
+        addItem = true;
+      }   
+    }
+    
+    if (addItem){
       const listItem = document.createElement("li");
       listItem.textContent = `${school.schoolName}`;
       schoolListFull.appendChild(listItem);
