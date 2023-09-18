@@ -146,23 +146,45 @@ function filterAndDisplayData() {
     if (!fromFilter) {
       addItem = true;
     } else {
-
-      if (!profileFilter && !subjectFilter) { // no filters
-        if (school.profiles.some((profile) => profile.from.includes(fromFilter))) {
-          addItem = true;
-        } 
-      } else if (profileFilter && !subjectFilter) { // only profile filter
-        if (school.profiles.some((profile) => profile.from.includes(fromFilter) && profile.profileName === profileFilter)) {
-          addItem = true;
-        }    
-      } else if (!profileFilter && subjectFilter) { // only subject filter
-        if (school.profiles.some((profile) => profile.from.includes(fromFilter) && profile.subjects.includes(subjectFilter))) {
-          addItem = true;
-        }   
+      if (fromFilter === "6Prima") {
+        if (!profileFilter && !subjectFilter) { // no filters
+          if (school.profiles.some((profile) => profile.from.includes(fromFilter))) {
+            addItem = true;
+          } 
+        } else if (profileFilter && !subjectFilter) { // only profile filter
+          if (school.profiles.some((profile) => profile.from.includes(fromFilter)) && 
+              school.profiles.some((profile) => profile.profileName === profileFilter)) {
+            addItem = true;
+          }    
+        } else if (!profileFilter && subjectFilter) { // only subject filter
+          if (school.profiles.some((profile) => profile.from.includes(fromFilter)) &&
+              school.profiles.some((profile) => profile.subjects.includes(subjectFilter))) {
+            addItem = true;
+          }   
+        } else {
+          if (school.profiles.some((profile) => profile.from.includes(fromFilter)) &&
+              school.profiles.some((profile) => profile.profileName === profileFilter && profile.subjects.includes(subjectFilter))) {
+            addItem = true;
+          }   
+        }
       } else {
-        if (school.profiles.some((profile) => (profile.from.includes(fromFilter) && profile.profileName === profileFilter && profile.subjects.includes(subjectFilter)))) {
-          addItem = true;
-        }   
+        if (!profileFilter && !subjectFilter) { // no filters
+          if (school.profiles.some((profile) => profile.from.includes(fromFilter))) {
+            addItem = true;
+          } 
+        } else if (profileFilter && !subjectFilter) { // only profile filter
+          if (school.profiles.some((profile) => profile.from.includes(fromFilter) && profile.profileName === profileFilter)) {
+            addItem = true;
+          }    
+        } else if (!profileFilter && subjectFilter) { // only subject filter
+          if (school.profiles.some((profile) => profile.from.includes(fromFilter) && profile.subjects.includes(subjectFilter))) {
+            addItem = true;
+          }   
+        } else {
+          if (school.profiles.some((profile) => (profile.from.includes(fromFilter) && profile.profileName === profileFilter && profile.subjects.includes(subjectFilter)))) {
+            addItem = true;
+          }   
+        }
       }
     }
     
