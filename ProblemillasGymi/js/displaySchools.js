@@ -133,8 +133,10 @@ const schoolsData = [
 
 // Function to display the filtered schoolsData on the web page
 function filterAndDisplayData() {
-  const schoolListFull = document.getElementById("schoolListFull");
-  schoolListFull.innerHTML = ""; // Clear the previous list
+  const currentOptionsLabel = document.getElementById("currentOptionsLabel");
+  currentOptionsLabel.textContent = ""; // Clear previous text
+  const currentOptionsList = document.getElementById("currentOptionsList");
+  currentOptionsList.innerHTML = ""; // Clear the previous list
 
   const futureOptionsLabel = document.getElementById("futureOptionsLabel");
   futureOptionsLabel.textContent = ""; // Clear previous text
@@ -203,9 +205,10 @@ function filterAndDisplayData() {
       if (futureOption) {
         listItem.textContent = `${school.schoolName} (SO)`;
       }
-      schoolListFull.appendChild(listItem);
+      futureOptionsLabel.textContent = "Optionen für das nächste Jahr:";
+      currentOptionsList.appendChild(listItem);
     } else if (futureOption) {
-      futureOptionsLabel.textContent = "Future Options: ";
+      futureOptionsLabel.textContent = "Optionen nach 2 Jahren Langgymnasium:";
       const listItem = document.createElement("li");
       listItem.textContent = `${school.schoolName}`;
       futureOptionsList.appendChild(listItem);
