@@ -77,6 +77,7 @@
 <ul id="schoolListFull"></ul>
 <script>
     // Event listener for filter selection changes.
+    document.getElementById("fromFilter").addEventListener("change", filterAndDisplayData);
     document.getElementById("profileFilter").addEventListener("change", filterAndDisplayData);
     document.getElementById("subjectFilter").addEventListener("change", filterAndDisplayData);
     filterAndDisplayData()
