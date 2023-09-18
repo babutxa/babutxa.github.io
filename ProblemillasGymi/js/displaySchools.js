@@ -205,12 +205,12 @@ function filterAndDisplayData() {
       if (futureOption) {
         listItem.textContent = `${school.schoolName} (SO)`;
       }
-      futureOptionsLabel.textContent = "Optionen für das nächste Jahr:";
+      currentOptionsLabel.textContent = "Optionen für das nächste Jahr:";
       currentOptionsList.appendChild(listItem);
     } else if (futureOption) {
-      futureOptionsLabel.textContent = "Optionen nach 2 Jahren Langgymnasium:";
       const listItem = document.createElement("li");
       listItem.textContent = `${school.schoolName}`;
+      futureOptionsLabel.textContent = "Optionen nach 2 Jahren Langgymnasium:";
       futureOptionsList.appendChild(listItem);
     }
 
