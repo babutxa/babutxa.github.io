@@ -136,6 +136,8 @@ function filterAndDisplayData() {
   const schoolListFull = document.getElementById("schoolListFull");
   schoolListFull.innerHTML = ""; // Clear the previous list
 
+  const futureOptionLabel = document.getElementById("futureOptionsLabel");
+  futureOptionLabel.textContent = ""; // Clear previous text
   const futureOptions = document.getElementById("futureOptions");
   futureOptions.innerHTML = ""; // Clear the previous list
 
@@ -203,6 +205,7 @@ function filterAndDisplayData() {
       }
       schoolListFull.appendChild(listItem);
     } else if (futureOption) {
+      futureOptionLabel.textContent = "Future Options: ";
       const listItem = document.createElement("li");
       listItem.textContent = `${school.schoolName}   -   FUTURE OPTION`;
       futureOptions.appendChild(listItem);
