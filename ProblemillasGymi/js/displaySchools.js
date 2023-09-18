@@ -4,12 +4,11 @@ const schoolsData = [
     "schoolName": "Kantonsschule Stadelhofen",
     "city": "Zürich",
     "profiles": [
-      {"profileName": "A",  "subjects": ["L"]},
+      {"profileName": "A",  "subjects": ["L"], "from": [""]},
       {"profileName": "N",  "subjects": ["It", "E", "Sp"]},
       {"profileName": "MN", "subjects": ["BC"]},
       {"profileName": "M",  "subjects": ["BG", "Mu"]}
     ],
-    "lOrK": ["K"]
   },
   {
     "schoolName": "MNG Rämibühl",
@@ -17,77 +16,76 @@ const schoolsData = [
     "profiles": [
       {"profileName": "MN", "subjects": ["PM", "BC"]},
     ],
-    "lOrK": ["K"]
   },
   {
     "schoolName": "Kantonsschule Freudenberg",
     "city": "Zürich",
     "profiles": [
+      {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
       {"profileName": "A",  "subjects": ["L", "Gr"]}, 
       {"profileName": "N",  "subjects": ["It", "E", "Sp"]}, 
       {"profileName": "MN", "subjects": ["PM", "BC"]}
     ],
-    "lOrK": ["L", "K"]
   },  
   {
     "schoolName": "Kantonsschule Zimmerberg",
     "city": "Au",
     "profiles": [
+      {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
       {"profileName": "A",  "subjects": ["L", "E"]}, 
       {"profileName": "N",  "subjects": ["It", "E", "Sp"]}, 
       {"profileName": "MN", "subjects": ["PM", "BC"]}, 
       {"profileName": "WR", "subjects": ["WR"]} 
     ],
-    "lOrK": ["L", "K"]
   },  
   {
     "schoolName": "Kantonsschule Zürich Nord",
     "city": "Zürich",
     "profiles": [
+      {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
       {"profileName": "A",  "subjects": ["L", "Gr", "E"]}, 
       {"profileName": "N",  "subjects": ["It", "E", "Sp", "Ru"]}, 
       {"profileName": "MN", "subjects": ["PM", "BC"]}, 
       {"profileName": "WR", "subjects": ["WR"]}, 
       {"profileName": "M", "subjects": ["BG", "Mu"]}
     ],
-    "lOrK": ["L", "K"]
   }, 
   {
     "schoolName": "Realgymnasium Rämibühl",
     "city": "Zürich",
     "profiles": [
+      {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
       {"profileName": "A",  "subjects": ["L", "Gr", "E"]}, 
       {"profileName": "N",  "subjects": ["It", "E", "Sp"]}
     ],
-    "lOrK": ["L"]
   }, 
   {
     "schoolName": "Kantonsschule Küsnacht",
     "city": "Zürich",
     "profiles": [
+      {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
       {"profileName": "N",  "subjects": ["It", "E", "Sp"]}, 
       {"profileName": "M", "subjects": ["BG", "Mu"]}
     ],
-    "lOrK": ["L", "K"]
   }, 
   {
     "schoolName": "Kantonsschule Wiedikon",
     "city": "Zürich",
     "profiles": [
+      {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
       {"profileName": "A",  "subjects": ["L", "It", "E"]}, 
       {"profileName": "N",  "subjects": ["It", "E", "Sp"]}, 
       {"profileName": "M", "subjects": ["BG", "Mu"]}
     ],
-    "lOrK": ["L", "K"]
   },
   {
     "schoolName": "Kantonsschule Hohe Promenade",
     "city": "Zürich",
     "profiles": [
+      {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
       {"profileName": "A",  "subjects": ["L", "Gr", "It", "E", "Sp", "Ru"]}, 
       {"profileName": "N",  "subjects": ["It", "E", "Sp", "Ru"]}, 
     ],
-    "lOrK": ["L"]
   }, 
   {
     "schoolName": "Kantonsschule Enge",
@@ -96,7 +94,6 @@ const schoolsData = [
       {"profileName": "N",  "subjects": ["It", "E", "Sp", "Ru"]}, 
       {"profileName": "WR", "subjects": ["WR"]}, 
     ],
-    "lOrK": ["K"]
   },
   {
     "schoolName": "Kantonsschule Hottingen",
@@ -104,7 +101,6 @@ const schoolsData = [
     "profiles": [ 
       {"profileName": "WR", "subjects": ["WR"]}, 
     ],
-    "lOrK": ["K"]
   },
   {
     "schoolName": "Liceo Artistico",
@@ -112,17 +108,16 @@ const schoolsData = [
     "profiles": [
       {"profileName": "M", "subjects": ["BG"]}
     ],
-    "lOrK": ["K"]
   }, 
   {
     "schoolName": "Kunst und Sportgymnasium am MNG Rämibül",
     "city": "Zürich",
     "profiles": [
+      {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
       {"profileName": "N",  "subjects": ["It", "F", "E"]}, 
       {"profileName": "MN", "subjects": ["BC"]}, 
       {"profileName": "M", "subjects": ["Mu"]}
     ],
-    "lOrK": ["L", "K"]
   }, 
   // Add more schools and profiles as needed
 ];
@@ -132,9 +127,13 @@ function filterAndDisplayData() {
   const schoolListFull = document.getElementById("schoolListFull");
   schoolListFull.innerHTML = ""; // Clear the previous list
 
-  
+  const fromFilter = document.getElementById("fromFilter").value;  
   const profileFilter = document.getElementById("profileFilter").value;
   const subjectFilter = document.getElementById("subjectFilter").value;
+
+  if(!fromFilter) {
+    return;
+  }
 
   schoolsData.forEach((school) => {
   
@@ -142,15 +141,15 @@ function filterAndDisplayData() {
     if (!profileFilter && !subjectFilter) { // no filters
       addItem = true;
     } else if (profileFilter && !subjectFilter) { // only profile filter
-      if (school.profiles.some((profile) => profile.profileName === profileFilter)) {
+      if (school.profiles.some((profile) => profile.from.includes(fromFilter) && profile.profileName === profileFilter)) {
         addItem = true;
       }    
     } else if (!profileFilter && subjectFilter) { // only subject filter
-      if (school.profiles.some((profile) => profile.subjects.includes(subjectFilter))) {
+      if (school.profiles.some((profile) => profile.from.includes(fromFilter) && profile.subjects.includes(subjectFilter))) {
         addItem = true;
       }   
     } else {
-      if (school.profiles.some((profile) => (profile.profileName === profileFilter && profile.subjects.includes(subjectFilter)))) {
+      if (school.profiles.some((profile) => (profile.from.includes(fromFilter) && profile.profileName === profileFilter && profile.subjects.includes(subjectFilter)))) {
         addItem = true;
       }   
     }
