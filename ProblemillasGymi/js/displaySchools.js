@@ -131,6 +131,8 @@ function filterAndDisplayData() {
   const profileFilter = document.getElementById("profileFilter").value;
   const subjectFilter = document.getElementById("subjectFilter").value;
 
+  console.log(fromFilter);
+  
   if(!fromFilter) {
     return;
   }
