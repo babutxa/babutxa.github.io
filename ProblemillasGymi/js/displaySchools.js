@@ -136,6 +136,9 @@ function filterAndDisplayData() {
   const schoolListFull = document.getElementById("schoolListFull");
   schoolListFull.innerHTML = ""; // Clear the previous list
 
+  const futureOptions = document.getElementById("futureOptions");
+  futureOptions.innerHTML = ""; // Clear the previous list
+
   let fromFilter = document.getElementById("fromFilter").value;  
   const profileFilter = document.getElementById("profileFilter").value;
   const subjectFilter = document.getElementById("subjectFilter").value;
@@ -202,7 +205,7 @@ function filterAndDisplayData() {
     } else if (futureOption) {
       const listItem = document.createElement("li");
       listItem.textContent = `${school.schoolName} + "future option after two years"`;
-      schoolListFull.appendChild(listItem);
+      futureOptions.appendChild(listItem);
     }
 
     
