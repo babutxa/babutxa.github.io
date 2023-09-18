@@ -143,28 +143,32 @@ function filterAndDisplayData() {
   schoolsData.forEach((school) => {
   
     let addItem = false;
+    let futureOption = false;
     if (!fromFilter) {
       addItem = true;
     } else {
       if (fromFilter === "6Prima") {
+        if (school.profiles.some((profile) => profile.from.includes(fromFilter))) {
+          addItem = true; // long gymi school
+        } 
+
+        // we also want to add the future options taking account the profile and subjects
         if (!profileFilter && !subjectFilter) { // no filters
-          if (school.profiles.some((profile) => profile.from.includes(fromFilter))) {
-            addItem = true;
-          } 
+          futureOption = false;
         } else if (profileFilter && !subjectFilter) { // only profile filter
-          if (school.profiles.some((profile) => profile.from.includes(fromFilter)) && 
+          if (school.profiles.some((profile) => profile.from.includes("2Gymi")) &&
               school.profiles.some((profile) => profile.profileName === profileFilter)) {
-            addItem = true;
+            futureOption = true;
           }    
         } else if (!profileFilter && subjectFilter) { // only subject filter
-          if (school.profiles.some((profile) => profile.from.includes(fromFilter)) &&
+          if (school.profiles.some((profile) => profile.from.includes("2Gymi")) &&
               school.profiles.some((profile) => profile.subjects.includes(subjectFilter))) {
-            addItem = true;
+            futureOption = true;
           }   
         } else {
-          if (school.profiles.some((profile) => profile.from.includes(fromFilter)) &&
+          if (school.profiles.some((profile) => profile.from.includes("2Gymi")) &&
               school.profiles.some((profile) => profile.profileName === profileFilter && profile.subjects.includes(subjectFilter))) {
-            addItem = true;
+            futureOption = true;
           }   
         }
       } else {
@@ -191,8 +195,17 @@ function filterAndDisplayData() {
     if (addItem){
       const listItem = document.createElement("li");
       listItem.textContent = `${school.schoolName}`;
+      if (futureOption) {
+        listItem.textContent = `${school.schoolName} + "superoption"`;
+      }
+      schoolListFull.appendChild(listItem);
+    } else if (futureOption) {
+      const listItem = document.createElement("li");
+      listItem.textContent = `${school.schoolName} + "future option after two years"`;
       schoolListFull.appendChild(listItem);
     }
+
+    
   });
 }
 
