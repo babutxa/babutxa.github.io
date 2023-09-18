@@ -127,31 +127,37 @@ function filterAndDisplayData() {
   const schoolListFull = document.getElementById("schoolListFull");
   schoolListFull.innerHTML = ""; // Clear the previous list
 
-  const fromFilter = document.getElementById("fromFilter").value;  
+  let fromFilter = document.getElementById("fromFilter").value;  
   const profileFilter = document.getElementById("profileFilter").value;
   const subjectFilter = document.getElementById("subjectFilter").value;
-
-  console.log(fromFilter);
   
   schoolsData.forEach((school) => {
   
     let addItem = false;
     if (!fromFilter) {
       addItem = true;
-    } else if (!profileFilter && !subjectFilter) { // no filters
-      addItem = true;
-    } else if (profileFilter && !subjectFilter) { // only profile filter
-      if (school.profiles.some((profile) => profile.from.includes(fromFilter) && profile.profileName === profileFilter)) {
-        addItem = true;
-      }    
-    } else if (!profileFilter && subjectFilter) { // only subject filter
-      if (school.profiles.some((profile) => profile.from.includes(fromFilter) && profile.subjects.includes(subjectFilter))) {
-        addItem = true;
-      }   
     } else {
-      if (school.profiles.some((profile) => (profile.from.includes(fromFilter) && profile.profileName === profileFilter && profile.subjects.includes(subjectFilter)))) {
-        addItem = true;
-      }   
+      if(fromFilter === "6Prima") {
+        fromFilter = "2Gymi"; // options after 2 years of gymi if you get in from 6 grade of primary school
+      }
+      
+      if (!profileFilter && !subjectFilter) { // no filters
+        if (school.profiles.some((profile) => profile.from.includes(fromFilter))) {
+          addItem = true;
+        } 
+      } else if (profileFilter && !subjectFilter) { // only profile filter
+        if (school.profiles.some((profile) => profile.from.includes(fromFilter) && profile.profileName === profileFilter)) {
+          addItem = true;
+        }    
+      } else if (!profileFilter && subjectFilter) { // only subject filter
+        if (school.profiles.some((profile) => profile.from.includes(fromFilter) && profile.subjects.includes(subjectFilter))) {
+          addItem = true;
+        }   
+      } else {
+        if (school.profiles.some((profile) => (profile.from.includes(fromFilter) && profile.profileName === profileFilter && profile.subjects.includes(subjectFilter)))) {
+          addItem = true;
+        }   
+      }
     }
     
     if (addItem){
