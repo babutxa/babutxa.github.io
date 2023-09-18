@@ -21,7 +21,7 @@ const schoolsData = [
     "schoolName": "Kantonsschule Freudenberg",
     "city": "Zürich",
     "profiles": [
-      {"profileName": "U",  "subjects": ["L", "Gr", "It", "E", "Sp", "PM", "BC"], "from": ["6Prima"]},
+      {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
       {"profileName": "A",  "subjects": ["L", "Gr"], "from": ["2Gymi"]}, 
       {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi"]}, 
       {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"]}
@@ -31,7 +31,7 @@ const schoolsData = [
     "schoolName": "Kantonsschule Zimmerberg",
     "city": "Au",
     "profiles": [
-      {"profileName": "U",  "subjects": ["L", "E", "It", "E", "Sp", "PM", "BC", "WR"], "from": ["6Prima"]},
+      {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
       {"profileName": "A",  "subjects": ["L", "E"], "from": ["2Gymi"]}, 
       {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi", "2or3Sek"]}, 
       {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"]}, 
@@ -42,7 +42,7 @@ const schoolsData = [
     "schoolName": "Kantonsschule Zürich Nord",
     "city": "Zürich",
     "profiles": [
-      {"profileName": "U",  "subjects": ["L", "Gr", "E", "It", "E", "Sp", "Ru", "PM", "BC", "WR", "BG", "Mu"], "from": ["6Prima"]},
+      {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
       {"profileName": "A",  "subjects": ["L", "Gr", "E"], "from": ["2Gymi"]}, 
       {"profileName": "N",  "subjects": ["It", "E", "Sp", "Ru"], "from": ["2Gymi", "2or3Sek"]}, 
       {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"]}, 
@@ -54,7 +54,7 @@ const schoolsData = [
     "schoolName": "Realgymnasium Rämibühl",
     "city": "Zürich",
     "profiles": [
-      {"profileName": "U",  "subjects": ["L", "Gr", "E", "It", "E", "Sp"], "from": ["6Prima"]},
+      {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
       {"profileName": "A",  "subjects": ["L", "Gr", "E"], "from": ["2Gymi"]}, 
       {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi"]}
     ]
@@ -63,7 +63,7 @@ const schoolsData = [
     "schoolName": "Literargymnasium Rämibühl",
     "city": "Zürich",
     "profiles": [
-      {"profileName": "U",  "subjects": ["L", "Gr", "It", "E", "Sp", "It", "E", "Sp"], "from": ["6Prima"]},
+      {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
       {"profileName": "A",  "subjects": ["L", "Gr", "It", "E", "Sp"], "from": ["2Gymi"]}, 
       {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi"]}
     ]
@@ -72,7 +72,7 @@ const schoolsData = [
     "schoolName": "Kantonsschule Küsnacht",
     "city": "Zürich",
     "profiles": [
-      {"profileName": "U",  "subjects": ["It", "E", "Sp", "BG", "Mu"], "from": ["6Prima"]},
+      {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
       {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi", "2or3Sek"]}, 
       {"profileName": "M", "subjects": ["BG", "Mu"], "from": ["2Gymi", "2or3Sek"]}
     ]
@@ -81,7 +81,7 @@ const schoolsData = [
     "schoolName": "Kantonsschule Wiedikon",
     "city": "Zürich",
     "profiles": [
-      {"profileName": "U",  "subjects": ["L", "It", "E", "It", "E", "Sp", "BG", "Mu"], "from": ["6Prima"]},
+      {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
       {"profileName": "A",  "subjects": ["L", "It", "E"], "from": ["2Gymi"]}, 
       {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi"]}, 
       {"profileName": "M", "subjects": ["BG", "Mu"], "from": ["2Gymi", "2or3Sek"]}
@@ -91,7 +91,7 @@ const schoolsData = [
     "schoolName": "Kantonsschule Hohe Promenade",
     "city": "Zürich",
     "profiles": [
-      {"profileName": "U",  "subjects": ["L", "Gr", "It", "E", "Sp", "Ru", "It", "E", "Sp", "Ru"], "from": ["6Prima"]},
+      {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
       {"profileName": "A",  "subjects": ["L", "Gr", "It", "E", "Sp", "Ru"], "from": ["2Gymi"]}, 
       {"profileName": "N",  "subjects": ["It", "E", "Sp", "Ru"], "from": ["2Gymi"]}, 
     ]
@@ -122,7 +122,7 @@ const schoolsData = [
     "schoolName": "Kunst und Sportgymnasium am MNG Rämibül",
     "city": "Zürich",
     "profiles": [
-      {"profileName": "U",  "subjects": ["It", "F", "E", "BC", "Mu"], "from": ["6Prima"]},
+      {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
       {"profileName": "N",  "subjects": ["It", "F", "E"], "from": ["2Gymi", "2or3Sek"]}, 
       {"profileName": "MN", "subjects": ["BC"], "from": ["2Gymi", "2or3Sek"]}, 
       {"profileName": "M", "subjects": ["Mu"], "from": ["2Gymi", "2or3Sek"]}
