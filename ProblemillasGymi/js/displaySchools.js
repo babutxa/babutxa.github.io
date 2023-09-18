@@ -60,6 +60,15 @@ const schoolsData = [
     ]
   }, 
   {
+    "schoolName": "Literargymnasium Rämibühl",
+    "city": "Zürich",
+    "profiles": [
+      {"profileName": "U",  "subjects": ["L", "Gr", "It", "E", "Sp", "It", "E", "Sp"], "from": ["6Prima"]},
+      {"profileName": "A",  "subjects": ["L", "Gr", "It", "E", "Sp"], "from": ["2Gymi"]}, 
+      {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi"]}
+    ]
+  }, 
+  {
     "schoolName": "Kantonsschule Küsnacht",
     "city": "Zürich",
     "profiles": [
