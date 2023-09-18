@@ -201,13 +201,13 @@ function filterAndDisplayData() {
       const listItem = document.createElement("li");
       listItem.textContent = `${school.schoolName}`;
       if (futureOption) {
-        listItem.textContent = `${school.schoolName}   -   SUPER OPTION`;
+        listItem.textContent = `${school.schoolName} (SO)`;
       }
       schoolListFull.appendChild(listItem);
     } else if (futureOption) {
       futureOptionsLabel.textContent = "Future Options: ";
       const listItem = document.createElement("li");
-      listItem.textContent = `${school.schoolName}   -   FUTURE OPTION`;
+      listItem.textContent = `${school.schoolName}`;
       futureOptionsList.appendChild(listItem);
     }
 
