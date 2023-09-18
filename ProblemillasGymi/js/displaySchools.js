@@ -136,10 +136,10 @@ function filterAndDisplayData() {
   const schoolListFull = document.getElementById("schoolListFull");
   schoolListFull.innerHTML = ""; // Clear the previous list
 
-  const futureOptionLabel = document.getElementById("futureOptionsLabel");
-  futureOptionLabel.textContent = ""; // Clear previous text
-  const futureOptions = document.getElementById("futureOptions");
-  futureOptions.innerHTML = ""; // Clear the previous list
+  const futureOptionsLabel = document.getElementById("futureOptionsLabel");
+  futureOptionsLabel.textContent = ""; // Clear previous text
+  const futureOptionsList = document.getElementById("futureOptionsList");
+  futureOptionsList.innerHTML = ""; // Clear the previous list
 
   let fromFilter = document.getElementById("fromFilter").value;  
   const profileFilter = document.getElementById("profileFilter").value;
@@ -205,10 +205,10 @@ function filterAndDisplayData() {
       }
       schoolListFull.appendChild(listItem);
     } else if (futureOption) {
-      futureOptionLabel.textContent = "Future Options: ";
+      futureOptionsLabel.textContent = "Future Options: ";
       const listItem = document.createElement("li");
       listItem.textContent = `${school.schoolName}   -   FUTURE OPTION`;
-      futureOptions.appendChild(listItem);
+      futureOptionsList.appendChild(listItem);
     }
 
     
