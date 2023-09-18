@@ -33,7 +33,7 @@ const schoolsData = [
     "profiles": [
       {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
       {"profileName": "A",  "subjects": ["L", "E"], "from": ["2Gymi"]}, 
-      {"profileName": "N",  "subjects": ["It", "E", "Sp"]}, "from": ["2Gymi", "2or3Sek"]}, 
+      {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi", "2or3Sek"]}, 
       {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"]}, 
       {"profileName": "WR", "subjects": ["WR"], "from": ["2Gymi", "2or3Sek"]} 
     ]
