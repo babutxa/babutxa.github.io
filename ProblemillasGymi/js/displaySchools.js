@@ -8,14 +8,14 @@ const schoolsData = [
       {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi", "2or3Sek"]},
       {"profileName": "MN", "subjects": ["BC"], "from": ["2Gymi", "2or3Sek"]},
       {"profileName": "M",  "subjects": ["BG", "Mu"], "from": ["2Gymi", "2or3Sek"]}
-    ],
+    ]
   },
   {
     "schoolName": "MNG Rämibühl",
     "city": "Zürich",
     "profiles": [
       {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"]},
-    ],
+    ]
   },
   {
     "schoolName": "Kantonsschule Freudenberg",
@@ -25,7 +25,7 @@ const schoolsData = [
       {"profileName": "A",  "subjects": ["L", "Gr"], "from": ["2Gymi"]}, 
       {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi"]}, 
       {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"]}
-    ],
+    ]
   },  
   {
     "schoolName": "Kantonsschule Zimmerberg",
@@ -36,7 +36,7 @@ const schoolsData = [
       {"profileName": "N",  "subjects": ["It", "E", "Sp"]}, "from": ["2Gymi", "2or3Sek"], 
       {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"]}, 
       {"profileName": "WR", "subjects": ["WR"], "from": ["2Gymi", "2or3Sek"]} 
-    ],
+    ]
   },  
   {
     "schoolName": "Kantonsschule Zürich Nord",
@@ -48,7 +48,7 @@ const schoolsData = [
       {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"]}, 
       {"profileName": "WR", "subjects": ["WR"], "from": ["2Gymi", "2or3Sek"]}, 
       {"profileName": "M", "subjects": ["BG", "Mu"], "from": ["2Gymi", "2or3Sek"]}
-    ],
+    ]
   }, 
   {
     "schoolName": "Realgymnasium Rämibühl",
@@ -57,7 +57,7 @@ const schoolsData = [
       {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
       {"profileName": "A",  "subjects": ["L", "Gr", "E"], "from": ["2Gymi"]}, 
       {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi"]}
-    ],
+    ]
   }, 
   {
     "schoolName": "Kantonsschule Küsnacht",
@@ -66,7 +66,7 @@ const schoolsData = [
       {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
       {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi", "2or3Sek"]}, 
       {"profileName": "M", "subjects": ["BG", "Mu"], "from": ["2Gymi", "2or3Sek"]}
-    ],
+    ]
   }, 
   {
     "schoolName": "Kantonsschule Wiedikon",
@@ -76,7 +76,7 @@ const schoolsData = [
       {"profileName": "A",  "subjects": ["L", "It", "E"], "from": ["2Gymi"]}, 
       {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi"]}, 
       {"profileName": "M", "subjects": ["BG", "Mu"], "from": ["2Gymi", "2or3Sek"]}
-    ],
+    ]
   },
   {
     "schoolName": "Kantonsschule Hohe Promenade",
@@ -85,7 +85,7 @@ const schoolsData = [
       {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
       {"profileName": "A",  "subjects": ["L", "Gr", "It", "E", "Sp", "Ru"], "from": ["2Gymi"]}, 
       {"profileName": "N",  "subjects": ["It", "E", "Sp", "Ru"], "from": ["2Gymi"]}, 
-    ],
+    ]
   }, 
   {
     "schoolName": "Kantonsschule Enge",
@@ -93,21 +93,21 @@ const schoolsData = [
     "profiles": [
       {"profileName": "N",  "subjects": ["It", "E", "Sp", "Ru"], "from": ["2Gymi", "2or3Sek"]}, 
       {"profileName": "WR", "subjects": ["WR"], "from": ["2Gymi", "2or3Sek"]}, 
-    ],
+    ]
   },
   {
     "schoolName": "Kantonsschule Hottingen",
     "city": "Zürich",
     "profiles": [ 
       {"profileName": "WR", "subjects": ["WR"], "from": ["2Gymi", "2or3Sek"]}, 
-    ],
+    ]
   },
   {
     "schoolName": "Liceo Artistico",
     "city": "Zürich",
     "profiles": [
       {"profileName": "M", "subjects": ["BG"], "from": ["2Gymi", "2or3Sek"]}
-    ],
+    ]
   }, 
   {
     "schoolName": "Kunst und Sportgymnasium am MNG Rämibül",
@@ -117,7 +117,7 @@ const schoolsData = [
       {"profileName": "N",  "subjects": ["It", "F", "E"], "from": ["2Gymi", "2or3Sek"]}, 
       {"profileName": "MN", "subjects": ["BC"], "from": ["2Gymi", "2or3Sek"]}, 
       {"profileName": "M", "subjects": ["Mu"], "from": ["2Gymi", "2or3Sek"]}
-    ],
+    ]
   }, 
   // Add more schools and profiles as needed
 ];
