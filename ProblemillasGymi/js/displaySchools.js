@@ -4,17 +4,17 @@ const schoolsData = [
     "schoolName": "Kantonsschule Stadelhofen",
     "city": "Zürich",
     "profiles": [
-      {"profileName": "A",  "subjects": ["L"], "from": [""]},
-      {"profileName": "N",  "subjects": ["It", "E", "Sp"]},
-      {"profileName": "MN", "subjects": ["BC"]},
-      {"profileName": "M",  "subjects": ["BG", "Mu"]}
+      {"profileName": "A",  "subjects": ["L"], "from": ["2or3Sek"]},
+      {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi", "2or3Sek"]},
+      {"profileName": "MN", "subjects": ["BC"], "from": ["2Gymi", "2or3Sek"]},
+      {"profileName": "M",  "subjects": ["BG", "Mu"], "from": ["2Gymi", "2or3Sek"]}
     ],
   },
   {
     "schoolName": "MNG Rämibühl",
     "city": "Zürich",
     "profiles": [
-      {"profileName": "MN", "subjects": ["PM", "BC"]},
+      {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"]},
     ],
   },
   {
@@ -22,9 +22,9 @@ const schoolsData = [
     "city": "Zürich",
     "profiles": [
       {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
-      {"profileName": "A",  "subjects": ["L", "Gr"]}, 
-      {"profileName": "N",  "subjects": ["It", "E", "Sp"]}, 
-      {"profileName": "MN", "subjects": ["PM", "BC"]}
+      {"profileName": "A",  "subjects": ["L", "Gr"], "from": ["2Gymi"]}, 
+      {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi"]}, 
+      {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"]}
     ],
   },  
   {
@@ -32,10 +32,10 @@ const schoolsData = [
     "city": "Au",
     "profiles": [
       {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
-      {"profileName": "A",  "subjects": ["L", "E"]}, 
-      {"profileName": "N",  "subjects": ["It", "E", "Sp"]}, 
-      {"profileName": "MN", "subjects": ["PM", "BC"]}, 
-      {"profileName": "WR", "subjects": ["WR"]} 
+      {"profileName": "A",  "subjects": ["L", "E"], "from": ["2Gymi"]}, 
+      {"profileName": "N",  "subjects": ["It", "E", "Sp"]}, "from": ["2Gymi", "2or3Sek"], 
+      {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"]}, 
+      {"profileName": "WR", "subjects": ["WR"], "from": ["2Gymi", "2or3Sek"]} 
     ],
   },  
   {
@@ -43,11 +43,11 @@ const schoolsData = [
     "city": "Zürich",
     "profiles": [
       {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
-      {"profileName": "A",  "subjects": ["L", "Gr", "E"]}, 
-      {"profileName": "N",  "subjects": ["It", "E", "Sp", "Ru"]}, 
-      {"profileName": "MN", "subjects": ["PM", "BC"]}, 
-      {"profileName": "WR", "subjects": ["WR"]}, 
-      {"profileName": "M", "subjects": ["BG", "Mu"]}
+      {"profileName": "A",  "subjects": ["L", "Gr", "E"], "from": ["2Gymi"]}, 
+      {"profileName": "N",  "subjects": ["It", "E", "Sp", "Ru"], "from": ["2Gymi", "2or3Sek"]}, 
+      {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"]}, 
+      {"profileName": "WR", "subjects": ["WR"], "from": ["2Gymi", "2or3Sek"]}, 
+      {"profileName": "M", "subjects": ["BG", "Mu"], "from": ["2Gymi", "2or3Sek"]}
     ],
   }, 
   {
@@ -55,8 +55,8 @@ const schoolsData = [
     "city": "Zürich",
     "profiles": [
       {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
-      {"profileName": "A",  "subjects": ["L", "Gr", "E"]}, 
-      {"profileName": "N",  "subjects": ["It", "E", "Sp"]}
+      {"profileName": "A",  "subjects": ["L", "Gr", "E"], "from": ["2Gymi"]}, 
+      {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi"]}
     ],
   }, 
   {
@@ -64,8 +64,8 @@ const schoolsData = [
     "city": "Zürich",
     "profiles": [
       {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
-      {"profileName": "N",  "subjects": ["It", "E", "Sp"]}, 
-      {"profileName": "M", "subjects": ["BG", "Mu"]}
+      {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi", "2or3Sek"]}, 
+      {"profileName": "M", "subjects": ["BG", "Mu"], "from": ["2Gymi", "2or3Sek"]}
     ],
   }, 
   {
@@ -73,9 +73,9 @@ const schoolsData = [
     "city": "Zürich",
     "profiles": [
       {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
-      {"profileName": "A",  "subjects": ["L", "It", "E"]}, 
-      {"profileName": "N",  "subjects": ["It", "E", "Sp"]}, 
-      {"profileName": "M", "subjects": ["BG", "Mu"]}
+      {"profileName": "A",  "subjects": ["L", "It", "E"], "from": ["2Gymi"]}, 
+      {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi"]}, 
+      {"profileName": "M", "subjects": ["BG", "Mu"], "from": ["2Gymi", "2or3Sek"]}
     ],
   },
   {
@@ -83,30 +83,30 @@ const schoolsData = [
     "city": "Zürich",
     "profiles": [
       {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
-      {"profileName": "A",  "subjects": ["L", "Gr", "It", "E", "Sp", "Ru"]}, 
-      {"profileName": "N",  "subjects": ["It", "E", "Sp", "Ru"]}, 
+      {"profileName": "A",  "subjects": ["L", "Gr", "It", "E", "Sp", "Ru"], "from": ["2Gymi"]}, 
+      {"profileName": "N",  "subjects": ["It", "E", "Sp", "Ru"], "from": ["2Gymi"]}, 
     ],
   }, 
   {
     "schoolName": "Kantonsschule Enge",
     "city": "Zürich",
     "profiles": [
-      {"profileName": "N",  "subjects": ["It", "E", "Sp", "Ru"]}, 
-      {"profileName": "WR", "subjects": ["WR"]}, 
+      {"profileName": "N",  "subjects": ["It", "E", "Sp", "Ru"], "from": ["2Gymi", "2or3Sek"]}, 
+      {"profileName": "WR", "subjects": ["WR"], "from": ["2Gymi", "2or3Sek"]}, 
     ],
   },
   {
     "schoolName": "Kantonsschule Hottingen",
     "city": "Zürich",
     "profiles": [ 
-      {"profileName": "WR", "subjects": ["WR"]}, 
+      {"profileName": "WR", "subjects": ["WR"], "from": ["2Gymi", "2or3Sek"]}, 
     ],
   },
   {
     "schoolName": "Liceo Artistico",
     "city": "Zürich",
     "profiles": [
-      {"profileName": "M", "subjects": ["BG"]}
+      {"profileName": "M", "subjects": ["BG"], "from": ["2Gymi", "2or3Sek"]}
     ],
   }, 
   {
@@ -114,9 +114,9 @@ const schoolsData = [
     "city": "Zürich",
     "profiles": [
       {"profileName": "U",  "subjects": [], "from": ["6Prima"]},
-      {"profileName": "N",  "subjects": ["It", "F", "E"]}, 
-      {"profileName": "MN", "subjects": ["BC"]}, 
-      {"profileName": "M", "subjects": ["Mu"]}
+      {"profileName": "N",  "subjects": ["It", "F", "E"], "from": ["2Gymi", "2or3Sek"]}, 
+      {"profileName": "MN", "subjects": ["BC"], "from": ["2Gymi", "2or3Sek"]}, 
+      {"profileName": "M", "subjects": ["Mu"], "from": ["2Gymi", "2or3Sek"]}
     ],
   }, 
   // Add more schools and profiles as needed
