@@ -133,14 +133,12 @@ function filterAndDisplayData() {
 
   console.log(fromFilter);
   
-  if(!fromFilter) {
-    return;
-  }
-
   schoolsData.forEach((school) => {
   
     let addItem = false;
-    if (!profileFilter && !subjectFilter) { // no filters
+    if (!fromFilter) {
+      addItem = true;
+    } else if (!profileFilter && !subjectFilter) { // no filters
       addItem = true;
     } else if (profileFilter && !subjectFilter) { // only profile filter
       if (school.profiles.some((profile) => profile.from.includes(fromFilter) && profile.profileName === profileFilter)) {
