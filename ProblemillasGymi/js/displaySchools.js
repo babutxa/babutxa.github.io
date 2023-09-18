@@ -199,12 +199,12 @@ function filterAndDisplayData() {
       const listItem = document.createElement("li");
       listItem.textContent = `${school.schoolName}`;
       if (futureOption) {
-        listItem.textContent = `${school.schoolName} + "superoption"`;
+        listItem.textContent = `${school.schoolName}   SUPER OPTION`;
       }
       schoolListFull.appendChild(listItem);
     } else if (futureOption) {
       const listItem = document.createElement("li");
-      listItem.textContent = `${school.schoolName} + "future option after two years"`;
+      listItem.textContent = `${school.schoolName}   FUTURE OPTION`;
       futureOptions.appendChild(listItem);
     }
 
