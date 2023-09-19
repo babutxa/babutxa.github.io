@@ -189,7 +189,7 @@ function displayKurzPlan(schoolList) {
       if (subjectsList.length > 0) {
           const listItem = document.createElement("li");
           const listAsString = subjectsList.join(", ");
-          listItem.textContent = `${school.schoolName} (${profileFilter}: [${listAsString}])`;
+          listItem.textContent = `${school.schoolName} (Schwerpunktfächer: ${listAsString})`;
           currentOptionsLabel.textContent = "Optionen für das nächste Jahr:";
           currentOptionsList.appendChild(listItem); 
       }
@@ -204,7 +204,7 @@ function displayKurzPlan(schoolList) {
           currentOptionsList.appendChild(listItem); 
       }
     } else {
-      if (school.profiles.some((profile) => (profile.from.includes(fromFilter) && profile.profileName === profileFilter && profile.subjects.includes(subjectFilter)))) {
+      if (profile.profileName === profileFilter && profile.subjects.includes(subjectFilter)))) {
         // we just display the name of the school
           const listItem = document.createElement("li");
           listItem.textContent = `${school.schoolName}`;
