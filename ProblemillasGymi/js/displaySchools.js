@@ -204,7 +204,7 @@ function displayKurzPlan(schoolList) {
           currentOptionsList.appendChild(listItem); 
       }
     } else {
-      if (school.profiles.some((profile) => (profile.profileName === profileFilter && profile.subjects.includes(subjectFilter))) {
+      if (school.profiles.some((profile) => (profile.profileName === profileFilter && profile.subjects.includes(subjectFilter)))) {
         // we just display the name of the school
           const listItem = document.createElement("li");
           listItem.textContent = `${school.schoolName}`;
