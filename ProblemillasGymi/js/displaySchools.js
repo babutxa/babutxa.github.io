@@ -143,13 +143,13 @@ function getSchoolsFrom(fromFilter) {
 }
 
 function getSubjectsOfACertainProfile(school, profi) {
-  school.profiles.forEach((profile) => {
+  for (const profile of school.profiles) {
     if (profile.profileName === profi) {
       const listAsString = profile.subjects.join(", ");
       console.log("in function getSubjectsOfACertainProfile: " + listAsString);
       return profile.subjects;
     }
-  });
+  }
   return []; // empty if the school does not have the profi                
 }
 
