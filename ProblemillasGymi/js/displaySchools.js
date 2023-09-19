@@ -186,7 +186,7 @@ function displayKurzPlan(schoolList) {
       // we display the name of the school with the selected profile and the list of subject it offers
       const subjectsList = getSubjectsOfACertainProfile(school, profileFilter);
       console.log("returned subjectsList.length: " + subjectsList.length);
-      if (subjectsList.lenght > 0) {
+      if (subjectsList.length > 0) {
           const listItem = document.createElement("li");
           const listAsString = subjectsList.join(", ");
           listItem.textContent = `${school.schoolName} (${profileFilter}: [${listAsString}])`;
