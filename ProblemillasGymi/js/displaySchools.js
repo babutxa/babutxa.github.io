@@ -145,7 +145,8 @@ function getSchoolsFrom(fromFilter) {
 function getSubjectsOfACertainProfile(school, profi) {
   school.profiles.forEach((profile) => {
     if (profile.profileName === profi) {
-      console.log(profile.subjects);
+      const listAsString = profile.subjects.join(", ");
+      console.log(`in function getSubjectsOfACertainProfile: ${listAsString}`);
       return profile.subjects;
     }
   });
@@ -187,7 +188,7 @@ function displayKurzPlan(schoolList) {
       if (subjectsList.lenght > 0) {
           const listItem = document.createElement("li");
           const listAsString = subjectsList.join(", ");
-          listItem.textContent = `${school.schoolName} (${profileFilter} - ${listAsString})`;
+          listItem.textContent = `${school.schoolName} (${profileFilter}: [${listAsString}])`;
           currentOptionsLabel.textContent = "Optionen für das nächste Jahr:";
           currentOptionsList.appendChild(listItem); 
       }
@@ -197,7 +198,7 @@ function displayKurzPlan(schoolList) {
       if (profilesList.length > 0) {
           const listItem = document.createElement("li");
           const listAsString = profilesList.join(", ");
-          listItem.textContent = `${school.schoolName} (Profile mit dem Fach ${subjectFilter}: ${listAsString})`;
+          listItem.textContent = `${school.schoolName} (Profile: ${listAsString})`;
           currentOptionsLabel.textContent = "Optionen für das nächste Jahr:";
           currentOptionsList.appendChild(listItem); 
       }
@@ -205,7 +206,7 @@ function displayKurzPlan(schoolList) {
       if (school.profiles.some((profile) => (profile.from.includes(fromFilter) && profile.profileName === profileFilter && profile.subjects.includes(subjectFilter)))) {
         // we just display the name of the school
           const listItem = document.createElement("li");
-          listItem.textContent = `${school.schoolName} (${profileFilter} - ${subjectFilter})`;
+          listItem.textContent = `${school.schoolName}`;
           currentOptionsLabel.textContent = "Optionen für das nächste Jahr:";
           currentOptionsList.appendChild(listItem);
       }   
