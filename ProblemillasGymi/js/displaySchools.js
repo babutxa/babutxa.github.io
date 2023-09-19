@@ -145,6 +145,7 @@ function getSchoolsFrom(fromFilter) {
 function getSubjectsOfACertainProfile(school, profi) {
   school.profiles.forEach((profile) => {
     if (profile.profileName === profi) {
+      console.log(profile.subjects);
       return profile.subjects;
     }
   });
@@ -196,7 +197,7 @@ function displayKurzPlan(schoolList) {
       if (profilesList.length > 0) {
           const listItem = document.createElement("li");
           const listAsString = profilesList.join(", ");
-          listItem.textContent = `${school.schoolName} (${subjectFilter} - ${listAsString})`;
+          listItem.textContent = `${school.schoolName} (Profile mit dem Fach ${subjectFilter}: ${listAsString})`;
           currentOptionsLabel.textContent = "Optionen für das nächste Jahr:";
           currentOptionsList.appendChild(listItem); 
       }
