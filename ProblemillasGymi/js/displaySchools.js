@@ -146,7 +146,7 @@ function getSubjectsOfACertainProfile(school, profi) {
   school.profiles.forEach((profile) => {
     if (profile.profileName === profi) {
       const listAsString = profile.subjects.join(", ");
-      console.log(`in function getSubjectsOfACertainProfile: ${listAsString}`);
+      console.log("in function getSubjectsOfACertainProfile: " + listAsString);
       return profile.subjects;
     }
   });
@@ -185,7 +185,7 @@ function displayKurzPlan(schoolList) {
     } else if (profileFilter && !subjectFilter) { // only profile filter
       // we display the name of the school with the selected profile and the list of subject it offers
       const subjectsList = getSubjectsOfACertainProfile(school, profileFilter);
-      console.log(`returned subjectList.length: ${subjectList.length}`);
+      console.log("returned subjectList.length: " + subjectList.length);
       if (subjectsList.lenght > 0) {
           const listItem = document.createElement("li");
           const listAsString = subjectsList.join(", ");
