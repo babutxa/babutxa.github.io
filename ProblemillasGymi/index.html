@@ -66,19 +66,19 @@
     <option value="Mu">Musik</option>
 </select>
   
-<h1 id="currentOptionsLabel">Optionen für das nächste Jahr:</h1>
+<h2 id="currentOptionsLabel">Optionen für das nächste Jahr:</h2>
 <ul id="currentOptionsList"></ul>
 
 <br>
-<label id="futureOptionsLabel"></label>
+<h2 id="futureOptionsLabel"></h2>
 <ul id="futureOptionsList"></ul>
     
 <script>
     // Event listener for filter selection changes.
-    document.getElementById("fromFilter").addEventListener("change", filterAndDisplayData);
-    document.getElementById("profileFilter").addEventListener("change", filterAndDisplayData);
-    document.getElementById("subjectFilter").addEventListener("change", filterAndDisplayData);
-    filterAndDisplayData()
+    document.getElementById("fromFilter").addEventListener("change", filterAndDisplayDataAdvanced);
+    document.getElementById("profileFilter").addEventListener("change", filterAndDisplayDataAdvanced);
+    document.getElementById("subjectFilter").addEventListener("change", filterAndDisplayDataAdvanced);
+    filterAndDisplayDataAdvanced();
 </script>
     
 </div>
