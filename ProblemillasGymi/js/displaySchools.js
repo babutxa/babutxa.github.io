@@ -185,7 +185,8 @@ function displayKurzPlan(schoolList) {
       const subjectsList = getSubjectsOfACertainProfile(school, profileFilter);
       if (subjectsList.lenght > 0) {
           const listItem = document.createElement("li");
-          listItem.textContent = `${school.schoolName} (profileFilter - subjectsList)`;
+          const listAsString = subjectsList.join(", ");
+          listItem.textContent = `${school.schoolName} (${profileFilter} - ${listAsString})`;
           currentOptionsLabel.textContent = "Optionen für das nächste Jahr:";
           currentOptionsList.appendChild(listItem); 
       }
@@ -194,7 +195,8 @@ function displayKurzPlan(schoolList) {
       const profilesList = getProfilesWithACertainSubject(school, subjectFilter);
       if (profilesList.length > 0) {
           const listItem = document.createElement("li");
-          listItem.textContent = `${school.schoolName} (subjectFilter - profilesList)`;
+          const listAsString = profilesList.join(", ");
+          listItem.textContent = `${school.schoolName} (${subjectFilter} - ${listAsString})`;
           currentOptionsLabel.textContent = "Optionen für das nächste Jahr:";
           currentOptionsList.appendChild(listItem); 
       }
@@ -202,7 +204,7 @@ function displayKurzPlan(schoolList) {
       if (school.profiles.some((profile) => (profile.from.includes(fromFilter) && profile.profileName === profileFilter && profile.subjects.includes(subjectFilter)))) {
         // we just display the name of the school
           const listItem = document.createElement("li");
-          listItem.textContent = `${school.schoolName}` (profileFilter - subjectFilter);
+          listItem.textContent = `${school.schoolName}` (${profileFilter} - ${subjectFilter});
           currentOptionsLabel.textContent = "Optionen für das nächste Jahr:";
           currentOptionsList.appendChild(listItem);
       }   
