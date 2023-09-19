@@ -185,7 +185,7 @@ function displayKurzPlan(schoolList) {
     } else if (profileFilter && !subjectFilter) { // only profile filter
       // we display the name of the school with the selected profile and the list of subject it offers
       const subjectsList = getSubjectsOfACertainProfile(school, profileFilter);
-      console.log("returned subjectList.length: " + subjectList.length);
+      console.log("returned subjectsList.length: " + subjectsList.length);
       if (subjectsList.lenght > 0) {
           const listItem = document.createElement("li");
           const listAsString = subjectsList.join(", ");
