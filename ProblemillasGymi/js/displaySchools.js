@@ -147,7 +147,7 @@ function getSubjectsOfACertainProfile(school, profi) {
     if (profile.profileName === profi) {
       return profile.subjects;
     }
-  }
+  });
   return []; // empty if the school does not have the profi                
 }
 
