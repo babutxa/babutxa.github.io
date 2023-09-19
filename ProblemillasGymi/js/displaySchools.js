@@ -131,6 +131,100 @@ const schoolsData = [
   // Add more schools and profiles as needed
 ];
 
+// filter schools reacheable form a certain point
+function getSchoolsFrom(fromFilter) {
+  let result = [];
+  schoolsData.forEach((school) => {
+    if (school.profiles.some((profile) => profile.from.includes(fromFilter))) {
+      result.push(school);
+    } 
+  });
+  return result;
+}
+
+function getSubjectsOfACertainProfile(school, profi) {
+  school.profiles.forEach((profile) => {
+    if (profile.profileName === profi) {
+      return profile.subjects;
+    }
+  }
+  return []; // empty if the school does not have the profi                
+}
+
+function getProfilesWithACertainSubject(school, subject) {
+    let result = [];
+    school.profiles.forEach((profile) => {
+    if (profile.subjects.includes(subject)) {
+      result.push(profile.profileName);
+    }
+  }
+  return result; // empty if the school does not provide the subject in any profile
+}
+
+function displayKurzPlan(schoolList) {
+  const currentOptionsLabel = document.getElementById("currentOptionsLabel");
+  currentOptionsLabel.textContent = ""; // Clear previous text
+  const currentOptionsList = document.getElementById("currentOptionsList");
+  currentOptionsList.innerHTML = ""; // Clear the previous list
+
+  const profileFilter = document.getElementById("profileFilter").value;
+  const subjectFilter = document.getElementById("subjectFilter").value;
+  
+  schoolList.forEach((school) => {
+  
+    let addItem = false;
+    if (!profileFilter && !subjectFilter) { // no filters
+        // TODO: improve the display 
+        // we just display the name of the school
+        const listItem = document.createElement("li");
+        listItem.textContent = `${school.schoolName}`;
+        currentOptionsLabel.textContent = "Optionen für das nächste Jahr:";
+        currentOptionsList.appendChild(listItem);
+    } else if (profileFilter && !subjectFilter) { // only profile filter
+      // we display the name of the school with the selected profile and the list of subject it offers
+      const subjectsList = getSubjectsOfACertainProfile(school, profileFilter);
+      if (subjectsList.lenght > 0) {
+          const listItem = document.createElement("li");
+          listItem.textContent = `${school.schoolName} (profileFilter - subjectsList)`;
+          currentOptionsLabel.textContent = "Optionen für das nächste Jahr:";
+          currentOptionsList.appendChild(listItem); 
+      }
+    } else if (!profileFilter && subjectFilter) { // only subject filter
+      // we display the name of the school with the list of profiles that offer the selected subject
+      const profilesList = getProfilesWithACertainSubject(school, subjectFilter);
+      if (profilesList.length > 0) {
+          const listItem = document.createElement("li");
+          listItem.textContent = `${school.schoolName} (subjectFilter - profilesList)`;
+          currentOptionsLabel.textContent = "Optionen für das nächste Jahr:";
+          currentOptionsList.appendChild(listItem); 
+      }
+    } else {
+      if (school.profiles.some((profile) => (profile.from.includes(fromFilter) && profile.profileName === profileFilter && profile.subjects.includes(subjectFilter)))) {
+        // we just display the name of the school
+          const listItem = document.createElement("li");
+          listItem.textContent = `${school.schoolName}` (profileFilter - subjectFilter);
+          currentOptionsLabel.textContent = "Optionen für das nächste Jahr:";
+          currentOptionsList.appendChild(listItem);
+      }   
+    }
+  }); 
+}
+
+function filterAndDisplayDataAdvanced() {
+  const fromFilter = document.getElementById("fromFilter").value; 
+  if (!fromFilter) {
+    const currentOptionsLabel = document.getElementById("currentOptionsLabel");
+    currentOptionsLabel.textContent = "select fromFilter!!";
+    return;
+  }
+
+  // here we have fromFilter selecteds
+  schoolList = getSchoolsFrom(fromFilter);
+  if (fromFilter === "2Gymi" || fromFilter === "2or3Sek") {
+    displayKurzPlan(schoolList);
+  }
+}
+
 // Function to display the filtered schoolsData on the web page
 function filterAndDisplayData() {
   const currentOptionsLabel = document.getElementById("currentOptionsLabel");
