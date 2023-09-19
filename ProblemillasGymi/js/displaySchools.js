@@ -152,12 +152,12 @@ function getSubjectsOfACertainProfile(school, profi) {
 }
 
 function getProfilesWithACertainSubject(school, subject) {
-    let result = [];
-    school.profiles.forEach((profile) => {
+  let result = [];
+  school.profiles.forEach((profile) => {
     if (profile.subjects.includes(subject)) {
       result.push(profile.profileName);
     }
-  }
+  });
   return result; // empty if the school does not provide the subject in any profile
 }
 
