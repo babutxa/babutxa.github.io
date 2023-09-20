@@ -142,6 +142,10 @@ function getSchoolsFrom(fromFilter) {
   return result;
 }
 
+function getProfiles(school) {
+  return school.profiles;
+}
+
 function getSubjectsOfACertainProfile(school, profi) {
   for (const profile of school.profiles) {
     if (profile.profileName === profi) {
@@ -183,8 +187,10 @@ function displayKurzPlan(schoolList, optionsLabel, optionsList, message) {
     if (!profileFilter && !subjectFilter) { // no filters
         // TODO: improve the display 
         // we just display the name of the school
+        const profileList = getProfiles(school);
+        const listAsString = profileList.join(", ");
         const listItem = document.createElement("li");
-        listItem.textContent = `${school.schoolName}`;
+        listItem.textContent = `${school.schoolName} \n(Profile: ${listAsString})`;
         optionsLabel.textContent = message;
         optionsList.appendChild(listItem);
     } else if (profileFilter && !subjectFilter) { // only profile filter
@@ -194,7 +200,7 @@ function displayKurzPlan(schoolList, optionsLabel, optionsList, message) {
       if (subjectsList.length > 0) {
           const listItem = document.createElement("li");
           const listAsString = subjectsList.join(", ");
-          listItem.textContent = `${school.schoolName} (Schwerpunktfächer: ${listAsString})`;
+          listItem.textContent = `${school.schoolName} \n(Schwerpunktfächer: ${listAsString})`;
           optionsLabel.textContent = message;
           optionsList.appendChild(listItem); 
       }
@@ -204,7 +210,7 @@ function displayKurzPlan(schoolList, optionsLabel, optionsList, message) {
       if (profilesList.length > 0) {
           const listItem = document.createElement("li");
           const listAsString = profilesList.join(", ");
-          listItem.textContent = `${school.schoolName} (Profile: ${listAsString})`;
+          listItem.textContent = `${school.schoolName} \n(Profile: ${listAsString})`;
           optionsLabel.textContent = message;
           optionsList.appendChild(listItem); 
       }
