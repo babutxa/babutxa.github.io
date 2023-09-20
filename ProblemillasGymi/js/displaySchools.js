@@ -166,11 +166,11 @@ function getProfilesWithACertainSubject(school, subject, message) {
 
 function displayLangPlan(schoolList, optionsLabel, optionsList, message) {
   schoolList.forEach((school) => {
-  
-  const listItem = document.createElement("li");
-  listItem.textContent = `${school.schoolName}`;
-  optionsLabel.textContent = message;
-  optionsList.appendChild(listItem);
+    const listItem = document.createElement("li");
+    listItem.textContent = `${school.schoolName}`;
+    optionsLabel.textContent = message;
+    optionsList.appendChild(listItem);
+  });
 }
 
                      
