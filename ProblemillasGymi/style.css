@@ -6,6 +6,14 @@ body
     border: 10px solid #fff;
 }
 
+.small-text {
+  font-size: 12px; /* Set the font size for small text */
+}
+
+li {
+    padding-bottom: 10px;
+}
+
 em
 {
     font-weight: bold;
