@@ -153,7 +153,7 @@ function getSubjectsOfACertainProfile(school, profi) {
   return []; // empty if the school does not have the profi                
 }
 
-function getProfilesWithACertainSubject(school, subject, message) {
+function getProfilesWithACertainSubject(school, subject) {
   let result = [];
   school.profiles.forEach((profile) => {
     if (profile.subjects.includes(subject)) {
@@ -235,17 +235,15 @@ function filterAndDisplayDataAdvanced() {
   const currentOptionsList = document.getElementById("currentOptionsList");
   currentOptionsList.innerHTML = ""; // Clear the previous list
 
+  // future schools with the profile selected
+  const futureOptionsLabel = document.getElementById("futureOptionsLabel");
+  futureOptionsLabel.textContent = ""; // Clear previous text
+  const futureOptionsList = document.getElementById("futureOptionsList");
+  futureOptionsList.innerHTML = ""; // Clear the previous list
   
   const schoolList = getSchoolsFrom(fromFilter);
   if (fromFilter === "6Prima") {
-    displayLangPlan(schoolList, currentOptionsLabel, currentOptionsList, "Optionen:");  // schools with untergymi 
-    
-    // future schools with the profile selected
-    const futureOptionsLabel = document.getElementById("futureOptionsLabel");
-    futureOptionsLabel.textContent = ""; // Clear previous text
-    const futureOptionsList = document.getElementById("futureOptionsList");
-    futureOptionsList.innerHTML = ""; // Clear the previous list
-    
+    displayLangPlan(schoolList, currentOptionsLabel, currentOptionsList, "Optionen:");  // schools with untergymi     
     const futureSchools = getSchoolsFrom("2Gymi")
     displayKurzPlan(futureSchools, futureOptionsLabel, futureOptionsList, "Optionen nach 2 Jahren Langgymnasium:"); 
   } else if (fromFilter === "2Gymi" || fromFilter === "2or3Sek") {
