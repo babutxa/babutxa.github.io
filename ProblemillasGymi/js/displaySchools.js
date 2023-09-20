@@ -29,7 +29,7 @@ const schoolsData = [
     "immersion": ["Zf"] 
   },
   {
-    "schoolName": "Liceo Artistico at KFR",
+    "schoolName": "(*) Liceo Artistico at KFR",
     "city": "Zürich",
     "profiles": [
       {"profileName": "M", "subjects": ["BG"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["It"], "sprache3": ["F", "E"]}
