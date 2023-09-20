@@ -194,7 +194,7 @@ function displayKurzPlan(schoolList, optionsLabel, optionsList, message) {
         const profileList = getProfiles(school);
         const listAsString = profileList.join(", ");
         const listItem = document.createElement("li");
-        listItem.innerHTML = `${school.schoolName} <br>(Profile: ${listAsString})<br>`;
+        listItem.innerHTML = `${school.schoolName} <br><span class="small-text">Profile: ${listAsString}</span><br>`;
         optionsLabel.textContent = message;
         optionsList.appendChild(listItem);
     } else if (profileFilter && !subjectFilter) { // only profile filter
@@ -204,7 +204,7 @@ function displayKurzPlan(schoolList, optionsLabel, optionsList, message) {
       if (subjectsList.length > 0) {
           const listItem = document.createElement("li");
           const listAsString = subjectsList.join(", ");
-          listItem.innerHTML = `${school.schoolName} <br>(Schwerpunktfächer: ${listAsString})<br>`;
+          listItem.innerHTML = `${school.schoolName} <br><span class="small-text">Schwerpunktfächer: ${listAsString}</span><br>`;
           optionsLabel.textContent = message;
           optionsList.appendChild(listItem); 
       }
@@ -214,7 +214,7 @@ function displayKurzPlan(schoolList, optionsLabel, optionsList, message) {
       if (profilesList.length > 0) {
           const listItem = document.createElement("li");
           const listAsString = profilesList.join(", ");
-          listItem.innerHTML = `${school.schoolName} <br>(Profile: ${listAsString})<br>`;
+          listItem.innerHTML = `${school.schoolName} <br><span class="small-text">Profile: ${listAsString}</span><br>`;
           optionsLabel.textContent = message;
           optionsList.appendChild(listItem); 
       }
