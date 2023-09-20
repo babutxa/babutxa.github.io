@@ -257,7 +257,7 @@ function filterAndDisplayDataAdvanced() {
   
   const schoolList = getSchoolsFrom(fromFilter);
   if (fromFilter === "6Prima") {
-    displayLangPlan(schoolList, currentOptionsLabel, currentOptionsList, "Optionen:");  // schools with untergymi     
+    displayLangPlan(schoolList, currentOptionsLabel, currentOptionsList, "Untergymnasium Optionen:");  // schools with untergymi     
     const futureSchools = getSchoolsFrom("2Gymi")
     displayKurzPlan(futureSchools, futureOptionsLabel, futureOptionsList, "Optionen nach 2 Jahren Langgymnasium:"); 
   } else if (fromFilter === "2Gymi" || fromFilter === "2or3Sek") {
