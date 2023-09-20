@@ -99,6 +99,14 @@ const schoolsData = [
     "immersion": ["Ze", "IB"] 
   }, 
   {
+    "schoolName": "MNG Rämibühl",
+    "city": "Zürich",
+    "profiles": [
+      {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F", "It"], "sprache3": ["E"]},
+    ],
+    "immersion": ["Ze"] 
+  }, 
+  {
     "schoolName": "(*) Kunst und Sportgymnasium am MNG Rämibül",
     "city": "Zürich",
     "profiles": [
@@ -108,14 +116,6 @@ const schoolsData = [
       {"profileName": "M", "subjects": ["Mu"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]}
     ],
     "immersion": []
-  }, 
-  {
-    "schoolName": "MNG Rämibühl",
-    "city": "Zürich",
-    "profiles": [
-      {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F", "It"], "sprache3": ["E"]},
-    ],
-    "immersion": ["Ze"] 
   }, 
   {
     "schoolName": "Realgymnasium Rämibühl",
