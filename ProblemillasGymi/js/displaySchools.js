@@ -153,7 +153,7 @@ function getSubjectsOfACertainProfile(school, profi) {
   return []; // empty if the school does not have the profi                
 }
 
-function getProfilesWithACertainSubject(school, subject) {
+function getProfilesWithACertainSubject(school, subject, message) {
   let result = [];
   school.profiles.forEach((profile) => {
     if (profile.subjects.includes(subject)) {
@@ -163,25 +163,30 @@ function getProfilesWithACertainSubject(school, subject) {
   return result; // empty if the school does not provide the subject in any profile
 }
 
-function displayKurzPlan(schoolList) {
-  const currentOptionsLabel = document.getElementById("currentOptionsLabel");
-  currentOptionsLabel.textContent = ""; // Clear previous text
-  const currentOptionsList = document.getElementById("currentOptionsList");
-  currentOptionsList.innerHTML = ""; // Clear the previous list
 
+function displayLangPlan(schoolList, optionsLabel, optionsList, message) {
+  schoolList.forEach((school) => {
+  
+  const listItem = document.createElement("li");
+  listItem.textContent = `${school.schoolName}`;
+  optionsLabel.textContent = message;
+  optionsList.appendChild(listItem);
+}
+
+                     
+function displayKurzPlan(schoolList, optionsLabel, optionsList, message) {
   const profileFilter = document.getElementById("profileFilter").value;
   const subjectFilter = document.getElementById("subjectFilter").value;
   
   schoolList.forEach((school) => {
-  
-    let addItem = false;
+
     if (!profileFilter && !subjectFilter) { // no filters
         // TODO: improve the display 
         // we just display the name of the school
         const listItem = document.createElement("li");
         listItem.textContent = `${school.schoolName}`;
-        currentOptionsLabel.textContent = "Optionen für das nächste Jahr:";
-        currentOptionsList.appendChild(listItem);
+        optionsLabel.textContent = message;
+        optionsList.appendChild(listItem);
     } else if (profileFilter && !subjectFilter) { // only profile filter
       // we display the name of the school with the selected profile and the list of subject it offers
       const subjectsList = getSubjectsOfACertainProfile(school, profileFilter);
@@ -190,8 +195,8 @@ function displayKurzPlan(schoolList) {
           const listItem = document.createElement("li");
           const listAsString = subjectsList.join(", ");
           listItem.textContent = `${school.schoolName} (Schwerpunktfächer: ${listAsString})`;
-          currentOptionsLabel.textContent = "Optionen für das nächste Jahr:";
-          currentOptionsList.appendChild(listItem); 
+          optionsLabel.textContent = message;
+          optionsList.appendChild(listItem); 
       }
     } else if (!profileFilter && subjectFilter) { // only subject filter
       // we display the name of the school with the list of profiles that offer the selected subject
@@ -200,20 +205,21 @@ function displayKurzPlan(schoolList) {
           const listItem = document.createElement("li");
           const listAsString = profilesList.join(", ");
           listItem.textContent = `${school.schoolName} (Profile: ${listAsString})`;
-          currentOptionsLabel.textContent = "Optionen für das nächste Jahr:";
-          currentOptionsList.appendChild(listItem); 
+          optionsLabel.textContent = message;
+          optionsList.appendChild(listItem); 
       }
     } else {
       if (school.profiles.some((profile) => (profile.profileName === profileFilter && profile.subjects.includes(subjectFilter)))) {
         // we just display the name of the school
           const listItem = document.createElement("li");
           listItem.textContent = `${school.schoolName}`;
-          currentOptionsLabel.textContent = "Optionen für das nächste Jahr:";
-          currentOptionsList.appendChild(listItem);
+          optionsLabel.textContent = message;
+          optionsList.appendChild(listItem);
       }   
     }
   }); 
 }
+
 
 function filterAndDisplayDataAdvanced() {
   const fromFilter = document.getElementById("fromFilter").value; 
@@ -223,12 +229,30 @@ function filterAndDisplayDataAdvanced() {
     return;
   }
 
-  // here we have fromFilter selecteds
-  schoolList = getSchoolsFrom(fromFilter);
-  if (fromFilter === "2Gymi" || fromFilter === "2or3Sek") {
-    displayKurzPlan(schoolList);
+  // here we have fromFilter selected
+  const currentOptionsLabel = document.getElementById("currentOptionsLabel");
+  currentOptionsLabel.textContent = ""; // Clear previous text
+  const currentOptionsList = document.getElementById("currentOptionsList");
+  currentOptionsList.innerHTML = ""; // Clear the previous list
+
+  
+  const schoolList = getSchoolsFrom(fromFilter);
+  if (fromFilter === "6Prima") {
+    displayLangPlan(schoolList, currentOptionsLabel, currentOptionsList, "Optionen:");  // schools with untergymi 
+    
+    // future schools with the profile selected
+    const futureOptionsLabel = document.getElementById("futureOptionsLabel");
+    futureOptionsLabel.textContent = ""; // Clear previous text
+    const futureOptionsList = document.getElementById("futureOptionsList");
+    futureOptionsList.innerHTML = ""; // Clear the previous list
+    
+    const futureSchools = getSchoolsFrom("2Gymi")
+    displayKurzPlan(futureSchools, futureOptionsLabel, futureOptionsList, "Optionen nach 2 Jahren Langgymnasium:"); 
+  } else if (fromFilter === "2Gymi" || fromFilter === "2or3Sek") {
+    displayKurzPlan(schoolList, currentOptionsLabel, currentOptionsList, "Optionen:");
   }
 }
+
 
 // Function to display the filtered schoolsData on the web page
 function filterAndDisplayData() {
