@@ -143,7 +143,11 @@ function getSchoolsFrom(fromFilter) {
 }
 
 function getProfiles(school) {
-  return school.profiles;
+  let result = [];
+  school.profiles.forEach((profile) => {
+    result.push(profile.profileName);
+  });
+  return result;
 }
 
 function getSubjectsOfACertainProfile(school, profi) {
