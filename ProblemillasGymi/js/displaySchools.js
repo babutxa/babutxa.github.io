@@ -18,7 +18,7 @@ const schoolsData = [
     "immersion": ["Ze"], 
   },
   {
-    "schoolName": "Kantonsschule Freudenberg",
+    "schoolName": "Kantonsschule Freudenberg (KFR)",
     "city": "Zürich",
     "profiles": [
       {"profileName": "U",  "subjects": [], "from": ["6Prima"], "sprache2": [], "sprache3": []},
@@ -27,7 +27,15 @@ const schoolsData = [
       {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]}
     ],
     "immersion": ["Zf"] 
-  }, 
+  },
+  {
+    "schoolName": "Liceo Artistico at KFR",
+    "city": "Zürich",
+    "profiles": [
+      {"profileName": "M", "subjects": ["BG"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["It"], "sprache3": ["F", "E"]}
+    ],
+    "immersion": ["Zi"]
+  },
   {
     "schoolName": "Kantonsschule Hohe Promenade",
     "city": "Zürich",
@@ -51,7 +59,7 @@ const schoolsData = [
     "city": "Wintherthur",
     "profiles": [
       {"profileName": "A",  "subjects": ["L", "E"], "from": ["2or3Sek"], "sprache2": ["F"], "sprache3": ["E", "L"]},
-      {"profileName": "N",  "subjects": ["It", "E", "Sp", "Ru"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["It", "E"]},
+      {"profileName": "N",  "subjects": ["It", "E", "Sp", "Ru"], "from": ["2or3Sek"], "sprache2": ["F"], "sprache3": ["It", "E"]},
       {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]},
       {"profileName": "M",  "subjects": ["BG", "Mu"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]}
     ],
@@ -68,14 +76,6 @@ const schoolsData = [
     "immersion": ["Ze"]
   }, 
   {
-    "schoolName": "Liceo Artistico",
-    "city": "Zürich",
-    "profiles": [
-      {"profileName": "M", "subjects": ["BG"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["It"], "sprache3": ["F", "E"]}
-    ],
-    "immersion": ["Zi"]
-  },
-  {
     "schoolName": "Kantonsschule Limmattal",
     "city": "Urdorf",
     "profiles": [
@@ -89,6 +89,16 @@ const schoolsData = [
     "immersion": ["Ze"]
   },
   {
+    "schoolName": "Literargymnasium Rämibühl",
+    "city": "Zürich",
+    "profiles": [
+      {"profileName": "U",  "subjects": [], "from": ["6Prima"], "sprache2": [], "sprache3": []},
+      {"profileName": "A",  "subjects": ["L", "Gr", "It", "E", "Sp"], "from": ["2Gymi"], "sprache2": ["F"], "sprache3": ["It", "E", "Gr", "L"]}, 
+      {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi"], "sprache2": ["F"], "sprache3": ["E"]}
+    ],
+    "immersion": ["Ze", "IB"] 
+  }, 
+  {
     "schoolName": "(*) Kunst und Sportgymnasium am MNG Rämibül",
     "city": "Zürich",
     "profiles": [
@@ -98,16 +108,6 @@ const schoolsData = [
       {"profileName": "M", "subjects": ["Mu"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]}
     ],
     "immersion": []
-  }, 
-  {
-    "schoolName": "Literargymnasium Rämibühl",
-    "city": "Zürich",
-    "profiles": [
-      {"profileName": "U",  "subjects": [], "from": ["6Prima"], "sprache2": [], "sprache3": []},
-      {"profileName": "A",  "subjects": ["L", "Gr", "It", "E", "Sp"], "from": ["2Gymi"], "sprache2": ["F"], "sprache3": ["It", "E", "Gr", "L"]}, 
-      {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi"], "sprache2": ["F"], "sprache3": ["E"]}
-    ],
-    "immersion": ["Ze", "IB"] 
   }, 
   {
     "schoolName": "MNG Rämibühl",
@@ -201,7 +201,7 @@ const schoolsData = [
     "city": "Wetzikon",
     "profiles": [
       {"profileName": "U",  "subjects": [], "from": ["6Prima"], "sprache2": [], "sprache3": []},
-      {"profileName": "A",  "subjects": ["L", "Gr"], "from": ["2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]},
+      {"profileName": "A",  "subjects": ["L", "Gr"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]},
       {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["It", "E"]},
       {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]},
       {"profileName": "WR",  "subjects": ["WR"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]}
@@ -214,7 +214,7 @@ const schoolsData = [
     "city": "Bülach",
     "profiles": [
       {"profileName": "U",  "subjects": [], "from": ["6Prima"], "sprache2": [], "sprache3": []},
-      {"profileName": "A",  "subjects": ["L", "Gr", "E"], "from": ["2or3Sek"], "sprache2": ["F"], "sprache3": ["E", "L"]},
+      {"profileName": "A",  "subjects": ["L", "Gr", "E"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E", "L"]},
       {"profileName": "N",  "subjects": ["It", "Sp"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["It", "F", "E"]},
       {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]},
       {"profileName": "WR",  "subjects": ["WR"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]}
