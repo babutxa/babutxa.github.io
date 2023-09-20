@@ -194,6 +194,7 @@ function displayKurzPlan(schoolList, optionsLabel, optionsList, message) {
         const profileList = getProfiles(school);
         const listAsString = profileList.join(", ");
         const listItem = document.createElement("li");
+        listItem.id = "my-li";
         listItem.innerHTML = `${school.schoolName} <br><span class="small-text">Profile: ${listAsString}</span><br>`;
         optionsLabel.textContent = message;
         optionsList.appendChild(listItem);
@@ -203,6 +204,7 @@ function displayKurzPlan(schoolList, optionsLabel, optionsList, message) {
       console.log("returned subjectsList.length: " + subjectsList.length);
       if (subjectsList.length > 0) {
           const listItem = document.createElement("li");
+          listItem.id = "my-li";
           const listAsString = subjectsList.join(", ");
           listItem.innerHTML = `${school.schoolName} <br><span class="small-text">Schwerpunktfächer: ${listAsString}</span><br>`;
           optionsLabel.textContent = message;
@@ -213,6 +215,7 @@ function displayKurzPlan(schoolList, optionsLabel, optionsList, message) {
       const profilesList = getProfilesWithACertainSubject(school, subjectFilter);
       if (profilesList.length > 0) {
           const listItem = document.createElement("li");
+          listItem.id = "my-li";
           const listAsString = profilesList.join(", ");
           listItem.innerHTML = `${school.schoolName} <br><span class="small-text">Profile: ${listAsString}</span><br>`;
           optionsLabel.textContent = message;
@@ -222,7 +225,8 @@ function displayKurzPlan(schoolList, optionsLabel, optionsList, message) {
       if (school.profiles.some((profile) => (profile.profileName === profileFilter && profile.subjects.includes(subjectFilter)))) {
         // we just display the name of the school
           const listItem = document.createElement("li");
-          listItem.textContent = `${school.schoolName}<br>`;
+          listItem.id = "my-li";
+          listItem.innerHTML = `${school.schoolName}`;
           optionsLabel.textContent = message;
           optionsList.appendChild(listItem);
       }   
