@@ -17,6 +17,5 @@ function addSchoolToMap(school) {
 }
 
 function clearMarkers() {
-    console.log("clearMarkers");
     markers.clearLayers();
 }
