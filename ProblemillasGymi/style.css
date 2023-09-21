@@ -10,6 +10,11 @@ body
   font-size: 12px; /* Set the font size for small text */
 }
 
+.custom-select {
+  position: relative;
+  font-family: consolas, monospace;
+}
+
 #my-li {
     padding-bottom: 10px;
 }
