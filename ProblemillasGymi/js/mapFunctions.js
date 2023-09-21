@@ -2,7 +2,7 @@ var map;
 var markers;
 
 function initMap() {
-    map = L.map('map').setView([47.372266770573944, 8.53810067665972], 5);  // Centered in Zurich;
+    map = L.map('map').setView([47.372266770573944, 8.53810067665972], 10);  // Centered in Zurich;
     markers = L.layerGroup().addTo(map);
     
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
