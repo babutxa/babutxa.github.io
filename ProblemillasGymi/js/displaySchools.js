@@ -148,6 +148,7 @@ function filterAndDisplayData() {
   const futureOptionsList = document.getElementById("futureOptionsList");
   futureOptionsList.innerHTML = ""; // Clear the previous list
 
+  console.log("before clear markers");
   clearMarkers();
 
   let fromFilter = document.getElementById("fromFilter").value;  
