@@ -1,7 +1,10 @@
-var map = L.map('map').setView([47.372266770573944, 8.53810067665972], 13);  // Centered in Zurich;
-var markers = L.layerGroup();
+var map;
+var markers;
 
 function initMap() {
+    var map = L.map('map').setView([47.372266770573944, 8.53810067665972], 13);  // Centered in Zurich;
+    var markers = L.layerGroup().addTo(map);
+    
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
