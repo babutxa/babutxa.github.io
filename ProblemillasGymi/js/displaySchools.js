@@ -45,6 +45,7 @@ function displayLangPlan(schoolList, optionsLabel, optionsList, message) {
     listItem.textContent = `${school.schoolName}`;
     optionsLabel.textContent = message;
     optionsList.appendChild(listItem);
+    addSchoolToMap(school);
   });
 }
 
@@ -65,6 +66,7 @@ function displayKurzPlan(schoolList, optionsLabel, optionsList, message) {
         listItem.innerHTML = `${school.schoolName} <br><span class="small-text">Profile: ${listAsString}</span><br>`;
         optionsLabel.textContent = message;
         optionsList.appendChild(listItem);
+        addSchoolToMap(school);
     } else if (profileFilter && !subjectFilter) { // only profile filter
       // we display the name of the school with the selected profile and the list of subject it offers
       const subjectsList = getSubjectsOfACertainProfile(school, profileFilter);
@@ -74,7 +76,8 @@ function displayKurzPlan(schoolList, optionsLabel, optionsList, message) {
           const listAsString = subjectsList.join(", ");
           listItem.innerHTML = `${school.schoolName} <br><span class="small-text">Schwerpunktfächer: ${listAsString}</span><br>`;
           optionsLabel.textContent = message;
-          optionsList.appendChild(listItem); 
+          optionsList.appendChild(listItem);
+          addSchoolToMap(school);
       }
     } else if (!profileFilter && subjectFilter) { // only subject filter
       // we display the name of the school with the list of profiles that offer the selected subject
@@ -85,7 +88,8 @@ function displayKurzPlan(schoolList, optionsLabel, optionsList, message) {
           const listAsString = profilesList.join(", ");
           listItem.innerHTML = `${school.schoolName} <br><span class="small-text">Profile: ${listAsString}</span><br>`;
           optionsLabel.textContent = message;
-          optionsList.appendChild(listItem); 
+          optionsList.appendChild(listItem);
+          addSchoolToMap(school);
       }
     } else {
       if (school.profiles.some((profile) => (profile.profileName === profileFilter && profile.subjects.includes(subjectFilter)))) {
@@ -95,6 +99,7 @@ function displayKurzPlan(schoolList, optionsLabel, optionsList, message) {
           listItem.innerHTML = `${school.schoolName}`;
           optionsLabel.textContent = message;
           optionsList.appendChild(listItem);
+          addSchoolToMap(school);
       }   
     }
   }); 
