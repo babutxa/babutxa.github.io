@@ -6,7 +6,7 @@ function initMap() {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
     
-    var marker = L.marker(school.position).addTo(map);
+    var marker = L.marker([47.372266770573944, 8.53810067665972]).addTo(map);
 }
 
 function addSchoolToMap(school) {
