@@ -103,10 +103,7 @@ function displayKurzPlan(schoolList, optionsLabel, optionsList, message) {
 
 function filterAndDisplayDataAdvanced() {
   const fromFilter = document.getElementById("fromFilter").value; 
-  if (!fromFilter) {
-    return;
-  }
-
+  
   // here we have fromFilter selected
   const currentOptionsLabel = document.getElementById("currentOptionsLabel");
   currentOptionsLabel.textContent = ""; // Clear previous text
@@ -119,6 +116,10 @@ function filterAndDisplayDataAdvanced() {
   const futureOptionsList = document.getElementById("futureOptionsList");
   futureOptionsList.innerHTML = ""; // Clear the previous list
   
+  if (!fromFilter) {
+    return;
+  }
+ 
   const schoolList = getSchoolsFrom(fromFilter);
   if (fromFilter === "6Prima") {
     displayLangPlan(schoolList, currentOptionsLabel, currentOptionsList, "Untergymnasium Optionen:");  // schools with untergymi     
