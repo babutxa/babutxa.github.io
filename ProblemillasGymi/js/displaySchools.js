@@ -148,6 +148,8 @@ function filterAndDisplayData() {
   const futureOptionsList = document.getElementById("futureOptionsList");
   futureOptionsList.innerHTML = ""; // Clear the previous list
 
+  clearMarkers();
+
   let fromFilter = document.getElementById("fromFilter").value;  
   const profileFilter = document.getElementById("profileFilter").value;
   const subjectFilter = document.getElementById("subjectFilter").value;
