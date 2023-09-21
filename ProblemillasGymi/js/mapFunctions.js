@@ -5,9 +5,10 @@ function initMap() {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
+    
+    var marker = L.marker(school.position).addTo(map);
 }
 
 function addSchoolToMap(school) {
-    var map = L.map('map');
     var marker = L.marker(school.position).addTo(map);
 }
