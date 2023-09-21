@@ -1,14 +1,17 @@
-var map;
+var map = L.map('map').setView([47.372266770573944, 8.53810067665972], 13);  // Centered in Zurich;
+var markers = L.layerGroup();
 
 function initMap() {
-    map = L.map('map').setView([47.372266770573944, 8.53810067665972], 13);  // Centered in Zurich
-    
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 }
 
-function addSchoolToMap(school) {
-    var marker = L.marker(school.position).addTo(map);
+function addSchoolToMap(school) {    
+    var marker = L.marker(school.position).addTo(markers);
+}
+
+function clearMarkers() {
+    markers.clearLayers();
 }
