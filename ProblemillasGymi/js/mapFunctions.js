@@ -1,5 +1,5 @@
 function initMap() {
-    var map = L.map('map').setView([51.505, -0.09], 13);
+    var map = L.map('map').setView([47.372266770573944, 8.53810067665972], 13);  // Centered in Zurich
     
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
