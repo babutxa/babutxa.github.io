@@ -7,6 +7,6 @@ function initMap() {
     }).addTo(map);
 }
 
-function addSchoolToMap(school)
+function addSchoolToMap(school) {
     var marker = L.marker(school.position).addTo(map);
 }
