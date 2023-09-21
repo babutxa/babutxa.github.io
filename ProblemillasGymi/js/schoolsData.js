@@ -6,7 +6,8 @@ const schoolsData = [
     "profiles": [
       {"profileName": "WR",  "subjects": ["WR"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["It", "E"]},
     ],
-    "immersion": ["Ze"],  
+    "immersion": ["Ze"],
+    "position": [47.49611906798705, 8.730307342393047],
   },
   {
     "schoolName": "Kantonsschule Enge",
@@ -15,7 +16,8 @@ const schoolsData = [
       {"profileName": "N",  "subjects": ["It", "E", "Sp", "Ru"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["It", "E"]}, 
       {"profileName": "WR", "subjects": ["WR"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F", "It"], "sprache3": ["E"]} 
     ],
-    "immersion": ["Ze"], 
+    "immersion": ["Ze"],
+    "position": [47.36488210103682, 8.527873980888542],
   },
   {
     "schoolName": "Kantonsschule Freudenberg (KFR)",
@@ -26,7 +28,8 @@ const schoolsData = [
       {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi"], "sprache2": ["F"], "sprache3": ["It", "E"]}, 
       {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]}
     ],
-    "immersion": ["Zf"] 
+    "immersion": ["Zf"],
+    "position": [47.36513848417601, 8.527926144825612],
   },
   {
     "schoolName": "(*) Liceo Artistico at KFR",
@@ -34,7 +37,8 @@ const schoolsData = [
     "profiles": [
       {"profileName": "M", "subjects": ["BG"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["It"], "sprache3": ["F", "E"]}
     ],
-    "immersion": ["Zi"]
+    "immersion": ["Zi"],
+    "position": [47.36609038863689, 8.53005056939869],
   },
   {
     "schoolName": "Kantonsschule Hohe Promenade",
@@ -44,7 +48,8 @@ const schoolsData = [
       {"profileName": "A",  "subjects": ["L", "Gr", "It", "E", "Sp", "Ru"], "from": ["2Gymi"], "sprache2": ["F"], "sprache3": ["It", "E", "Gr", "L"]}, 
       {"profileName": "N",  "subjects": ["It", "E", "Sp", "Ru"], "from": ["2Gymi"], "sprache2": ["F"], "sprache3": ["It", "E"]}, 
     ],
-    "immersion": ["Ze"] 
+    "immersion": ["Ze"],
+    "position": [47.36900436670727, 8.548606840387116],
   }, 
   {
     "schoolName": "Kantonsschule Hottingen",
@@ -52,7 +57,8 @@ const schoolsData = [
     "profiles": [ 
       {"profileName": "WR", "subjects": ["WR"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]}, 
     ],
-    "immersion": ["Ze"]
+    "immersion": ["Ze"],
+    "position": [47.3687854714518, 8.552840705890937],
   },
   {
     "schoolName": "Kantonsschule Im Lee",
@@ -63,7 +69,8 @@ const schoolsData = [
       {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]},
       {"profileName": "M",  "subjects": ["BG", "Mu"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]}
     ],
-    "immersion": ["Ze"]
+    "immersion": ["Ze"],
+    "position": [47.50444668070266, 8.739521959165634],
   },
   {
     "schoolName": "Kantonsschule Küsnacht",
@@ -73,7 +80,8 @@ const schoolsData = [
       {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["It", "E"]}, 
       {"profileName": "M", "subjects": ["BG", "Mu"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["It", "E"]}
     ],
-    "immersion": ["Ze"]
+    "immersion": ["Ze"],
+    "position": [47.316833911136506, 8.582539324879274],  
   }, 
   {
     "schoolName": "Kantonsschule Limmattal",
@@ -86,7 +94,8 @@ const schoolsData = [
       {"profileName": "WR",  "subjects": ["WR"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F", "It"], "sprache3": ["E"]},
       {"profileName": "M",  "subjects": ["BG", "Mu"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F", "It"], "sprache3": ["E"]}
     ],
-    "immersion": ["Ze"]
+    "immersion": ["Ze"],
+    "position": [47.393111665608856, 8.424939351836551],  
   },
   {
     "schoolName": "Literargymnasium Rämibühl",
@@ -96,7 +105,8 @@ const schoolsData = [
       {"profileName": "A",  "subjects": ["L", "Gr", "It", "E", "Sp"], "from": ["2Gymi"], "sprache2": ["F"], "sprache3": ["It", "E", "Gr", "L"]}, 
       {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi"], "sprache2": ["F"], "sprache3": ["E"]}
     ],
-    "immersion": ["Ze", "IB"] 
+    "immersion": ["Ze", "IB"],
+    "position": [47.371417157104915, 8.553804930734753],  
   }, 
   {
     "schoolName": "MNG Rämibühl",
@@ -104,7 +114,8 @@ const schoolsData = [
     "profiles": [
       {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F", "It"], "sprache3": ["E"]},
     ],
-    "immersion": ["Ze"] 
+    "immersion": ["Ze"],
+    "position": [47.37220019772362, 8.552156476636824],
   }, 
   {
     "schoolName": "(*) Kunst und Sportgymnasium am MNG Rämibül",
@@ -115,7 +126,8 @@ const schoolsData = [
       {"profileName": "MN", "subjects": ["BC"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]}, 
       {"profileName": "M", "subjects": ["Mu"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]}
     ],
-    "immersion": []
+    "immersion": [],
+    "position": [47.37220019772362, 8.552156476636824],
   }, 
   {
     "schoolName": "Realgymnasium Rämibühl",
@@ -125,7 +137,8 @@ const schoolsData = [
       {"profileName": "A",  "subjects": ["L", "Gr", "E"], "from": ["2Gymi"], "sprache2": ["F"], "sprache3": ["It", "E", "L"]}, 
       {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi"], "sprache2": ["F"], "sprache3": ["It", "E"]}
     ],
-    "immersion": ["Ze", "IB"] 
+    "immersion": ["Ze", "IB"],
+    "position": [47.37171981853398, 8.55354394883393],  
   }, 
   {
     "schoolName": "Kantonsschule Rychenberg",
@@ -135,7 +148,8 @@ const schoolsData = [
       {"profileName": "A",  "subjects": ["L", "Gr", "It", "E", "Sp", "Ru"], "from": ["2Gymi"], "sprache2": ["F"], "sprache3": ["It", "E", "L"]}, 
       {"profileName": "N",  "subjects": ["It", "E", "Sp", "Ru"], "from": ["2Gymi"], "sprache2": ["F"], "sprache3": ["It", "E"]}
     ],
-    "immersion": ["Ze"] 
+    "immersion": ["Ze"],
+    "position": [47.505273092772306, 8.737250728802746],  
   },   
   {
     "schoolName": "Kantonsschule Stadelhofen",
@@ -146,7 +160,8 @@ const schoolsData = [
       {"profileName": "MN", "subjects": ["BC"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]},
       {"profileName": "M",  "subjects": ["BG", "Mu"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]}
     ],
-    "immersion": ["Ze"]
+    "immersion": ["Ze"],
+    "position": [47.36767277359999, 8.5492972193073],  
   },
   {
     "schoolName": "Kantonsschule Uetikon am See",
@@ -158,7 +173,8 @@ const schoolsData = [
       {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]},
       {"profileName": "WR",  "subjects": ["WR"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]}
     ],
-    "immersion": []
+    "immersion": [],
+    "position": [47.264155074893054, 8.67897476701721],  
   },
   {
     "schoolName": "Kantonsschule Uster",
@@ -171,7 +187,8 @@ const schoolsData = [
       {"profileName": "WR",  "subjects": ["WR"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F", "It"], "sprache3": ["E"]},
       {"profileName": "M",  "subjects": ["BG", "Mu"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F", "It"], "sprache3": ["E"]}
     ],
-    "immersion": ["Ze"]
+    "immersion": ["Ze"],
+    "position": [47.34883948673819, 8.708346732349666],  
   },
   {
     "schoolName": "Kantonsschule Wiedikon",
@@ -182,7 +199,8 @@ const schoolsData = [
       {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi"], "sprache2": ["F", "It"], "sprache3": ["It", "E"]}, 
       {"profileName": "M", "subjects": ["BG", "Mu"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F", "It"], "sprache3": ["It", "E"]}
     ],
-    "immersion": ["Ze"] 
+    "immersion": ["Ze"],
+    "position": [47.36894516062086, 8.515584547469924],
   }, 
   {
     "schoolName": "Kantonsschule Zimmerberg",
@@ -194,7 +212,8 @@ const schoolsData = [
       {"profileName": "MN", "subjects": ["PM", "BC"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]}, 
       {"profileName": "WR", "subjects": ["WR"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]} 
     ],
-    "immersion": []
+    "immersion": [],
+    "position": [47.24032823893281, 8.639488502618745],
   }, 
   {
     "schoolName": "Kantonsschule Zürcher Oberland",
@@ -207,7 +226,8 @@ const schoolsData = [
       {"profileName": "WR",  "subjects": ["WR"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]},
       {"profileName": "M",  "subjects": ["BG", "Mu"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]}
     ],
-    "immersion": []
+    "immersion": [],
+    "position": [47.31821061414312, 8.796618308308469],
   },
   {
     "schoolName": "Kantonsschule Zürcher Unterland",
@@ -220,7 +240,8 @@ const schoolsData = [
       {"profileName": "WR",  "subjects": ["WR"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]},
       {"profileName": "M",  "subjects": ["BG", "Mu"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]}
     ],
-    "immersion": ["Ze"]
+    "immersion": ["Ze"],
+    "position": [47.518412388466345, 8.547765404450336],
   }, 
   {
     "schoolName": "Kantonsschule Zürich Nord",
@@ -233,7 +254,8 @@ const schoolsData = [
       {"profileName": "WR", "subjects": ["WR"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]}, 
       {"profileName": "M", "subjects": ["BG", "Mu"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]}
     ],
-    "immersion": ["Ze", "Zf"] 
+    "immersion": ["Ze", "Zf"],
+    "position": [47.408407322673284, 8.535663533765137],
   }, 
 
 
