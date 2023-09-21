@@ -104,8 +104,6 @@ function displayKurzPlan(schoolList, optionsLabel, optionsList, message) {
 function filterAndDisplayDataAdvanced() {
   const fromFilter = document.getElementById("fromFilter").value; 
   if (!fromFilter) {
-    const currentOptionsLabel = document.getElementById("currentOptionsLabel");
-    currentOptionsLabel.textContent = "select fromFilter!!";
     return;
   }
 
