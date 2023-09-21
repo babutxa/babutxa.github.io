@@ -120,6 +120,9 @@ function filterAndDisplayDataAdvanced() {
   futureOptionsLabel.textContent = ""; // Clear previous text
   const futureOptionsList = document.getElementById("futureOptionsList");
   futureOptionsList.innerHTML = ""; // Clear the previous list
+
+  console.log("before clear markers");
+  clearMarkers();
   
   if (!fromFilter) {
     return;
@@ -135,7 +138,7 @@ function filterAndDisplayDataAdvanced() {
   }
 }
 
-
+/*
 // Function to display the filtered schoolsData on the web page
 function filterAndDisplayData() {
   const currentOptionsLabel = document.getElementById("currentOptionsLabel");
@@ -147,9 +150,6 @@ function filterAndDisplayData() {
   futureOptionsLabel.textContent = ""; // Clear previous text
   const futureOptionsList = document.getElementById("futureOptionsList");
   futureOptionsList.innerHTML = ""; // Clear the previous list
-
-  console.log("before clear markers");
-  clearMarkers();
 
   let fromFilter = document.getElementById("fromFilter").value;  
   const profileFilter = document.getElementById("profileFilter").value;
@@ -240,5 +240,5 @@ function displaySchools(profileFilter) {
     }
   });
 }
-
+*/
 
