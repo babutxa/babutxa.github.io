@@ -12,7 +12,8 @@ function initMap() {
 }
 
 function addSchoolToMap(school) {    
-    var marker = L.marker(school.position).addTo(markers);
+    var marker = L.marker(school.position);
+    markers.addLayer(marker);
 }
 
 function clearMarkers() {
