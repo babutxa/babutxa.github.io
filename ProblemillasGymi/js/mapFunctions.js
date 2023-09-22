@@ -15,11 +15,11 @@ function clearMarkers() {
     markers.clearLayers();
 }
 
-function addSchoolsToMap(schoolList) {
+function addSchoolsToMap(schoolList, color) {
     var latlngs = [];
     schoolList.forEach((school) => {
         latlngs.push(school.position);
-        markers.addLayer(createMarkerWithCustomIcon(school.position, "#00ff00"));
+        markers.addLayer(createMarkerWithCustomIcon(school.position, color));
     });
                         
     var bounds = L.latLngBounds(latlngs);
