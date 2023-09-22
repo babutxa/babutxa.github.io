@@ -27,8 +27,6 @@ function addSchoolsToMap(schoolList, color, opacity) {
 }
 
 function createMarkerWithCustomIcon(position, color1, opacity1, color2, opacity2) {
-    console.log(color);
-    
     // Create an SVG element
     const svgElem = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svgElem.setAttribute("height", "60");
