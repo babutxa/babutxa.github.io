@@ -33,7 +33,7 @@ function createMarkerWithCustomIcon(position, color) {
     // Create a custom svg icon
     const customIcon = L.divIcon({
       className: 'custom-icon', // You can apply custom CSS styling if needed
-      html: svgElement;
+      html: svgElement
     });
 
     
