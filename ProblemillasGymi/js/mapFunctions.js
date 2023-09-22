@@ -19,7 +19,7 @@ function addSchoolsToMap(schoolList) {
     var latlngs = [];
     schoolList.forEach((school) => {
         latlngs.push(school.position);
-        markers.addLayer(createMarkerWithCustomIcon(school.position), "#00ff00");
+        markers.addLayer(createMarkerWithCustomIcon(school.position, "#00ff00"));
     });
                         
     var bounds = L.latLngBounds(latlngs);
