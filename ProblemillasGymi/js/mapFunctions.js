@@ -18,7 +18,7 @@ function clearMarkers() {
 function addSchoolsToMap(schoolList) {
     var latlngs = [];
     schoolList.forEach((school) => {
-        latlngs.append(school.position);
+        latlngs.push(school.position);
         
         var marker = L.marker(school.position);
         markers.addLayer(marker);
