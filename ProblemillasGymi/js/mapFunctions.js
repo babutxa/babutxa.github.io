@@ -45,7 +45,7 @@ function createMarkerWithCustomIcon(position, color1, opacity1, color2, opacity2
     const path2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path2.setAttribute("d", "M12 3C9.2386 3 7 5.2386 7 8c0 2.761 2.2386 5 5 5 2.761 0 5-2.239 5-5 0-2.7614-2.239-5-5-5zm0 2c1.3431 0 3 1.3431 3 3s-1.343 3-3 3-3-1.3431-3-3 1.343-3 3-3z");
     path2.setAttribute("fill", color2);
-    path1.setAttribute("fill-opacity", opacity2);
+    path2.setAttribute("fill-opacity", opacity2);
     
     // Append the paths to the group
     group.appendChild(path1);
