@@ -48,55 +48,74 @@ function displayLangPlan(schoolList, optionsLabel, optionsList, message) {
   });
 }
 
+function getFilteredSchools(schoolList, optionsLabel, optionsList) {
+  const profileFilter = document.getElementById("profileFilter").value;
+  const subjectFilter = document.getElementById("subjectFilter").value;
+
+  // no filters available
+  if (!profileFilter && !subjectFilter) {
+    return schoolList;
+  }
+
+  let result = [];
+  schoolList.forEach((school) => {
+
+    if (profileFilter && !subjectFilter) { // only profile filter
+      const subjectsList = getSubjectsOfACertainProfile(school, profileFilter);
+      if (subjectsList.length > 0) {
+          result.push(school);
+      }
+    } else if (!profileFilter && subjectFilter) { // only subject filter
+      const profilesList = getProfilesWithACertainSubject(school, subjectFilter);
+      if (profilesList.length > 0) {
+          result.push(school);
+      }
+    } else {
+      if (school.profiles.some((profile) => (profile.profileName === profileFilter && profile.subjects.includes(subjectFilter)))) {
+          result.push(school);
+      }   
+    }
+  }); 
+  return result;
+}
                      
-function displayKurzPlan(schoolList, optionsLabel, optionsList, message) {
+function displayKurzPlan(schoolList, optionsLabel, optionsList, optionsLabelText) {
   const profileFilter = document.getElementById("profileFilter").value;
   const subjectFilter = document.getElementById("subjectFilter").value;
   
   schoolList.forEach((school) => {
 
-    if (!profileFilter && !subjectFilter) { // no filters
-        // TODO: improve the display 
-        // we just display the name of the school
+    const listItem = document.createElement("li");
+    listItem.id = "my-li";
+    
+    if (!profileFilter && !subjectFilter) { // no filters 
+        // name of the school + all profiles
         const profileList = getProfiles(school);
         const listAsString = profileList.join(", ");
-        const listItem = document.createElement("li");
-        listItem.id = "my-li";
         listItem.innerHTML = `${school.schoolName} <br><span class="small-text">Profile: ${listAsString}</span><br>`;
-        optionsLabel.textContent = message;
-        optionsList.appendChild(listItem);
     } else if (profileFilter && !subjectFilter) { // only profile filter
-      // we display the name of the school with the selected profile and the list of subject it offers
+      // name of the school + list of subjects offered in the selected profile
       const subjectsList = getSubjectsOfACertainProfile(school, profileFilter);
       if (subjectsList.length > 0) {
-          const listItem = document.createElement("li");
-          listItem.id = "my-li";
           const listAsString = subjectsList.join(", ");
           listItem.innerHTML = `${school.schoolName} <br><span class="small-text">Schwerpunktfächer: ${listAsString}</span><br>`;
-          optionsLabel.textContent = message;
-          optionsList.appendChild(listItem);
       }
     } else if (!profileFilter && subjectFilter) { // only subject filter
-      // we display the name of the school with the list of profiles that offer the selected subject
+      // name of the school + list of profiles that offer the selected subject
       const profilesList = getProfilesWithACertainSubject(school, subjectFilter);
       if (profilesList.length > 0) {
-          const listItem = document.createElement("li");
-          listItem.id = "my-li";
           const listAsString = profilesList.join(", ");
           listItem.innerHTML = `${school.schoolName} <br><span class="small-text">Profile: ${listAsString}</span><br>`;
-          optionsLabel.textContent = message;
-          optionsList.appendChild(listItem);
       }
     } else {
       if (school.profiles.some((profile) => (profile.profileName === profileFilter && profile.subjects.includes(subjectFilter)))) {
-        // we just display the name of the school
-          const listItem = document.createElement("li");
-          listItem.id = "my-li";
+          // we just display the name of the school
           listItem.innerHTML = `${school.schoolName}`;
-          optionsLabel.textContent = message;
-          optionsList.appendChild(listItem);
+
       }   
     }
+    optionsLabel.textContent = optionsLabelText;
+    optionsList.appendChild(listItem);   
   }); 
 }
 
