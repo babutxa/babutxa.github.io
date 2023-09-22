@@ -31,8 +31,8 @@ function createMarkerWithCustomIcon(position, color, opacity) {
     
     // Create an SVG element
     const svgElem = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svgElem.setAttribute("height", "24");
-    svgElem.setAttribute("width", "24");
+    svgElem.setAttribute("height", "60");
+    svgElem.setAttribute("width", "60");
     
     // Create a <g> (group) element to contain the paths
     const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
