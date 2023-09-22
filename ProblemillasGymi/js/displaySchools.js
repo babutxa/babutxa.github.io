@@ -38,17 +38,7 @@ function getProfilesWithACertainSubject(school, subject) {
   return result; // empty if the school does not provide the subject in any profile
 }
 
-
-function displayLangPlan(schoolList, optionsLabel, optionsList, message) {
-  schoolList.forEach((school) => {
-    const listItem = document.createElement("li");
-    listItem.textContent = `${school.schoolName}`;
-    optionsLabel.textContent = message;
-    optionsList.appendChild(listItem);
-  });
-}
-
-function getFilteredSchools(schoolList, optionsLabel, optionsList) {
+function getFilteredSchools(schoolList) {
   const profileFilter = document.getElementById("profileFilter").value;
   const subjectFilter = document.getElementById("subjectFilter").value;
 
@@ -77,6 +67,15 @@ function getFilteredSchools(schoolList, optionsLabel, optionsList) {
     }
   }); 
   return result;
+}
+
+function displayLangPlan(schoolList, optionsLabel, optionsList, message) {
+  schoolList.forEach((school) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = `${school.schoolName}`;
+    optionsLabel.textContent = message;
+    optionsList.appendChild(listItem);
+  });
 }
                      
 function displayKurzPlan(schoolList, optionsLabel, optionsList, optionsLabelText) {
@@ -111,7 +110,6 @@ function displayKurzPlan(schoolList, optionsLabel, optionsList, optionsLabelText
       if (school.profiles.some((profile) => (profile.profileName === profileFilter && profile.subjects.includes(subjectFilter)))) {
           // we just display the name of the school
           listItem.innerHTML = `${school.schoolName}`;
-
       }   
     }
     optionsLabel.textContent = optionsLabelText;
@@ -144,12 +142,14 @@ function filterAndDisplayDataAdvanced() {
  
   const schoolList = getSchoolsFrom(fromFilter);
   if (fromFilter === "6Prima") {
-    displayLangPlan(schoolList, currentOptionsLabel, currentOptionsList, "Untergymnasium Optionen:");  // schools with untergymi
-    addSchoolsToMap(schoolList);
+    const unterGymiSchools = getFilteredSchools(schoolList);
+    displayLangPlan(unterGymiSchools, currentOptionsLabel, currentOptionsList, "Untergymnasium Optionen:");  // schools with untergymi
+    addSchoolsToMap(unterGymiSchools);
     
     const futureSchools = getSchoolsFrom("2Gymi")
-    displayKurzPlan(futureSchools, futureOptionsLabel, futureOptionsList, "Optionen nach 2 Jahren Langgymnasium:");
-    addSchoolsToMap(futureSchools);
+    const hochGymiSchools = getFilteredSchools(futureSchools);
+    displayKurzPlan(hochGymiSchools, futureOptionsLabel, futureOptionsList, "Optionen nach 2 Jahren Langgymnasium:");
+    addSchoolsToMap(hochGymiSchools);
   } else if (fromFilter === "2Gymi" || fromFilter === "2or3Sek") {
     displayKurzPlan(schoolList, currentOptionsLabel, currentOptionsList, "Optionen:");
     addSchoolsToMap(schoolList);
