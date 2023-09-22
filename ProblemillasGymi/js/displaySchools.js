@@ -119,7 +119,8 @@ function filterAndDisplayDataAdvanced() {
   clearMarkers();
   
   if (!fromFilter) {
-    return;
+    displayKurzPlan(schoolsData, currentOptionsLabel, currentOptionsList, "Optionen:");
+    addSchoolsToMap(schoolsData);
   }
  
   const schoolList = getSchoolsFrom(fromFilter);
