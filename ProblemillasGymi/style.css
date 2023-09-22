@@ -15,10 +15,6 @@ body
   font-family: consolas, monospace;
 }
 
-.color-change {
-    fill: red;
-}
-
 #my-li {
     padding-bottom: 10px;
 }
