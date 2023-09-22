@@ -150,8 +150,9 @@ function filterAndDisplayDataAdvanced() {
     displayKurzPlan(hochGymiSchools, futureOptionsLabel, futureOptionsList, "Optionen nach 2 Jahren Langgymnasium:");
     addSchoolsToMap(hochGymiSchools);
   } else if (fromFilter === "2Gymi" || fromFilter === "2or3Sek") {
-    displayKurzPlan(schoolList, currentOptionsLabel, currentOptionsList, "Optionen:");
-    addSchoolsToMap(schoolList);
+    const filteredSchools = getFilteredSchools(schoolList);
+    displayKurzPlan(filteredSchools, currentOptionsLabel, currentOptionsList, "Optionen:");
+    addSchoolsToMap(filteredSchools);
   }    
 }
 
