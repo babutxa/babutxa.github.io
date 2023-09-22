@@ -11,11 +11,19 @@ function initMap() {
     }).addTo(map);
 }
 
-function addSchoolToMap(school) {    
-    var marker = L.marker(school.position);
-    markers.addLayer(marker);
-}
-
 function clearMarkers() {
     markers.clearLayers();
+}
+
+function addSchoolsToMap(schoolList) {
+    var latlngs = [];
+    schoolsList.forEach((school) => {
+        latlngs.append(school.position);
+        
+        var marker = L.marker(school.position);
+        markers.addLayer(marker);
+    });
+                        
+    var bounds = l.latLngBounds(latlngs);
+    map.fitBounds(bounds);
 }
