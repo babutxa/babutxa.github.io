@@ -137,22 +137,22 @@ function filterAndDisplayDataAdvanced() {
   
   if (!fromFilter) {
     displayKurzPlan(schoolsData, currentOptionsLabel, currentOptionsList, "Optionen:");
-    addSchoolsToMap(schoolsData, "#fda172", "0.8");
+    addSchoolsToMap(schoolsData, "#fda172", "1.0", "#fda172", "1.0");
   }
  
   const schoolList = getSchoolsFrom(fromFilter);
   if (fromFilter === "6Prima") {
     displayLangPlan(schoolList, currentOptionsLabel, currentOptionsList, "Untergymnasium Optionen:");  // schools with untergymi
-    addSchoolsToMap(schoolList, "#fda172", "1.0");
+    addSchoolsToMap(schoolList, "#fda172", "1.0", "#fda172", "0.0");
     
     const futureSchools = getSchoolsFrom("2Gymi")
     const hochGymiSchools = getFilteredSchools(futureSchools);
     displayKurzPlan(hochGymiSchools, futureOptionsLabel, futureOptionsList, "Optionen nach 2 Jahren Langgymnasium:");
-    addSchoolsToMap(hochGymiSchools, "#0492c2", "0.5");
+    addSchoolsToMap(hochGymiSchools, "#0492c2", "0.0", "#0492c2", "1.0");
   } else if (fromFilter === "2Gymi" || fromFilter === "2or3Sek") {
     const filteredSchools = getFilteredSchools(schoolList);
     displayKurzPlan(filteredSchools, currentOptionsLabel, currentOptionsList, "Optionen:");
-    addSchoolsToMap(filteredSchools, "#0492c2", "1.0");
+    addSchoolsToMap(filteredSchools, "#0492c2", "1.0", "#0492c2", "1.0");
   }    
 }
 
