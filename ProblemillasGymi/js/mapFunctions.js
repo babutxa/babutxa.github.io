@@ -24,6 +24,6 @@ function addSchoolsToMap(schoolList) {
         markers.addLayer(marker);
     });
                         
-    var bounds = l.latLngBounds(latlngs);
+    var bounds = L.latLngBounds(latlngs);
     map.fitBounds(bounds);
 }
