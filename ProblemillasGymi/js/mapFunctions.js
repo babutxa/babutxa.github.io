@@ -26,7 +26,7 @@ function addSchoolsToMap(schoolList, color, opacity) {
     map.fitBounds(bounds);
 }
 
-function createMarkerWithCustomIcon(position, color, opacity) {
+function createMarkerWithCustomIcon(position, color1, opacity1, color2, opacity2) {
     console.log(color);
     
     // Create an SVG element
@@ -40,14 +40,14 @@ function createMarkerWithCustomIcon(position, color, opacity) {
     // Create the first <path> element
     const path1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path1.setAttribute("d", "M12 0C7.5817 0 4 3.5817 4 8c0 1.421.3816 2.75 1.0312 3.906.1079.192.221.381.3438.563l6.625 11.531 6.625-11.531c.102-.151.19-.311.281-.469l.063-.094c.649-1.156 1.031-2.485 1.031-3.906 0-4.4183-3.582-8-8-8zm0 4c2.209 0 4 1.7909 4 4 0 2.209-1.791 4-4 4-2.2091 0-4-1.791-4-4 0-2.2091 1.7909-4 4-4z");
-    path1.setAttribute("fill", color);
-    path1.setAttribute("fill-opacity", opacity);
+    path1.setAttribute("fill", color1);
+    path1.setAttribute("fill-opacity", opacity1);
     
     // Create the second <path> element
     const path2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path2.setAttribute("d", "M12 3C9.2386 3 7 5.2386 7 8c0 2.761 2.2386 5 5 5 2.761 0 5-2.239 5-5 0-2.7614-2.239-5-5-5zm0 2c1.3431 0 3 1.3431 3 3s-1.343 3-3 3-3-1.3431-3-3 1.343-3 3-3z");
-    path2.setAttribute("fill", color);
-    path1.setAttribute("fill-opacity", opacity);
+    path2.setAttribute("fill", color2);
+    path1.setAttribute("fill-opacity", opacity2);
     
     // Append the paths to the group
     group.appendChild(path1);
