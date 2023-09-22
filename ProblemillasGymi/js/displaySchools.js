@@ -142,9 +142,8 @@ function filterAndDisplayDataAdvanced() {
  
   const schoolList = getSchoolsFrom(fromFilter);
   if (fromFilter === "6Prima") {
-    const unterGymiSchools = getFilteredSchools(schoolList);
-    displayLangPlan(unterGymiSchools, currentOptionsLabel, currentOptionsList, "Untergymnasium Optionen:");  // schools with untergymi
-    addSchoolsToMap(unterGymiSchools);
+    displayLangPlan(schoolList, currentOptionsLabel, currentOptionsList, "Untergymnasium Optionen:");  // schools with untergymi
+    addSchoolsToMap(schoolList);
     
     const futureSchools = getSchoolsFrom("2Gymi")
     const hochGymiSchools = getFilteredSchools(futureSchools);
