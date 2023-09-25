@@ -41,15 +41,13 @@ function createMarkerWithCustomIcon(school, size, color1, opacity1, color2, opac
     console.log(size);
     console.log(scale);
     console.log(pathData1);
-    console.log(snapPath1);
-    
+    console.log(snapPath1.attr("d"));
     
     // Create an SVG element
     const svgElem = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svgElem.setAttribute("height", size); // Set the height
     svgElem.setAttribute("width", size);   // Set the width
-
-    
+   
     // Create a <g> (group) element to contain the paths
     const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
     
@@ -71,7 +69,6 @@ function createMarkerWithCustomIcon(school, size, color1, opacity1, color2, opac
     
     // Append the group to the SVG
     svgElem.appendChild(group);
-
         
     // Create a custom svg icon
     const customIcon = L.divIcon({
@@ -79,7 +76,6 @@ function createMarkerWithCustomIcon(school, size, color1, opacity1, color2, opac
       html: svgElem
     });
 
-    
     
     // Create a marker with the custom icon
     var marker = L.marker(school.position, {icon: customIcon});
