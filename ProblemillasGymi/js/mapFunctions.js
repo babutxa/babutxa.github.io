@@ -52,7 +52,7 @@ function createMarkerWithCustomIcon(school, size, color1, opacity1, color2, opac
     svgElem.setAttribute("height", 24); // Set the height
     svgElem.setAttribute("width", 24);   // Set the width
     svgElem.appendChild(group);
-    svgElem.setAttribute("transform", "scale(3.5)");
+    //svgElem.setAttribute("transform", "scale(3.5)");
     
     // Create a custom svg icon
     const customIcon = L.divIcon({
