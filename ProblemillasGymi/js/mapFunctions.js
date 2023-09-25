@@ -60,14 +60,18 @@ function createMarkerWithCustomIcon(school, color1, opacity1, color2, opacity2) 
       iconAnchor: [12, 24]   
     });
 
-    const webUrl = "https://www." + school.web;
+    let webUrl = school.web;
+    // Add "https://" if it's missing
+    if (!webUrl.startsWith("http://") && !webUrl.startsWith("https://")) {
+        webUrl = "https://" + webUrl;
+    }
     
     // Create the popup
     const popupContent = `
         <div>
             <h3>${school.schoolName}</h3>
             <p>${school.address}</p>
-            <a href=${webUr}l>${school.web}</a>
+            <a href=${webUrl}l>${school.web}</a>
         </div>`;
     
     const customPopup = L.popup({
