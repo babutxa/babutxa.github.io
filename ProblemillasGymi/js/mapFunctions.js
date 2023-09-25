@@ -19,14 +19,14 @@ function addSchoolsToMap(schoolList, color1, opacity1, color2, opacity2) {
     var latlngs = [];
     schoolList.forEach((school) => {
         latlngs.push(school.position);
-        markers.addLayer(createMarkerWithCustomIcon(school.position, color1, opacity1, color2, opacity2));
+        markers.addLayer(createMarkerWithCustomIcon(school, color1, opacity1, color2, opacity2));
     });
                         
     var bounds = L.latLngBounds(latlngs);
     map.fitBounds(bounds);
 }
 
-function createMarkerWithCustomIcon(position, color1, opacity1, color2, opacity2) {
+function createMarkerWithCustomIcon(school, color1, opacity1, color2, opacity2) {
     // Create an SVG element
     const svgElem = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svgElem.setAttribute("height", "60");
@@ -64,6 +64,7 @@ function createMarkerWithCustomIcon(position, color1, opacity1, color2, opacity2
     
     
     // Create a marker with the custom icon
-    var marker = L.marker(position, {icon: customIcon});  
+    var marker = L.marker(school.position, {icon: customIcon})
+        .bindPopups(school.name);
     return marker;
 }
