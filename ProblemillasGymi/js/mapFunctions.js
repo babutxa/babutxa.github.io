@@ -57,7 +57,8 @@ function createMarkerWithCustomIcon(school, size, color1, opacity1, color2, opac
     // Create a custom svg icon
     const customIcon = L.divIcon({
       className: 'custom-icon', // You can apply custom CSS styling if needed
-      html: svgElem
+      html: svgElem,
+      iconAnchor: [12, 24]   
     });
 
     
