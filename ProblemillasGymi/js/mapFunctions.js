@@ -71,7 +71,7 @@ function createMarkerWithCustomIcon(school, color1, opacity1, color2, opacity2) 
         <div>
             <h3>${school.schoolName}</h3>
             <p>${school.address}</p>
-            <a href=${webUrl}l>${school.web}</a>
+            <a href=${webUrl}>${school.web}</a>
         </div>`;
     
     const customPopup = L.popup({
