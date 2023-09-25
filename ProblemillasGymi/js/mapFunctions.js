@@ -31,8 +31,8 @@ function createMarkerWithCustomIcon(school, scale, color1, opacity1, color2, opa
     const pathData2 = "M12 3C9.2386 3 7 5.2386 7 8c0 2.761 2.2386 5 5 5 2.761 0 5-2.239 5-5 0-2.7614-2.239-5-5-5zm0 2c1.3431 0 3 1.3431 3 3s-1.343 3-3 3-3-1.3431-3-3 1.343-3 3-3z";
     const paper = Snap(0,0);
 
-    const stapPath1 = paper.path(pathData1);
-    stapPath1.transform('s${scale}');
+    const snapPath1 = paper.path(pathData1);
+    snapPath1.transform('s${scale}');
     
     const snapPath2 = paper.path(pathData2);
     snapPath2.transform('s${scale}');
@@ -52,7 +52,7 @@ function createMarkerWithCustomIcon(school, scale, color1, opacity1, color2, opa
     
     // Create the second <path> element
     const path2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    path2.setAttribute("d", ScapPath2.attr("d"));
+    path2.setAttribute("d", snapPath2.attr("d"));
     path2.setAttribute("fill", color2);
     path2.setAttribute("fill-opacity", opacity2);
     
