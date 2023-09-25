@@ -171,7 +171,7 @@ const schoolsData = [
       {"profileName": "M", "subjects": ["Mu"], "from": ["2Gymi", "2or3Sek"], "sprache2": ["F"], "sprache3": ["E"]}
     ],
     "immersion": [],
-    "position": [47.37220019772362, 8.552156476636824],
+    "position": [47.37220019772362, 8.55185381522],
     "address": "Rämistrasse 58, 8001 Zürich",
     "telephone": "044 265 64 64",
     "email": "rektorat@mng.ch",
