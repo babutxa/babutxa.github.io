@@ -140,7 +140,7 @@ function filterAndDisplayDataAdvanced() {
  
   if (!fromFilter) {
     displayKurzPlan(schoolsData, currentOptionsLabel, currentOptionsList, "Optionen:");
-    addSchoolsToMap(schoolsData, 2, royalBlue, "1.0", royalBlue, "1.0");
+    addSchoolsToMap(schoolsData, 10, royalBlue, "1.0", royalBlue, "1.0");
   }
  
   const schoolList = getSchoolsFrom(fromFilter);
@@ -159,107 +159,5 @@ function filterAndDisplayDataAdvanced() {
   }    
 }
 
-/*
-// Function to display the filtered schoolsData on the web page
-function filterAndDisplayData() {
-  const currentOptionsLabel = document.getElementById("currentOptionsLabel");
-  currentOptionsLabel.textContent = ""; // Clear previous text
-  const currentOptionsList = document.getElementById("currentOptionsList");
-  currentOptionsList.innerHTML = ""; // Clear the previous list
 
-  const futureOptionsLabel = document.getElementById("futureOptionsLabel");
-  futureOptionsLabel.textContent = ""; // Clear previous text
-  const futureOptionsList = document.getElementById("futureOptionsList");
-  futureOptionsList.innerHTML = ""; // Clear the previous list
-
-  let fromFilter = document.getElementById("fromFilter").value;  
-  const profileFilter = document.getElementById("profileFilter").value;
-  const subjectFilter = document.getElementById("subjectFilter").value;
-  
-  schoolsData.forEach((school) => {
-  
-    let addItem = false;
-    let futureOption = false;
-    if (!fromFilter) {
-      addItem = true;
-    } else {
-      if (fromFilter === "6Prima") {
-        if (school.profiles.some((profile) => profile.from.includes(fromFilter))) {
-          addItem = true; // long gymi school
-        } 
-
-        // we also want to add the future options taking account the profile and subjects
-        if (!profileFilter && !subjectFilter) { // no filters
-          futureOption = false;
-        } else if (profileFilter && !subjectFilter) { // only profile filter
-          if (school.profiles.some((profile) => profile.from.includes("2Gymi")) &&
-              school.profiles.some((profile) => profile.profileName === profileFilter)) {
-            futureOption = true;
-          }    
-        } else if (!profileFilter && subjectFilter) { // only subject filter
-          if (school.profiles.some((profile) => profile.from.includes("2Gymi")) &&
-              school.profiles.some((profile) => profile.subjects.includes(subjectFilter))) {
-            futureOption = true;
-          }   
-        } else {
-          if (school.profiles.some((profile) => profile.from.includes("2Gymi")) &&
-              school.profiles.some((profile) => profile.profileName === profileFilter && profile.subjects.includes(subjectFilter))) {
-            futureOption = true;
-          }   
-        }
-      } else {
-        if (!profileFilter && !subjectFilter) { // no filters
-          if (school.profiles.some((profile) => profile.from.includes(fromFilter))) {
-            addItem = true;
-          } 
-        } else if (profileFilter && !subjectFilter) { // only profile filter
-          if (school.profiles.some((profile) => profile.from.includes(fromFilter) && profile.profileName === profileFilter)) {
-            addItem = true;
-          }    
-        } else if (!profileFilter && subjectFilter) { // only subject filter
-          if (school.profiles.some((profile) => profile.from.includes(fromFilter) && profile.subjects.includes(subjectFilter))) {
-            addItem = true;
-          }   
-        } else {
-          if (school.profiles.some((profile) => (profile.from.includes(fromFilter) && profile.profileName === profileFilter && profile.subjects.includes(subjectFilter)))) {
-            addItem = true;
-          }   
-        }
-      }
-    }
-    
-    if (addItem){
-      const listItem = document.createElement("li");
-      listItem.textContent = `${school.schoolName}`;
-      if (futureOption) {
-        listItem.textContent = `${school.schoolName} (SO)`;
-      }
-      currentOptionsLabel.textContent = "Optionen für das nächste Jahr:";
-      currentOptionsList.appendChild(listItem);
-    } else if (futureOption) {
-      const listItem = document.createElement("li");
-      listItem.textContent = `${school.schoolName}`;
-      futureOptionsLabel.textContent = "Optionen nach 2 Jahren Langgymnasium:";
-      futureOptionsList.appendChild(listItem);
-    }
-
-    
-  });
-}
-
-
-// Function to display the list of schools based on the selected profile filter.
-function displaySchools(profileFilter) {
-  const schoolList = document.getElementById("schoolList");
-  schoolList.innerHTML = ""; // Clear the previous list
-
-  schoolsData.forEach((school) => {
-    if (!profileFilter || school.profiles.some((profile) => profile.profileName === profileFilter)) {
-      const listItem = document.createElement("li");
-      listItem.textContent = `${school.schoolName} - Profiles: ${school.profiles.map(profile => profile.profileName).join(", ")}`;
-      schoolList.appendChild(listItem);
-    }
-  });
-}
-*/
 
