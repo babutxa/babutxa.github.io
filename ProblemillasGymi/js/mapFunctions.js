@@ -32,10 +32,10 @@ function createMarkerWithCustomIcon(school, scale, color1, opacity1, color2, opa
     const paper = Snap(0,0);
 
     const stapPath1 = paper.path(pathData1);
-    stapPath1.trasform('s${scale}');
+    stapPath1.transform('s${scale}');
     
     const snapPath2 = paper.path(pathData2);
-    snapPath2.trasform('s${scale}');
+    snapPath2.transform('s${scale}');
     
     
     // Create an SVG element
