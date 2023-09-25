@@ -134,6 +134,21 @@ const schoolsData = [
     "web": "kslzh.ch",
   },
   {
+    "schoolName": "Realgymnasium Rämibühl",
+    "city": "Zürich",
+    "profiles": [
+      {"profileName": "U",  "subjects": [], "from": ["6Prima"], "sprache2": [], "sprache3": []},
+      {"profileName": "A",  "subjects": ["L", "Gr", "E"], "from": ["2Gymi"], "sprache2": ["F"], "sprache3": ["It", "E", "L"]}, 
+      {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi"], "sprache2": ["F"], "sprache3": ["It", "E"]}
+    ],
+    "immersion": ["Ze", "IB"],
+    "position": [47.37171981853398, 8.55354394883393], 
+    "address": "Rämistrasse 56, 8001 Zürich",
+    "telephone": "044 265 63 12",
+    "email": "sekretariat@rgzh.ch",
+    "web": "rgzh.ch",
+  }, 
+  {
     "schoolName": "Literargymnasium Rämibühl",
     "city": "Zürich",
     "profiles": [
@@ -176,21 +191,6 @@ const schoolsData = [
     "telephone": "044 265 64 64",
     "email": "rektorat@mng.ch",
     "web": "ksgymnasium.ch",
-  }, 
-  {
-    "schoolName": "Realgymnasium Rämibühl",
-    "city": "Zürich",
-    "profiles": [
-      {"profileName": "U",  "subjects": [], "from": ["6Prima"], "sprache2": [], "sprache3": []},
-      {"profileName": "A",  "subjects": ["L", "Gr", "E"], "from": ["2Gymi"], "sprache2": ["F"], "sprache3": ["It", "E", "L"]}, 
-      {"profileName": "N",  "subjects": ["It", "E", "Sp"], "from": ["2Gymi"], "sprache2": ["F"], "sprache3": ["It", "E"]}
-    ],
-    "immersion": ["Ze", "IB"],
-    "position": [47.37171981853398, 8.55354394883393], 
-    "address": "Rämistrasse 56, 8001 Zürich",
-    "telephone": "044 265 63 12",
-    "email": "sekretariat@rgzh.ch",
-    "web": "rgzh.ch",
   }, 
   {
     "schoolName": "Kantonsschule Rychenberg",
