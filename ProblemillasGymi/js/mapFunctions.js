@@ -38,7 +38,7 @@ function createMarkerWithCustomIcon(school, size, color1, opacity1, color2, opac
     
     // Create the second <path> element
     const path2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    path2.setAttribute("d", pathData1);
+    path2.setAttribute("d", pathData2);
     path2.setAttribute("fill", color2);
     path2.setAttribute("fill-opacity", opacity2);
     
