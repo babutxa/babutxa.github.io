@@ -20,7 +20,6 @@ function addSchoolsToMap(schoolList, size, color1, opacity1, color2, opacity2) {
     schoolList.forEach((school) => {
         latlngs.push(school.position);
         markers.addLayer(createMarkerWithCustomIcon(school, size, color1, opacity1, color2, opacity2));
-        createMarkerWithCustomIcon2(school, size, color1, opacity1, color2, opacity2)
     });
                         
     var bounds = L.latLngBounds(latlngs);
@@ -50,8 +49,8 @@ function createMarkerWithCustomIcon(school, size, color1, opacity1, color2, opac
     
     // Create an SVG element
     const svgElem = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svgElem.setAttribute("height", size); // Set the height
-    svgElem.setAttribute("width", size);   // Set the width
+    svgElem.setAttribute("height", 16); // Set the height
+    svgElem.setAttribute("width", 16);   // Set the width
     svgElem.appendChild(group);
     svgElem.setAttribute("transform", "scale(3.5)");
     
