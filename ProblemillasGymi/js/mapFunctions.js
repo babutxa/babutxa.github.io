@@ -38,6 +38,8 @@ function createMarkerWithCustomIcon(school, size, color1, opacity1, color2, opac
     snapPath2.transform('s${scale}');
 
     const scale = size / 16.0;
+    console.log(size);
+    console.log(scale);
     
     
     // Create an SVG element
