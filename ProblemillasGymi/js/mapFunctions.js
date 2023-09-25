@@ -59,12 +59,18 @@ function createMarkerWithCustomIcon(school, color1, opacity1, color2, opacity2) 
       html: svgElem,
       iconAnchor: [12, 24]   
     });
-
+    
+    // Create a popup with an offset
+    const customPopup = L.popup({
+        closeButton: false, // Optional: Show or hide the close button
+        autoClose: false,   // Optional: Auto-close the popup on interaction
+        minWidth: 200,      // Optional: Set a minimum width for the popup
+        offset: [0, -20],   // Define the offset as [x, y] (adjust as needed)
+    }).setContent(school.schoolName);
     
     // Create a marker with the custom icon
     var marker = L.marker(school.position, {icon: customIcon});
-    marker.bindPopup(school.schoolName);
-    marker.popup.offset = L.point(0, 12);
+    marker.bindPopup(customPopup);
     return marker;
 }
 
