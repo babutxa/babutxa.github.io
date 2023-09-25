@@ -64,7 +64,7 @@ function createMarkerWithCustomIcon(school, color1, opacity1, color2, opacity2) 
     
     
     // Create a marker with the custom icon
-    var marker = L.marker(school.position, {icon: customIcon})
-        .bindPopups(school.schoolName);
+    var marker = L.marker(school.position, {icon: customIcon});
+    marker.bindPopup(school.schoolName);
     return marker;
 }
