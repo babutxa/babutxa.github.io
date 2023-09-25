@@ -135,9 +135,9 @@ function filterAndDisplayDataAdvanced() {
 
   clearMarkers();
 
-  const orange = "#F04A00";
-  const royalBlue = "#4169E1";
-  
+  const royalBlue = "#4169E1";  // color for unterGymis
+  const orange = "#F04A00";   // color for hochGymis
+ 
   if (!fromFilter) {
     displayKurzPlan(schoolsData, currentOptionsLabel, currentOptionsList, "Optionen:");
     addSchoolsToMap(schoolsData, royalBlue, "1.0", royalBlue, "1.0");
@@ -155,7 +155,7 @@ function filterAndDisplayDataAdvanced() {
   } else if (fromFilter === "2Gymi" || fromFilter === "2or3Sek") {
     const filteredSchools = getFilteredSchools(schoolList);
     displayKurzPlan(filteredSchools, currentOptionsLabel, currentOptionsList, "Optionen:");
-    addSchoolsToMap(filteredSchools, royalBlue, "1.0", royalBlue, "1.0");
+    addSchoolsToMap(filteredSchools, orange, "1.0", orange, "0.0");
   }    
 }
 
