@@ -27,6 +27,7 @@ function addSchoolsToMap(schoolList, color1, opacity1, color2, opacity2) {
 }
 
 function getPopupContent(school){
+    const profiles = getProfiles(school);
     const popupContent = `
         <div>
             <h3>${school.schoolName}</h3>
