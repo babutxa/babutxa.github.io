@@ -1,43 +1,4 @@
 
-// filter schools reacheable form a certain point
-function getSchoolsFrom(fromFilter) {
-  let result = [];
-  schoolsData.forEach((school) => {
-    if (school.profiles.some((profile) => profile.from.includes(fromFilter))) {
-      result.push(school);
-    } 
-  });
-  return result;
-}
-
-function getProfiles(school) {
-  let result = [];
-  school.profiles.forEach((profile) => {
-    result.push(profile.profileName);
-  });
-  return result;
-}
-
-function getSubjectsOfACertainProfile(school, profi) {
-  for (const profile of school.profiles) {
-    if (profile.profileName === profi) {
-      const listAsString = profile.subjects.join(", ");
-      return profile.subjects;
-    }
-  }
-  return []; // empty if the school does not have the profi                
-}
-
-function getProfilesWithACertainSubject(school, subject) {
-  let result = [];
-  school.profiles.forEach((profile) => {
-    if (profile.subjects.includes(subject)) {
-      result.push(profile.profileName);
-    }
-  });
-  return result; // empty if the school does not provide the subject in any profile
-}
-
 function getFilteredSchools(schoolList) {
   const profileFilter = document.getElementById("profileFilter").value;
   const subjectFilter = document.getElementById("subjectFilter").value;
