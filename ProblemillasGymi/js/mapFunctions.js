@@ -71,12 +71,6 @@ function createMarkerWithCustomIcon(school, color1, opacity1, color2, opacity2) 
       html: svgElem,
       iconAnchor: [12, 24]   
     });
-
-    let webUrl = school.web;
-    // Add "https://" if it's missing
-    if (!webUrl.startsWith("http://") && !webUrl.startsWith("https://")) {
-        webUrl = "https://" + webUrl;
-    }
     
     // Create the popup
     const popupContent = getPopupContent(school);
