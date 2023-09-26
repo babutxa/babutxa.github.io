@@ -39,7 +39,7 @@ function getPopupContent(school){
         <div>
             <h3>${school.schoolName}</h3>
             <p>
-            ${listAsString}<br>
+            Profile: ${listAsString}<br>
             ${school.address}<br>
             <a href=${webUrl}>${school.web}</a>
             </p>
