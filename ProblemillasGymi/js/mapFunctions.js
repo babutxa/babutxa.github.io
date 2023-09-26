@@ -27,6 +27,12 @@ function addSchoolsToMap(schoolList, color1, opacity1, color2, opacity2) {
 }
 
 function getPopupContent(school){
+    let webUrl = school.web;
+    // Add "https://" if it's missing
+    if (!webUrl.startsWith("http://") && !webUrl.startsWith("https://")) {
+        webUrl = "https://" + webUrl;
+    }
+    
     const profiles = getProfiles(school);
     const popupContent = `
         <div>
