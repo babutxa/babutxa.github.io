@@ -79,7 +79,7 @@ function createMarkerWithCustomIcon(school, color1, opacity1, color2, opacity2) 
     }
     
     // Create the popup
-    const popupContent = getPopupContent(shcool);
+    const popupContent = getPopupContent(school);
     
     const customPopup = L.popup({
         offset: [0, -20],   // Define the offset as [x, y] (adjust as needed)
