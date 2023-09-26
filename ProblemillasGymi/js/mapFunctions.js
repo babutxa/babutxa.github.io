@@ -34,11 +34,13 @@ function getPopupContent(school){
     }
     
     const profiles = getProfiles(school);
+    const listAsString = profileList.join(", ");
     const popupContent = `
         <div>
             <h3>${school.schoolName}</h3>
-            <p>${school.address}<br>
-                <a href=${webUrl}>${school.web}</a>
+            <p>profilesList<br>
+            ${school.address}<br>
+            <a href=${webUrl}>${school.web}</a>
             </p>
         </div>`;
     return popupContent;
