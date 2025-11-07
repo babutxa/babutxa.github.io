@@ -27,4 +27,16 @@ em
 {
     font-weight: bold;
 }
+
+.last-updated {
+    margin-top: 30px;
+    text-align: center;
+    color: #666;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.last-updated p {
+    margin: 0;
+}
 Footer

@@ -1,103 +1,126 @@
-
 <!DOCTYPE html>
 <html>
-
-<head>    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gymi Planner</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
 
     <!-- snap svg -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
 
-
     <!-- leaflet css -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
 
     <!-- leaflet javascript -->
-     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
 
     <!-- my scripts -->
     <script src="js/schoolsData.js"></script>
     <script src="js/mapFunctions.js"></script>
     <script src="js/displaySchools.js"></script>
-</head>
+  </head>
 
-    
-<body>
+  <body>
+    <div id="map"></div>
+    <script>
+      initMap();
+    </script>
 
-<div id="map"></div>
-<script>
-    initMap();
-</script>
-    
-<div class="container">
+    <div class="container">
+      <h1>Welche Gymnasien soll ich besuchen?</h1>
 
-<h1>Welche Gymnasien soll ich besuchen?</h1>
+      <label for="fromFilter">Möglicher Eintritt:</label>
+      <select id="fromFilter" class="custom-select">
+        <option value="">-- Wählen Sie Ihre Option --</option>
+        <option value="6Prima">Nach 6 Jahren Primarschule</option>
+        <option value="2Gymi">Nach 2 Jahren Langgymnasium</option>
+        <option value="2or3Sek">
+          Nach 2 oder 3 Jahren Sekundarstufe A oder B
+        </option>
+        <option value="Other">
+          Für Studierende mit Berufsausbildung oder Berufspraxis
+        </option>
+      </select>
 
-<label for="fromFilter">Möglicher Eintritt:</label>
-<select id="fromFilter" class="custom-select">
-    <option Value="">-- Wählen Sie Ihre Option --</option>
-    <option value="6Prima">Nach 6 Jahren Primarschule</option>
-    <option value="2Gymi">Nach 2 Jahren Langgymnasium</option>
-    <option value="2or3Sek">Nach 2 oder 3 Jahren Sekundarstufe A oder B</option>
-    <option value="Other">Für Studierende mit Berufsausbildung oder Berufspraxis</option>
-</select>
+      <br />
+      <label for="profileFilter">Profil:</label>
+      <select id="profileFilter" class="custom-select">
+        <option value="">Alle Profile</option>
+        <option value="A">A - Altsprachliches Profil</option>
+        <option value="N">N - Neusprachliches Profil</option>
+        <option value="MN">
+          MN - Mathematisch-Naturwissenschaftliches Profil
+        </option>
+        <option value="WR">WR - Wirtschaftlich-Rechtliches Profil</option>
+        <option value="M">M - Musisches Profil</option>
+      </select>
 
-<br>
-<label for="profileFilter">Profil:</label>
-<select id="profileFilter" class="custom-select">
-    <option value="">Alle Profile</option>
-    <option value="A">A - Altsprachliches Profil</option>
-    <option value="N">N - Neusprachliches Profil</option>
-    <option value="MN">MN - Mathematisch-Naturwissenschaftliches Profil</option>
-    <option value="WR">WR - Wirtschaftlich-Rechtliches Profil</option>
-    <option value="M">M - Musisches Profil</option>
-</select>
+      <br />
+      <label for="subjectFilter">Schwerpunktfächer:</label>
+      <select id="subjectFilter" class="custom-select">
+        <option value="">Alle Fächer</option>
+        <option value="L">L - Latein</option>
+        <option value="Gr">Gr - Griechisch</option>
+        <option value="It">It - Italienisch</option>
+        <option value="F">F - Französisch</option>
+        <option value="E">E - Englisch</option>
+        <option value="Sp">Sp - Spanisch</option>
+        <option value="Ru">Ru - Russisch</option>
+        <option value="PM">PM - Physik und Anwendungen der Mathematik</option>
+        <option value="BC">BC - Biologie und Chemie</option>
+        <option value="WR">WR - Wirtschaft und Recht</option>
+        <option value="BG">BG - Bildnerisches Gestalten</option>
+        <option value="Mu">Mu - Musik</option>
+      </select>
 
-<br>
-<label for="subjectFilter">Schwerpunktfächer:</label>
-<select id="subjectFilter" class="custom-select">
-    <option value="">Alle Fächer</option>
-    <option value="L">L - Latein</option>
-    <option value="Gr">Gr - Griechisch</option>
-    <option value="It">It - Italienisch</option>
-    <option value="F">F - Französisch</option>
-    <option value="E">E - Englisch</option>
-    <option value="Sp">Sp - Spanisch</option>
-    <option value="Ru">Ru - Russisch</option>
-    <option value="PM">PM - Physik und Anwendungen der Mathematik</option>
-    <option value="BC">BC - Biologie und Chemie</option>
-    <option value="WR">WR - Wirtschaft und Recht</option>
-    <option value="BG">BG - Bildnerisches Gestalten</option>
-    <option value="Mu">Mu - Musik</option>
-</select>
-  
-<h2 id="currentOptionsLabel">Optionen für das nächste Jahr:</h2>
-<ul id="currentOptionsList"></ul>
+      <h2 id="currentOptionsLabel">Optionen für das nächste Jahr:</h2>
+      <ul id="currentOptionsList"></ul>
 
-<br>
-<h2 id="futureOptionsLabel"></h2>
-<ul id="futureOptionsList"></ul>
-    
-<script>
-    // Event listener for filter selection changes.
-    document.getElementById("fromFilter").addEventListener("change", filterAndDisplayDataAdvanced);
-    document.getElementById("profileFilter").addEventListener("change", filterAndDisplayDataAdvanced);
-    document.getElementById("subjectFilter").addEventListener("change", filterAndDisplayDataAdvanced);
-    filterAndDisplayDataAdvanced();
-</script>
-    
-</div>
-        
-</body>
+      <br />
+      <h2 id="futureOptionsLabel"></h2>
+      <ul id="futureOptionsList"></ul>
+
+      <script>
+        // Event listener for filter selection changes.
+        document
+          .getElementById("fromFilter")
+          .addEventListener("change", filterAndDisplayDataAdvanced);
+        document
+          .getElementById("profileFilter")
+          .addEventListener("change", filterAndDisplayDataAdvanced);
+        document
+          .getElementById("subjectFilter")
+          .addEventListener("change", filterAndDisplayDataAdvanced);
+        filterAndDisplayDataAdvanced();
+      </script>
+
+      <div class="last-updated">
+        <p>
+          <small
+            >Schuldaten zuletzt überprüft und aktualisiert: November 2025</small
+          >
+        </p>
+        <p>
+          <small>Kontaktdaten und Profile der Zürcher Kantonsschulen</small>
+        </p>
+      </div>
+    </div>
+  </body>
 </html>
