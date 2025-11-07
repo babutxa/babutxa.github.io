@@ -13,6 +13,11 @@ body
 .custom-select {
   position: relative;
   font-family: consolas, monospace;
+  padding: 5px;
+  margin: 5px 5px 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: white;
 }
 
 #my-li {
@@ -28,6 +33,19 @@ em
     font-weight: bold;
 }
 
+/* Consistent label styling */
+label {
+    font-family: consolas, monospace;
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+/* Form elements container for better alignment */
+.form-group {
+    margin-bottom: 15px;
+}
+
 .last-updated {
     margin-top: 30px;
     text-align: center;
@@ -38,5 +56,24 @@ em
 
 .last-updated p {
     margin: 0;
+}
+
+.custom-input {
+    font-family: consolas, monospace;
+    padding: 5px;
+    margin: 5px 5px 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: white;
+    width: 80px;
+}
+
+
+
+.distance-info,
+.travel-info {
+    font-size: 11px;
+    color: #666;
+    font-style: italic;
 }
 Footer
