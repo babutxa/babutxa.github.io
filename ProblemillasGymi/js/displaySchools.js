@@ -268,3 +268,96 @@ async function applyTravelTimeSorting(schools) {
   }
   return schools;
 }
+
+// Get all possible subjects for a specific profile across all schools
+function getSubjectsForProfile(profileName) {
+  const subjects = new Set();
+
+  schoolsData.forEach((school) => {
+    school.profiles.forEach((profile) => {
+      if (profile.profileName === profileName) {
+        profile.subjects.forEach((subject) => {
+          subjects.add(subject);
+        });
+      }
+    });
+  });
+
+  return Array.from(subjects).sort();
+}
+
+// Subject dropdown options with German descriptions
+const subjectOptions = {
+  "": "Alle Fächer",
+  L: "L - Latein",
+  Gr: "Gr - Griechisch",
+  It: "It - Italienisch",
+  F: "F - Französisch",
+  E: "E - Englisch",
+  Sp: "Sp - Spanisch",
+  Ru: "Ru - Russisch",
+  PM: "PM - Physik und Anwendungen der Mathematik",
+  BC: "BC - Biologie und Chemie",
+  WR: "WR - Wirtschaft und Recht",
+  BG: "BG - Bildnerisches Gestalten",
+  Mu: "Mu - Musik",
+  PPP: "PPP - Philosophie/Pädagogik/Psychologie",
+};
+
+// Filter subject dropdown based on selected profile
+function filterSubjectsByProfile() {
+  const profileFilter = document.getElementById("profileFilter").value;
+  const subjectDropdown = document.getElementById("subjectFilter");
+  const currentValue = subjectDropdown.value;
+
+  // Clear current options
+  subjectDropdown.innerHTML = "";
+
+  // Always add "All subjects" option
+  const allOption = document.createElement("option");
+  allOption.value = "";
+  allOption.textContent = subjectOptions[""];
+  subjectDropdown.appendChild(allOption);
+
+  let availableSubjects = [];
+
+  if (profileFilter) {
+    // Get subjects for specific profile
+    availableSubjects = getSubjectsForProfile(profileFilter);
+  } else {
+    // Show all subjects if no profile selected
+    availableSubjects = Object.keys(subjectOptions).filter((key) => key !== "");
+  }
+
+  // Add options for available subjects
+  availableSubjects.forEach((subject) => {
+    if (subjectOptions[subject]) {
+      const option = document.createElement("option");
+      option.value = subject;
+      option.textContent = subjectOptions[subject];
+      subjectDropdown.appendChild(option);
+    }
+  });
+
+  // Try to maintain current selection if it's still valid
+  if (currentValue && availableSubjects.includes(currentValue)) {
+    subjectDropdown.value = currentValue;
+  } else {
+    subjectDropdown.value = ""; // Reset to "All subjects"
+  }
+
+  // Trigger filtering update
+  filterAndDisplayDataAdvanced();
+}
+
+// Initialize dropdowns and event listeners
+document.addEventListener("DOMContentLoaded", function () {
+  // Initialize subject dropdown with all options
+  filterSubjectsByProfile();
+
+  // Add profile change listener
+  const profileDropdown = document.getElementById("profileFilter");
+  if (profileDropdown) {
+    profileDropdown.addEventListener("change", filterSubjectsByProfile);
+  }
+});
