@@ -33,6 +33,7 @@
 
     <!-- my scripts -->
     <script src="js/schoolsData.js"></script>
+    <script src="js/travelTimeUtils.js"></script>
     <script src="js/mapFunctions.js"></script>
     <script src="js/displaySchools.js"></script>
   </head>
@@ -46,7 +47,7 @@
     <div class="container">
       <h1>Welche Gymnasien soll ich besuchen?</h1>
 
-      <label for="fromFilter">Möglicher Eintritt:</label>
+      <label for="fromFilter">Möglicher Eintritt:</label><br />
       <select id="fromFilter" class="custom-select">
         <option value="">-- Wählen Sie Ihre Option --</option>
         <option value="6Prima">Nach 6 Jahren Primarschule</option>
@@ -59,8 +60,8 @@
         </option>
       </select>
 
-      <br />
-      <label for="profileFilter">Profil:</label>
+      <br /><br />
+      <label for="profileFilter">Profil:</label><br />
       <select id="profileFilter" class="custom-select">
         <option value="">Alle Profile</option>
         <option value="A">A - Altsprachliches Profil</option>
@@ -72,8 +73,8 @@
         <option value="M">M - Musisches Profil</option>
       </select>
 
-      <br />
-      <label for="subjectFilter">Schwerpunktfächer:</label>
+      <br /><br />
+      <label for="subjectFilter">Schwerpunktfächer:</label><br />
       <select id="subjectFilter" class="custom-select">
         <option value="">Alle Fächer</option>
         <option value="L">L - Latein</option>
@@ -89,6 +90,16 @@
         <option value="BG">BG - Bildnerisches Gestalten</option>
         <option value="Mu">Mu - Musik</option>
       </select>
+
+      <br /><br />
+      <label for="postalCode">Postleitzahl (für ÖV-Reisezeit):</label><br />
+      <input
+        type="text"
+        id="postalCode"
+        class="custom-input"
+        placeholder="z.B. 8001 (automatische Sortierung nach ÖV-Zeit)"
+        maxlength="4"
+      />
 
       <h2 id="currentOptionsLabel">Optionen für das nächste Jahr:</h2>
       <ul id="currentOptionsList"></ul>
@@ -108,6 +119,9 @@
         document
           .getElementById("subjectFilter")
           .addEventListener("change", filterAndDisplayDataAdvanced);
+        document
+          .getElementById("postalCode")
+          .addEventListener("input", handlePostalCodeChange);
         filterAndDisplayDataAdvanced();
       </script>
 
