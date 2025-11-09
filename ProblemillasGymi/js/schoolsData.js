@@ -1,5 +1,5 @@
 // Fetch and store your school data (e.g., from a JSON file or an API).
-// Last Updated: November 7, 2025
+// Last Updated: November 9, 2025 - Added PPP profile to multiple schools
 const schoolsData = [
   {
     schoolName: "Kantonsschule Büelrain",
@@ -14,7 +14,7 @@ const schoolsData = [
       },
       {
         profileName: "PPP",
-        subjects: ["PPP"],
+        subjects: ["P", "PP"],
         from: ["2Gymi", "2or3Sek"],
         sprache2: ["F"],
         sprache3: ["It", "E"],
@@ -44,6 +44,13 @@ const schoolsData = [
         from: ["2Gymi", "2or3Sek"],
         sprache2: ["F", "It"],
         sprache3: ["E"],
+      },
+      {
+        profileName: "PPP",
+        subjects: ["P", "PP"],
+        from: ["2Gymi", "2or3Sek"],
+        sprache2: ["F"],
+        sprache3: ["It", "E"],
       },
     ],
     immersion: ["Ze"],
@@ -156,6 +163,13 @@ const schoolsData = [
         sprache2: ["F"],
         sprache3: ["E"],
       },
+      {
+        profileName: "PPP",
+        subjects: ["P", "PP"],
+        from: ["2Gymi", "2or3Sek"],
+        sprache2: ["F"],
+        sprache3: ["E"],
+      },
     ],
     immersion: ["Ze"],
     position: [47.3687854714518, 8.552840705890937],
@@ -192,6 +206,13 @@ const schoolsData = [
       {
         profileName: "M",
         subjects: ["BG", "Mu"],
+        from: ["2Gymi", "2or3Sek"],
+        sprache2: ["F"],
+        sprache3: ["E"],
+      },
+      {
+        profileName: "PPP",
+        subjects: ["P", "PP"],
         from: ["2Gymi", "2or3Sek"],
         sprache2: ["F"],
         sprache3: ["E"],
@@ -349,6 +370,13 @@ const schoolsData = [
         sprache2: ["F"],
         sprache3: ["E"],
       },
+      {
+        profileName: "PPP",
+        subjects: ["P", "PP"],
+        from: ["2Gymi", "2or3Sek"],
+        sprache2: ["F"],
+        sprache3: ["E"],
+      },
     ],
     immersion: ["Ze", "IB"],
     position: [47.371417157104915, 8.553804930734753],
@@ -441,6 +469,13 @@ const schoolsData = [
         sprache2: ["F"],
         sprache3: ["It", "E"],
       },
+      {
+        profileName: "PPP",
+        subjects: ["P", "PP"],
+        from: ["2Gymi", "2or3Sek"],
+        sprache2: ["F"],
+        sprache3: ["It", "E"],
+      },
     ],
     immersion: ["Ze"],
     position: [47.505273092772306, 8.737250728802746],
@@ -524,6 +559,13 @@ const schoolsData = [
       {
         profileName: "WR",
         subjects: ["WR"],
+        from: ["2Gymi", "2or3Sek"],
+        sprache2: ["F"],
+        sprache3: ["E"],
+      },
+      {
+        profileName: "PPP",
+        subjects: ["P", "PP"],
         from: ["2Gymi", "2or3Sek"],
         sprache2: ["F"],
         sprache3: ["E"],
@@ -621,6 +663,13 @@ const schoolsData = [
         from: ["2Gymi", "2or3Sek"],
         sprache2: ["F", "It"],
         sprache3: ["It", "E"],
+      },
+      {
+        profileName: "PPP",
+        subjects: ["P", "PP"],
+        from: ["2Gymi", "2or3Sek"],
+        sprache2: ["F"],
+        sprache3: ["E"],
       },
     ],
     immersion: ["Ze"],

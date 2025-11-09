@@ -117,12 +117,15 @@ function displayKurzPlan(
       travelTimeText = ` <span class="travel-info">(${timeText})</span>`;
     }
 
+    let shouldAddToList = false;
+
     if (!profileFilter && !subjectFilter) {
       // no filters
       // name of the school + all profiles
       const profileList = getProfiles(school);
       const listAsString = profileList.join(", ");
       listItem.innerHTML = `${school.schoolName}${travelTimeText} <br><span class="small-text">Profile: ${listAsString}</span><br>`;
+      shouldAddToList = true;
     } else if (profileFilter && !subjectFilter) {
       // only profile filter
       // name of the school + list of subjects offered in the selected profile
@@ -130,6 +133,7 @@ function displayKurzPlan(
       if (subjectsList.length > 0) {
         const listAsString = subjectsList.join(", ");
         listItem.innerHTML = `${school.schoolName}${travelTimeText} <br><span class="small-text">Schwerpunktfächer: ${listAsString}</span><br>`;
+        shouldAddToList = true;
       }
     } else if (!profileFilter && subjectFilter) {
       // only subject filter
@@ -141,6 +145,7 @@ function displayKurzPlan(
       if (profilesList.length > 0) {
         const listAsString = profilesList.join(", ");
         listItem.innerHTML = `${school.schoolName}${travelTimeText} <br><span class="small-text">Profile: ${listAsString}</span><br>`;
+        shouldAddToList = true;
       }
     } else {
       if (
@@ -152,10 +157,15 @@ function displayKurzPlan(
       ) {
         // we just display the name of the school
         listItem.innerHTML = `${school.schoolName}${travelTimeText}`;
+        shouldAddToList = true;
       }
     }
-    optionsLabel.textContent = optionsLabelText;
-    optionsList.appendChild(listItem);
+
+    // Only add the list item if it has content
+    if (shouldAddToList) {
+      optionsLabel.textContent = optionsLabelText;
+      optionsList.appendChild(listItem);
+    }
   });
 }
 
@@ -301,7 +311,8 @@ const subjectOptions = {
   WR: "WR - Wirtschaft und Recht",
   BG: "BG - Bildnerisches Gestalten",
   Mu: "Mu - Musik",
-  PPP: "PPP - Philosophie/Pädagogik/Psychologie",
+  P: "P - Philosophie",
+  PP: "PP - Pädagogik & Psychologie",
 };
 
 // Filter subject dropdown based on selected profile
