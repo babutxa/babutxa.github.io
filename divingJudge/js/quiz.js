@@ -244,8 +244,8 @@ const questions = {
                 "Sum of middle 3 scores × DD × 0.6",
                 "Sum of middle 3 scores × DD"
             ],
-            correct: 2,
-            explanation: "Drop highest and lowest scores, sum the remaining 3 scores, multiply by DD, then multiply by 0.6 (the constant for 5 judges) to get the final score.",
+            correct: 3,
+            explanation: "Drop highest and lowest scores, sum the remaining 3 scores, and multiply by the degree of difficulty (DD) to get the final score.",
             finaRule: {
                 section: "7.5 & 7.8",
                 text: "When five (5) judges are used, the secretaries shall cancel the highest and the lowest award. The remaining awards are added and multiplied by the degree of difficulty.",
@@ -486,8 +486,8 @@ const questions = {
                 "Suma de les 3 puntuacions del mig × DD × 0,6",
                 "Suma de les 3 puntuacions del mig × DD"
             ],
-            correct: 2,
-            explanation: "S'eliminen les puntuacions més alta i més baixa, se sumen les 3 restants, es multipliquen pel DD i després per 0,6 (la constant per a 5 jutges) per obtenir la puntuació final.",
+            correct: 3,
+            explanation: "S'eliminen les puntuacions més alta i més baixa, se sumen les 3 restants, i es multipliquen pel grau de dificultat (DD) per obtenir la puntuació final.",
             finaRule: {
                 section: "7.5 & 7.8",
                 text: "Quan s'utilitzen cinc (5) jutges, els secretaris han de cancel·lar la puntuació més alta i la més baixa. Les puntuacions restants s'afegeixen i es multipliquen pel grau de dificultat.",
