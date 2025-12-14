@@ -1,0 +1,270 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.language-selector {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.lang-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 20px;
+    margin: 0 5px;
+    font-size: 0.9em;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.lang-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.lang-button.active {
+    background-color: white;
+    color: #667eea;
+    border-color: white;
+    font-weight: bold;
+}
+
+.header {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    margin: 10px 0;
+    font-size: 2.5em;
+}
+
+.header h2 {
+    margin: 5px 0;
+    font-weight: normal;
+    font-size: 1.5em;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#quiz-container {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+#start-screen {
+    text-align: center;
+}
+
+#start-screen p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+.custom-button {
+    background-color: #667eea;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.custom-button:hover {
+    background-color: #5568d3;
+}
+
+.rules-link-container {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.rules-link-container p {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.rules-link {
+    display: inline-block;
+    color: #667eea;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 10px 20px;
+    border: 2px solid #667eea;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.rules-link:hover {
+    background-color: #667eea;
+    color: white;
+}
+
+.progress {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+    font-weight: bold;
+    color: #666;
+}
+
+#question-container {
+    margin: 20px 0;
+}
+
+#question-text {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.answer-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s;
+}
+
+.answer-button:hover {
+    background-color: #e9ecef;
+    border-color: #667eea;
+}
+
+.answer-button.correct {
+    background-color: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+}
+
+.answer-button.incorrect {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+}
+
+.answer-button:disabled {
+    cursor: not-allowed;
+}
+
+#feedback {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+#feedback.correct {
+    background-color: #d4edda;
+    border-left: 4px solid #28a745;
+}
+
+#feedback.incorrect {
+    background-color: #f8d7da;
+    border-left: 4px solid #dc3545;
+}
+
+#feedback-text {
+    margin: 0 0 15px 0;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.fina-reference {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    border-left: 4px solid #667eea;
+}
+
+.fina-reference strong {
+    color: #667eea;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.fina-reference p {
+    margin: 5px 0;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.fina-reference a {
+    color: #667eea;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.fina-reference a:hover {
+    text-decoration: underline;
+}
+
+#results-screen {
+    text-align: center;
+}
+
+#results-screen h3 {
+    font-size: 2em;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.final-score {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+    margin: 20px 0;
+}
+
+#performance-message {
+    font-size: 1.2em;
+    margin: 20px 0 30px 0;
+    color: #666;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .header h2 {
+        font-size: 1.2em;
+    }
+
+    #quiz-container {
+        padding: 20px;
+    }
+
+    #question-text {
+        font-size: 1.1em;
+    }
+}
