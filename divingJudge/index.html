@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178419460-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-178419460-1');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w,d,s,l,i){
+            w[l]=w[l]||[];
+            w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+            var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PK9M7BD');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Diving Judge Practice - FINA Rules Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PK9M7BD"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="language-selector">
+    <button class="lang-button active" onclick="changeLanguage('en')">English</button>
+    <button class="lang-button" onclick="changeLanguage('ca')">Català</button>
+</div>
+
+<div class="header">
+    <h1 data-i18n="title">Diving Judge Practice</h1>
+    <h2 data-i18n="subtitle">FINA Rules Quiz</h2>
+</div>
+
+<div class="container">
+    <div id="quiz-container">
+        <div id="start-screen">
+            <p data-i18n="intro1">Test your knowledge of FINA diving rules!</p>
+            <p data-i18n="intro2">Answer questions about scoring, dive positions, degrees of difficulty, and judge responsibilities.</p>
+            <button class="custom-button" onclick="startQuiz()" data-i18n="startButton">Start Quiz</button>
+            <div class="rules-link-container">
+                <p data-i18n="rulesLinkText">Need to review the rules first?</p>
+                <a href="https://resources.fina.org/fina/document/2025/07/01/ed3110a4-2291-411d-8526-6f641bd9237a/Competition-Regulations_June-2025_Clean-updated-01.07.2025-.pdf#page=135" target="_blank" class="rules-link" data-i18n="rulesLinkButton">
+                    📖 View Official FINA Diving Rules
+                </a>
+            </div>
+        </div>
+
+        <div id="question-screen" style="display: none;">
+            <div class="progress">
+                <span id="question-number">Question 1 of 10</span>
+                <span id="score">Score: 0/0</span>
+            </div>
+
+            <div id="question-container">
+                <h3 id="question-text"></h3>
+                <div id="answers-container"></div>
+            </div>
+
+            <div id="feedback" style="display: none;">
+                <p id="feedback-text"></p>
+                <div id="fina-rule-reference" class="fina-reference"></div>
+                <button class="custom-button" onclick="nextQuestion()" data-i18n="nextButton">Next Question</button>
+            </div>
+        </div>
+
+        <div id="results-screen" style="display: none;">
+            <h3 data-i18n="quizComplete">Quiz Complete!</h3>
+            <p class="final-score"><span data-i18n="yourScore">Your Score:</span> <span id="final-score"></span></p>
+            <p id="performance-message"></p>
+            <button class="custom-button" onclick="restartQuiz()" data-i18n="tryAgain">Try Again</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/quiz.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+# FINA Diving Rules PDF - local copy for reference only
+divingJudge/FINA-Diving-Rules-June-2025.pdf
+divingJudge/*.pdf
+
+# Extracted pages from PDF
+divingJudge/extracted_pages/
