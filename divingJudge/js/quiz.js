@@ -669,7 +669,7 @@ function selectAnswer(selectedIndex) {
         finaRuleDiv.innerHTML = `
             <strong>${t.finaRule} ${question.finaRule.section}</strong>
             <p>"${question.finaRule.text}"</p>
-            <a href="pdfjs/web/viewer.html?file=../../FINA-Diving-Rules-June-2025.pdf#page=${question.finaRule.page}" target="_blank">
+            <a href="pdfjs/web/viewer.html?file=/divingJudge/FINA-Diving-Rules-June-2025.pdf#page=${question.finaRule.page}" target="_blank">
                 FINA Diving Rules - Page ${question.finaRule.page}
             </a>
         `;
