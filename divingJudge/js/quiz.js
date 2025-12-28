@@ -669,7 +669,7 @@ function selectAnswer(selectedIndex) {
         finaRuleDiv.innerHTML = `
             <strong>${t.finaRule} ${question.finaRule.section}</strong>
             <p>"${question.finaRule.text}"</p>
-            <a href="https://resources.fina.org/fina/document/2025/07/01/ed3110a4-2291-411d-8526-6f641bd9237a/Competition-Regulations_June-2025_Clean-updated-01.07.2025-.pdf#page=${question.finaRule.page}" target="_blank">
+            <a href="pdfjs/web/viewer.html?file=https://resources.fina.org/fina/document/2025/07/01/ed3110a4-2291-411d-8526-6f641bd9237a/Competition-Regulations_June-2025_Clean-updated-01.07.2025-.pdf#page=${question.finaRule.page}" target="_blank">
                 FINA Diving Rules - Page ${question.finaRule.page}
             </a>
         `;
