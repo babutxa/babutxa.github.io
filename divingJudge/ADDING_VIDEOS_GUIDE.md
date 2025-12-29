@@ -65,10 +65,9 @@ Example: https://www.youtube.com/embed/dQw4w9WgXcQ
 While watching the video, note:
 
 ### Required Information:
-- **Diver Name**: Usually shown on screen (e.g., "Quan Hongchan")
+- **Diver Name**: Usually shown on screen (e.g., "Quan Hongchan"), or "Unknown" if not visible
 - **Competition**: Event name (e.g., "World Championships 2024")
 - **Round**: Preliminary, Semifinal, or Final
-- **Dive Number**: Which dive in the competition (1-6 usually)
 - **Dive Code**: The 3-4 character code (e.g., "207C", "5253B")
 - **Height**: Platform/springboard height (e.g., "3m", "10m", "5m", "7.5m", "1m")
 - **Dive Description**: Full name (e.g., "Back 3½ Somersaults Tuck")
@@ -119,7 +118,6 @@ Copy this template and fill in your data:
   "diver": "Diver Name",
   "competition": "Competition Name 2024",
   "round": "Final",
-  "diveNumber": 5,
   "diveCode": "207C",
   "height": "3m",
   "description": "Back 3½ Somersaults Tuck",
@@ -136,10 +134,9 @@ Copy this template and fill in your data:
 |-------|-------------|---------|
 | `id` | Unique number (increment from last) | `4` |
 | `videoUrl` | YouTube embed URL | `"https://www.youtube.com/embed/dQw4w9WgXcQ"` |
-| `diver` | Diver's full name | `"Quan Hongchan"` |
+| `diver` | Diver's full name (or "Unknown") | `"Quan Hongchan"` or `"Unknown"` |
 | `competition` | Event name | `"World Championships 2024"` |
-| `round` | Competition round | `"Final"` or `"Semifinal"` |
-| `diveNumber` | Dive sequence number | `5` |
+| `round` | Competition round | `"Final"`, `"Semifinal"`, or `"Preliminary"` |
 | `diveCode` | Official dive code | `"207C"` |
 | `height` | Platform/springboard height | `"3m"`, `"10m"`, `"5m"`, `"7.5m"`, or `"1m"` |
 | `description` | Full dive description | `"Back 3½ Somersaults Tuck"` |
@@ -159,7 +156,6 @@ Copy this template and fill in your data:
       "diver": "Quan Hongchan",
       "competition": "Paris Olympics 2024",
       "round": "Final",
-      "diveNumber": 5,
       "diveCode": "207C",
       "height": "10m",
       "description": "Back 3½ Somersaults Tuck",
@@ -174,7 +170,6 @@ Copy this template and fill in your data:
       "diver": "Tom Daley",
       "competition": "World Championships 2024",
       "round": "Final",
-      "diveNumber": 3,
       "diveCode": "107B",
       "height": "3m",
       "description": "Forward 3½ Somersaults Pike",
@@ -246,11 +241,10 @@ https://babutxa.github.io/divingJudge/
 
 When adding a new dive, collect:
 - [ ] YouTube video ID
-- [ ] Timestamp (in seconds)
-- [ ] Diver name
+- [ ] Start and end timestamps (in seconds)
+- [ ] Diver name (or use "Unknown")
 - [ ] Competition name and year
-- [ ] Round (Final/Semifinal)
-- [ ] Dive number
+- [ ] Round (Final/Semifinal/Preliminary)
 - [ ] Dive code (e.g., 207C)
 - [ ] Platform/springboard height (1m, 3m, 5m, 7.5m, 10m)
 - [ ] Dive description
@@ -338,7 +332,6 @@ Average: 9.71 (drop 10.0, 10.0, 9.5, 9.5 → average 9.5, 9.5, 10.0)
   "diver": "Quan Hongchan",
   "competition": "Paris Olympics 2024",
   "round": "Final",
-  "diveNumber": 5,
   "diveCode": "207C",
   "height": "10m",
   "description": "Back 3½ Somersaults Tuck",
