@@ -409,34 +409,81 @@ body {
     box-shadow: 0 2px 6px rgba(102, 126, 234, 0.3);
 }
 
-/* Compact score buttons layout */
-.score-buttons-compact {
+/* Clickable Score Bar Styles */
+.clickable-score-bar {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px 15px 45px 15px;
+}
+
+.score-bar-background {
+    width: 100%;
+    height: 24px;
+    background: linear-gradient(to right,
+        #764ba2 0%, #764ba2 20%,
+        #8e6bae 20%, #8e6bae 40%,
+        #a68bba 40%, #a68bba 60%,
+        #7b88d4 60%, #7b88d4 80%,
+        #667eea 80%, #667eea 100%
+    );
+    border-radius: 12px;
+}
+
+.score-numbers {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 4px;
-    justify-content: center;
 }
 
-.score-buttons-compact button {
-    padding: 6px 8px;
-    background-color: white;
-    border: 2px solid currentColor;
-    border-radius: 4px;
-    font-size: 0.75em;
+.score-row {
+    display: flex;
+    position: relative;
+}
+
+.score-row-whole {
+    justify-content: space-between;
+    padding: 0;
+}
+
+.score-row-half {
+    justify-content: space-between;
+    padding: 0 5%;
+}
+
+.score-number {
+    position: relative;
+    font-size: 0.9em;
     font-weight: bold;
+    color: #333;
     cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
     transition: all 0.2s;
-    width: 60px;
+    user-select: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid transparent;
 }
 
-.score-buttons-compact button:hover {
-    transform: translateY(-1px);
+.score-number:hover {
+    background-color: white;
+    transform: scale(1.15);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 10;
 }
 
-.score-buttons-compact button.selected {
-    color: white !important;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+.score-number.selected {
+    background-color: #667eea;
+    color: white;
+    border-color: #667eea;
+    transform: scale(1.2);
+    box-shadow: 0 3px 6px rgba(102, 126, 234, 0.4);
+    z-index: 10;
 }
 
 /* Score color classes */
@@ -521,41 +568,102 @@ body {
     font-size: 0.9em;
 }
 
-.user-score-display,
-.official-scores-display,
-.average-score,
-.difference {
-    margin: 6px 0;
-    padding: 6px 8px;
+.score-visual {
+    margin-bottom: 12px;
+    padding-top: 24px;
+}
+
+.score-scale {
+    position: relative;
+    height: 24px;
+    background: linear-gradient(to right,
+        #764ba2 0%, #764ba2 20%,
+        #8e6bae 20%, #8e6bae 40%,
+        #a68bba 40%, #a68bba 60%,
+        #7b88d4 60%, #7b88d4 80%,
+        #667eea 80%, #667eea 100%
+    );
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+.score-range {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(51, 51, 51, 0.6);
+    border-radius: 6px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.user-score-marker {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.marker-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.user-score-marker.in-range .marker-dot {
+    background-color: #28a745;
+}
+
+.user-score-marker.out-range .marker-dot {
+    background-color: #dc3545;
+}
+
+.marker-label {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.85em;
+    font-weight: bold;
+    white-space: nowrap;
+    color: #333;
+}
+
+.scale-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75em;
+    color: #666;
+    padding: 0 2px;
+}
+
+.score-details {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.score-info {
+    font-size: 0.85em;
+    padding: 4px 8px;
     border-radius: 4px;
-    font-size: 0.95em;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
-.user-score-display {
-    background-color: #e7f3ff;
-}
-
-.official-scores-display {
-    background-color: #fff3cd;
-}
-
-.average-score {
-    background-color: #d4edda;
-    font-weight: bold;
-}
-
-.difference {
-    font-weight: bold;
-}
-
-.good-diff {
+.score-info.good-diff {
     background-color: #d4edda;
     color: #155724;
+    font-weight: bold;
 }
 
-.needs-improvement {
+.score-info.needs-improvement {
     background-color: #f8d7da;
     color: #721c24;
+    font-weight: bold;
 }
 
 .excellent {

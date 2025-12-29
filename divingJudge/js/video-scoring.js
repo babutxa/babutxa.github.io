@@ -199,9 +199,8 @@ function showVideo() {
     }
 
     // Reset scoring interface
-    document.querySelectorAll('.score-buttons-compact button').forEach(btn => {
-        btn.classList.remove('selected');
-    });
+    generateScoreNumbers();
+    selectedScore = null;
     document.getElementById('video-feedback').style.display = 'none';
 }
 
@@ -215,17 +214,60 @@ function onPlayerStateChange(event) {
     }
 }
 
-// Select score
+// Score selection handling
 let selectedScore = null;
 
+// Generate clickable score numbers in two rows
+function generateScoreNumbers() {
+    const container = document.getElementById('score-numbers');
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    // First row: whole numbers (0, 1, 2, ..., 10)
+    const wholeRow = document.createElement('div');
+    wholeRow.className = 'score-row score-row-whole';
+    for (let i = 0; i <= 10; i++) {
+        const score = i;
+        const scoreElement = document.createElement('div');
+        scoreElement.className = 'score-number';
+        scoreElement.textContent = score.toFixed(1);
+        scoreElement.dataset.score = score;
+        scoreElement.onclick = function() {
+            selectScore(score);
+        };
+        wholeRow.appendChild(scoreElement);
+    }
+    container.appendChild(wholeRow);
+
+    // Second row: half values (0.5, 1.5, 2.5, ..., 9.5)
+    const halfRow = document.createElement('div');
+    halfRow.className = 'score-row score-row-half';
+    for (let i = 0; i < 10; i++) {
+        const score = i + 0.5;
+        const scoreElement = document.createElement('div');
+        scoreElement.className = 'score-number';
+        scoreElement.textContent = score.toFixed(1);
+        scoreElement.dataset.score = score;
+        scoreElement.onclick = function() {
+            selectScore(score);
+        };
+        halfRow.appendChild(scoreElement);
+    }
+    container.appendChild(halfRow);
+}
+
+// Select score and submit
 function selectScore(score) {
     selectedScore = score;
 
-    // Update button states
-    document.querySelectorAll('.score-buttons-compact button').forEach(btn => {
-        btn.classList.remove('selected');
+    // Update visual state
+    document.querySelectorAll('.score-number').forEach(el => {
+        el.classList.remove('selected');
+        if (parseFloat(el.dataset.score) === score) {
+            el.classList.add('selected');
+        }
     });
-    event.target.classList.add('selected');
 
     // Automatically submit the score
     submitVideoScore();
@@ -284,22 +326,50 @@ function showVideoFeedback(video, userScore, difference) {
 
     // Calculate official average for display
     const officialAvg = calculateOfficialAverage(video.officialScores);
+    const minOfficial = Math.min(...video.officialScores);
+    const maxOfficial = Math.max(...video.officialScores);
 
-    // Display scores
+    // Calculate positions for visual scale (0-10 range)
+    // Extend range by dot radius (6px ≈ 1% of typical scale width)
+    const dotRadiusPercent = 1;
+    const minPosition = Math.max(0, (minOfficial / 10) * 100 - dotRadiusPercent);
+    const maxPosition = Math.min(100, (maxOfficial / 10) * 100 + dotRadiusPercent);
+    const userPosition = (userScore / 10) * 100;
+    const rangeWidth = maxPosition - minPosition;
+
+    // Check if user score is within official range
+    const isInRange = userScore >= minOfficial && userScore <= maxOfficial;
+
+    // Display scores with visual scale
     const scoresHTML = `
         <div class="score-comparison">
-            <div class="user-score-display">
-                <strong>${t.yourScore || 'Your Score'}:</strong> ${userScore.toFixed(1)}
+            <div class="score-visual">
+                <div class="score-scale">
+                    <div class="score-range" style="left: ${minPosition}%; width: ${rangeWidth}%"></div>
+                    <div class="user-score-marker ${isInRange ? 'in-range' : 'out-range'}" style="left: ${userPosition}%">
+                        <div class="marker-dot"></div>
+                        <div class="marker-label">${userScore.toFixed(1)}</div>
+                    </div>
+                </div>
+                <div class="scale-labels">
+                    <span>0</span>
+                    <span>2</span>
+                    <span>4</span>
+                    <span>6</span>
+                    <span>8</span>
+                    <span>10</span>
+                </div>
             </div>
-            <div class="official-scores-display">
-                <strong>${t.officialScores || 'Official Judges\' Scores'}:</strong><br>
-                ${video.officialScores.map(s => s.toFixed(1)).join(', ')}
-            </div>
-            <div class="average-score">
-                <strong>${t.average || 'Average'}:</strong> ${officialAvg.toFixed(2)}
-            </div>
-            <div class="difference ${difference <= 1.0 ? 'good-diff' : 'needs-improvement'}">
-                <strong>${t.difference || 'Difference'}:</strong> ${difference.toFixed(2)}
+            <div class="score-details">
+                <div class="score-info">
+                    <strong>${t.officialRange || 'Official Range'}:</strong> ${minOfficial.toFixed(1)} - ${maxOfficial.toFixed(1)}
+                </div>
+                <div class="score-info">
+                    <strong>${t.average || 'Average'}:</strong> ${officialAvg.toFixed(2)}
+                </div>
+                <div class="score-info ${difference <= 1.0 ? 'good-diff' : 'needs-improvement'}">
+                    <strong>${t.difference || 'Difference'}:</strong> ${difference.toFixed(2)}
+                </div>
             </div>
         </div>
     `;
