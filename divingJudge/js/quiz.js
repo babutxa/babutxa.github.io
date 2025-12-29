@@ -8,7 +8,8 @@ const translations = {
         subtitle: "FINA Rules Quiz",
         intro1: "Test your knowledge of FINA diving rules!",
         intro2: "Answer questions about scoring, dive positions, degrees of difficulty, and judge responsibilities.",
-        startButton: "Start Quiz",
+        startButton: "Start Rules Quiz",
+        videoScoringButton: "Video Scoring Practice",
         rulesLinkText: "Need to review the rules first?",
         rulesLinkButton: "📖 View Official FINA Diving Rules",
         nextButton: "Next Question",
@@ -27,14 +28,54 @@ const translations = {
             good: "Good effort! Keep studying to improve your knowledge.",
             fair: "You're getting there. Review the FINA rules and try again.",
             needsWork: "Keep practicing! Study the FINA diving rules more carefully."
-        }
+        },
+        // Video Scoring translations
+        videoPractice: "Video",
+        diver: "Diver",
+        competition: "Competition",
+        yourScoreLabel: "Your Score:",
+        submitScore: "Submit Score",
+        watchAgain: "Watch Again",
+        nextVideo: "Next Dive",
+        officialScores: "Official Judges' Scores",
+        average: "Average",
+        difference: "Difference",
+        videoComplete: "Video Scoring Complete!",
+        backToHome: "Back to Home",
+        points: "points",
+        accuracy: "Accuracy Breakdown",
+        averageDifference: "Average Difference",
+        excellent: "Excellent",
+        veryGood: "Very Good",
+        good: "Good",
+        videoFeedback: {
+            excellent: "Excellent! You're scoring like an official judge",
+            veryGood: "Very Good! Close to official scores",
+            good: "Good effort. Keep practicing to improve consistency",
+            fair: "Keep studying the scoring criteria",
+            needsWork: "Review FINA scoring standards and try again"
+        },
+        videoResults: {
+            expertLevel: "Expert Level! You have excellent judging skills!",
+            advanced: "Advanced! You're developing strong judging consistency",
+            intermediate: "Intermediate. Keep practicing to improve accuracy",
+            beginner: "Beginner. Review FINA rules and practice more"
+        },
+        scoreExcellent: "Excellent",
+        scoreVeryGood: "Very Good",
+        scoreGood: "Good",
+        scoreSatisfactory: "Satisfactory",
+        scoreDeficient: "Deficient",
+        scoreUnsatisfactory: "Unsatisfactory",
+        scoreFailed: "Completely Failed"
     },
     ca: {
         title: "Pràctica de Jutge de Salts",
         subtitle: "Qüestionari de Regles FINA",
         intro1: "Posa a prova el teu coneixement de les regles FINA de salts!",
         intro2: "Respon preguntes sobre puntuació, posicions de salt, graus de dificultat i responsabilitats dels jutges.",
-        startButton: "Començar Qüestionari",
+        startButton: "Començar Qüestionari de Regles",
+        videoScoringButton: "Pràctica de Puntuació amb Vídeo",
         rulesLinkText: "Necessites revisar les regles primer?",
         rulesLinkButton: "📖 Veure Regles Oficials FINA de Salts",
         nextButton: "Següent Pregunta",
@@ -53,7 +94,46 @@ const translations = {
             good: "Bon esforç! Continua estudiant per millorar el teu coneixement.",
             fair: "Hi estàs arribant. Revisa les regles FINA i torna-ho a intentar.",
             needsWork: "Continua practicant! Estudia les regles FINA de salts amb més atenció."
-        }
+        },
+        // Video Scoring translations
+        videoPractice: "Vídeo",
+        diver: "Saltador/a",
+        competition: "Competició",
+        yourScoreLabel: "La Teva Puntuació:",
+        submitScore: "Enviar Puntuació",
+        watchAgain: "Veure Altra Vegada",
+        nextVideo: "Següent Salt",
+        officialScores: "Puntuacions Oficials dels Jutges",
+        average: "Mitjana",
+        difference: "Diferència",
+        videoComplete: "Pràctica de Vídeo Completada!",
+        backToHome: "Tornar a l'Inici",
+        points: "punts",
+        accuracy: "Desglossament de Precisió",
+        averageDifference: "Diferència Mitjana",
+        excellent: "Excel·lent",
+        veryGood: "Molt Bo",
+        good: "Bo",
+        videoFeedback: {
+            excellent: "Excel·lent! Estàs puntuant com un jutge oficial",
+            veryGood: "Molt Bo! Prop de les puntuacions oficials",
+            good: "Bon esforç. Continua practicant per millorar la consistència",
+            fair: "Continua estudiant els criteris de puntuació",
+            needsWork: "Revisa els estàndards de puntuació FINA i torna-ho a provar"
+        },
+        videoResults: {
+            expertLevel: "Nivell Expert! Tens excel·lents habilitats de jutge!",
+            advanced: "Avançat! Estàs desenvolupant una forta consistència de judici",
+            intermediate: "Intermedi. Continua practicant per millorar la precisió",
+            beginner: "Principiant. Revisa les regles FINA i practica més"
+        },
+        scoreExcellent: "Excel·lent",
+        scoreVeryGood: "Molt Bo",
+        scoreGood: "Bo",
+        scoreSatisfactory: "Satisfactori",
+        scoreDeficient: "Deficient",
+        scoreUnsatisfactory: "Insatisfactori",
+        scoreFailed: "Completament Fallit"
     }
 };
 

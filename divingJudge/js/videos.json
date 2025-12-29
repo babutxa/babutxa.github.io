@@ -1,0 +1,49 @@
+{
+  "dives": [
+    {
+      "id": 1,
+      "videoUrl": "https://www.youtube.com/embed/pqeT6mBVecI",
+      "diver": "Unknown",
+      "competition": "Junior Diving Champs 2024",
+      "round": "Preliminary",
+      "diveNumber": 1,
+      "diveCode": "103B",
+      "height": "1m",
+      "description": "Forward 1½ Somersaults Pike",
+      "officialScores": [6.5, 7.5, 7.5, 7.0, 6.5, 7.0, 7.0],
+      "officialAverage": 7.0,
+      "videoStartTime": 2194,
+      "videoEndTime": 2207
+    },
+    {
+      "id": 2,
+      "videoUrl": "https://www.youtube.com/embed/placeholder2",
+      "diver": "Example Diver 2",
+      "competition": "Olympic Games 2024",
+      "round": "Semifinal",
+      "diveNumber": 3,
+      "diveCode": "207C",
+      "height": "3m",
+      "description": "Back 3½ Somersaults Tuck",
+      "officialScores": [9.0, 9.5, 9.5, 9.0, 9.5, 9.0, 9.5],
+      "officialAverage": 9.29,
+      "videoStartTime": 0,
+      "videoEndTime": 0
+    },
+    {
+      "id": 3,
+      "videoUrl": "https://www.youtube.com/embed/placeholder3",
+      "diver": "Example Diver 3",
+      "competition": "World Cup 2024",
+      "round": "Final",
+      "diveNumber": 5,
+      "diveCode": "305C",
+      "height": "3m",
+      "description": "Reverse 2½ Somersaults Tuck",
+      "officialScores": [7.5, 8.0, 7.5, 8.0, 7.5, 8.0, 7.5],
+      "officialAverage": 7.71,
+      "videoStartTime": 0,
+      "videoEndTime": 0
+    }
+  ]
+}
