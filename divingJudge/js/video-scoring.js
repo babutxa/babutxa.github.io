@@ -3,25 +3,37 @@
 let currentVideoIndex = 0;
 let userScores = [];
 let videoData = [];
-let difficultyTable = {};
+let diveReference = {};
 
-// Load difficulty lookup table
-async function loadDifficultyTable() {
+// Load dive reference table (descriptions and difficulties)
+async function loadDiveReference() {
     try {
-        const response = await fetch('js/dive-difficulties.json');
+        const response = await fetch('js/dive-reference.json');
         const data = await response.json();
-        difficultyTable = data.difficulties;
+        diveReference = data;
         return true;
     } catch (error) {
-        console.error('Error loading difficulty table:', error);
+        console.error('Error loading dive reference:', error);
         return false;
     }
+}
+
+// Get description for a dive code
+function getDescription(diveCode) {
+    const description = diveReference.descriptions?.[diveCode];
+
+    if (!description) {
+        console.warn(`Description not found for ${diveCode}. Using code as fallback.`);
+        return diveCode;
+    }
+
+    return description;
 }
 
 // Get degree of difficulty for a dive
 function getDifficulty(diveCode, height) {
     const key = `${diveCode}-${height}`;
-    const difficulty = difficultyTable[key];
+    const difficulty = diveReference.difficulties?.[key];
 
     if (difficulty === undefined) {
         console.warn(`Difficulty not found for ${key}. Using default value.`);
@@ -34,14 +46,14 @@ function getDifficulty(diveCode, height) {
 // Load video data
 async function loadVideoData() {
     try {
-        // Load both videos and difficulty table
-        const [videosResponse, diffTableLoaded] = await Promise.all([
+        // Load both videos and dive reference table
+        const [videosResponse, refLoaded] = await Promise.all([
             fetch('js/videos.json'),
-            loadDifficultyTable()
+            loadDiveReference()
         ]);
 
-        if (!diffTableLoaded) {
-            console.warn('Could not load difficulty table');
+        if (!refLoaded) {
+            console.warn('Could not load dive reference');
         }
 
         const data = await videosResponse.json();
@@ -81,7 +93,8 @@ function showVideo() {
     const video = videoData[currentVideoIndex];
     const t = translations[currentLanguage];
 
-    // Get degree of difficulty from lookup table
+    // Get description and degree of difficulty from reference table
+    const description = getDescription(video.diveCode);
     const difficulty = getDifficulty(video.diveCode, video.height);
 
     // Update progress
@@ -90,7 +103,7 @@ function showVideo() {
 
     // Update dive information
     document.getElementById('dive-code').textContent = video.diveCode;
-    document.getElementById('dive-description').textContent = video.description;
+    document.getElementById('dive-description').textContent = description;
     document.getElementById('dive-difficulty').textContent = `DD: ${difficulty} (${video.height})`;
     document.getElementById('diver-name').textContent = video.diver;
     document.getElementById('competition-name').textContent = video.competition;
