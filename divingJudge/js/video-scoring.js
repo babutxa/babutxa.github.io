@@ -146,9 +146,11 @@ function showVideo() {
 
     // Update dive information
     document.getElementById('dive-code').textContent = video.diveCode;
+    document.getElementById('dive-height').textContent = video.height;
     document.getElementById('dive-description').textContent = description;
-    document.getElementById('dive-difficulty').textContent = `DD: ${difficulty} (${video.height})`;
+    document.getElementById('dive-difficulty').textContent = difficulty;
     document.getElementById('competition-name').textContent = video.competition;
+    document.getElementById('dive-round').textContent = video.round;
 
     // Show video, hide scoring
     document.getElementById('video-container').style.display = 'block';
