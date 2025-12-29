@@ -65,7 +65,6 @@ Example: https://www.youtube.com/embed/dQw4w9WgXcQ
 While watching the video, note:
 
 ### Required Information:
-- **Diver Name**: Usually shown on screen (e.g., "Quan Hongchan"), or "Unknown" if not visible
 - **Competition**: Event name (e.g., "World Championships 2024")
 - **Round**: Preliminary, Semifinal, or Final
 - **Dive Code**: The 3-4 character code (e.g., "207C", "5253B")
@@ -115,7 +114,6 @@ Copy this template and fill in your data:
 {
   "id": 4,
   "videoUrl": "https://www.youtube.com/embed/YOUR_VIDEO_ID",
-  "diver": "Diver Name",
   "competition": "Competition Name 2024",
   "round": "Final",
   "diveCode": "207C",
@@ -132,7 +130,6 @@ Copy this template and fill in your data:
 |-------|-------------|---------|
 | `id` | Unique number (increment from last) | `4` |
 | `videoUrl` | YouTube embed URL | `"https://www.youtube.com/embed/dQw4w9WgXcQ"` |
-| `diver` | Diver's full name (or "Unknown") | `"Quan Hongchan"` or `"Unknown"` |
 | `competition` | Event name | `"World Championships 2024"` |
 | `round` | Competition round | `"Final"`, `"Semifinal"`, or `"Preliminary"` |
 | `diveCode` | Official dive code (auto-generates description & DD) | `"207C"` → "Back 3½ Somersaults Tuck" |
@@ -149,7 +146,6 @@ Copy this template and fill in your data:
     {
       "id": 1,
       "videoUrl": "https://www.youtube.com/embed/VIDEO_ID_1",
-      "diver": "Quan Hongchan",
       "competition": "Paris Olympics 2024",
       "round": "Final",
       "diveCode": "207C",
@@ -161,7 +157,6 @@ Copy this template and fill in your data:
     {
       "id": 2,
       "videoUrl": "https://www.youtube.com/embed/VIDEO_ID_2",
-      "diver": "Tom Daley",
       "competition": "World Championships 2024",
       "round": "Final",
       "diveCode": "107B",
@@ -234,7 +229,6 @@ https://babutxa.github.io/divingJudge/
 When adding a new dive, collect:
 - [ ] YouTube video ID
 - [ ] Start and end timestamps (in seconds)
-- [ ] Diver name (or use "Unknown")
 - [ ] Competition name and year
 - [ ] Round (Final/Semifinal/Preliminary)
 - [ ] Dive code (e.g., 207C)
@@ -308,21 +302,19 @@ videoStartTime: 135
 
 **3. Noted Information:**
 ```
-Diver: Quan Hongchan
 Competition: Paris Olympics 2024
 Round: Final
 Dive Code: 207C
 Height: 10m
 Scores on screen: 9.5, 9.5, 10.0, 9.5, 10.0, 9.5, 10.0
 ```
-(Description and average will be auto-generated!)
+(Diver name visible in video, description and average will be auto-generated!)
 
 **4. Added to videos.json:**
 ```json
 {
   "id": 4,
   "videoUrl": "https://www.youtube.com/embed/ABC123XYZ",
-  "diver": "Quan Hongchan",
   "competition": "Paris Olympics 2024",
   "round": "Final",
   "diveCode": "207C",
