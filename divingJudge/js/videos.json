@@ -3,7 +3,6 @@
     {
       "id": 1,
       "videoUrl": "https://www.youtube.com/embed/pqeT6mBVecI",
-      "diver": "Unknown",
       "competition": "Junior Diving Champs 2024",
       "round": "Preliminary",
       "diveCode": "103B",
@@ -15,7 +14,6 @@
     {
       "id": 2,
       "videoUrl": "https://www.youtube.com/embed/placeholder2",
-      "diver": "Example Diver 2",
       "competition": "Olympic Games 2024",
       "round": "Semifinal",
       "diveCode": "207C",
@@ -27,7 +25,6 @@
     {
       "id": 3,
       "videoUrl": "https://www.youtube.com/embed/placeholder3",
-      "diver": "Example Diver 3",
       "competition": "World Cup 2024",
       "round": "Final",
       "diveCode": "305C",

@@ -135,7 +135,6 @@ function showVideo() {
     document.getElementById('dive-code').textContent = video.diveCode;
     document.getElementById('dive-description').textContent = description;
     document.getElementById('dive-difficulty').textContent = `DD: ${difficulty} (${video.height})`;
-    document.getElementById('diver-name').textContent = video.diver;
     document.getElementById('competition-name').textContent = video.competition;
 
     // Load video
