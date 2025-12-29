@@ -61,6 +61,7 @@ body {
     border-radius: 10px;
     padding: 30px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
 }
 
 #start-screen {
@@ -117,13 +118,11 @@ body {
 }
 
 .progress {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #f0f0f0;
-    font-weight: bold;
-    color: #666;
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    font-size: 0.85em;
+    color: #999;
 }
 
 #question-container {
@@ -283,22 +282,26 @@ body {
     background-color: #f8f9fa;
     border-radius: 8px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
-.dive-info h3 {
+.dive-header {
     margin: 0 0 10px 0;
     color: #667eea;
-    font-size: 1.3em;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
-.dive-info p {
+.dive-details {
     margin: 5px 0;
-    color: #666;
+    color: #555;
+    font-size: 0.95em;
 }
 
-.diver-info {
-    margin-top: 10px;
-    font-size: 0.95em;
+.dive-competition {
+    margin: 5px 0 0 0;
+    color: #777;
+    font-size: 0.85em;
 }
 
 #scoring-section {
