@@ -43,6 +43,36 @@ function getDifficulty(diveCode, height) {
     return difficulty;
 }
 
+// Calculate official average from judges' scores
+function calculateOfficialAverage(scores) {
+    if (!scores || scores.length === 0) {
+        return 0;
+    }
+
+    // Sort scores in ascending order
+    const sorted = [...scores].sort((a, b) => a - b);
+
+    // Determine how many scores to drop from each end
+    let dropCount;
+    if (sorted.length === 7) {
+        dropCount = 2; // Drop 2 highest and 2 lowest
+    } else if (sorted.length === 5) {
+        dropCount = 1; // Drop 1 highest and 1 lowest
+    } else {
+        // For other counts, drop proportionally (floor)
+        dropCount = Math.floor((sorted.length - 3) / 2);
+    }
+
+    // Get the middle scores
+    const middleScores = sorted.slice(dropCount, sorted.length - dropCount);
+
+    // Calculate average
+    const sum = middleScores.reduce((acc, score) => acc + score, 0);
+    const average = sum / middleScores.length;
+
+    return average;
+}
+
 // Load video data
 async function loadVideoData() {
     try {
@@ -159,7 +189,7 @@ function submitVideoScore() {
     if (selectedScore === null) return;
 
     const video = videoData[currentVideoIndex];
-    const officialAvg = video.officialAverage;
+    const officialAvg = calculateOfficialAverage(video.officialScores);
     const difference = Math.abs(selectedScore - officialAvg);
 
     // Store user score
@@ -202,6 +232,9 @@ function showVideoFeedback(video, userScore, difference) {
         feedbackClass = 'needs-work';
     }
 
+    // Calculate official average for display
+    const officialAvg = calculateOfficialAverage(video.officialScores);
+
     // Display scores
     const scoresHTML = `
         <div class="score-comparison">
@@ -213,7 +246,7 @@ function showVideoFeedback(video, userScore, difference) {
                 ${video.officialScores.map(s => s.toFixed(1)).join(', ')}
             </div>
             <div class="average-score">
-                <strong>${t.average || 'Average'}:</strong> ${video.officialAverage.toFixed(2)}
+                <strong>${t.average || 'Average'}:</strong> ${officialAvg.toFixed(2)}
             </div>
             <div class="difference ${difference <= 1.0 ? 'good-diff' : 'needs-improvement'}">
                 <strong>${t.difference || 'Difference'}:</strong> ${difference.toFixed(2)}

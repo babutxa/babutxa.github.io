@@ -92,11 +92,12 @@ Judges' scores appear on screen after each dive, usually showing 5 or 7 scores.
 Judges' Scores: 9.0  9.5  9.5  9.0  9.5  9.0  9.5
 ```
 
-### Calculate Average (for reference):
-1. If 7 judges: Drop highest 2 and lowest 2, average the middle 3
-2. If 5 judges: Drop highest 1 and lowest 1, average the middle 3
+### Calculating the Average:
+The app automatically calculates the official average:
+1. **7 judges**: Drop highest 2 and lowest 2, average the middle 3
+2. **5 judges**: Drop highest 1 and lowest 1, average the middle 3
 
-**Note:** The app automatically calculates this, but it's good to verify.
+**You don't need to calculate or enter the average** - just collect all the judges' scores!
 
 ---
 
@@ -120,7 +121,6 @@ Copy this template and fill in your data:
   "diveCode": "207C",
   "height": "3m",
   "officialScores": [9.0, 9.5, 9.5, 9.0, 9.5, 9.0, 9.5],
-  "officialAverage": 9.29,
   "videoStartTime": 125,
   "videoEndTime": 140
 }
@@ -137,8 +137,7 @@ Copy this template and fill in your data:
 | `round` | Competition round | `"Final"`, `"Semifinal"`, or `"Preliminary"` |
 | `diveCode` | Official dive code (auto-generates description & DD) | `"207C"` → "Back 3½ Somersaults Tuck" |
 | `height` | Platform/springboard height | `"3m"`, `"10m"`, `"5m"`, `"7.5m"`, or `"1m"` |
-| `officialScores` | Array of all judges' scores | `[9.0, 9.5, 9.5, 9.0, 9.5, 9.0, 9.5]` |
-| `officialAverage` | Calculated average | `9.29` |
+| `officialScores` | Array of all judges' scores (auto-calculates average) | `[9.0, 9.5, 9.5, 9.0, 9.5, 9.0, 9.5]` |
 | `videoStartTime` | Start time in seconds | `125` |
 | `videoEndTime` | End time in seconds | `140` |
 
@@ -156,7 +155,6 @@ Copy this template and fill in your data:
       "diveCode": "207C",
       "height": "10m",
       "officialScores": [9.0, 9.5, 9.5, 9.0, 9.5, 9.0, 9.5],
-      "officialAverage": 9.29,
       "videoStartTime": 125,
       "videoEndTime": 140
     },
@@ -169,7 +167,6 @@ Copy this template and fill in your data:
       "diveCode": "107B",
       "height": "3m",
       "officialScores": [8.5, 8.5, 9.0, 8.5, 9.0, 8.5, 9.0],
-      "officialAverage": 8.71,
       "videoStartTime": 87,
       "videoEndTime": 102
     }
@@ -243,9 +240,11 @@ When adding a new dive, collect:
 - [ ] Dive code (e.g., 207C)
 - [ ] Platform/springboard height (1m, 3m, 5m, 7.5m, 10m)
 - [ ] All judges' scores (5 or 7 scores)
-- [ ] Calculated average
 
-**Note:** Dive description and degree of difficulty are automatically looked up from the dive code - no need to collect them manually!
+**Note:** These are automatically calculated - no need to enter manually:
+- Dive description (from dive code)
+- Degree of difficulty (from dive code + height)
+- Official average (from judges' scores)
 
 ---
 
@@ -315,9 +314,8 @@ Round: Final
 Dive Code: 207C
 Height: 10m
 Scores on screen: 9.5, 9.5, 10.0, 9.5, 10.0, 9.5, 10.0
-Average: 9.71 (drop 10.0, 10.0, 9.5, 9.5 → average 9.5, 9.5, 10.0)
 ```
-(Description "Back 3½ Somersaults Tuck" will be auto-generated from code 207C)
+(Description and average will be auto-generated!)
 
 **4. Added to videos.json:**
 ```json
@@ -330,7 +328,6 @@ Average: 9.71 (drop 10.0, 10.0, 9.5, 9.5 → average 9.5, 9.5, 10.0)
   "diveCode": "207C",
   "height": "10m",
   "officialScores": [9.5, 9.5, 10.0, 9.5, 10.0, 9.5, 10.0],
-  "officialAverage": 9.71,
   "videoStartTime": 135,
   "videoEndTime": 150
 }
