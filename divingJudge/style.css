@@ -255,12 +255,19 @@ body {
     margin: 20px 0;
 }
 
+#video-scoring-screen {
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+}
+
 #video-player-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
     margin-bottom: 20px;
+    flex: 1;
 }
 
 .video-frame {
@@ -508,23 +515,24 @@ body {
 
 .score-comparison {
     background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-    margin: 15px 0;
+    padding: 12px;
+    border-radius: 6px;
+    margin: 10px 0;
+    font-size: 0.9em;
 }
 
 .user-score-display,
 .official-scores-display,
 .average-score,
 .difference {
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
+    margin: 6px 0;
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-size: 0.95em;
 }
 
 .user-score-display {
     background-color: #e7f3ff;
-    font-size: 1.2em;
 }
 
 .official-scores-display {
@@ -537,7 +545,6 @@ body {
 }
 
 .difference {
-    font-size: 1.1em;
     font-weight: bold;
 }
 
@@ -571,11 +578,28 @@ body {
     color: #dc3545;
 }
 
+#video-feedback {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#video-feedback-text {
+    font-size: 0.95em;
+    margin-bottom: 8px;
+}
+
 #video-actions {
     display: flex;
-    gap: 15px;
+    gap: 10px;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 12px;
+}
+
+#video-actions .custom-button {
+    padding: 8px 20px;
+    font-size: 0.95em;
 }
 
 #video-results-screen {
