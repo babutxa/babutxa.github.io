@@ -70,9 +70,8 @@ While watching the video, note:
 - **Round**: Preliminary, Semifinal, or Final
 - **Dive Code**: The 3-4 character code (e.g., "207C", "5253B")
 - **Height**: Platform/springboard height (e.g., "3m", "10m", "5m", "7.5m", "1m")
-- **Dive Description**: Full name (e.g., "Back 3½ Somersaults Tuck")
 
-**Note:** The Degree of Difficulty (DD) is automatically looked up from a table based on the dive code + height combination. You do NOT need to manually enter the DD value.
+**Note:** The dive description and degree of difficulty (DD) are automatically looked up from a reference table based on the dive code and height. You only need to enter the dive code!
 
 ### Dive Code Reference:
 - First digit = Group (1=Forward, 2=Back, 3=Reverse, 4=Inward, 5=Twisting, 6=Armstand)
@@ -120,7 +119,6 @@ Copy this template and fill in your data:
   "round": "Final",
   "diveCode": "207C",
   "height": "3m",
-  "description": "Back 3½ Somersaults Tuck",
   "officialScores": [9.0, 9.5, 9.5, 9.0, 9.5, 9.0, 9.5],
   "officialAverage": 9.29,
   "videoStartTime": 125,
@@ -137,9 +135,8 @@ Copy this template and fill in your data:
 | `diver` | Diver's full name (or "Unknown") | `"Quan Hongchan"` or `"Unknown"` |
 | `competition` | Event name | `"World Championships 2024"` |
 | `round` | Competition round | `"Final"`, `"Semifinal"`, or `"Preliminary"` |
-| `diveCode` | Official dive code | `"207C"` |
+| `diveCode` | Official dive code (auto-generates description & DD) | `"207C"` → "Back 3½ Somersaults Tuck" |
 | `height` | Platform/springboard height | `"3m"`, `"10m"`, `"5m"`, `"7.5m"`, or `"1m"` |
-| `description` | Full dive description | `"Back 3½ Somersaults Tuck"` |
 | `officialScores` | Array of all judges' scores | `[9.0, 9.5, 9.5, 9.0, 9.5, 9.0, 9.5]` |
 | `officialAverage` | Calculated average | `9.29` |
 | `videoStartTime` | Start time in seconds | `125` |
@@ -158,7 +155,6 @@ Copy this template and fill in your data:
       "round": "Final",
       "diveCode": "207C",
       "height": "10m",
-      "description": "Back 3½ Somersaults Tuck",
       "officialScores": [9.0, 9.5, 9.5, 9.0, 9.5, 9.0, 9.5],
       "officialAverage": 9.29,
       "videoStartTime": 125,
@@ -172,7 +168,6 @@ Copy this template and fill in your data:
       "round": "Final",
       "diveCode": "107B",
       "height": "3m",
-      "description": "Forward 3½ Somersaults Pike",
       "officialScores": [8.5, 8.5, 9.0, 8.5, 9.0, 8.5, 9.0],
       "officialAverage": 8.71,
       "videoStartTime": 87,
@@ -247,11 +242,10 @@ When adding a new dive, collect:
 - [ ] Round (Final/Semifinal/Preliminary)
 - [ ] Dive code (e.g., 207C)
 - [ ] Platform/springboard height (1m, 3m, 5m, 7.5m, 10m)
-- [ ] Dive description
 - [ ] All judges' scores (5 or 7 scores)
 - [ ] Calculated average
 
-**Note:** Degree of difficulty is automatically looked up - no need to collect it manually!
+**Note:** Dive description and degree of difficulty are automatically looked up from the dive code - no need to collect them manually!
 
 ---
 
@@ -318,11 +312,12 @@ videoStartTime: 135
 Diver: Quan Hongchan
 Competition: Paris Olympics 2024
 Round: Final
-Dive: 207C - Back 3½ Somersaults Tuck
+Dive Code: 207C
 Height: 10m
 Scores on screen: 9.5, 9.5, 10.0, 9.5, 10.0, 9.5, 10.0
 Average: 9.71 (drop 10.0, 10.0, 9.5, 9.5 → average 9.5, 9.5, 10.0)
 ```
+(Description "Back 3½ Somersaults Tuck" will be auto-generated from code 207C)
 
 **4. Added to videos.json:**
 ```json
@@ -334,7 +329,6 @@ Average: 9.71 (drop 10.0, 10.0, 9.5, 9.5 → average 9.5, 9.5, 10.0)
   "round": "Final",
   "diveCode": "207C",
   "height": "10m",
-  "description": "Back 3½ Somersaults Tuck",
   "officialScores": [9.5, 9.5, 10.0, 9.5, 10.0, 9.5, 10.0],
   "officialAverage": 9.71,
   "videoStartTime": 135,
