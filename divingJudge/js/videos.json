@@ -9,7 +9,6 @@
       "diveCode": "103B",
       "height": "1m",
       "officialScores": [6.5, 7.5, 7.5, 7.0, 6.5, 7.0, 7.0],
-      "officialAverage": 7.0,
       "videoStartTime": 2194,
       "videoEndTime": 2207
     },
@@ -22,7 +21,6 @@
       "diveCode": "207C",
       "height": "3m",
       "officialScores": [9.0, 9.5, 9.5, 9.0, 9.5, 9.0, 9.5],
-      "officialAverage": 9.29,
       "videoStartTime": 0,
       "videoEndTime": 0
     },
@@ -35,7 +33,6 @@
       "diveCode": "305C",
       "height": "3m",
       "officialScores": [7.5, 8.0, 7.5, 8.0, 7.5, 8.0, 7.5],
-      "officialAverage": 7.71,
       "videoStartTime": 0,
       "videoEndTime": 0
     }
