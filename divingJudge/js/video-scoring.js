@@ -211,6 +211,8 @@ function onPlayerStateChange(event) {
         // Hide video, show scoring
         document.getElementById('video-container').style.display = 'none';
         document.getElementById('scoring-section').style.display = 'block';
+        // Ensure score numbers are generated
+        generateScoreNumbers();
     }
 }
 
