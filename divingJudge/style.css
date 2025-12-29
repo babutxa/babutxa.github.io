@@ -247,6 +247,245 @@ body {
     color: #666;
 }
 
+/* Video Scoring Styles */
+.practice-modes {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.video-frame {
+    width: 100%;
+    height: 450px;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.dive-info {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.dive-info h3 {
+    margin: 0 0 10px 0;
+    color: #667eea;
+    font-size: 1.3em;
+}
+
+.dive-info p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.diver-info {
+    margin-top: 10px;
+    font-size: 0.95em;
+}
+
+.score-category {
+    margin: 8px 0;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border-left: 3px solid #ccc;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px;
+}
+
+.category-label {
+    margin: 0 !important;
+    font-size: 0.85em;
+    font-weight: bold;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 180px;
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+.excellent-label {
+    color: #28a745;
+}
+
+.very-good-label {
+    color: #17a2b8;
+}
+
+.good-label {
+    color: #20c997;
+}
+
+.satisfactory-label {
+    color: #ffc107;
+}
+
+.deficient-label {
+    color: #fd7e14;
+}
+
+.unsatisfactory-label {
+    color: #dc3545;
+}
+
+.failed-label {
+    color: #6c757d;
+}
+
+.score-category .score-buttons {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.score-buttons button {
+    padding: 8px 12px;
+    background-color: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 0.95em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 50px;
+}
+
+.score-buttons button:hover {
+    background-color: #e9ecef;
+    border-color: #667eea;
+    transform: translateY(-1px);
+}
+
+.score-buttons button.selected {
+    background-color: #667eea;
+    color: white;
+    border-color: #667eea;
+    box-shadow: 0 2px 6px rgba(102, 126, 234, 0.3);
+}
+
+#submit-score-btn {
+    width: 100%;
+    margin-top: 20px;
+}
+
+#submit-score-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.score-comparison {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.user-score-display,
+.official-scores-display,
+.average-score,
+.difference {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.user-score-display {
+    background-color: #e7f3ff;
+    font-size: 1.2em;
+}
+
+.official-scores-display {
+    background-color: #fff3cd;
+}
+
+.average-score {
+    background-color: #d4edda;
+    font-weight: bold;
+}
+
+.difference {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.good-diff {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.needs-improvement {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.excellent {
+    color: #28a745;
+}
+
+.very-good {
+    color: #17a2b8;
+}
+
+.good {
+    color: #ffc107;
+}
+
+.fair {
+    color: #fd7e14;
+}
+
+.needs-work {
+    color: #dc3545;
+}
+
+#video-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#video-results-screen {
+    text-align: center;
+}
+
+#video-results-screen h3 {
+    font-size: 2em;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+#video-stats {
+    text-align: left;
+    margin: 30px auto;
+    max-width: 500px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#video-stats ul {
+    list-style: none;
+    padding: 0;
+}
+
+#video-stats li {
+    padding: 8px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#video-stats li:last-child {
+    border-bottom: none;
+}
+
 @media (max-width: 600px) {
     body {
         padding: 10px;
@@ -266,5 +505,27 @@ body {
 
     #question-text {
         font-size: 1.1em;
+    }
+
+    .practice-modes {
+        flex-direction: column;
+    }
+
+    .video-frame {
+        height: 250px;
+    }
+
+    .score-buttons {
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+        gap: 5px;
+    }
+
+    .score-buttons button {
+        padding: 10px 5px;
+        font-size: 0.9em;
+    }
+
+    #video-actions {
+        flex-direction: column;
     }
 }
