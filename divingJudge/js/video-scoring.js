@@ -258,6 +258,9 @@ function showVideoFeedback(video, userScore, difference) {
     const feedbackText = document.getElementById('video-feedback-text');
     const officialScoresDiv = document.getElementById('official-scores');
 
+    // Hide scoring section when showing feedback
+    document.getElementById('scoring-section').style.display = 'none';
+
     // Determine feedback message and class
     let message = '';
     let feedbackClass = '';
