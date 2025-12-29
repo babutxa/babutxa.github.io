@@ -4,6 +4,19 @@ let currentVideoIndex = 0;
 let userScores = [];
 let videoData = [];
 let diveReference = {};
+let player = null;
+let playerReady = false;
+
+// Load YouTube IFrame API
+const tag = document.createElement('script');
+tag.src = 'https://www.youtube.com/iframe_api';
+const firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// YouTube API callback when ready
+function onYouTubeIframeAPIReady() {
+    playerReady = true;
+}
 
 // Load dive reference table (descriptions and difficulties)
 async function loadDiveReference() {
@@ -137,34 +150,67 @@ function showVideo() {
     document.getElementById('dive-difficulty').textContent = `DD: ${difficulty} (${video.height})`;
     document.getElementById('competition-name').textContent = video.competition;
 
-    // Load video
-    const videoContainer = document.getElementById('video-container');
-    let videoUrl = video.videoUrl;
+    // Show video, hide scoring
+    document.getElementById('video-container').style.display = 'block';
+    document.getElementById('scoring-section').style.display = 'none';
 
-    // Add start and end time parameters
-    if (video.videoStartTime) {
-        videoUrl += `?start=${video.videoStartTime}`;
-        if (video.videoEndTime) {
-            videoUrl += `&end=${video.videoEndTime}`;
-        }
+    // Extract video ID from URL
+    const videoId = video.videoUrl.split('/embed/')[1];
+
+    // Destroy previous player if exists
+    if (player) {
+        player.destroy();
     }
 
-    videoContainer.innerHTML = `
-        <iframe
-            width="100%"
-            height="100%"
-            src="${videoUrl}"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-        ></iframe>
-    `;
+    // Create container for player
+    const videoContainer = document.getElementById('video-container');
+    videoContainer.innerHTML = '<div id="youtube-player"></div>';
+
+    // Wait for API to be ready
+    const initPlayer = () => {
+        player = new YT.Player('youtube-player', {
+            width: '100%',
+            height: '100%',
+            videoId: videoId,
+            playerVars: {
+                start: video.videoStartTime || 0,
+                end: video.videoEndTime || 0,
+                autoplay: 0,
+                rel: 0
+            },
+            events: {
+                onStateChange: onPlayerStateChange
+            }
+        });
+    };
+
+    if (playerReady) {
+        initPlayer();
+    } else {
+        // Wait for API to load
+        const checkReady = setInterval(() => {
+            if (playerReady) {
+                clearInterval(checkReady);
+                initPlayer();
+            }
+        }, 100);
+    }
 
     // Reset scoring interface
-    document.querySelectorAll('.score-buttons button').forEach(btn => {
+    document.querySelectorAll('.score-buttons-compact button').forEach(btn => {
         btn.classList.remove('selected');
     });
     document.getElementById('video-feedback').style.display = 'none';
+}
+
+// Handle video state changes
+function onPlayerStateChange(event) {
+    // Video ended
+    if (event.data === YT.PlayerState.ENDED) {
+        // Hide video, show scoring
+        document.getElementById('video-container').style.display = 'none';
+        document.getElementById('scoring-section').style.display = 'block';
+    }
 }
 
 // Select score
@@ -174,7 +220,7 @@ function selectScore(score) {
     selectedScore = score;
 
     // Update button states
-    document.querySelectorAll('.score-buttons button').forEach(btn => {
+    document.querySelectorAll('.score-buttons-compact button').forEach(btn => {
         btn.classList.remove('selected');
     });
     event.target.classList.add('selected');
@@ -264,30 +310,17 @@ function showVideoFeedback(video, userScore, difference) {
 // Watch video again
 function watchAgain() {
     const video = videoData[currentVideoIndex];
-    const videoContainer = document.getElementById('video-container');
 
-    // Rebuild the URL with start and end times to ensure proper restart
-    let videoUrl = video.videoUrl;
-    if (video.videoStartTime) {
-        videoUrl += `?start=${video.videoStartTime}`;
-        if (video.videoEndTime) {
-            videoUrl += `&end=${video.videoEndTime}`;
-        }
+    // Show video, hide scoring and feedback
+    document.getElementById('video-container').style.display = 'block';
+    document.getElementById('scoring-section').style.display = 'none';
+    document.getElementById('video-feedback').style.display = 'none';
+
+    // Seek to start time and play
+    if (player && player.seekTo) {
+        player.seekTo(video.videoStartTime || 0);
+        player.playVideo();
     }
-
-    // Add autoplay parameter to start immediately
-    videoUrl += videoUrl.includes('?') ? '&autoplay=1' : '?autoplay=1';
-
-    videoContainer.innerHTML = `
-        <iframe
-            width="100%"
-            height="100%"
-            src="${videoUrl}"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-        ></iframe>
-    `;
 }
 
 // Next video

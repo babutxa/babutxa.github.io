@@ -93,82 +93,42 @@
                 <span id="video-progress">Video 1 of 10</span>
             </div>
 
+            <div class="dive-info">
+                <h3><span id="dive-code"></span> - <span id="dive-description"></span></h3>
+                <p><span id="dive-difficulty"></span></p>
+                <p class="diver-info">
+                    <strong data-i18n="competition">Competition:</strong> <span id="competition-name"></span>
+                </p>
+            </div>
+
             <div id="video-player-section">
                 <div id="video-container" class="video-frame"></div>
 
-                <div class="dive-info">
-                    <h3><span id="dive-code"></span> - <span id="dive-description"></span></h3>
-                    <p><span id="dive-difficulty"></span></p>
-                    <p class="diver-info">
-                        <strong data-i18n="competition">Competition:</strong> <span id="competition-name"></span>
-                    </p>
-                </div>
-            </div>
-
-            <div id="scoring-section">
+                <div id="scoring-section">
                 <h4 data-i18n="yourScoreLabel">Your Score:</h4>
-
-                <div class="score-category">
-                    <h5 class="category-label excellent-label" data-i18n="scoreExcellent">Excellent</h5>
-                    <div class="score-buttons">
-                        <button onclick="selectScore(10.0)">10</button>
-                    </div>
+                <div class="score-buttons-compact">
+                    <button class="score-excellent" onclick="selectScore(10.0)">10</button>
+                    <button class="score-very-good" onclick="selectScore(9.5)">9.5</button>
+                    <button class="score-very-good" onclick="selectScore(9.0)">9.0</button>
+                    <button class="score-very-good" onclick="selectScore(8.5)">8.5</button>
+                    <button class="score-good" onclick="selectScore(8.0)">8.0</button>
+                    <button class="score-good" onclick="selectScore(7.5)">7.5</button>
+                    <button class="score-good" onclick="selectScore(7.0)">7.0</button>
+                    <button class="score-satisfactory" onclick="selectScore(6.5)">6.5</button>
+                    <button class="score-satisfactory" onclick="selectScore(6.0)">6.0</button>
+                    <button class="score-satisfactory" onclick="selectScore(5.5)">5.5</button>
+                    <button class="score-satisfactory" onclick="selectScore(5.0)">5.0</button>
+                    <button class="score-deficient" onclick="selectScore(4.5)">4.5</button>
+                    <button class="score-deficient" onclick="selectScore(4.0)">4.0</button>
+                    <button class="score-deficient" onclick="selectScore(3.5)">3.5</button>
+                    <button class="score-deficient" onclick="selectScore(3.0)">3.0</button>
+                    <button class="score-deficient" onclick="selectScore(2.5)">2.5</button>
+                    <button class="score-unsatisfactory" onclick="selectScore(2.0)">2.0</button>
+                    <button class="score-unsatisfactory" onclick="selectScore(1.5)">1.5</button>
+                    <button class="score-unsatisfactory" onclick="selectScore(1.0)">1.0</button>
+                    <button class="score-unsatisfactory" onclick="selectScore(0.5)">0.5</button>
+                    <button class="score-failed" onclick="selectScore(0)">0</button>
                 </div>
-
-                <div class="score-category">
-                    <h5 class="category-label very-good-label" data-i18n="scoreVeryGood">Very Good</h5>
-                    <div class="score-buttons">
-                        <button onclick="selectScore(8.5)">8.5</button>
-                        <button onclick="selectScore(9.0)">9.0</button>
-                        <button onclick="selectScore(9.5)">9.5</button>
-                    </div>
-                </div>
-
-                <div class="score-category">
-                    <h5 class="category-label good-label" data-i18n="scoreGood">Good</h5>
-                    <div class="score-buttons">
-                        <button onclick="selectScore(7.0)">7.0</button>
-                        <button onclick="selectScore(7.5)">7.5</button>
-                        <button onclick="selectScore(8.0)">8.0</button>
-                    </div>
-                </div>
-
-                <div class="score-category">
-                    <h5 class="category-label satisfactory-label" data-i18n="scoreSatisfactory">Satisfactory</h5>
-                    <div class="score-buttons">
-                        <button onclick="selectScore(5.0)">5.0</button>
-                        <button onclick="selectScore(5.5)">5.5</button>
-                        <button onclick="selectScore(6.0)">6.0</button>
-                        <button onclick="selectScore(6.5)">6.5</button>
-                    </div>
-                </div>
-
-                <div class="score-category">
-                    <h5 class="category-label deficient-label" data-i18n="scoreDeficient">Deficient</h5>
-                    <div class="score-buttons">
-                        <button onclick="selectScore(2.5)">2.5</button>
-                        <button onclick="selectScore(3.0)">3.0</button>
-                        <button onclick="selectScore(3.5)">3.5</button>
-                        <button onclick="selectScore(4.0)">4.0</button>
-                        <button onclick="selectScore(4.5)">4.5</button>
-                    </div>
-                </div>
-
-                <div class="score-category">
-                    <h5 class="category-label unsatisfactory-label" data-i18n="scoreUnsatisfactory">Unsatisfactory</h5>
-                    <div class="score-buttons">
-                        <button onclick="selectScore(0.5)">0.5</button>
-                        <button onclick="selectScore(1.0)">1.0</button>
-                        <button onclick="selectScore(1.5)">1.5</button>
-                        <button onclick="selectScore(2.0)">2.0</button>
-                    </div>
-                </div>
-
-                <div class="score-category">
-                    <h5 class="category-label failed-label" data-i18n="scoreFailed">Completely Failed</h5>
-                    <div class="score-buttons">
-                        <button onclick="selectScore(0)">0</button>
-                    </div>
                 </div>
             </div>
 
