@@ -584,6 +584,72 @@ body {
     border-bottom: none;
 }
 
+/* Scores table styling */
+.scores-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    table-layout: auto;
+}
+
+.scores-table thead {
+    background-color: #667eea;
+    color: white;
+}
+
+.scores-table th {
+    padding: 10px 6px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.8em;
+    white-space: nowrap;
+}
+
+.scores-table td {
+    padding: 8px 6px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 0.8em;
+}
+
+/* Make the Official Scores column wider to prevent wrapping */
+.scores-table th:nth-child(4),
+.scores-table td:nth-child(4) {
+    min-width: 180px;
+    font-size: 0.75em;
+}
+
+.scores-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.scores-table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.scores-table td.excellent {
+    color: #4caf50;
+    font-weight: 600;
+}
+
+.scores-table td.very-good {
+    color: #8bc34a;
+    font-weight: 600;
+}
+
+.scores-table td.good {
+    color: #ffc107;
+    font-weight: 600;
+}
+
+.scores-table td.needs-work {
+    color: #f44336;
+    font-weight: 600;
+}
+
 @media (max-width: 600px) {
     body {
         padding: 10px;
@@ -626,5 +692,21 @@ body {
 
     #video-actions {
         flex-direction: column;
+    }
+
+    .scores-table {
+        font-size: 0.75em;
+    }
+
+    .scores-table th,
+    .scores-table td {
+        padding: 6px 3px;
+        font-size: 0.7em;
+    }
+
+    .scores-table th:nth-child(4),
+    .scores-table td:nth-child(4) {
+        min-width: 120px;
+        font-size: 0.65em;
     }
 }
