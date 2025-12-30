@@ -13,25 +13,25 @@
     },
     {
       "id": 2,
-      "videoUrl": "https://www.youtube.com/embed/placeholder2",
-      "competition": "Olympic Games 2024",
-      "round": "Semifinal",
-      "diveCode": "207C",
-      "height": "3m",
-      "officialScores": [9.0, 9.5, 9.5, 9.0, 9.5, 9.0, 9.5],
-      "videoStartTime": 0,
-      "videoEndTime": 0
+      "videoUrl": "https://www.youtube.com/embed/pqeT6mBVecI",
+      "competition": "Junior Diving Champs 2024",
+      "round": "Preliminary",
+      "diveCode": "5231D",
+      "height": "1m",
+      "officialScores": [5.5, 6.0, 5.5, 5.5, 6.0, 5.5, 5.0],
+      "videoStartTime": 1866,
+      "videoEndTime": 1891
     },
     {
       "id": 3,
-      "videoUrl": "https://www.youtube.com/embed/placeholder3",
-      "competition": "World Cup 2024",
-      "round": "Final",
-      "diveCode": "305C",
-      "height": "3m",
-      "officialScores": [7.5, 8.0, 7.5, 8.0, 7.5, 8.0, 7.5],
-      "videoStartTime": 0,
-      "videoEndTime": 0
+      "videoUrl": "https://www.youtube.com/embed/pqeT6mBVecI",
+      "competition": "Junior Diving Champs 2024",
+      "round": "Preliminary",
+      "diveCode": "201B",
+      "height": "1m",
+      "officialScores": [5.5, 5.0, 5.5, 5.5, 5.0, 6.0, 5.5],
+      "videoStartTime": 1913,
+      "videoEndTime": 1930
     }
   ]
 }
