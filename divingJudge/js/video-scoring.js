@@ -31,29 +31,19 @@ async function loadDiveReference() {
     }
 }
 
-// Get description for a dive code
-function getDescription(diveCode) {
-    const description = diveReference.descriptions?.[diveCode];
+// Get dive information (description and DD) for a dive code at a specific height
+function getDiveInfo(diveCode, height) {
+    const dive = diveReference[height]?.[diveCode];
 
-    if (!description) {
-        console.warn(`Description not found for ${diveCode}. Using code as fallback.`);
-        return diveCode;
+    if (!dive) {
+        console.warn(`Dive not found for ${diveCode} at ${height}. Using fallback values.`);
+        return {
+            description: diveCode,
+            dd: 0.0
+        };
     }
 
-    return description;
-}
-
-// Get degree of difficulty for a dive
-function getDifficulty(diveCode, height) {
-    const key = `${diveCode}-${height}`;
-    const difficulty = diveReference.difficulties?.[key];
-
-    if (difficulty === undefined) {
-        console.warn(`Difficulty not found for ${key}. Using default value.`);
-        return 0.0; // Default fallback
-    }
-
-    return difficulty;
+    return dive; // Returns { description: "...", dd: X.X }
 }
 
 // Calculate official average from judges' scores
@@ -137,8 +127,9 @@ function showVideo() {
     const t = translations[currentLanguage];
 
     // Get description and degree of difficulty from reference table
-    const description = getDescription(video.diveCode);
-    const difficulty = getDifficulty(video.diveCode, video.height);
+    const diveInfo = getDiveInfo(video.diveCode, video.height);
+    const description = diveInfo.description;
+    const difficulty = diveInfo.dd;
 
     // Update progress
     document.getElementById('video-progress').textContent =

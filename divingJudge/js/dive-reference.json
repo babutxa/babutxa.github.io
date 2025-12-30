@@ -1,1308 +1,4165 @@
 {
-  "comment": "Dive reference table with descriptions and degree of difficulty (DD) values",
-  "source": "FINA Diving Rules - Appendix",
-  "heights": ["1m", "3m", "5m", "7.5m", "10m"],
-  "descriptions": {
-    "101A": "Forward Dive Straight",
-    "101B": "Forward Dive Pike",
-    "101C": "Forward Dive Tuck",
-    "102A": "Forward Somersault Straight",
-    "102B": "Forward Somersault Pike",
-    "102C": "Forward Somersault Tuck",
-    "103A": "Forward 1½ Somersaults Straight",
-    "103B": "Forward 1½ Somersaults Pike",
-    "103C": "Forward 1½ Somersaults Tuck",
-    "104A": "Forward 2 Somersaults Straight",
-    "104B": "Forward 2 Somersaults Pike",
-    "104C": "Forward 2 Somersaults Tuck",
-    "105A": "Forward 2½ Somersaults Straight",
-    "105B": "Forward 2½ Somersaults Pike",
-    "105C": "Forward 2½ Somersaults Tuck",
-    "106B": "Forward 3 Somersaults Pike",
-    "106C": "Forward 3 Somersaults Tuck",
-    "107B": "Forward 3½ Somersaults Pike",
-    "107C": "Forward 3½ Somersaults Tuck",
-    "108B": "Forward 4 Somersaults Pike",
-    "109B": "Forward 4½ Somersaults Pike",
-    "109C": "Forward 4½ Somersaults Tuck",
-    "1011B": "Forward 5½ Somersaults Pike",
-    "112B": "Forward Flying Somersault Pike",
-    "112C": "Forward Flying Somersault Tuck",
-    "113B": "Forward Flying 1½ Somersaults Pike",
-    "113C": "Forward Flying 1½ Somersaults Tuck",
-    "114B": "Forward Flying 2 Somersaults Pike",
-    "114C": "Forward Flying 2 Somersaults Tuck",
-    "115B": "Forward Flying 2½ Somersaults Pike",
-    "115C": "Forward Flying 2½ Somersaults Tuck",
-    "201A": "Back Dive Straight",
-    "201B": "Back Dive Pike",
-    "201C": "Back Dive Tuck",
-    "202A": "Back Somersault Straight",
-    "202B": "Back Somersault Pike",
-    "202C": "Back Somersault Tuck",
-    "203A": "Back 1½ Somersaults Straight",
-    "203B": "Back 1½ Somersaults Pike",
-    "203C": "Back 1½ Somersaults Tuck",
-    "204A": "Back 2 Somersaults Straight",
-    "204B": "Back 2 Somersaults Pike",
-    "204C": "Back 2 Somersaults Tuck",
-    "205B": "Back 2½ Somersaults Pike",
-    "205C": "Back 2½ Somersaults Tuck",
-    "206B": "Back 3 Somersaults Pike",
-    "206C": "Back 3 Somersaults Tuck",
-    "207B": "Back 3½ Somersaults Pike",
-    "207C": "Back 3½ Somersaults Tuck",
-    "208B": "Back 4 Somersaults Pike",
-    "208C": "Back 4 Somersaults Tuck",
-    "209B": "Back 4½ Somersaults Pike",
-    "209C": "Back 4½ Somersaults Tuck",
-    "212B": "Back Flying Somersault Pike",
-    "212C": "Back Flying Somersault Tuck",
-    "213B": "Back Flying 1½ Somersaults Pike",
-    "213C": "Back Flying 1½ Somersaults Tuck",
-    "215B": "Back Flying 2½ Somersaults Pike",
-    "215C": "Back Flying 2½ Somersaults Tuck",
-    "301A": "Reverse Dive Straight",
-    "301B": "Reverse Dive Pike",
-    "301C": "Reverse Dive Tuck",
-    "302A": "Reverse Somersault Straight",
-    "302B": "Reverse Somersault Pike",
-    "302C": "Reverse Somersault Tuck",
-    "303A": "Reverse 1½ Somersaults Straight",
-    "303B": "Reverse 1½ Somersaults Pike",
-    "303C": "Reverse 1½ Somersaults Tuck",
-    "304A": "Reverse 2 Somersaults Straight",
-    "304B": "Reverse 2 Somersaults Pike",
-    "304C": "Reverse 2 Somersaults Tuck",
-    "305A": "Reverse 2½ Somersaults Straight",
-    "305B": "Reverse 2½ Somersaults Pike",
-    "305C": "Reverse 2½ Somersaults Tuck",
-    "306B": "Reverse 3 Somersaults Pike",
-    "306C": "Reverse 3 Somersaults Tuck",
-    "307B": "Reverse 3½ Somersaults Pike",
-    "307C": "Reverse 3½ Somersaults Tuck",
-    "308B": "Reverse 4 Somersaults Pike",
-    "308C": "Reverse 4 Somersaults Tuck",
-    "309B": "Reverse 4½ Somersaults Pike",
-    "309C": "Reverse 4½ Somersaults Tuck",
-    "312B": "Reverse Flying Somersault Pike",
-    "312C": "Reverse Flying Somersault Tuck",
-    "313B": "Reverse Flying 1½ Somersaults Pike",
-    "313C": "Reverse Flying 1½ Somersaults Tuck",
-    "401A": "Inward Dive Straight",
-    "401B": "Inward Dive Pike",
-    "401C": "Inward Dive Tuck",
-    "402A": "Inward Somersault Straight",
-    "402B": "Inward Somersault Pike",
-    "402C": "Inward Somersault Tuck",
-    "403B": "Inward 1½ Somersaults Pike",
-    "403C": "Inward 1½ Somersaults Tuck",
-    "404B": "Inward 2 Somersaults Pike",
-    "404C": "Inward 2 Somersaults Tuck",
-    "405B": "Inward 2½ Somersaults Pike",
-    "405C": "Inward 2½ Somersaults Tuck",
-    "407B": "Inward 3½ Somersaults Pike",
-    "407C": "Inward 3½ Somersaults Tuck",
-    "409B": "Inward 4½ Somersaults Pike",
-    "409C": "Inward 4½ Somersaults Tuck",
-    "412B": "Inward Flying Somersault Pike",
-    "412C": "Inward Flying Somersault Tuck",
-    "413B": "Inward Flying 1½ Somersaults Pike",
-    "413C": "Inward Flying 1½ Somersaults Tuck",
-    "5111A": "Forward Dive ½ Twist Straight",
-    "5111B": "Forward Dive ½ Twist Pike",
-    "5111C": "Forward Dive ½ Twist Tuck",
-    "5112A": "Forward Dive 1 Twist Straight",
-    "5112B": "Forward Dive 1 Twist Pike",
-    "5121D": "Forward Somersault ½ Twist Free",
-    "5122D": "Forward Somersault 1 Twist Free",
-    "5124D": "Forward Somersault 2 Twists Free",
-    "5126D": "Forward Somersault 3 Twists Free",
-    "5131D": "Forward 1½ Somersaults ½ Twist Free",
-    "5132D": "Forward 1½ Somersaults 1 Twist Free",
-    "5134D": "Forward 1½ Somersaults 2 Twists Free",
-    "5136D": "Forward 1½ Somersaults 3 Twists Free",
-    "5138D": "Forward 1½ Somersaults 4 Twists Free",
-    "5151B": "Forward 2½ Somersaults ½ Twist Pike",
-    "5151C": "Forward 2½ Somersaults ½ Twist Tuck",
-    "5152B": "Forward 2½ Somersaults 1 Twist Pike",
-    "5152C": "Forward 2½ Somersaults 1 Twist Tuck",
-    "5154B": "Forward 2½ Somersaults 2 Twists Pike",
-    "5154C": "Forward 2½ Somersaults 2 Twists Tuck",
-    "5156B": "Forward 2½ Somersaults 3 Twists Pike",
-    "5156C": "Forward 2½ Somersaults 3 Twists Tuck",
-    "5172B": "Forward 3½ Somersaults 1 Twist Pike",
-    "5172C": "Forward 3½ Somersaults 1 Twist Tuck",
-    "5211A": "Back Dive ½ Twist Straight",
-    "5211B": "Back Dive ½ Twist Pike",
-    "5211C": "Back Dive ½ Twist Tuck",
-    "5212A": "Back Dive 1 Twist Straight",
-    "5221D": "Back Somersault ½ Twist Free",
-    "5222D": "Back Somersault 1 Twist Free",
-    "5223D": "Back Somersault 1½ Twists Free",
-    "5225D": "Back Somersault 2½ Twists Free",
-    "5227D": "Back Somersault 3½ Twists Free",
-    "5231D": "Back 1½ Somersaults ½ Twist Free",
-    "5233D": "Back 1½ Somersaults 1½ Twists Free",
-    "5235D": "Back 1½ Somersaults 2½ Twists Free",
-    "5237D": "Back 1½ Somersaults 3½ Twists Free",
-    "5239D": "Back 1½ Somersaults 4½ Twists Free",
-    "5251B": "Back 2½ Somersaults ½ Twist Pike",
-    "5251C": "Back 2½ Somersaults ½ Twist Tuck",
-    "5253B": "Back 2½ Somersaults 1½ Twists Pike",
-    "5253C": "Back 2½ Somersaults 1½ Twists Tuck",
-    "5255B": "Back 2½ Somersaults 2½ Twists Pike",
-    "5255C": "Back 2½ Somersaults 2½ Twists Tuck",
-    "5257B": "Back 2½ Somersaults 3½ Twists Pike",
-    "5271B": "Back 3½ Somersaults ½ Twist Pike",
-    "5271C": "Back 3½ Somersaults ½ Twist Tuck",
-    "5273B": "Back 3½ Somersaults 1½ Twists Pike",
-    "5273C": "Back 3½ Somersaults 1½ Twists Tuck",
-    "5275B": "Back 3½ Somersaults 2½ Twists Pike",
-    "5275C": "Back 3½ Somersaults 2½ Twists Tuck",
-    "5311A": "Reverse Dive ½ Twist Straight",
-    "5311B": "Reverse Dive ½ Twist Pike",
-    "5311C": "Reverse Dive ½ Twist Tuck",
-    "5312A": "Reverse Dive 1 Twist Straight",
-    "5321D": "Reverse Somersault ½ Twist Free",
-    "5322D": "Reverse Somersault 1 Twist Free",
-    "5323D": "Reverse Somersault 1½ Twists Free",
-    "5325D": "Reverse Somersault 2½ Twists Free",
-    "5331D": "Reverse 1½ Somersaults ½ Twist Free",
-    "5333D": "Reverse 1½ Somersaults 1½ Twists Free",
-    "5335D": "Reverse 1½ Somersaults 2½ Twists Free",
-    "5337D": "Reverse 1½ Somersaults 3½ Twists Free",
-    "5339D": "Reverse 1½ Somersaults 4½ Twists Free",
-    "5351B": "Reverse 2½ Somersaults ½ Twist Pike",
-    "5351C": "Reverse 2½ Somersaults ½ Twist Tuck",
-    "5353B": "Reverse 2½ Somersaults 1½ Twists Pike",
-    "5353C": "Reverse 2½ Somersaults 1½ Twists Tuck",
-    "5355B": "Reverse 2½ Somersaults 2½ Twists Pike",
-    "5355C": "Reverse 2½ Somersaults 2½ Twists Tuck",
-    "5371B": "Reverse 3½ Somersaults ½ Twist Pike",
-    "5371C": "Reverse 3½ Somersaults ½ Twist Tuck",
-    "5373C": "Reverse 3½ Somersaults 1½ Twists Tuck",
-    "5375C": "Reverse 3½ Somersaults 2½ Twists Tuck",
-    "5411A": "Inward Dive ½ Twist Straight",
-    "5411B": "Inward Dive ½ Twist Pike",
-    "5411C": "Inward Dive ½ Twist Tuck",
-    "5412A": "Inward Dive 1 Twist Straight",
-    "5412B": "Inward Dive 1 Twist Pike",
-    "5412C": "Inward Dive 1 Twist Tuck",
-    "5421D": "Inward Somersault ½ Twist Free",
-    "5422D": "Inward Somersault 1 Twist Free",
-    "5432D": "Inward 1½ Somersaults 1 Twist Free",
-    "5434D": "Inward 1½ Somersaults 2 Twists Free",
-    "5436D": "Inward 1½ Somersaults 3 Twists Free",
-    "610A": "Armstand Dive Straight",
-    "611A": "Armstand Forward ½ Somersault Straight",
-    "611B": "Armstand Forward ½ Somersault Pike",
-    "611C": "Armstand Forward ½ Somersault Tuck",
-    "612A": "Armstand Forward 1 Somersault Straight",
-    "612B": "Armstand Forward 1 Somersault Pike",
-    "612C": "Armstand Forward 1 Somersault Tuck",
-    "614B": "Armstand Forward 2 Somersaults Pike",
-    "614C": "Armstand Forward 2 Somersaults Tuck",
-    "616B": "Armstand Forward 3 Somersaults Pike",
-    "616C": "Armstand Forward 3 Somersaults Tuck",
-    "621A": "Armstand Back ½ Somersault Straight",
-    "621B": "Armstand Back ½ Somersault Pike",
-    "621C": "Armstand Back ½ Somersault Tuck",
-    "622A": "Armstand Back Somersault Straight",
-    "622B": "Armstand Back Somersault Pike",
-    "622C": "Armstand Back Somersault Tuck",
-    "623B": "Armstand Back 1½ Somersaults Pike",
-    "623C": "Armstand Back 1½ Somersaults Tuck",
-    "624A": "Armstand Back 2 Somersaults Straight",
-    "624B": "Armstand Back 2 Somersaults Pike",
-    "624C": "Armstand Back 2 Somersaults Tuck",
-    "626B": "Armstand Back 3 Somersaults Pike",
-    "626C": "Armstand Back 3 Somersaults Tuck",
-    "628B": "Armstand Back 4 Somersaults Pike",
-    "628C": "Armstand Back 4 Somersaults Tuck",
-    "631A": "Armstand Reverse ½ Somersault Straight",
-    "631B": "Armstand Reverse ½ Somersault Pike",
-    "631C": "Armstand Reverse ½ Somersault Tuck",
-    "632B": "Armstand Reverse 1 Somersault Pike",
-    "632C": "Armstand Reverse 1 Somersault Tuck",
-    "633B": "Armstand Reverse 1½ Somersaults Pike",
-    "633C": "Armstand Reverse 1½ Somersaults Tuck",
-    "634B": "Armstand Reverse 2 Somersaults Pike",
-    "634C": "Armstand Reverse 2 Somersaults Tuck",
-    "636B": "Armstand Reverse 3 Somersaults Pike",
-    "636C": "Armstand Reverse 3 Somersaults Tuck",
-    "638B": "Armstand Reverse 4 Somersaults Pike",
-    "638C": "Armstand Reverse 4 Somersaults Tuck",
-    "640A": "Armstand Dive Inward Straight",
-    "641B": "Armstand Inward ½ Somersault Pike",
-    "641C": "Armstand Inward ½ Somersault Tuck",
-    "642B": "Armstand Inward 1 Somersault Pike",
-    "642C": "Armstand Inward 1 Somersault Tuck",
-    "644B": "Armstand Inward 2 Somersaults Pike",
-    "644C": "Armstand Inward 2 Somersaults Tuck",
-    "646B": "Armstand Inward 3 Somersaults Pike",
-    "646C": "Armstand Inward 3 Somersaults Tuck",
-    "6122D": "Armstand Forward Somersault 1 Twist Free",
-    "6124D": "Armstand Forward Somersault 2 Twists Free",
-    "6142D": "Armstand Forward 2 Somersaults 1 Twist Free",
-    "6144D": "Armstand Forward 2 Somersaults 2 Twists Free",
-    "6162B": "Armstand Forward 3 Somersaults 1 Twist Pike",
-    "6221D": "Armstand Back Somersault ½ Twist Free",
-    "6241B": "Armstand Back 2 Somersaults ½ Twist Pike",
-    "6241C": "Armstand Back 2 Somersaults ½ Twist Tuck",
-    "6243D": "Armstand Back 2 Somersaults 1½ Twists Free",
-    "6245D": "Armstand Back 2 Somersaults 2½ Twists Free",
-    "6247D": "Armstand Back 2 Somersaults 3½ Twists Free",
-    "6261B": "Armstand Back 3 Somersaults ½ Twist Pike",
-    "6261C": "Armstand Back 3 Somersaults ½ Twist Tuck",
-    "6263B": "Armstand Back 3 Somersaults 1½ Twists Pike",
-    "6263C": "Armstand Back 3 Somersaults 1½ Twists Tuck",
-    "6265B": "Armstand Back 3 Somersaults 2½ Twists Pike",
-    "6265C": "Armstand Back 3 Somersaults 2½ Twists Tuck"
+  "comment": "Dive reference table organized by height with descriptions and DD values",
+  "source": "FINA Diving Rules - Appendix 9 (Springboard) and Appendix 11 (Platform)",
+  "heights": [
+    "1m",
+    "3m",
+    "5m",
+    "7.5m",
+    "10m"
+  ],
+  "1m": {
+    "101A": {
+      "description": "Forward Dive Straight",
+      "dd": 1.4
+    },
+    "101B": {
+      "description": "Forward Dive Pike",
+      "dd": 1.3
+    },
+    "101C": {
+      "description": "Forward Dive Tuck",
+      "dd": 1.2
+    },
+    "102A": {
+      "description": "Forward Somersault Straight",
+      "dd": 1.6
+    },
+    "102B": {
+      "description": "Forward Somersault Pike",
+      "dd": 1.5
+    },
+    "102C": {
+      "description": "Forward Somersault Tuck",
+      "dd": 1.4
+    },
+    "103A": {
+      "description": "Forward 1\u00bd Somersaults Straight",
+      "dd": 2.0
+    },
+    "103B": {
+      "description": "Forward 1\u00bd Somersaults Pike",
+      "dd": 1.7
+    },
+    "103C": {
+      "description": "Forward 1\u00bd Somersaults Tuck",
+      "dd": 1.6
+    },
+    "104A": {
+      "description": "Forward 2 Somersaults Straight",
+      "dd": 2.6
+    },
+    "104B": {
+      "description": "Forward 2 Somersaults Pike",
+      "dd": 2.3
+    },
+    "104C": {
+      "description": "Forward 2 Somersaults Tuck",
+      "dd": 2.2
+    },
+    "105B": {
+      "description": "Forward 2\u00bd Somersaults Pike",
+      "dd": 2.6
+    },
+    "105C": {
+      "description": "Forward 2\u00bd Somersaults Tuck",
+      "dd": 2.4
+    },
+    "106B": {
+      "description": "Forward 3 Somersaults Pike",
+      "dd": 3.2
+    },
+    "106C": {
+      "description": "Forward 3 Somersaults Tuck",
+      "dd": 2.9
+    },
+    "107B": {
+      "description": "Forward 3\u00bd Somersaults Pike",
+      "dd": 3.3
+    },
+    "107C": {
+      "description": "Forward 3\u00bd Somersaults Tuck",
+      "dd": 3.0
+    },
+    "108B": {
+      "description": "Forward 4 Somersaults Pike",
+      "dd": 4.0
+    },
+    "109B": {
+      "description": "Forward 4\u00bd Somersaults Pike",
+      "dd": 4.3
+    },
+    "112B": {
+      "description": "Forward Flying Somersault Pike",
+      "dd": 1.7
+    },
+    "112C": {
+      "description": "Forward Flying Somersault Tuck",
+      "dd": 1.6
+    },
+    "113B": {
+      "description": "Forward Flying 1\u00bd Somersaults Pike",
+      "dd": 1.9
+    },
+    "113C": {
+      "description": "Forward Flying 1\u00bd Somersaults Tuck",
+      "dd": 1.8
+    },
+    "201A": {
+      "description": "Back Dive Straight",
+      "dd": 1.7
+    },
+    "201B": {
+      "description": "Back Dive Pike",
+      "dd": 1.6
+    },
+    "201C": {
+      "description": "Back Dive Tuck",
+      "dd": 1.5
+    },
+    "202A": {
+      "description": "Back Somersault Straight",
+      "dd": 1.7
+    },
+    "202B": {
+      "description": "Back Somersault Pike",
+      "dd": 1.6
+    },
+    "202C": {
+      "description": "Back Somersault Tuck",
+      "dd": 1.5
+    },
+    "203A": {
+      "description": "Back 1\u00bd Somersaults Straight",
+      "dd": 2.5
+    },
+    "203B": {
+      "description": "Back 1\u00bd Somersaults Pike",
+      "dd": 2.3
+    },
+    "203C": {
+      "description": "Back 1\u00bd Somersaults Tuck",
+      "dd": 2.0
+    },
+    "204B": {
+      "description": "Back 2 Somersaults Pike",
+      "dd": 2.5
+    },
+    "204C": {
+      "description": "Back 2 Somersaults Tuck",
+      "dd": 2.2
+    },
+    "205B": {
+      "description": "Back 2\u00bd Somersaults Pike",
+      "dd": 3.2
+    },
+    "205C": {
+      "description": "Back 2\u00bd Somersaults Tuck",
+      "dd": 3.0
+    },
+    "206B": {
+      "description": "Back 3 Somersaults Pike",
+      "dd": 3.2
+    },
+    "206C": {
+      "description": "Back 3 Somersaults Tuck",
+      "dd": 2.9
+    },
+    "207B": {
+      "description": "Back 3\u00bd Somersaults Pike",
+      "dd": 3.9
+    },
+    "207C": {
+      "description": "Back 3\u00bd Somersaults Tuck",
+      "dd": 3.6
+    },
+    "208B": {
+      "description": "Back 4 Somersaults Pike",
+      "dd": 3.7
+    },
+    "208C": {
+      "description": "Back 4 Somersaults Tuck",
+      "dd": 3.4
+    },
+    "209B": {
+      "description": "Back 4\u00bd Somersaults Pike",
+      "dd": 4.7
+    },
+    "209C": {
+      "description": "Back 4\u00bd Somersaults Tuck",
+      "dd": 4.4
+    },
+    "212B": {
+      "description": "Back Flying Somersault Pike",
+      "dd": 1.7
+    },
+    "212C": {
+      "description": "Back Flying Somersault Tuck",
+      "dd": 1.6
+    },
+    "213B": {
+      "description": "Back Flying 1\u00bd Somersaults Pike",
+      "dd": 2.4
+    },
+    "213C": {
+      "description": "Back Flying 1\u00bd Somersaults Tuck",
+      "dd": 2.1
+    },
+    "301A": {
+      "description": "Reverse Dive Straight",
+      "dd": 1.8
+    },
+    "301B": {
+      "description": "Reverse Dive Pike",
+      "dd": 1.7
+    },
+    "301C": {
+      "description": "Reverse Dive Tuck",
+      "dd": 1.6
+    },
+    "302A": {
+      "description": "Reverse Somersault Straight",
+      "dd": 1.8
+    },
+    "302B": {
+      "description": "Reverse Somersault Pike",
+      "dd": 1.7
+    },
+    "302C": {
+      "description": "Reverse Somersault Tuck",
+      "dd": 1.6
+    },
+    "303A": {
+      "description": "Reverse 1\u00bd Somersaults Straight",
+      "dd": 2.7
+    },
+    "303B": {
+      "description": "Reverse 1\u00bd Somersaults Pike",
+      "dd": 2.4
+    },
+    "303C": {
+      "description": "Reverse 1\u00bd Somersaults Tuck",
+      "dd": 2.1
+    },
+    "304A": {
+      "description": "Reverse 2 Somersaults Straight",
+      "dd": 2.9
+    },
+    "304B": {
+      "description": "Reverse 2 Somersaults Pike",
+      "dd": 2.6
+    },
+    "304C": {
+      "description": "Reverse 2 Somersaults Tuck",
+      "dd": 2.3
+    },
+    "305B": {
+      "description": "Reverse 2\u00bd Somersaults Pike",
+      "dd": 3.2
+    },
+    "305C": {
+      "description": "Reverse 2\u00bd Somersaults Tuck",
+      "dd": 3.0
+    },
+    "306B": {
+      "description": "Reverse 3 Somersaults Pike",
+      "dd": 3.3
+    },
+    "306C": {
+      "description": "Reverse 3 Somersaults Tuck",
+      "dd": 3.0
+    },
+    "312B": {
+      "description": "Reverse Flying Somersault Pike",
+      "dd": 1.8
+    },
+    "312C": {
+      "description": "Reverse Flying Somersault Tuck",
+      "dd": 1.7
+    },
+    "313B": {
+      "description": "Reverse Flying 1\u00bd Somersaults Pike",
+      "dd": 2.6
+    },
+    "313C": {
+      "description": "Reverse Flying 1\u00bd Somersaults Tuck",
+      "dd": 2.3
+    },
+    "401A": {
+      "description": "Inward Dive Straight",
+      "dd": 1.8
+    },
+    "401B": {
+      "description": "Inward Dive Pike",
+      "dd": 1.5
+    },
+    "401C": {
+      "description": "Inward Dive Tuck",
+      "dd": 1.4
+    },
+    "402A": {
+      "description": "Inward Somersault Straight",
+      "dd": 2.0
+    },
+    "402B": {
+      "description": "Inward Somersault Pike",
+      "dd": 1.7
+    },
+    "402C": {
+      "description": "Inward Somersault Tuck",
+      "dd": 1.6
+    },
+    "403B": {
+      "description": "Inward 1\u00bd Somersaults Pike",
+      "dd": 2.4
+    },
+    "403C": {
+      "description": "Inward 1\u00bd Somersaults Tuck",
+      "dd": 2.2
+    },
+    "404B": {
+      "description": "Inward 2 Somersaults Pike",
+      "dd": 3.0
+    },
+    "404C": {
+      "description": "Inward 2 Somersaults Tuck",
+      "dd": 2.8
+    },
+    "405B": {
+      "description": "Inward 2\u00bd Somersaults Pike",
+      "dd": 3.4
+    },
+    "405C": {
+      "description": "Inward 2\u00bd Somersaults Tuck",
+      "dd": 3.1
+    },
+    "412B": {
+      "description": "Inward Flying Somersault Pike",
+      "dd": 2.1
+    },
+    "412C": {
+      "description": "Inward Flying Somersault Tuck",
+      "dd": 2.0
+    },
+    "413B": {
+      "description": "Inward Flying 1\u00bd Somersaults Pike",
+      "dd": 2.9
+    },
+    "413C": {
+      "description": "Inward Flying 1\u00bd Somersaults Tuck",
+      "dd": 2.7
+    },
+    "5111A": {
+      "description": "Forward Dive \u00bd Twist Straight",
+      "dd": 1.8
+    },
+    "5111B": {
+      "description": "Forward Dive \u00bd Twist Pike",
+      "dd": 1.7
+    },
+    "5111C": {
+      "description": "Forward Dive \u00bd Twist Tuck",
+      "dd": 1.6
+    },
+    "5112A": {
+      "description": "Forward Dive 1 Twist Straight",
+      "dd": 2.0
+    },
+    "5112B": {
+      "description": "Forward Dive 1 Twist Pike",
+      "dd": 1.9
+    },
+    "5121D": {
+      "description": "Forward Somersault \u00bd Twist Free",
+      "dd": 1.7
+    },
+    "5122D": {
+      "description": "Forward Somersault 1 Twist Free",
+      "dd": 1.9
+    },
+    "5124D": {
+      "description": "Forward Somersault 2 Twists Free",
+      "dd": 2.3
+    },
+    "5126D": {
+      "description": "Forward Somersault 3 Twists Free",
+      "dd": 2.8
+    },
+    "5131D": {
+      "description": "Forward 1\u00bd Somersaults \u00bd Twist Free",
+      "dd": 2.0
+    },
+    "5132D": {
+      "description": "Forward 1\u00bd Somersaults 1 Twist Free",
+      "dd": 2.2
+    },
+    "5134D": {
+      "description": "Forward 1\u00bd Somersaults 2 Twists Free",
+      "dd": 2.6
+    },
+    "5136D": {
+      "description": "Forward 1\u00bd Somersaults 3 Twists Free",
+      "dd": 3.1
+    },
+    "5138D": {
+      "description": "Forward 1\u00bd Somersaults 4 Twists Free",
+      "dd": 3.5
+    },
+    "5151B": {
+      "description": "Forward 2\u00bd Somersaults \u00bd Twist Pike",
+      "dd": 3.0
+    },
+    "5151C": {
+      "description": "Forward 2\u00bd Somersaults \u00bd Twist Tuck",
+      "dd": 2.8
+    },
+    "5152B": {
+      "description": "Forward 2\u00bd Somersaults 1 Twist Pike",
+      "dd": 3.2
+    },
+    "5152C": {
+      "description": "Forward 2\u00bd Somersaults 1 Twist Tuck",
+      "dd": 3.0
+    },
+    "5154B": {
+      "description": "Forward 2\u00bd Somersaults 2 Twists Pike",
+      "dd": 3.6
+    },
+    "5154C": {
+      "description": "Forward 2\u00bd Somersaults 2 Twists Tuck",
+      "dd": 3.4
+    },
+    "5211A": {
+      "description": "Back Dive \u00bd Twist Straight",
+      "dd": 1.8
+    },
+    "5211B": {
+      "description": "Back Dive \u00bd Twist Pike",
+      "dd": 1.7
+    },
+    "5211C": {
+      "description": "Back Dive \u00bd Twist Tuck",
+      "dd": 1.6
+    },
+    "5212A": {
+      "description": "Back Dive 1 Twist Straight",
+      "dd": 2.0
+    },
+    "5221D": {
+      "description": "Back Somersault \u00bd Twist Free",
+      "dd": 1.7
+    },
+    "5222D": {
+      "description": "Back Somersault 1 Twist Free",
+      "dd": 1.9
+    },
+    "5223D": {
+      "description": "Back Somersault 1\u00bd Twists Free",
+      "dd": 2.3
+    },
+    "5225D": {
+      "description": "Back Somersault 2\u00bd Twists Free",
+      "dd": 2.7
+    },
+    "5227D": {
+      "description": "Back Somersault 3\u00bd Twists Free",
+      "dd": 3.2
+    },
+    "5231D": {
+      "description": "Back 1\u00bd Somersaults \u00bd Twist Free",
+      "dd": 2.1
+    },
+    "5233D": {
+      "description": "Back 1\u00bd Somersaults 1\u00bd Twists Free",
+      "dd": 2.5
+    },
+    "5235D": {
+      "description": "Back 1\u00bd Somersaults 2\u00bd Twists Free",
+      "dd": 2.9
+    },
+    "5251B": {
+      "description": "Back 2\u00bd Somersaults \u00bd Twist Pike",
+      "dd": 2.9
+    },
+    "5251C": {
+      "description": "Back 2\u00bd Somersaults \u00bd Twist Tuck",
+      "dd": 2.7
+    },
+    "5257B": {
+      "description": "Back 2\u00bd Somersaults 3\u00bd Twists Pike",
+      "dd": 3.8
+    },
+    "5311A": {
+      "description": "Reverse Dive \u00bd Twist Straight",
+      "dd": 1.9
+    },
+    "5311B": {
+      "description": "Reverse Dive \u00bd Twist Pike",
+      "dd": 1.8
+    },
+    "5311C": {
+      "description": "Reverse Dive \u00bd Twist Tuck",
+      "dd": 1.7
+    },
+    "5312A": {
+      "description": "Reverse Dive 1 Twist Straight",
+      "dd": 2.1
+    },
+    "5321D": {
+      "description": "Reverse Somersault \u00bd Twist Free",
+      "dd": 1.8
+    },
+    "5322D": {
+      "description": "Reverse Somersault 1 Twist Free",
+      "dd": 2.0
+    },
+    "5323D": {
+      "description": "Reverse Somersault 1\u00bd Twists Free",
+      "dd": 2.4
+    },
+    "5325D": {
+      "description": "Reverse Somersault 2\u00bd Twists Free",
+      "dd": 2.8
+    },
+    "5331D": {
+      "description": "Reverse 1\u00bd Somersaults \u00bd Twist Free",
+      "dd": 2.2
+    },
+    "5333D": {
+      "description": "Reverse 1\u00bd Somersaults 1\u00bd Twists Free",
+      "dd": 2.6
+    },
+    "5335D": {
+      "description": "Reverse 1\u00bd Somersaults 2\u00bd Twists Free",
+      "dd": 3.0
+    },
+    "5337D": {
+      "description": "Reverse 1\u00bd Somersaults 3\u00bd Twists Free",
+      "dd": 3.6
+    },
+    "5351B": {
+      "description": "Reverse 2\u00bd Somersaults \u00bd Twist Pike",
+      "dd": 2.9
+    },
+    "5351C": {
+      "description": "Reverse 2\u00bd Somersaults \u00bd Twist Tuck",
+      "dd": 2.7
+    },
+    "5353B": {
+      "description": "Reverse 2\u00bd Somersaults 1\u00bd Twists Pike",
+      "dd": 3.5
+    },
+    "5353C": {
+      "description": "Reverse 2\u00bd Somersaults 1\u00bd Twists Tuck",
+      "dd": 3.3
+    },
+    "5355B": {
+      "description": "Reverse 2\u00bd Somersaults 2\u00bd Twists Pike",
+      "dd": 3.9
+    },
+    "5355C": {
+      "description": "Reverse 2\u00bd Somersaults 2\u00bd Twists Tuck",
+      "dd": 3.7
+    },
+    "5411A": {
+      "description": "Inward Dive \u00bd Twist Straight",
+      "dd": 2.0
+    },
+    "5411B": {
+      "description": "Inward Dive \u00bd Twist Pike",
+      "dd": 1.7
+    },
+    "5411C": {
+      "description": "Inward Dive \u00bd Twist Tuck",
+      "dd": 1.6
+    },
+    "5412A": {
+      "description": "Inward Dive 1 Twist Straight",
+      "dd": 2.2
+    },
+    "5412B": {
+      "description": "Inward Dive 1 Twist Pike",
+      "dd": 1.9
+    },
+    "5412C": {
+      "description": "Inward Dive 1 Twist Tuck",
+      "dd": 1.8
+    },
+    "5421D": {
+      "description": "Inward Somersault \u00bd Twist Free",
+      "dd": 1.9
+    },
+    "5422D": {
+      "description": "Inward Somersault 1 Twist Free",
+      "dd": 2.1
+    },
+    "5432D": {
+      "description": "Inward 1\u00bd Somersaults 1 Twist Free",
+      "dd": 2.7
+    },
+    "5434D": {
+      "description": "Inward 1\u00bd Somersaults 2 Twists Free",
+      "dd": 3.1
+    }
   },
-  "difficulties": {
-    "101A-1m": 1.4,
-    "101A-3m": 1.6,
-    "101B-1m": 1.3,
-    "101B-3m": 1.5,
-    "101C-1m": 1.2,
-    "101C-3m": 1.4,
-    "102A-1m": 1.6,
-    "102A-3m": 1.7,
-    "102B-1m": 1.5,
-    "102B-3m": 1.6,
-    "102C-1m": 1.4,
-    "102C-3m": 1.5,
-    "103A-1m": 2.0,
-    "103A-3m": 1.9,
-    "103B-1m": 1.7,
-    "103B-3m": 1.6,
-    "103C-1m": 1.6,
-    "103C-3m": 1.5,
-    "104A-1m": 2.6,
-    "104A-3m": 2.4,
-    "104B-1m": 2.3,
-    "104B-3m": 2.1,
-    "104C-1m": 2.2,
-    "104C-3m": 2.0,
-    "105A-3m": 2.8,
-    "105B-1m": 2.6,
-    "105B-3m": 2.4,
-    "105C-1m": 2.4,
-    "105C-3m": 2.2,
-    "106B-1m": 3.2,
-    "106B-3m": 2.8,
-    "106C-1m": 2.9,
-    "106C-3m": 2.5,
-    "107B-1m": 3.3,
-    "107B-3m": 3.1,
-    "107C-1m": 3.0,
-    "107C-3m": 2.8,
-    "108B-1m": 4.0,
-    "108B-3m": 3.8,
-    "108C-3m": 3.4,
-    "109B-1m": 4.3,
-    "109B-3m": 4.2,
-    "109C-3m": 3.8,
-    "112B-1m": 1.7,
-    "112B-3m": 1.8,
-    "112C-1m": 1.6,
-    "112C-3m": 1.7,
-    "113B-1m": 1.9,
-    "113B-3m": 1.8,
-    "113C-1m": 1.8,
-    "113C-3m": 1.7,
-    "115B-3m": 2.7,
-    "115C-3m": 2.5,
-
-    "201A-1m": 1.7,
-    "201A-3m": 1.9,
-    "201B-1m": 1.6,
-    "201B-3m": 1.8,
-    "201C-1m": 1.5,
-    "201C-3m": 1.7,
-    "202A-1m": 1.7,
-    "202A-3m": 1.8,
-    "202B-1m": 1.6,
-    "202B-3m": 1.7,
-    "202C-1m": 1.5,
-    "202C-3m": 1.6,
-    "203A-1m": 2.5,
-    "203A-3m": 2.4,
-    "203B-1m": 2.3,
-    "203B-3m": 2.2,
-    "203C-1m": 2.0,
-    "203C-3m": 1.9,
-    "204A-3m": 2.5,
-    "204B-1m": 2.5,
-    "204B-3m": 2.3,
-    "204C-1m": 2.2,
-    "204C-3m": 2.0,
-    "205B-1m": 3.2,
-    "205B-3m": 3.0,
-    "205C-1m": 3.0,
-    "205C-3m": 2.8,
-    "206B-1m": 3.2,
-    "206B-3m": 2.8,
-    "206C-1m": 2.9,
-    "206C-3m": 2.5,
-    "207B-1m": 3.9,
-    "207B-3m": 3.9,
-    "207C-1m": 3.6,
-    "207C-3m": 3.6,
-    "207B-5m": 3.5,
-    "207B-10m": 3.6,
-    "207B-7.5m": 3.5,
-    "207C-5m": 3.3,
-    "207C-7.5m": 3.4,
-    "207C-10m": 3.6,
-    "208B-5m": 4.4,
-    "208B-7.5m": 4.2,
-    "208B-10m": 4.1,
-    "208C-5m": 4.1,
-    "208C-7.5m": 3.9,
-    "208C-10m": 3.8,
-    "209B-10m": 4.5,
-    "209C-10m": 4.2,
-    "208B-1m": 3.7,
-    "208B-3m": 3.7,
-    "208C-1m": 3.4,
-    "208C-3m": 3.4,
-    "209B-1m": 4.7,
-    "209B-3m": 4.7,
-    "209C-1m": 4.4,
-    "209C-3m": 4.4,
-    "212B-1m": 1.7,
-    "212B-3m": 1.8,
-    "212C-1m": 1.6,
-    "212C-3m": 1.7,
-    "213B-1m": 2.4,
-    "213B-3m": 2.4,
-    "213C-1m": 2.1,
-    "213C-3m": 2.1,
-    "215B-3m": 3.3,
-    "215C-3m": 3.1,
-
-    "301A-1m": 1.8,
-    "301A-3m": 2.0,
-    "301B-1m": 1.7,
-    "301B-3m": 1.9,
-    "301C-1m": 1.6,
-    "301C-3m": 1.8,
-    "302A-1m": 1.8,
-    "302A-3m": 1.9,
-    "302B-1m": 1.7,
-    "302B-3m": 1.8,
-    "302C-1m": 1.6,
-    "302C-3m": 1.7,
-    "303A-1m": 2.7,
-    "303A-3m": 2.6,
-    "303B-1m": 2.4,
-    "303B-3m": 2.3,
-    "303C-1m": 2.1,
-    "303C-3m": 2.0,
-    "304A-1m": 2.9,
-    "304A-3m": 2.7,
-    "304B-1m": 2.6,
-    "304B-3m": 2.4,
-    "304C-1m": 2.3,
-    "304C-3m": 2.1,
-    "305A-3m": 3.4,
-    "305B-1m": 3.2,
-    "305B-3m": 3.0,
-    "305C-1m": 3.0,
-    "305C-3m": 2.8,
-    "305C-5m": 2.8,
-    "305C-7.5m": 2.9,
-    "305C-10m": 3.0,
-    "306B-1m": 3.3,
-    "306B-3m": 2.9,
-    "306C-1m": 3.0,
-    "306C-3m": 2.6,
-    "307B-3m": 3.8,
-    "307C-3m": 3.5,
-    "308B-3m": 3.7,
-    "308C-3m": 3.4,
-    "309B-3m": 4.7,
-    "309C-3m": 4.4,
-    "312B-1m": 1.8,
-    "312B-3m": 1.9,
-    "312C-1m": 1.7,
-    "312C-3m": 1.8,
-    "313B-1m": 2.6,
-    "313B-3m": 2.5,
-    "313C-1m": 2.3,
-    "313C-3m": 2.2,
-
-    "401A-1m": 1.8,
-    "401A-3m": 1.7,
-    "401B-1m": 1.5,
-    "401B-3m": 1.4,
-    "401C-1m": 1.4,
-    "401C-3m": 1.3,
-    "402A-1m": 2.0,
-    "402A-3m": 1.8,
-    "402B-1m": 1.7,
-    "402B-3m": 1.5,
-    "402C-1m": 1.6,
-    "402C-3m": 1.4,
-    "403B-1m": 2.4,
-    "403B-3m": 2.1,
-    "403C-1m": 2.2,
-    "403C-3m": 1.9,
-    "404B-1m": 3.0,
-    "404B-3m": 2.6,
-    "404C-1m": 2.8,
-    "404C-3m": 2.4,
-    "405B-1m": 3.4,
-    "405B-3m": 3.0,
-    "405C-1m": 3.1,
-    "405C-3m": 2.7,
-    "407B-3m": 3.7,
-    "407C-3m": 3.4,
-    "409B-3m": 4.6,
-    "409C-3m": 4.2,
-    "412B-1m": 2.1,
-    "412B-3m": 1.9,
-    "412C-1m": 2.0,
-    "412C-3m": 1.8,
-    "413B-1m": 2.9,
-    "413B-3m": 2.6,
-    "413C-1m": 2.7,
-    "413C-3m": 2.4,
-
-    "5111A-1m": 1.8,
-    "5111A-3m": 2.0,
-    "5111B-1m": 1.7,
-    "5111B-3m": 1.9,
-    "5111C-1m": 1.6,
-    "5111C-3m": 1.8,
-    "5112A-1m": 2.0,
-    "5112A-3m": 2.2,
-    "5112B-1m": 1.9,
-    "5112B-3m": 2.1,
-    "5121D-1m": 1.7,
-    "5121D-3m": 1.8,
-    "5122D-1m": 1.9,
-    "5122D-3m": 2.0,
-    "5124D-1m": 2.3,
-    "5124D-3m": 2.4,
-    "5126D-1m": 2.8,
-    "5126D-3m": 2.9,
-    "5131D-1m": 2.0,
-    "5131D-3m": 1.9,
-    "5132D-1m": 2.2,
-    "5132D-3m": 2.1,
-    "5134D-1m": 2.6,
-    "5134D-3m": 2.5,
-    "5136D-1m": 3.1,
-    "5136D-3m": 3.0,
-    "5138D-1m": 3.5,
-    "5138D-3m": 3.4,
-    "5151B-1m": 3.0,
-    "5151B-3m": 2.8,
-    "5151C-1m": 2.8,
-    "5151C-3m": 2.6,
-    "5152B-1m": 3.2,
-    "5152B-3m": 3.0,
-    "5152C-1m": 3.0,
-    "5152C-3m": 2.8,
-    "5154B-1m": 3.6,
-    "5154B-3m": 3.4,
-    "5154C-1m": 3.4,
-    "5154C-3m": 3.2,
-    "5156B-3m": 3.9,
-    "5156C-3m": 3.7,
-    "5172B-3m": 3.7,
-    "5172C-3m": 3.4,
-    "5211A-1m": 1.8,
-    "5211A-3m": 2.0,
-    "5211B-1m": 1.7,
-    "5211B-3m": 1.9,
-    "5211C-1m": 1.6,
-    "5211C-3m": 1.8,
-    "5212A-1m": 2.0,
-    "5212A-3m": 2.2,
-    "5221D-1m": 1.7,
-    "5221D-3m": 1.8,
-    "5222D-1m": 1.9,
-    "5222D-3m": 2.0,
-    "5223D-1m": 2.3,
-    "5223D-3m": 2.4,
-    "5225D-1m": 2.7,
-    "5225D-3m": 2.8,
-    "5227D-1m": 3.2,
-    "5227D-3m": 3.3,
-    "5231D-1m": 2.1,
-    "5231D-3m": 2.0,
-    "5233D-1m": 2.5,
-    "5233D-3m": 2.4,
-    "5235D-1m": 2.9,
-    "5235D-3m": 2.8,
-    "5237D-3m": 3.3,
-    "5239D-3m": 3.7,
-    "5251B-1m": 2.9,
-    "5251B-3m": 2.7,
-    "5251C-1m": 2.7,
-    "5251C-3m": 2.5,
-    "5253B-3m": 3.4,
-    "5253B-5m": 3.2,
-    "5253B-7.5m": 3.4,
-    "5253B-10m": 3.6,
-    "5253C-3m": 3.2,
-    "5255B-3m": 3.8,
-    "5255C-3m": 3.6,
-    "5257B-1m": 3.8,
-    "5257B-3m": 3.8,
-    "5311A-1m": 1.9,
-    "5311A-3m": 2.1,
-    "5311B-1m": 1.8,
-    "5311B-3m": 2.0,
-    "5311C-1m": 1.7,
-    "5311C-3m": 1.9,
-    "5312A-1m": 2.1,
-    "5312A-3m": 2.3,
-    "5321D-1m": 1.8,
-    "5321D-3m": 1.9,
-    "5322D-1m": 2.0,
-    "5322D-3m": 2.1,
-    "5323D-1m": 2.4,
-    "5323D-3m": 2.5,
-    "5325D-1m": 2.8,
-    "5325D-3m": 2.9,
-    "5331D-1m": 2.2,
-    "5331D-3m": 2.1,
-    "5333D-1m": 2.6,
-    "5333D-3m": 2.5,
-    "5335D-1m": 3.0,
-    "5335D-3m": 2.9,
-    "5337D-1m": 3.6,
-    "5337D-3m": 3.5,
-    "5339D-3m": 3.8,
-    "5351B-1m": 2.9,
-    "5351B-3m": 2.7,
-    "5351C-1m": 2.7,
-    "5351C-3m": 2.5,
-    "5353B-1m": 3.5,
-    "5353B-3m": 3.3,
-    "5353C-1m": 3.3,
-    "5353C-3m": 3.1,
-    "5355B-1m": 3.9,
-    "5355B-3m": 3.7,
-    "5355C-1m": 3.7,
-    "5355C-3m": 3.5,
-    "5371B-3m": 3.4,
-    "5371C-3m": 3.1,
-    "5373C-3m": 3.7,
-    "5375C-3m": 4.1,
-    "5411A-1m": 2.0,
-    "5411A-3m": 1.9,
-    "5411B-1m": 1.7,
-    "5411B-3m": 1.6,
-    "5411C-1m": 1.6,
-    "5411C-3m": 1.5,
-    "5412A-1m": 2.2,
-    "5412A-3m": 2.1,
-    "5412B-1m": 1.9,
-    "5412B-3m": 1.8,
-    "5412C-1m": 1.8,
-    "5412C-3m": 1.7,
-    "5421D-1m": 1.9,
-    "5421D-3m": 1.7,
-    "5422D-1m": 2.1,
-    "5422D-3m": 1.9,
-    "5432D-1m": 2.7,
-    "5432D-3m": 2.4,
-    "5434D-1m": 3.1,
-    "5434D-3m": 2.8,
-    "5436D-3m": 3.5,
-    "101A-5m": 1.4,
-    "101A-7.5m": 1.6,
-    "101A-10m": 1.6,
-    "101B-5m": 1.3,
-    "101B-7.5m": 1.5,
-    "101B-10m": 1.5,
-    "101C-5m": 1.2,
-    "101C-7.5m": 1.4,
-    "101C-10m": 1.4,
-    "102A-5m": 1.6,
-    "102A-7.5m": 1.7,
-    "102A-10m": 1.8,
-    "102B-5m": 1.5,
-    "102B-7.5m": 1.6,
-    "102B-10m": 1.7,
-    "102C-5m": 1.4,
-    "102C-7.5m": 1.5,
-    "102C-10m": 1.6,
-    "103A-5m": 2.0,
-    "103A-7.5m": 1.9,
-    "103A-10m": 1.9,
-    "103B-5m": 1.7,
-    "103B-7.5m": 1.6,
-    "103B-10m": 1.6,
-    "103C-5m": 1.6,
-    "103C-7.5m": 1.5,
-    "103C-10m": 1.5,
-    "104A-5m": 2.6,
-    "104A-7.5m": 2.4,
-    "104A-10m": 2.5,
-    "104B-5m": 2.3,
-    "104B-7.5m": 2.1,
-    "104B-10m": 2.2,
-    "104C-5m": 2.2,
-    "104C-7.5m": 2.0,
-    "104C-10m": 2.1,
-    "105A-5m": 2.6,
-    "105A-7.5m": 2.4,
-    "105A-10m": 2.7,
-    "105B-5m": 2.4,
-    "105B-7.5m": 2.2,
-    "105B-10m": 2.3,
-    "105C-5m": 2.4,
-    "105C-7.5m": 2.2,
-    "105C-10m": 2.1,
-    "106B-5m": 3.2,
-    "106B-7.5m": 2.8,
-    "106B-10m": 3.0,
-    "106C-5m": 2.9,
-    "106C-7.5m": 2.5,
-    "106C-10m": 2.7,
-    "107B-5m": 3.0,
-    "107B-7.5m": 3.1,
-    "107B-10m": 3.0,
-    "107C-5m": 3.0,
-    "107C-7.5m": 2.8,
-    "107C-10m": 2.7,
-    "108B-5m": 4.4,
-    "108B-7.5m": 4.2,
-    "108B-10m": 4.1,
-    "108C-5m": 4.1,
-    "108C-7.5m": 3.9,
-    "108C-10m": 3.7,
-    "109B-5m": 4.4,
-    "109B-7.5m": 4.1,
-    "109B-10m": 4.1,
-    "109C-5m": 4.1,
-    "109C-7.5m": 3.8,
-    "109C-10m": 3.7,
-    "1011B-10m": 4.7,
-    "112B-5m": 1.7,
-    "112B-7.5m": 1.8,
-    "112B-10m": 1.9,
-    "112C-5m": 1.6,
-    "112C-7.5m": 1.7,
-    "112C-10m": 1.8,
-    "113B-5m": 1.9,
-    "113B-7.5m": 1.8,
-    "113B-10m": 1.8,
-    "113C-5m": 1.8,
-    "113C-7.5m": 1.7,
-    "113C-10m": 1.7,
-    "114B-5m": 2.5,
-    "114B-7.5m": 2.3,
-    "114B-10m": 2.4,
-    "114C-5m": 2.4,
-    "114C-7.5m": 2.2,
-    "114C-10m": 2.3,
-    "115B-5m": 2.6,
-    "115B-7.5m": 2.5,
-    "115B-10m": 2.6,
-    "115C-5m": 2.4,
-    "115C-7.5m": 2.5,
-    "115C-10m": 2.4,
-    "201A-5m": 1.7,
-    "201A-7.5m": 1.9,
-    "201A-10m": 1.9,
-    "201B-5m": 1.6,
-    "201B-7.5m": 1.8,
-    "201B-10m": 1.8,
-    "201C-5m": 1.5,
-    "201C-7.5m": 1.7,
-    "201C-10m": 1.7,
-    "202A-5m": 1.7,
-    "202A-7.5m": 1.8,
-    "202A-10m": 1.9,
-    "202B-5m": 1.6,
-    "202B-7.5m": 1.7,
-    "202B-10m": 1.8,
-    "202C-5m": 1.5,
-    "202C-7.5m": 1.6,
-    "202C-10m": 1.7,
-    "203A-5m": 2.5,
-    "203A-7.5m": 2.4,
-    "203A-10m": 2.4,
-    "203B-5m": 2.3,
-    "203B-7.5m": 2.2,
-    "203B-10m": 2.2,
-    "203C-5m": 2.0,
-    "203C-7.5m": 1.9,
-    "203C-10m": 1.9,
-    "204A-5m": 2.5,
-    "204A-7.5m": 2.5,
-    "204A-10m": 2.6,
-    "204B-5m": 2.2,
-    "204B-7.5m": 2.3,
-    "204B-10m": 2.4,
-    "204C-5m": 2.2,
-    "204C-7.5m": 2.0,
-    "204C-10m": 2.1,
-    "205B-5m": 3.2,
-    "205B-7.5m": 3.0,
-    "205B-10m": 3.3,
-    "205C-5m": 3.0,
-    "205C-7.5m": 2.8,
-    "205C-10m": 2.9,
-    "206B-5m": 3.2,
-    "206B-7.5m": 2.8,
-    "206B-10m": 3.0,
-    "206C-5m": 2.9,
-    "206C-7.5m": 2.5,
-    "206C-10m": 2.7,
-    "212B-5m": 1.7,
-    "212B-7.5m": 1.8,
-    "212B-10m": 1.9,
-    "212C-5m": 1.6,
-    "212C-7.5m": 1.7,
-    "212C-10m": 1.8,
-    "213B-5m": 2.5,
-    "213B-7.5m": 2.4,
-    "213B-10m": 2.4,
-    "213C-5m": 2.2,
-    "213C-7.5m": 2.1,
-    "213C-10m": 2.1,
-    "215B-5m": 3.2,
-    "215B-7.5m": 3.2,
-    "215B-10m": 3.2,
-    "215C-5m": 3.0,
-    "215C-7.5m": 3.0,
-    "215C-10m": 3.0,
-    "301A-5m": 1.8,
-    "301A-7.5m": 2.0,
-    "301A-10m": 2.0,
-    "301B-5m": 1.7,
-    "301B-7.5m": 1.9,
-    "301B-10m": 1.9,
-    "301C-5m": 1.6,
-    "301C-7.5m": 1.8,
-    "301C-10m": 1.8,
-    "302A-5m": 1.8,
-    "302A-7.5m": 1.9,
-    "302A-10m": 2.0,
-    "302B-5m": 1.7,
-    "302B-7.5m": 1.8,
-    "302B-10m": 1.9,
-    "302C-5m": 1.6,
-    "302C-7.5m": 1.7,
-    "302C-10m": 1.8,
-    "303A-5m": 2.7,
-    "303A-7.5m": 2.6,
-    "303A-10m": 2.6,
-    "303B-5m": 2.4,
-    "303B-7.5m": 2.3,
-    "303B-10m": 2.3,
-    "303C-5m": 2.1,
-    "303C-7.5m": 2.0,
-    "303C-10m": 2.0,
-    "304A-5m": 2.9,
-    "304A-7.5m": 2.7,
-    "304A-10m": 2.8,
-    "304B-5m": 2.6,
-    "304B-7.5m": 2.4,
-    "304B-10m": 2.5,
-    "304C-5m": 2.3,
-    "304C-7.5m": 2.1,
-    "304C-10m": 2.2,
-    "305A-5m": 3.3,
-    "305A-7.5m": 3.5,
-    "305A-10m": 3.4,
-    "305B-5m": 3.1,
-    "305B-7.5m": 3.1,
-    "305B-10m": 3.0,
-    "306B-5m": 3.4,
-    "306B-7.5m": 3.0,
-    "306B-10m": 3.2,
-    "306C-5m": 3.1,
-    "306C-7.5m": 2.7,
-    "306C-10m": 2.9,
-    "307B-5m": 3.7,
-    "307B-7.5m": 3.7,
-    "307B-10m": 3.7,
-    "307C-5m": 3.4,
-    "307C-7.5m": 3.4,
-    "307C-10m": 3.4,
-    "308B-5m": 4.5,
-    "308B-7.5m": 4.5,
-    "308B-10m": 4.4,
-    "308C-5m": 4.2,
-    "308C-7.5m": 4.2,
-    "308C-10m": 4.1,
-    "309B-5m": 4.8,
-    "309B-7.5m": 4.8,
-    "309B-10m": 4.8,
-    "309C-5m": 4.5,
-    "309C-7.5m": 4.5,
-    "309C-10m": 4.5,
-    "312B-5m": 1.8,
-    "312B-7.5m": 1.9,
-    "312B-10m": 2.0,
-    "312C-5m": 1.7,
-    "312C-7.5m": 1.8,
-    "312C-10m": 1.9,
-    "313B-5m": 2.6,
-    "313B-7.5m": 2.5,
-    "313B-10m": 2.5,
-    "313C-5m": 2.3,
-    "313C-7.5m": 2.2,
-    "313C-10m": 2.2,
-    "401A-5m": 1.8,
-    "401A-7.5m": 1.7,
-    "401A-10m": 1.7,
-    "401B-5m": 1.5,
-    "401B-7.5m": 1.4,
-    "401B-10m": 1.4,
-    "401C-5m": 1.4,
-    "401C-7.5m": 1.3,
-    "401C-10m": 1.3,
-    "402A-5m": 2.0,
-    "402A-7.5m": 1.8,
-    "402A-10m": 1.9,
-    "402B-5m": 1.7,
-    "402B-7.5m": 1.5,
-    "402B-10m": 1.6,
-    "402C-5m": 1.6,
-    "402C-7.5m": 1.4,
-    "402C-10m": 1.5,
-    "403B-5m": 2.4,
-    "403B-7.5m": 2.1,
-    "403B-10m": 2.0,
-    "403C-5m": 2.2,
-    "403C-7.5m": 1.9,
-    "403C-10m": 1.8,
-    "404B-5m": 3.0,
-    "404B-7.5m": 2.6,
-    "404B-10m": 2.6,
-    "404C-5m": 2.8,
-    "404C-7.5m": 2.4,
-    "404C-10m": 2.4,
-    "405B-5m": 3.4,
-    "405B-7.5m": 3.0,
-    "405B-10m": 2.8,
-    "405C-5m": 3.1,
-    "405C-7.5m": 2.7,
-    "405C-10m": 2.5,
-    "406B-5m": 4.0,
-    "406B-7.5m": 3.4,
-    "406B-10m": 3.5,
-    "406C-5m": 3.7,
-    "406C-7.5m": 3.1,
-    "406C-10m": 3.2,
-    "407B-5m": 3.4,
-    "407B-7.5m": 3.4,
-    "407B-10m": 3.5,
-    "407C-5m": 3.2,
-    "407C-7.5m": 3.2,
-    "407C-10m": 3.2,
-    "408B-10m": 4.4,
-    "408C-10m": 4.1,
-    "409B-5m": 4.4,
-    "409B-7.5m": 4.4,
-    "409B-10m": 4.4,
-    "409C-5m": 4.1,
-    "409C-7.5m": 4.1,
-    "409C-10m": 4.1,
-    "412B-5m": 2.1,
-    "412B-7.5m": 1.9,
-    "412B-10m": 2.0,
-    "412C-5m": 2.0,
-    "412C-7.5m": 1.8,
-    "412C-10m": 1.9,
-    "413B-5m": 2.9,
-    "413B-7.5m": 2.6,
-    "413B-10m": 2.5,
-    "413C-5m": 2.7,
-    "413C-7.5m": 2.4,
-    "413C-10m": 2.3,
-    "5111A-5m": 1.8,
-    "5111A-7.5m": 2.0,
-    "5111A-10m": 2.0,
-    "5111B-5m": 1.7,
-    "5111B-7.5m": 1.9,
-    "5111B-10m": 1.9,
-    "5111C-5m": 1.6,
-    "5111C-7.5m": 1.8,
-    "5111C-10m": 1.8,
-    "5112A-5m": 2.0,
-    "5112A-7.5m": 2.2,
-    "5112A-10m": 2.2,
-    "5112B-5m": 1.9,
-    "5112B-7.5m": 2.1,
-    "5112B-10m": 2.1,
-    "5121D-5m": 1.7,
-    "5121D-7.5m": 1.8,
-    "5121D-10m": 1.9,
-    "5122D-5m": 1.9,
-    "5122D-7.5m": 2.0,
-    "5122D-10m": 2.1,
-    "5124D-5m": 2.3,
-    "5124D-7.5m": 2.4,
-    "5124D-10m": 2.5,
-    "5131D-5m": 2.0,
-    "5131D-7.5m": 1.9,
-    "5131D-10m": 1.9,
-    "5132D-5m": 2.2,
-    "5132D-7.5m": 2.1,
-    "5132D-10m": 2.1,
-    "5134D-5m": 2.6,
-    "5134D-7.5m": 2.5,
-    "5134D-10m": 2.5,
-    "5136D-5m": 3.1,
-    "5136D-7.5m": 3.0,
-    "5136D-10m": 3.0,
-    "5138D-5m": 3.5,
-    "5138D-7.5m": 3.4,
-    "5138D-10m": 3.4,
-    "5152B-5m": 3.2,
-    "5152B-7.5m": 3.0,
-    "5152B-10m": 2.9,
-    "5152C-5m": 3.0,
-    "5152C-7.5m": 2.8,
-    "5152C-10m": 2.7,
-    "5154B-5m": 3.6,
-    "5154B-7.5m": 3.4,
-    "5154B-10m": 3.3,
-    "5154C-5m": 3.4,
-    "5154C-7.5m": 3.2,
-    "5154C-10m": 3.1,
-    "5156B-5m": 3.8,
-    "5156B-7.5m": 3.8,
-    "5156B-10m": 3.8,
-    "5156C-5m": 3.6,
-    "5156C-7.5m": 3.6,
-    "5156C-10m": 3.6,
-    "5172B-5m": 3.7,
-    "5172B-7.5m": 3.7,
-    "5172B-10m": 3.6,
-    "5172C-5m": 3.4,
-    "5172C-7.5m": 3.4,
-    "5172C-10m": 3.3,
-    "5211A-5m": 1.8,
-    "5211A-7.5m": 2.0,
-    "5211A-10m": 2.0,
-    "5211B-5m": 1.7,
-    "5211B-7.5m": 1.9,
-    "5211B-10m": 1.9,
-    "5211C-5m": 1.6,
-    "5211C-7.5m": 1.8,
-    "5211C-10m": 1.8,
-    "5212A-5m": 2.0,
-    "5212A-7.5m": 2.2,
-    "5212A-10m": 2.2,
-    "5221D-5m": 1.7,
-    "5221D-7.5m": 1.8,
-    "5221D-10m": 1.9,
-    "5222D-5m": 1.9,
-    "5222D-7.5m": 2.0,
-    "5222D-10m": 2.1,
-    "5223D-5m": 2.3,
-    "5223D-7.5m": 2.4,
-    "5223D-10m": 2.5,
-    "5225D-5m": 2.7,
-    "5225D-7.5m": 2.8,
-    "5225D-10m": 2.9,
-    "5231D-5m": 2.1,
-    "5231D-7.5m": 2.0,
-    "5231D-10m": 2.0,
-    "5233D-5m": 2.5,
-    "5233D-7.5m": 2.4,
-    "5233D-10m": 2.4,
-    "5235D-5m": 2.9,
-    "5235D-7.5m": 2.8,
-    "5235D-10m": 2.8,
-    "5237D-5m": 3.4,
-    "5237D-7.5m": 3.3,
-    "5237D-10m": 3.3,
-    "5239D-5m": 3.8,
-    "5239D-7.5m": 3.7,
-    "5239D-10m": 3.7,
-    "5251B-5m": 2.9,
-    "5251B-7.5m": 2.7,
-    "5251B-10m": 2.6,
-    "5251C-5m": 2.7,
-    "5251C-7.5m": 2.5,
-    "5251C-10m": 2.4,
-    "5253B-7.5m": 3.3,
-    "5253B-10m": 3.2,
-    "5253C-5m": 3.1,
-    "5253C-7.5m": 3.1,
-    "5253C-10m": 3.0,
-    "5255B-10m": 3.6,
-    "5255C-10m": 3.4,
-    "5257B-10m": 4.1,
-    "5257C-10m": 3.9,
-    "5271B-10m": 3.2,
-    "5271C-10m": 2.9,
-    "5273B-10m": 3.8,
-    "5273C-10m": 3.5,
-    "5275B-10m": 4.2,
-    "5275C-10m": 3.9,
-    "5311A-5m": 1.9,
-    "5311A-7.5m": 2.1,
-    "5311A-10m": 2.1,
-    "5311B-5m": 1.8,
-    "5311B-7.5m": 2.0,
-    "5311B-10m": 2.0,
-    "5311C-5m": 1.7,
-    "5311C-7.5m": 1.9,
-    "5311C-10m": 1.9,
-    "5312A-5m": 2.1,
-    "5312A-7.5m": 2.3,
-    "5312A-10m": 2.3,
-    "5321D-5m": 1.8,
-    "5321D-7.5m": 1.9,
-    "5321D-10m": 2.0,
-    "5322D-5m": 2.0,
-    "5322D-7.5m": 2.1,
-    "5322D-10m": 2.2,
-    "5323D-5m": 2.4,
-    "5323D-7.5m": 2.5,
-    "5323D-10m": 2.6,
-    "5325D-5m": 2.8,
-    "5325D-7.5m": 2.9,
-    "5325D-10m": 3.0,
-    "5331D-5m": 2.2,
-    "5331D-7.5m": 2.1,
-    "5331D-10m": 2.1,
-    "5333D-5m": 2.6,
-    "5333D-7.5m": 2.5,
-    "5333D-10m": 2.5,
-    "5335D-5m": 3.0,
-    "5335D-7.5m": 2.9,
-    "5335D-10m": 2.9,
-    "5337D-5m": 3.5,
-    "5337D-7.5m": 3.4,
-    "5337D-10m": 3.4,
-    "5339D-7.5m": 3.8,
-    "5339D-10m": 3.8,
-    "5351B-5m": 3.0,
-    "5351B-7.5m": 2.8,
-    "5351B-10m": 2.7,
-    "5351C-5m": 2.8,
-    "5351C-7.5m": 2.6,
-    "5351C-10m": 2.5,
-    "5353B-5m": 3.4,
-    "5353B-7.5m": 3.4,
-    "5353B-10m": 3.3,
-    "5353C-5m": 3.4,
-    "5353C-7.5m": 3.2,
-    "5353C-10m": 3.1,
-    "5355B-5m": 3.8,
-    "5355B-7.5m": 3.8,
-    "5355B-10m": 3.7,
-    "5355C-5m": 3.8,
-    "5355C-7.5m": 3.6,
-    "5355C-10m": 3.5,
-    "5371B-7.5m": 3.4,
-    "5371B-10m": 3.3,
-    "5371C-7.5m": 3.1,
-    "5371C-10m": 3.0,
-    "5373C-10m": 3.6,
-    "5375C-10m": 4.0,
-    "5411A-5m": 2.0,
-    "5411A-7.5m": 1.9,
-    "5411A-10m": 1.9,
-    "5411B-5m": 1.7,
-    "5411B-7.5m": 1.6,
-    "5411B-10m": 1.6,
-    "5411C-5m": 1.6,
-    "5411C-7.5m": 1.5,
-    "5411C-10m": 1.5,
-    "5412A-5m": 2.2,
-    "5412A-7.5m": 2.1,
-    "5412A-10m": 2.1,
-    "5412B-5m": 1.9,
-    "5412B-7.5m": 1.8,
-    "5412B-10m": 1.8,
-    "5412C-5m": 1.8,
-    "5412C-7.5m": 1.7,
-    "5412C-10m": 1.7,
-    "5421D-5m": 1.9,
-    "5421D-7.5m": 1.7,
-    "5421D-10m": 1.8,
-    "5422D-5m": 2.1,
-    "5422D-7.5m": 1.9,
-    "5422D-10m": 2.0,
-    "5432D-5m": 2.7,
-    "5432D-7.5m": 2.4,
-    "5432D-10m": 2.3,
-    "5434D-5m": 3.1,
-    "5434D-7.5m": 2.8,
-    "5434D-10m": 2.7,
-    "5436D-10m": 3.4,
-
-    "610A-5m": 1.5,
-    "610A-7.5m": 1.6,
-    "610A-10m": 1.6,
-    "611A-5m": 1.8,
-    "611A-7.5m": 2.0,
-    "611A-10m": 2.0,
-    "611B-5m": 1.7,
-    "611B-7.5m": 1.9,
-    "611B-10m": 1.9,
-    "611C-5m": 1.5,
-    "611C-7.5m": 1.7,
-    "611C-10m": 1.7,
-    "612A-5m": 1.8,
-    "612A-7.5m": 1.9,
-    "612A-10m": 2.0,
-    "612B-5m": 1.7,
-    "612B-7.5m": 1.8,
-    "612B-10m": 1.9,
-    "612C-5m": 1.5,
-    "612C-7.5m": 1.6,
-    "612C-10m": 1.7,
-    "614B-5m": 2.5,
-    "614B-7.5m": 2.3,
-    "614B-10m": 2.4,
-    "614C-5m": 2.2,
-    "614C-7.5m": 2.0,
-    "614C-10m": 2.1,
-    "616B-7.5m": 3.3,
-    "616B-10m": 3.3,
-    "616C-7.5m": 3.1,
-    "616C-10m": 3.1,
-    "621A-5m": 1.7,
-    "621A-7.5m": 1.9,
-    "621A-10m": 1.9,
-    "621B-5m": 1.6,
-    "621B-7.5m": 1.8,
-    "621B-10m": 1.8,
-    "621C-5m": 1.4,
-    "621C-7.5m": 1.6,
-    "621C-10m": 1.6,
-    "622A-5m": 2.1,
-    "622A-7.5m": 2.2,
-    "622A-10m": 2.3,
-    "622B-5m": 2.0,
-    "622B-7.5m": 2.1,
-    "622B-10m": 2.2,
-    "622C-5m": 1.8,
-    "622C-7.5m": 1.9,
-    "622C-10m": 2.0,
-    "623B-5m": 2.3,
-    "623B-7.5m": 2.2,
-    "623B-10m": 2.2,
-    "623C-5m": 2.0,
-    "623C-7.5m": 1.9,
-    "623C-10m": 1.9,
-    "624A-5m": 3.1,
-    "624A-7.5m": 2.9,
-    "624A-10m": 3.0,
-    "624B-5m": 2.9,
-    "624B-7.5m": 2.7,
-    "624B-10m": 2.8,
-    "624C-5m": 2.6,
-    "624C-7.5m": 2.4,
-    "624C-10m": 2.5,
-    "626B-5m": 3.5,
-    "626B-7.5m": 3.3,
-    "626B-10m": 3.5,
-    "626C-7.5m": 3.1,
-    "626C-10m": 3.3,
-    "628B-10m": 4.7,
-    "628C-10m": 4.5,
-    "631A-5m": 1.8,
-    "631A-7.5m": 2.0,
-    "631A-10m": 2.0,
-    "631B-5m": 1.7,
-    "631B-7.5m": 1.9,
-    "631B-10m": 1.9,
-    "631C-5m": 1.5,
-    "631C-7.5m": 1.7,
-    "631C-10m": 1.7,
-    "632B-5m": 2.1,
-    "632B-7.5m": 2.2,
-    "632B-10m": 2.3,
-    "632C-5m": 1.9,
-    "632C-7.5m": 2.0,
-    "632C-10m": 2.1,
-    "633B-5m": 2.4,
-    "633B-7.5m": 2.3,
-    "633B-10m": 2.3,
-    "633C-5m": 2.1,
-    "633C-7.5m": 2.0,
-    "633C-10m": 2.0,
-    "634B-5m": 3.0,
-    "634B-7.5m": 2.8,
-    "634B-10m": 2.9,
-    "634C-5m": 2.7,
-    "634C-7.5m": 2.5,
-    "634C-10m": 2.6,
-    "636B-7.5m": 3.2,
-    "636B-10m": 3.6,
-    "636C-10m": 3.4,
-    "638B-10m": 4.8,
-    "638C-10m": 4.6,
-    "640A-5m": 1.6,
-    "640A-7.5m": 1.7,
-    "640A-10m": 1.7,
-    "641B-5m": 1.8,
-    "641B-7.5m": 2.0,
-    "641B-10m": 2.0,
-    "641C-5m": 1.6,
-    "641C-7.5m": 1.8,
-    "641C-10m": 1.8,
-    "642B-5m": 1.8,
-    "642B-7.5m": 1.9,
-    "642B-10m": 2.0,
-    "642C-5m": 1.6,
-    "642C-7.5m": 1.7,
-    "642C-10m": 1.8,
-    "644B-5m": 2.6,
-    "644B-7.5m": 2.4,
-    "644B-10m": 2.5,
-    "644C-5m": 2.3,
-    "644C-7.5m": 2.1,
-    "644C-10m": 2.2,
-    "646B-10m": 3.4,
-    "646C-10m": 3.2,
-    "6122D-5m": 2.4,
-    "6122D-7.5m": 2.5,
-    "6122D-10m": 2.6,
-    "6124D-5m": 2.7,
-    "6124D-7.5m": 2.8,
-    "6124D-10m": 2.9,
-    "6142D-5m": 3.2,
-    "6142D-7.5m": 3.0,
-    "6142D-10m": 3.1,
-    "6144D-5m": 3.5,
-    "6144D-7.5m": 3.3,
-    "6144D-10m": 3.4,
-    "6162B-10m": 3.9,
-    "6221D-5m": 1.6,
-    "6221D-7.5m": 1.7,
-    "6221D-10m": 1.8,
-    "6241B-5m": 2.8,
-    "6241B-7.5m": 2.6,
-    "6241B-10m": 2.7,
-    "6241C-5m": 2.5,
-    "6241C-7.5m": 2.3,
-    "6241C-10m": 2.4,
-    "6243D-5m": 3.3,
-    "6243D-7.5m": 3.1,
-    "6243D-10m": 3.2,
-    "6245D-5m": 3.7,
-    "6245D-7.5m": 3.5,
-    "6245D-10m": 3.6,
-    "6247D-10m": 4.0,
-    "6261B-5m": 3.6,
-    "6261B-7.5m": 3.2,
-    "6261B-10m": 3.4,
-    "6261C-5m": 3.4,
-    "6261C-7.5m": 3.0,
-    "6261C-10m": 3.2,
-    "6263B-10m": 4.2,
-    "6263C-10m": 4.0,
-    "6265B-10m": 4.6,
-    "6265C-10m": 4.4
+  "3m": {
+    "101A": {
+      "description": "Forward Dive Straight",
+      "dd": 1.6
+    },
+    "101B": {
+      "description": "Forward Dive Pike",
+      "dd": 1.5
+    },
+    "101C": {
+      "description": "Forward Dive Tuck",
+      "dd": 1.4
+    },
+    "102A": {
+      "description": "Forward Somersault Straight",
+      "dd": 1.7
+    },
+    "102B": {
+      "description": "Forward Somersault Pike",
+      "dd": 1.6
+    },
+    "102C": {
+      "description": "Forward Somersault Tuck",
+      "dd": 1.5
+    },
+    "103A": {
+      "description": "Forward 1\u00bd Somersaults Straight",
+      "dd": 1.9
+    },
+    "103B": {
+      "description": "Forward 1\u00bd Somersaults Pike",
+      "dd": 1.6
+    },
+    "103C": {
+      "description": "Forward 1\u00bd Somersaults Tuck",
+      "dd": 1.5
+    },
+    "104A": {
+      "description": "Forward 2 Somersaults Straight",
+      "dd": 2.4
+    },
+    "104B": {
+      "description": "Forward 2 Somersaults Pike",
+      "dd": 2.1
+    },
+    "104C": {
+      "description": "Forward 2 Somersaults Tuck",
+      "dd": 2.0
+    },
+    "105A": {
+      "description": "Forward 2\u00bd Somersaults Straight",
+      "dd": 2.8
+    },
+    "105B": {
+      "description": "Forward 2\u00bd Somersaults Pike",
+      "dd": 2.4
+    },
+    "105C": {
+      "description": "Forward 2\u00bd Somersaults Tuck",
+      "dd": 2.2
+    },
+    "106B": {
+      "description": "Forward 3 Somersaults Pike",
+      "dd": 2.8
+    },
+    "106C": {
+      "description": "Forward 3 Somersaults Tuck",
+      "dd": 2.5
+    },
+    "107B": {
+      "description": "Forward 3\u00bd Somersaults Pike",
+      "dd": 3.1
+    },
+    "107C": {
+      "description": "Forward 3\u00bd Somersaults Tuck",
+      "dd": 2.8
+    },
+    "108B": {
+      "description": "Forward 4 Somersaults Pike",
+      "dd": 3.8
+    },
+    "108C": {
+      "description": "Forward 4 Somersaults Tuck",
+      "dd": 3.4
+    },
+    "109B": {
+      "description": "Forward 4\u00bd Somersaults Pike",
+      "dd": 4.2
+    },
+    "109C": {
+      "description": "Forward 4\u00bd Somersaults Tuck",
+      "dd": 3.8
+    },
+    "112B": {
+      "description": "Forward Flying Somersault Pike",
+      "dd": 1.8
+    },
+    "112C": {
+      "description": "Forward Flying Somersault Tuck",
+      "dd": 1.7
+    },
+    "113B": {
+      "description": "Forward Flying 1\u00bd Somersaults Pike",
+      "dd": 1.8
+    },
+    "113C": {
+      "description": "Forward Flying 1\u00bd Somersaults Tuck",
+      "dd": 1.7
+    },
+    "115B": {
+      "description": "Forward Flying 2\u00bd Somersaults Pike",
+      "dd": 2.7
+    },
+    "115C": {
+      "description": "Forward Flying 2\u00bd Somersaults Tuck",
+      "dd": 2.5
+    },
+    "201A": {
+      "description": "Back Dive Straight",
+      "dd": 1.9
+    },
+    "201B": {
+      "description": "Back Dive Pike",
+      "dd": 1.8
+    },
+    "201C": {
+      "description": "Back Dive Tuck",
+      "dd": 1.7
+    },
+    "202A": {
+      "description": "Back Somersault Straight",
+      "dd": 1.8
+    },
+    "202B": {
+      "description": "Back Somersault Pike",
+      "dd": 1.7
+    },
+    "202C": {
+      "description": "Back Somersault Tuck",
+      "dd": 1.6
+    },
+    "203A": {
+      "description": "Back 1\u00bd Somersaults Straight",
+      "dd": 2.4
+    },
+    "203B": {
+      "description": "Back 1\u00bd Somersaults Pike",
+      "dd": 2.2
+    },
+    "203C": {
+      "description": "Back 1\u00bd Somersaults Tuck",
+      "dd": 1.9
+    },
+    "204A": {
+      "description": "Back 2 Somersaults Straight",
+      "dd": 2.5
+    },
+    "204B": {
+      "description": "Back 2 Somersaults Pike",
+      "dd": 2.3
+    },
+    "204C": {
+      "description": "Back 2 Somersaults Tuck",
+      "dd": 2.0
+    },
+    "205B": {
+      "description": "Back 2\u00bd Somersaults Pike",
+      "dd": 3.0
+    },
+    "205C": {
+      "description": "Back 2\u00bd Somersaults Tuck",
+      "dd": 2.8
+    },
+    "206B": {
+      "description": "Back 3 Somersaults Pike",
+      "dd": 2.8
+    },
+    "206C": {
+      "description": "Back 3 Somersaults Tuck",
+      "dd": 2.5
+    },
+    "207B": {
+      "description": "Back 3\u00bd Somersaults Pike",
+      "dd": 3.9
+    },
+    "207C": {
+      "description": "Back 3\u00bd Somersaults Tuck",
+      "dd": 3.6
+    },
+    "208B": {
+      "description": "Back 4 Somersaults Pike",
+      "dd": 3.7
+    },
+    "208C": {
+      "description": "Back 4 Somersaults Tuck",
+      "dd": 3.4
+    },
+    "209B": {
+      "description": "Back 4\u00bd Somersaults Pike",
+      "dd": 4.7
+    },
+    "209C": {
+      "description": "Back 4\u00bd Somersaults Tuck",
+      "dd": 4.4
+    },
+    "212B": {
+      "description": "Back Flying Somersault Pike",
+      "dd": 1.8
+    },
+    "212C": {
+      "description": "Back Flying Somersault Tuck",
+      "dd": 1.7
+    },
+    "213B": {
+      "description": "Back Flying 1\u00bd Somersaults Pike",
+      "dd": 2.4
+    },
+    "213C": {
+      "description": "Back Flying 1\u00bd Somersaults Tuck",
+      "dd": 2.1
+    },
+    "215B": {
+      "description": "Back Flying 2\u00bd Somersaults Pike",
+      "dd": 3.3
+    },
+    "215C": {
+      "description": "Back Flying 2\u00bd Somersaults Tuck",
+      "dd": 3.1
+    },
+    "301A": {
+      "description": "Reverse Dive Straight",
+      "dd": 2.0
+    },
+    "301B": {
+      "description": "Reverse Dive Pike",
+      "dd": 1.9
+    },
+    "301C": {
+      "description": "Reverse Dive Tuck",
+      "dd": 1.8
+    },
+    "302A": {
+      "description": "Reverse Somersault Straight",
+      "dd": 1.9
+    },
+    "302B": {
+      "description": "Reverse Somersault Pike",
+      "dd": 1.8
+    },
+    "302C": {
+      "description": "Reverse Somersault Tuck",
+      "dd": 1.7
+    },
+    "303A": {
+      "description": "Reverse 1\u00bd Somersaults Straight",
+      "dd": 2.6
+    },
+    "303B": {
+      "description": "Reverse 1\u00bd Somersaults Pike",
+      "dd": 2.3
+    },
+    "303C": {
+      "description": "Reverse 1\u00bd Somersaults Tuck",
+      "dd": 2.0
+    },
+    "304A": {
+      "description": "Reverse 2 Somersaults Straight",
+      "dd": 2.7
+    },
+    "304B": {
+      "description": "Reverse 2 Somersaults Pike",
+      "dd": 2.4
+    },
+    "304C": {
+      "description": "Reverse 2 Somersaults Tuck",
+      "dd": 2.1
+    },
+    "305A": {
+      "description": "Reverse 2\u00bd Somersaults Straight",
+      "dd": 3.4
+    },
+    "305B": {
+      "description": "Reverse 2\u00bd Somersaults Pike",
+      "dd": 3.0
+    },
+    "305C": {
+      "description": "Reverse 2\u00bd Somersaults Tuck",
+      "dd": 2.8
+    },
+    "306B": {
+      "description": "Reverse 3 Somersaults Pike",
+      "dd": 2.9
+    },
+    "306C": {
+      "description": "Reverse 3 Somersaults Tuck",
+      "dd": 2.6
+    },
+    "307B": {
+      "description": "Reverse 3\u00bd Somersaults Pike",
+      "dd": 3.8
+    },
+    "307C": {
+      "description": "Reverse 3\u00bd Somersaults Tuck",
+      "dd": 3.5
+    },
+    "308B": {
+      "description": "Reverse 4 Somersaults Pike",
+      "dd": 3.7
+    },
+    "308C": {
+      "description": "Reverse 4 Somersaults Tuck",
+      "dd": 3.4
+    },
+    "309B": {
+      "description": "Reverse 4\u00bd Somersaults Pike",
+      "dd": 4.7
+    },
+    "309C": {
+      "description": "Reverse 4\u00bd Somersaults Tuck",
+      "dd": 4.4
+    },
+    "312B": {
+      "description": "Reverse Flying Somersault Pike",
+      "dd": 1.9
+    },
+    "312C": {
+      "description": "Reverse Flying Somersault Tuck",
+      "dd": 1.8
+    },
+    "313B": {
+      "description": "Reverse Flying 1\u00bd Somersaults Pike",
+      "dd": 2.5
+    },
+    "313C": {
+      "description": "Reverse Flying 1\u00bd Somersaults Tuck",
+      "dd": 2.2
+    },
+    "401A": {
+      "description": "Inward Dive Straight",
+      "dd": 1.7
+    },
+    "401B": {
+      "description": "Inward Dive Pike",
+      "dd": 1.4
+    },
+    "401C": {
+      "description": "Inward Dive Tuck",
+      "dd": 1.3
+    },
+    "402A": {
+      "description": "Inward Somersault Straight",
+      "dd": 1.8
+    },
+    "402B": {
+      "description": "Inward Somersault Pike",
+      "dd": 1.5
+    },
+    "402C": {
+      "description": "Inward Somersault Tuck",
+      "dd": 1.4
+    },
+    "403B": {
+      "description": "Inward 1\u00bd Somersaults Pike",
+      "dd": 2.1
+    },
+    "403C": {
+      "description": "Inward 1\u00bd Somersaults Tuck",
+      "dd": 1.9
+    },
+    "404B": {
+      "description": "Inward 2 Somersaults Pike",
+      "dd": 2.6
+    },
+    "404C": {
+      "description": "Inward 2 Somersaults Tuck",
+      "dd": 2.4
+    },
+    "405B": {
+      "description": "Inward 2\u00bd Somersaults Pike",
+      "dd": 3.0
+    },
+    "405C": {
+      "description": "Inward 2\u00bd Somersaults Tuck",
+      "dd": 2.7
+    },
+    "407B": {
+      "description": "Inward 3\u00bd Somersaults Pike",
+      "dd": 3.7
+    },
+    "407C": {
+      "description": "Inward 3\u00bd Somersaults Tuck",
+      "dd": 3.4
+    },
+    "409B": {
+      "description": "Inward 4\u00bd Somersaults Pike",
+      "dd": 4.6
+    },
+    "409C": {
+      "description": "Inward 4\u00bd Somersaults Tuck",
+      "dd": 4.2
+    },
+    "412B": {
+      "description": "Inward Flying Somersault Pike",
+      "dd": 1.9
+    },
+    "412C": {
+      "description": "Inward Flying Somersault Tuck",
+      "dd": 1.8
+    },
+    "413B": {
+      "description": "Inward Flying 1\u00bd Somersaults Pike",
+      "dd": 2.6
+    },
+    "413C": {
+      "description": "Inward Flying 1\u00bd Somersaults Tuck",
+      "dd": 2.4
+    },
+    "5111A": {
+      "description": "Forward Dive \u00bd Twist Straight",
+      "dd": 2.0
+    },
+    "5111B": {
+      "description": "Forward Dive \u00bd Twist Pike",
+      "dd": 1.9
+    },
+    "5111C": {
+      "description": "Forward Dive \u00bd Twist Tuck",
+      "dd": 1.8
+    },
+    "5112A": {
+      "description": "Forward Dive 1 Twist Straight",
+      "dd": 2.2
+    },
+    "5112B": {
+      "description": "Forward Dive 1 Twist Pike",
+      "dd": 2.1
+    },
+    "5121D": {
+      "description": "Forward Somersault \u00bd Twist Free",
+      "dd": 1.8
+    },
+    "5122D": {
+      "description": "Forward Somersault 1 Twist Free",
+      "dd": 2.0
+    },
+    "5124D": {
+      "description": "Forward Somersault 2 Twists Free",
+      "dd": 2.4
+    },
+    "5126D": {
+      "description": "Forward Somersault 3 Twists Free",
+      "dd": 2.9
+    },
+    "5131D": {
+      "description": "Forward 1\u00bd Somersaults \u00bd Twist Free",
+      "dd": 1.9
+    },
+    "5132D": {
+      "description": "Forward 1\u00bd Somersaults 1 Twist Free",
+      "dd": 2.1
+    },
+    "5134D": {
+      "description": "Forward 1\u00bd Somersaults 2 Twists Free",
+      "dd": 2.5
+    },
+    "5136D": {
+      "description": "Forward 1\u00bd Somersaults 3 Twists Free",
+      "dd": 3.0
+    },
+    "5138D": {
+      "description": "Forward 1\u00bd Somersaults 4 Twists Free",
+      "dd": 3.4
+    },
+    "5151B": {
+      "description": "Forward 2\u00bd Somersaults \u00bd Twist Pike",
+      "dd": 2.8
+    },
+    "5151C": {
+      "description": "Forward 2\u00bd Somersaults \u00bd Twist Tuck",
+      "dd": 2.6
+    },
+    "5152B": {
+      "description": "Forward 2\u00bd Somersaults 1 Twist Pike",
+      "dd": 3.0
+    },
+    "5152C": {
+      "description": "Forward 2\u00bd Somersaults 1 Twist Tuck",
+      "dd": 2.8
+    },
+    "5154B": {
+      "description": "Forward 2\u00bd Somersaults 2 Twists Pike",
+      "dd": 3.4
+    },
+    "5154C": {
+      "description": "Forward 2\u00bd Somersaults 2 Twists Tuck",
+      "dd": 3.2
+    },
+    "5156B": {
+      "description": "Forward 2\u00bd Somersaults 3 Twists Pike",
+      "dd": 3.9
+    },
+    "5156C": {
+      "description": "Forward 2\u00bd Somersaults 3 Twists Tuck",
+      "dd": 3.7
+    },
+    "5172B": {
+      "description": "Forward 3\u00bd Somersaults 1 Twist Pike",
+      "dd": 3.7
+    },
+    "5172C": {
+      "description": "Forward 3\u00bd Somersaults 1 Twist Tuck",
+      "dd": 3.4
+    },
+    "5211A": {
+      "description": "Back Dive \u00bd Twist Straight",
+      "dd": 2.0
+    },
+    "5211B": {
+      "description": "Back Dive \u00bd Twist Pike",
+      "dd": 1.9
+    },
+    "5211C": {
+      "description": "Back Dive \u00bd Twist Tuck",
+      "dd": 1.8
+    },
+    "5212A": {
+      "description": "Back Dive 1 Twist Straight",
+      "dd": 2.2
+    },
+    "5221D": {
+      "description": "Back Somersault \u00bd Twist Free",
+      "dd": 1.8
+    },
+    "5222D": {
+      "description": "Back Somersault 1 Twist Free",
+      "dd": 2.0
+    },
+    "5223D": {
+      "description": "Back Somersault 1\u00bd Twists Free",
+      "dd": 2.4
+    },
+    "5225D": {
+      "description": "Back Somersault 2\u00bd Twists Free",
+      "dd": 2.8
+    },
+    "5227D": {
+      "description": "Back Somersault 3\u00bd Twists Free",
+      "dd": 3.3
+    },
+    "5231D": {
+      "description": "Back 1\u00bd Somersaults \u00bd Twist Free",
+      "dd": 2.0
+    },
+    "5233D": {
+      "description": "Back 1\u00bd Somersaults 1\u00bd Twists Free",
+      "dd": 2.4
+    },
+    "5235D": {
+      "description": "Back 1\u00bd Somersaults 2\u00bd Twists Free",
+      "dd": 2.8
+    },
+    "5237D": {
+      "description": "Back 1\u00bd Somersaults 3\u00bd Twists Free",
+      "dd": 3.3
+    },
+    "5239D": {
+      "description": "Back 1\u00bd Somersaults 4\u00bd Twists Free",
+      "dd": 3.7
+    },
+    "5251B": {
+      "description": "Back 2\u00bd Somersaults \u00bd Twist Pike",
+      "dd": 2.7
+    },
+    "5251C": {
+      "description": "Back 2\u00bd Somersaults \u00bd Twist Tuck",
+      "dd": 2.5
+    },
+    "5253B": {
+      "description": "Back 2\u00bd Somersaults 1\u00bd Twists Pike",
+      "dd": 3.4
+    },
+    "5253C": {
+      "description": "Back 2\u00bd Somersaults 1\u00bd Twists Tuck",
+      "dd": 3.2
+    },
+    "5255B": {
+      "description": "Back 2\u00bd Somersaults 2\u00bd Twists Pike",
+      "dd": 3.8
+    },
+    "5255C": {
+      "description": "Back 2\u00bd Somersaults 2\u00bd Twists Tuck",
+      "dd": 3.6
+    },
+    "5257B": {
+      "description": "Back 2\u00bd Somersaults 3\u00bd Twists Pike",
+      "dd": 3.8
+    },
+    "5311A": {
+      "description": "Reverse Dive \u00bd Twist Straight",
+      "dd": 2.1
+    },
+    "5311B": {
+      "description": "Reverse Dive \u00bd Twist Pike",
+      "dd": 2.0
+    },
+    "5311C": {
+      "description": "Reverse Dive \u00bd Twist Tuck",
+      "dd": 1.9
+    },
+    "5312A": {
+      "description": "Reverse Dive 1 Twist Straight",
+      "dd": 2.3
+    },
+    "5321D": {
+      "description": "Reverse Somersault \u00bd Twist Free",
+      "dd": 1.9
+    },
+    "5322D": {
+      "description": "Reverse Somersault 1 Twist Free",
+      "dd": 2.1
+    },
+    "5323D": {
+      "description": "Reverse Somersault 1\u00bd Twists Free",
+      "dd": 2.5
+    },
+    "5325D": {
+      "description": "Reverse Somersault 2\u00bd Twists Free",
+      "dd": 2.9
+    },
+    "5331D": {
+      "description": "Reverse 1\u00bd Somersaults \u00bd Twist Free",
+      "dd": 2.1
+    },
+    "5333D": {
+      "description": "Reverse 1\u00bd Somersaults 1\u00bd Twists Free",
+      "dd": 2.5
+    },
+    "5335D": {
+      "description": "Reverse 1\u00bd Somersaults 2\u00bd Twists Free",
+      "dd": 2.9
+    },
+    "5337D": {
+      "description": "Reverse 1\u00bd Somersaults 3\u00bd Twists Free",
+      "dd": 3.5
+    },
+    "5339D": {
+      "description": "Reverse 1\u00bd Somersaults 4\u00bd Twists Free",
+      "dd": 3.8
+    },
+    "5351B": {
+      "description": "Reverse 2\u00bd Somersaults \u00bd Twist Pike",
+      "dd": 2.7
+    },
+    "5351C": {
+      "description": "Reverse 2\u00bd Somersaults \u00bd Twist Tuck",
+      "dd": 2.5
+    },
+    "5353B": {
+      "description": "Reverse 2\u00bd Somersaults 1\u00bd Twists Pike",
+      "dd": 3.3
+    },
+    "5353C": {
+      "description": "Reverse 2\u00bd Somersaults 1\u00bd Twists Tuck",
+      "dd": 3.1
+    },
+    "5355B": {
+      "description": "Reverse 2\u00bd Somersaults 2\u00bd Twists Pike",
+      "dd": 3.7
+    },
+    "5355C": {
+      "description": "Reverse 2\u00bd Somersaults 2\u00bd Twists Tuck",
+      "dd": 3.5
+    },
+    "5371B": {
+      "description": "Reverse 3\u00bd Somersaults \u00bd Twist Pike",
+      "dd": 3.4
+    },
+    "5371C": {
+      "description": "Reverse 3\u00bd Somersaults \u00bd Twist Tuck",
+      "dd": 3.1
+    },
+    "5373C": {
+      "description": "Reverse 3\u00bd Somersaults 1\u00bd Twists Tuck",
+      "dd": 3.7
+    },
+    "5375C": {
+      "description": "Reverse 3\u00bd Somersaults 2\u00bd Twists Tuck",
+      "dd": 4.1
+    },
+    "5411A": {
+      "description": "Inward Dive \u00bd Twist Straight",
+      "dd": 1.9
+    },
+    "5411B": {
+      "description": "Inward Dive \u00bd Twist Pike",
+      "dd": 1.6
+    },
+    "5411C": {
+      "description": "Inward Dive \u00bd Twist Tuck",
+      "dd": 1.5
+    },
+    "5412A": {
+      "description": "Inward Dive 1 Twist Straight",
+      "dd": 2.1
+    },
+    "5412B": {
+      "description": "Inward Dive 1 Twist Pike",
+      "dd": 1.8
+    },
+    "5412C": {
+      "description": "Inward Dive 1 Twist Tuck",
+      "dd": 1.7
+    },
+    "5421D": {
+      "description": "Inward Somersault \u00bd Twist Free",
+      "dd": 1.7
+    },
+    "5422D": {
+      "description": "Inward Somersault 1 Twist Free",
+      "dd": 1.9
+    },
+    "5432D": {
+      "description": "Inward 1\u00bd Somersaults 1 Twist Free",
+      "dd": 2.4
+    },
+    "5434D": {
+      "description": "Inward 1\u00bd Somersaults 2 Twists Free",
+      "dd": 2.8
+    },
+    "5436D": {
+      "description": "Inward 1\u00bd Somersaults 3 Twists Free",
+      "dd": 3.5
+    }
+  },
+  "5m": {
+    "101A": {
+      "description": "Forward Dive Straight",
+      "dd": 1.4
+    },
+    "101B": {
+      "description": "Forward Dive Pike",
+      "dd": 1.3
+    },
+    "101C": {
+      "description": "Forward Dive Tuck",
+      "dd": 1.2
+    },
+    "102A": {
+      "description": "Forward Somersault Straight",
+      "dd": 1.6
+    },
+    "102B": {
+      "description": "Forward Somersault Pike",
+      "dd": 1.5
+    },
+    "102C": {
+      "description": "Forward Somersault Tuck",
+      "dd": 1.4
+    },
+    "103A": {
+      "description": "Forward 1\u00bd Somersaults Straight",
+      "dd": 2.0
+    },
+    "103B": {
+      "description": "Forward 1\u00bd Somersaults Pike",
+      "dd": 1.7
+    },
+    "103C": {
+      "description": "Forward 1\u00bd Somersaults Tuck",
+      "dd": 1.6
+    },
+    "104A": {
+      "description": "Forward 2 Somersaults Straight",
+      "dd": 2.6
+    },
+    "104B": {
+      "description": "Forward 2 Somersaults Pike",
+      "dd": 2.3
+    },
+    "104C": {
+      "description": "Forward 2 Somersaults Tuck",
+      "dd": 2.2
+    },
+    "105A": {
+      "description": "Forward 2\u00bd Somersaults Straight",
+      "dd": 2.6
+    },
+    "105B": {
+      "description": "Forward 2\u00bd Somersaults Pike",
+      "dd": 2.4
+    },
+    "105C": {
+      "description": "Forward 2\u00bd Somersaults Tuck",
+      "dd": 2.4
+    },
+    "106B": {
+      "description": "Forward 3 Somersaults Pike",
+      "dd": 3.2
+    },
+    "106C": {
+      "description": "Forward 3 Somersaults Tuck",
+      "dd": 2.9
+    },
+    "107B": {
+      "description": "Forward 3\u00bd Somersaults Pike",
+      "dd": 3.0
+    },
+    "107C": {
+      "description": "Forward 3\u00bd Somersaults Tuck",
+      "dd": 3.0
+    },
+    "108B": {
+      "description": "Forward 4 Somersaults Pike",
+      "dd": 4.4
+    },
+    "108C": {
+      "description": "Forward 4 Somersaults Tuck",
+      "dd": 4.1
+    },
+    "109B": {
+      "description": "Forward 4\u00bd Somersaults Pike",
+      "dd": 4.4
+    },
+    "109C": {
+      "description": "Forward 4\u00bd Somersaults Tuck",
+      "dd": 4.1
+    },
+    "112B": {
+      "description": "Forward Flying Somersault Pike",
+      "dd": 1.7
+    },
+    "112C": {
+      "description": "Forward Flying Somersault Tuck",
+      "dd": 1.6
+    },
+    "113B": {
+      "description": "Forward Flying 1\u00bd Somersaults Pike",
+      "dd": 1.9
+    },
+    "113C": {
+      "description": "Forward Flying 1\u00bd Somersaults Tuck",
+      "dd": 1.8
+    },
+    "114B": {
+      "description": "Forward Flying 2 Somersaults Pike",
+      "dd": 2.5
+    },
+    "114C": {
+      "description": "Forward Flying 2 Somersaults Tuck",
+      "dd": 2.4
+    },
+    "115B": {
+      "description": "Forward Flying 2\u00bd Somersaults Pike",
+      "dd": 2.6
+    },
+    "115C": {
+      "description": "Forward Flying 2\u00bd Somersaults Tuck",
+      "dd": 2.4
+    },
+    "201A": {
+      "description": "Back Dive Straight",
+      "dd": 1.7
+    },
+    "201B": {
+      "description": "Back Dive Pike",
+      "dd": 1.6
+    },
+    "201C": {
+      "description": "Back Dive Tuck",
+      "dd": 1.5
+    },
+    "202A": {
+      "description": "Back Somersault Straight",
+      "dd": 1.7
+    },
+    "202B": {
+      "description": "Back Somersault Pike",
+      "dd": 1.6
+    },
+    "202C": {
+      "description": "Back Somersault Tuck",
+      "dd": 1.5
+    },
+    "203A": {
+      "description": "Back 1\u00bd Somersaults Straight",
+      "dd": 2.5
+    },
+    "203B": {
+      "description": "Back 1\u00bd Somersaults Pike",
+      "dd": 2.3
+    },
+    "203C": {
+      "description": "Back 1\u00bd Somersaults Tuck",
+      "dd": 2.0
+    },
+    "204A": {
+      "description": "Back 2 Somersaults Straight",
+      "dd": 2.5
+    },
+    "204B": {
+      "description": "Back 2 Somersaults Pike",
+      "dd": 2.2
+    },
+    "204C": {
+      "description": "Back 2 Somersaults Tuck",
+      "dd": 2.2
+    },
+    "205B": {
+      "description": "Back 2\u00bd Somersaults Pike",
+      "dd": 3.2
+    },
+    "205C": {
+      "description": "Back 2\u00bd Somersaults Tuck",
+      "dd": 3.0
+    },
+    "206B": {
+      "description": "Back 3 Somersaults Pike",
+      "dd": 3.2
+    },
+    "206C": {
+      "description": "Back 3 Somersaults Tuck",
+      "dd": 2.9
+    },
+    "207B": {
+      "description": "Back 3\u00bd Somersaults Pike",
+      "dd": 3.5
+    },
+    "207C": {
+      "description": "Back 3\u00bd Somersaults Tuck",
+      "dd": 3.3
+    },
+    "208B": {
+      "description": "Back 4 Somersaults Pike",
+      "dd": 4.4
+    },
+    "208C": {
+      "description": "Back 4 Somersaults Tuck",
+      "dd": 4.1
+    },
+    "212B": {
+      "description": "Back Flying Somersault Pike",
+      "dd": 1.7
+    },
+    "212C": {
+      "description": "Back Flying Somersault Tuck",
+      "dd": 1.6
+    },
+    "213B": {
+      "description": "Back Flying 1\u00bd Somersaults Pike",
+      "dd": 2.5
+    },
+    "213C": {
+      "description": "Back Flying 1\u00bd Somersaults Tuck",
+      "dd": 2.2
+    },
+    "215B": {
+      "description": "Back Flying 2\u00bd Somersaults Pike",
+      "dd": 3.2
+    },
+    "215C": {
+      "description": "Back Flying 2\u00bd Somersaults Tuck",
+      "dd": 3.0
+    },
+    "301A": {
+      "description": "Reverse Dive Straight",
+      "dd": 1.8
+    },
+    "301B": {
+      "description": "Reverse Dive Pike",
+      "dd": 1.7
+    },
+    "301C": {
+      "description": "Reverse Dive Tuck",
+      "dd": 1.6
+    },
+    "302A": {
+      "description": "Reverse Somersault Straight",
+      "dd": 1.8
+    },
+    "302B": {
+      "description": "Reverse Somersault Pike",
+      "dd": 1.7
+    },
+    "302C": {
+      "description": "Reverse Somersault Tuck",
+      "dd": 1.6
+    },
+    "303A": {
+      "description": "Reverse 1\u00bd Somersaults Straight",
+      "dd": 2.7
+    },
+    "303B": {
+      "description": "Reverse 1\u00bd Somersaults Pike",
+      "dd": 2.4
+    },
+    "303C": {
+      "description": "Reverse 1\u00bd Somersaults Tuck",
+      "dd": 2.1
+    },
+    "304A": {
+      "description": "Reverse 2 Somersaults Straight",
+      "dd": 2.9
+    },
+    "304B": {
+      "description": "Reverse 2 Somersaults Pike",
+      "dd": 2.6
+    },
+    "304C": {
+      "description": "Reverse 2 Somersaults Tuck",
+      "dd": 2.3
+    },
+    "305A": {
+      "description": "Reverse 2\u00bd Somersaults Straight",
+      "dd": 3.3
+    },
+    "305B": {
+      "description": "Reverse 2\u00bd Somersaults Pike",
+      "dd": 3.1
+    },
+    "305C": {
+      "description": "Reverse 2\u00bd Somersaults Tuck",
+      "dd": 2.8
+    },
+    "306B": {
+      "description": "Reverse 3 Somersaults Pike",
+      "dd": 3.4
+    },
+    "306C": {
+      "description": "Reverse 3 Somersaults Tuck",
+      "dd": 3.1
+    },
+    "307B": {
+      "description": "Reverse 3\u00bd Somersaults Pike",
+      "dd": 3.7
+    },
+    "307C": {
+      "description": "Reverse 3\u00bd Somersaults Tuck",
+      "dd": 3.4
+    },
+    "308B": {
+      "description": "Reverse 4 Somersaults Pike",
+      "dd": 4.5
+    },
+    "308C": {
+      "description": "Reverse 4 Somersaults Tuck",
+      "dd": 4.2
+    },
+    "309B": {
+      "description": "Reverse 4\u00bd Somersaults Pike",
+      "dd": 4.8
+    },
+    "309C": {
+      "description": "Reverse 4\u00bd Somersaults Tuck",
+      "dd": 4.5
+    },
+    "312B": {
+      "description": "Reverse Flying Somersault Pike",
+      "dd": 1.8
+    },
+    "312C": {
+      "description": "Reverse Flying Somersault Tuck",
+      "dd": 1.7
+    },
+    "313B": {
+      "description": "Reverse Flying 1\u00bd Somersaults Pike",
+      "dd": 2.6
+    },
+    "313C": {
+      "description": "Reverse Flying 1\u00bd Somersaults Tuck",
+      "dd": 2.3
+    },
+    "401A": {
+      "description": "Inward Dive Straight",
+      "dd": 1.8
+    },
+    "401B": {
+      "description": "Inward Dive Pike",
+      "dd": 1.5
+    },
+    "401C": {
+      "description": "Inward Dive Tuck",
+      "dd": 1.4
+    },
+    "402A": {
+      "description": "Inward Somersault Straight",
+      "dd": 2.0
+    },
+    "402B": {
+      "description": "Inward Somersault Pike",
+      "dd": 1.7
+    },
+    "402C": {
+      "description": "Inward Somersault Tuck",
+      "dd": 1.6
+    },
+    "403B": {
+      "description": "Inward 1\u00bd Somersaults Pike",
+      "dd": 2.4
+    },
+    "403C": {
+      "description": "Inward 1\u00bd Somersaults Tuck",
+      "dd": 2.2
+    },
+    "404B": {
+      "description": "Inward 2 Somersaults Pike",
+      "dd": 3.0
+    },
+    "404C": {
+      "description": "Inward 2 Somersaults Tuck",
+      "dd": 2.8
+    },
+    "405B": {
+      "description": "Inward 2\u00bd Somersaults Pike",
+      "dd": 3.4
+    },
+    "405C": {
+      "description": "Inward 2\u00bd Somersaults Tuck",
+      "dd": 3.1
+    },
+    "406B": {
+      "description": "Inward 3 Somersaults Pike",
+      "dd": 4.0
+    },
+    "406C": {
+      "description": "Inward 3 Somersaults Tuck",
+      "dd": 3.7
+    },
+    "407B": {
+      "description": "Inward 3\u00bd Somersaults Pike",
+      "dd": 3.4
+    },
+    "407C": {
+      "description": "Inward 3\u00bd Somersaults Tuck",
+      "dd": 3.2
+    },
+    "409B": {
+      "description": "Inward 4\u00bd Somersaults Pike",
+      "dd": 4.4
+    },
+    "409C": {
+      "description": "Inward 4\u00bd Somersaults Tuck",
+      "dd": 4.1
+    },
+    "412B": {
+      "description": "Inward Flying Somersault Pike",
+      "dd": 2.1
+    },
+    "412C": {
+      "description": "Inward Flying Somersault Tuck",
+      "dd": 2.0
+    },
+    "413B": {
+      "description": "Inward Flying 1\u00bd Somersaults Pike",
+      "dd": 2.9
+    },
+    "413C": {
+      "description": "Inward Flying 1\u00bd Somersaults Tuck",
+      "dd": 2.7
+    },
+    "5111A": {
+      "description": "Forward Dive \u00bd Twist Straight",
+      "dd": 1.8
+    },
+    "5111B": {
+      "description": "Forward Dive \u00bd Twist Pike",
+      "dd": 1.7
+    },
+    "5111C": {
+      "description": "Forward Dive \u00bd Twist Tuck",
+      "dd": 1.6
+    },
+    "5112A": {
+      "description": "Forward Dive 1 Twist Straight",
+      "dd": 2.0
+    },
+    "5112B": {
+      "description": "Forward Dive 1 Twist Pike",
+      "dd": 1.9
+    },
+    "5121D": {
+      "description": "Forward Somersault \u00bd Twist Free",
+      "dd": 1.7
+    },
+    "5122D": {
+      "description": "Forward Somersault 1 Twist Free",
+      "dd": 1.9
+    },
+    "5124D": {
+      "description": "Forward Somersault 2 Twists Free",
+      "dd": 2.3
+    },
+    "5131D": {
+      "description": "Forward 1\u00bd Somersaults \u00bd Twist Free",
+      "dd": 2.0
+    },
+    "5132D": {
+      "description": "Forward 1\u00bd Somersaults 1 Twist Free",
+      "dd": 2.2
+    },
+    "5134D": {
+      "description": "Forward 1\u00bd Somersaults 2 Twists Free",
+      "dd": 2.6
+    },
+    "5136D": {
+      "description": "Forward 1\u00bd Somersaults 3 Twists Free",
+      "dd": 3.1
+    },
+    "5138D": {
+      "description": "Forward 1\u00bd Somersaults 4 Twists Free",
+      "dd": 3.5
+    },
+    "5152B": {
+      "description": "Forward 2\u00bd Somersaults 1 Twist Pike",
+      "dd": 3.2
+    },
+    "5152C": {
+      "description": "Forward 2\u00bd Somersaults 1 Twist Tuck",
+      "dd": 3.0
+    },
+    "5154B": {
+      "description": "Forward 2\u00bd Somersaults 2 Twists Pike",
+      "dd": 3.6
+    },
+    "5154C": {
+      "description": "Forward 2\u00bd Somersaults 2 Twists Tuck",
+      "dd": 3.4
+    },
+    "5156B": {
+      "description": "Forward 2\u00bd Somersaults 3 Twists Pike",
+      "dd": 3.8
+    },
+    "5156C": {
+      "description": "Forward 2\u00bd Somersaults 3 Twists Tuck",
+      "dd": 3.6
+    },
+    "5172B": {
+      "description": "Forward 3\u00bd Somersaults 1 Twist Pike",
+      "dd": 3.7
+    },
+    "5172C": {
+      "description": "Forward 3\u00bd Somersaults 1 Twist Tuck",
+      "dd": 3.4
+    },
+    "5211A": {
+      "description": "Back Dive \u00bd Twist Straight",
+      "dd": 1.8
+    },
+    "5211B": {
+      "description": "Back Dive \u00bd Twist Pike",
+      "dd": 1.7
+    },
+    "5211C": {
+      "description": "Back Dive \u00bd Twist Tuck",
+      "dd": 1.6
+    },
+    "5212A": {
+      "description": "Back Dive 1 Twist Straight",
+      "dd": 2.0
+    },
+    "5221D": {
+      "description": "Back Somersault \u00bd Twist Free",
+      "dd": 1.7
+    },
+    "5222D": {
+      "description": "Back Somersault 1 Twist Free",
+      "dd": 1.9
+    },
+    "5223D": {
+      "description": "Back Somersault 1\u00bd Twists Free",
+      "dd": 2.3
+    },
+    "5225D": {
+      "description": "Back Somersault 2\u00bd Twists Free",
+      "dd": 2.7
+    },
+    "5231D": {
+      "description": "Back 1\u00bd Somersaults \u00bd Twist Free",
+      "dd": 2.1
+    },
+    "5233D": {
+      "description": "Back 1\u00bd Somersaults 1\u00bd Twists Free",
+      "dd": 2.5
+    },
+    "5235D": {
+      "description": "Back 1\u00bd Somersaults 2\u00bd Twists Free",
+      "dd": 2.9
+    },
+    "5237D": {
+      "description": "Back 1\u00bd Somersaults 3\u00bd Twists Free",
+      "dd": 3.4
+    },
+    "5239D": {
+      "description": "Back 1\u00bd Somersaults 4\u00bd Twists Free",
+      "dd": 3.8
+    },
+    "5251B": {
+      "description": "Back 2\u00bd Somersaults \u00bd Twist Pike",
+      "dd": 2.9
+    },
+    "5251C": {
+      "description": "Back 2\u00bd Somersaults \u00bd Twist Tuck",
+      "dd": 2.7
+    },
+    "5253B": {
+      "description": "Back 2\u00bd Somersaults 1\u00bd Twists Pike",
+      "dd": 3.2
+    },
+    "5253C": {
+      "description": "Back 2\u00bd Somersaults 1\u00bd Twists Tuck",
+      "dd": 3.1
+    },
+    "5311A": {
+      "description": "Reverse Dive \u00bd Twist Straight",
+      "dd": 1.9
+    },
+    "5311B": {
+      "description": "Reverse Dive \u00bd Twist Pike",
+      "dd": 1.8
+    },
+    "5311C": {
+      "description": "Reverse Dive \u00bd Twist Tuck",
+      "dd": 1.7
+    },
+    "5312A": {
+      "description": "Reverse Dive 1 Twist Straight",
+      "dd": 2.1
+    },
+    "5321D": {
+      "description": "Reverse Somersault \u00bd Twist Free",
+      "dd": 1.8
+    },
+    "5322D": {
+      "description": "Reverse Somersault 1 Twist Free",
+      "dd": 2.0
+    },
+    "5323D": {
+      "description": "Reverse Somersault 1\u00bd Twists Free",
+      "dd": 2.4
+    },
+    "5325D": {
+      "description": "Reverse Somersault 2\u00bd Twists Free",
+      "dd": 2.8
+    },
+    "5331D": {
+      "description": "Reverse 1\u00bd Somersaults \u00bd Twist Free",
+      "dd": 2.2
+    },
+    "5333D": {
+      "description": "Reverse 1\u00bd Somersaults 1\u00bd Twists Free",
+      "dd": 2.6
+    },
+    "5335D": {
+      "description": "Reverse 1\u00bd Somersaults 2\u00bd Twists Free",
+      "dd": 3.0
+    },
+    "5337D": {
+      "description": "Reverse 1\u00bd Somersaults 3\u00bd Twists Free",
+      "dd": 3.5
+    },
+    "5351B": {
+      "description": "Reverse 2\u00bd Somersaults \u00bd Twist Pike",
+      "dd": 3.0
+    },
+    "5351C": {
+      "description": "Reverse 2\u00bd Somersaults \u00bd Twist Tuck",
+      "dd": 2.8
+    },
+    "5353B": {
+      "description": "Reverse 2\u00bd Somersaults 1\u00bd Twists Pike",
+      "dd": 3.4
+    },
+    "5353C": {
+      "description": "Reverse 2\u00bd Somersaults 1\u00bd Twists Tuck",
+      "dd": 3.4
+    },
+    "5355B": {
+      "description": "Reverse 2\u00bd Somersaults 2\u00bd Twists Pike",
+      "dd": 3.8
+    },
+    "5355C": {
+      "description": "Reverse 2\u00bd Somersaults 2\u00bd Twists Tuck",
+      "dd": 3.8
+    },
+    "5411A": {
+      "description": "Inward Dive \u00bd Twist Straight",
+      "dd": 2.0
+    },
+    "5411B": {
+      "description": "Inward Dive \u00bd Twist Pike",
+      "dd": 1.7
+    },
+    "5411C": {
+      "description": "Inward Dive \u00bd Twist Tuck",
+      "dd": 1.6
+    },
+    "5412A": {
+      "description": "Inward Dive 1 Twist Straight",
+      "dd": 2.2
+    },
+    "5412B": {
+      "description": "Inward Dive 1 Twist Pike",
+      "dd": 1.9
+    },
+    "5412C": {
+      "description": "Inward Dive 1 Twist Tuck",
+      "dd": 1.8
+    },
+    "5421D": {
+      "description": "Inward Somersault \u00bd Twist Free",
+      "dd": 1.9
+    },
+    "5422D": {
+      "description": "Inward Somersault 1 Twist Free",
+      "dd": 2.1
+    },
+    "5432D": {
+      "description": "Inward 1\u00bd Somersaults 1 Twist Free",
+      "dd": 2.7
+    },
+    "5434D": {
+      "description": "Inward 1\u00bd Somersaults 2 Twists Free",
+      "dd": 3.1
+    },
+    "610A": {
+      "description": "Armstand Dive Straight",
+      "dd": 1.5
+    },
+    "611A": {
+      "description": "Armstand Forward \u00bd Somersault Straight",
+      "dd": 1.8
+    },
+    "611B": {
+      "description": "Armstand Forward \u00bd Somersault Pike",
+      "dd": 1.7
+    },
+    "611C": {
+      "description": "Armstand Forward \u00bd Somersault Tuck",
+      "dd": 1.5
+    },
+    "6122D": {
+      "description": "Armstand Forward Somersault 1 Twist Free",
+      "dd": 2.4
+    },
+    "6124D": {
+      "description": "Armstand Forward Somersault 2 Twists Free",
+      "dd": 2.7
+    },
+    "612A": {
+      "description": "Armstand Forward 1 Somersault Straight",
+      "dd": 1.8
+    },
+    "612B": {
+      "description": "Armstand Forward 1 Somersault Pike",
+      "dd": 1.7
+    },
+    "612C": {
+      "description": "Armstand Forward 1 Somersault Tuck",
+      "dd": 1.5
+    },
+    "6142D": {
+      "description": "Armstand Forward 2 Somersaults 1 Twist Free",
+      "dd": 3.2
+    },
+    "6144D": {
+      "description": "Armstand Forward 2 Somersaults 2 Twists Free",
+      "dd": 3.5
+    },
+    "614B": {
+      "description": "Armstand Forward 2 Somersaults Pike",
+      "dd": 2.5
+    },
+    "614C": {
+      "description": "Armstand Forward 2 Somersaults Tuck",
+      "dd": 2.2
+    },
+    "621A": {
+      "description": "Armstand Back \u00bd Somersault Straight",
+      "dd": 1.7
+    },
+    "621B": {
+      "description": "Armstand Back \u00bd Somersault Pike",
+      "dd": 1.6
+    },
+    "621C": {
+      "description": "Armstand Back \u00bd Somersault Tuck",
+      "dd": 1.4
+    },
+    "6221D": {
+      "description": "Armstand Back Somersault \u00bd Twist Free",
+      "dd": 1.6
+    },
+    "622A": {
+      "description": "Armstand Back Somersault Straight",
+      "dd": 2.1
+    },
+    "622B": {
+      "description": "Armstand Back Somersault Pike",
+      "dd": 2.0
+    },
+    "622C": {
+      "description": "Armstand Back Somersault Tuck",
+      "dd": 1.8
+    },
+    "623B": {
+      "description": "Armstand Back 1\u00bd Somersaults Pike",
+      "dd": 2.3
+    },
+    "623C": {
+      "description": "Armstand Back 1\u00bd Somersaults Tuck",
+      "dd": 2.0
+    },
+    "6241B": {
+      "description": "Armstand Back 2 Somersaults \u00bd Twist Pike",
+      "dd": 2.8
+    },
+    "6241C": {
+      "description": "Armstand Back 2 Somersaults \u00bd Twist Tuck",
+      "dd": 2.5
+    },
+    "6243D": {
+      "description": "Armstand Back 2 Somersaults 1\u00bd Twists Free",
+      "dd": 3.3
+    },
+    "6245D": {
+      "description": "Armstand Back 2 Somersaults 2\u00bd Twists Free",
+      "dd": 3.7
+    },
+    "624A": {
+      "description": "Armstand Back 2 Somersaults Straight",
+      "dd": 3.1
+    },
+    "624B": {
+      "description": "Armstand Back 2 Somersaults Pike",
+      "dd": 2.9
+    },
+    "624C": {
+      "description": "Armstand Back 2 Somersaults Tuck",
+      "dd": 2.6
+    },
+    "6261B": {
+      "description": "Armstand Back 3 Somersaults \u00bd Twist Pike",
+      "dd": 3.6
+    },
+    "6261C": {
+      "description": "Armstand Back 3 Somersaults \u00bd Twist Tuck",
+      "dd": 3.4
+    },
+    "626B": {
+      "description": "Armstand Back 3 Somersaults Pike",
+      "dd": 3.5
+    },
+    "631A": {
+      "description": "Armstand Reverse \u00bd Somersault Straight",
+      "dd": 1.8
+    },
+    "631B": {
+      "description": "Armstand Reverse \u00bd Somersault Pike",
+      "dd": 1.7
+    },
+    "631C": {
+      "description": "Armstand Reverse \u00bd Somersault Tuck",
+      "dd": 1.5
+    },
+    "632B": {
+      "description": "Armstand Reverse 1 Somersault Pike",
+      "dd": 2.1
+    },
+    "632C": {
+      "description": "Armstand Reverse 1 Somersault Tuck",
+      "dd": 1.9
+    },
+    "633B": {
+      "description": "Armstand Reverse 1\u00bd Somersaults Pike",
+      "dd": 2.4
+    },
+    "633C": {
+      "description": "Armstand Reverse 1\u00bd Somersaults Tuck",
+      "dd": 2.1
+    },
+    "634B": {
+      "description": "Armstand Reverse 2 Somersaults Pike",
+      "dd": 3.0
+    },
+    "634C": {
+      "description": "Armstand Reverse 2 Somersaults Tuck",
+      "dd": 2.7
+    },
+    "640A": {
+      "description": "Armstand Dive Inward Straight",
+      "dd": 1.6
+    },
+    "641B": {
+      "description": "Armstand Inward \u00bd Somersault Pike",
+      "dd": 1.8
+    },
+    "641C": {
+      "description": "Armstand Inward \u00bd Somersault Tuck",
+      "dd": 1.6
+    },
+    "642B": {
+      "description": "Armstand Inward 1 Somersault Pike",
+      "dd": 1.8
+    },
+    "642C": {
+      "description": "Armstand Inward 1 Somersault Tuck",
+      "dd": 1.6
+    },
+    "644B": {
+      "description": "Armstand Inward 2 Somersaults Pike",
+      "dd": 2.6
+    },
+    "644C": {
+      "description": "Armstand Inward 2 Somersaults Tuck",
+      "dd": 2.3
+    }
+  },
+  "7.5m": {
+    "101A": {
+      "description": "Forward Dive Straight",
+      "dd": 1.6
+    },
+    "101B": {
+      "description": "Forward Dive Pike",
+      "dd": 1.5
+    },
+    "101C": {
+      "description": "Forward Dive Tuck",
+      "dd": 1.4
+    },
+    "102A": {
+      "description": "Forward Somersault Straight",
+      "dd": 1.7
+    },
+    "102B": {
+      "description": "Forward Somersault Pike",
+      "dd": 1.6
+    },
+    "102C": {
+      "description": "Forward Somersault Tuck",
+      "dd": 1.5
+    },
+    "103A": {
+      "description": "Forward 1\u00bd Somersaults Straight",
+      "dd": 1.9
+    },
+    "103B": {
+      "description": "Forward 1\u00bd Somersaults Pike",
+      "dd": 1.6
+    },
+    "103C": {
+      "description": "Forward 1\u00bd Somersaults Tuck",
+      "dd": 1.5
+    },
+    "104A": {
+      "description": "Forward 2 Somersaults Straight",
+      "dd": 2.4
+    },
+    "104B": {
+      "description": "Forward 2 Somersaults Pike",
+      "dd": 2.1
+    },
+    "104C": {
+      "description": "Forward 2 Somersaults Tuck",
+      "dd": 2.0
+    },
+    "105A": {
+      "description": "Forward 2\u00bd Somersaults Straight",
+      "dd": 2.4
+    },
+    "105B": {
+      "description": "Forward 2\u00bd Somersaults Pike",
+      "dd": 2.2
+    },
+    "105C": {
+      "description": "Forward 2\u00bd Somersaults Tuck",
+      "dd": 2.2
+    },
+    "106B": {
+      "description": "Forward 3 Somersaults Pike",
+      "dd": 2.8
+    },
+    "106C": {
+      "description": "Forward 3 Somersaults Tuck",
+      "dd": 2.5
+    },
+    "107B": {
+      "description": "Forward 3\u00bd Somersaults Pike",
+      "dd": 3.1
+    },
+    "107C": {
+      "description": "Forward 3\u00bd Somersaults Tuck",
+      "dd": 2.8
+    },
+    "108B": {
+      "description": "Forward 4 Somersaults Pike",
+      "dd": 4.2
+    },
+    "108C": {
+      "description": "Forward 4 Somersaults Tuck",
+      "dd": 3.9
+    },
+    "109B": {
+      "description": "Forward 4\u00bd Somersaults Pike",
+      "dd": 4.1
+    },
+    "109C": {
+      "description": "Forward 4\u00bd Somersaults Tuck",
+      "dd": 3.8
+    },
+    "112B": {
+      "description": "Forward Flying Somersault Pike",
+      "dd": 1.8
+    },
+    "112C": {
+      "description": "Forward Flying Somersault Tuck",
+      "dd": 1.7
+    },
+    "113B": {
+      "description": "Forward Flying 1\u00bd Somersaults Pike",
+      "dd": 1.8
+    },
+    "113C": {
+      "description": "Forward Flying 1\u00bd Somersaults Tuck",
+      "dd": 1.7
+    },
+    "114B": {
+      "description": "Forward Flying 2 Somersaults Pike",
+      "dd": 2.3
+    },
+    "114C": {
+      "description": "Forward Flying 2 Somersaults Tuck",
+      "dd": 2.2
+    },
+    "115B": {
+      "description": "Forward Flying 2\u00bd Somersaults Pike",
+      "dd": 2.5
+    },
+    "115C": {
+      "description": "Forward Flying 2\u00bd Somersaults Tuck",
+      "dd": 2.5
+    },
+    "201A": {
+      "description": "Back Dive Straight",
+      "dd": 1.9
+    },
+    "201B": {
+      "description": "Back Dive Pike",
+      "dd": 1.8
+    },
+    "201C": {
+      "description": "Back Dive Tuck",
+      "dd": 1.7
+    },
+    "202A": {
+      "description": "Back Somersault Straight",
+      "dd": 1.8
+    },
+    "202B": {
+      "description": "Back Somersault Pike",
+      "dd": 1.7
+    },
+    "202C": {
+      "description": "Back Somersault Tuck",
+      "dd": 1.6
+    },
+    "203A": {
+      "description": "Back 1\u00bd Somersaults Straight",
+      "dd": 2.4
+    },
+    "203B": {
+      "description": "Back 1\u00bd Somersaults Pike",
+      "dd": 2.2
+    },
+    "203C": {
+      "description": "Back 1\u00bd Somersaults Tuck",
+      "dd": 1.9
+    },
+    "204A": {
+      "description": "Back 2 Somersaults Straight",
+      "dd": 2.5
+    },
+    "204B": {
+      "description": "Back 2 Somersaults Pike",
+      "dd": 2.3
+    },
+    "204C": {
+      "description": "Back 2 Somersaults Tuck",
+      "dd": 2.0
+    },
+    "205B": {
+      "description": "Back 2\u00bd Somersaults Pike",
+      "dd": 3.0
+    },
+    "205C": {
+      "description": "Back 2\u00bd Somersaults Tuck",
+      "dd": 2.8
+    },
+    "206B": {
+      "description": "Back 3 Somersaults Pike",
+      "dd": 2.8
+    },
+    "206C": {
+      "description": "Back 3 Somersaults Tuck",
+      "dd": 2.5
+    },
+    "207B": {
+      "description": "Back 3\u00bd Somersaults Pike",
+      "dd": 3.5
+    },
+    "207C": {
+      "description": "Back 3\u00bd Somersaults Tuck",
+      "dd": 3.4
+    },
+    "208B": {
+      "description": "Back 4 Somersaults Pike",
+      "dd": 4.2
+    },
+    "208C": {
+      "description": "Back 4 Somersaults Tuck",
+      "dd": 3.9
+    },
+    "212B": {
+      "description": "Back Flying Somersault Pike",
+      "dd": 1.8
+    },
+    "212C": {
+      "description": "Back Flying Somersault Tuck",
+      "dd": 1.7
+    },
+    "213B": {
+      "description": "Back Flying 1\u00bd Somersaults Pike",
+      "dd": 2.4
+    },
+    "213C": {
+      "description": "Back Flying 1\u00bd Somersaults Tuck",
+      "dd": 2.1
+    },
+    "215B": {
+      "description": "Back Flying 2\u00bd Somersaults Pike",
+      "dd": 3.2
+    },
+    "215C": {
+      "description": "Back Flying 2\u00bd Somersaults Tuck",
+      "dd": 3.0
+    },
+    "301A": {
+      "description": "Reverse Dive Straight",
+      "dd": 2.0
+    },
+    "301B": {
+      "description": "Reverse Dive Pike",
+      "dd": 1.9
+    },
+    "301C": {
+      "description": "Reverse Dive Tuck",
+      "dd": 1.8
+    },
+    "302A": {
+      "description": "Reverse Somersault Straight",
+      "dd": 1.9
+    },
+    "302B": {
+      "description": "Reverse Somersault Pike",
+      "dd": 1.8
+    },
+    "302C": {
+      "description": "Reverse Somersault Tuck",
+      "dd": 1.7
+    },
+    "303A": {
+      "description": "Reverse 1\u00bd Somersaults Straight",
+      "dd": 2.6
+    },
+    "303B": {
+      "description": "Reverse 1\u00bd Somersaults Pike",
+      "dd": 2.3
+    },
+    "303C": {
+      "description": "Reverse 1\u00bd Somersaults Tuck",
+      "dd": 2.0
+    },
+    "304A": {
+      "description": "Reverse 2 Somersaults Straight",
+      "dd": 2.7
+    },
+    "304B": {
+      "description": "Reverse 2 Somersaults Pike",
+      "dd": 2.4
+    },
+    "304C": {
+      "description": "Reverse 2 Somersaults Tuck",
+      "dd": 2.1
+    },
+    "305A": {
+      "description": "Reverse 2\u00bd Somersaults Straight",
+      "dd": 3.5
+    },
+    "305B": {
+      "description": "Reverse 2\u00bd Somersaults Pike",
+      "dd": 3.1
+    },
+    "305C": {
+      "description": "Reverse 2\u00bd Somersaults Tuck",
+      "dd": 2.9
+    },
+    "306B": {
+      "description": "Reverse 3 Somersaults Pike",
+      "dd": 3.0
+    },
+    "306C": {
+      "description": "Reverse 3 Somersaults Tuck",
+      "dd": 2.7
+    },
+    "307B": {
+      "description": "Reverse 3\u00bd Somersaults Pike",
+      "dd": 3.7
+    },
+    "307C": {
+      "description": "Reverse 3\u00bd Somersaults Tuck",
+      "dd": 3.4
+    },
+    "308B": {
+      "description": "Reverse 4 Somersaults Pike",
+      "dd": 4.5
+    },
+    "308C": {
+      "description": "Reverse 4 Somersaults Tuck",
+      "dd": 4.2
+    },
+    "309B": {
+      "description": "Reverse 4\u00bd Somersaults Pike",
+      "dd": 4.8
+    },
+    "309C": {
+      "description": "Reverse 4\u00bd Somersaults Tuck",
+      "dd": 4.5
+    },
+    "312B": {
+      "description": "Reverse Flying Somersault Pike",
+      "dd": 1.9
+    },
+    "312C": {
+      "description": "Reverse Flying Somersault Tuck",
+      "dd": 1.8
+    },
+    "313B": {
+      "description": "Reverse Flying 1\u00bd Somersaults Pike",
+      "dd": 2.5
+    },
+    "313C": {
+      "description": "Reverse Flying 1\u00bd Somersaults Tuck",
+      "dd": 2.2
+    },
+    "401A": {
+      "description": "Inward Dive Straight",
+      "dd": 1.7
+    },
+    "401B": {
+      "description": "Inward Dive Pike",
+      "dd": 1.4
+    },
+    "401C": {
+      "description": "Inward Dive Tuck",
+      "dd": 1.3
+    },
+    "402A": {
+      "description": "Inward Somersault Straight",
+      "dd": 1.8
+    },
+    "402B": {
+      "description": "Inward Somersault Pike",
+      "dd": 1.5
+    },
+    "402C": {
+      "description": "Inward Somersault Tuck",
+      "dd": 1.4
+    },
+    "403B": {
+      "description": "Inward 1\u00bd Somersaults Pike",
+      "dd": 2.1
+    },
+    "403C": {
+      "description": "Inward 1\u00bd Somersaults Tuck",
+      "dd": 1.9
+    },
+    "404B": {
+      "description": "Inward 2 Somersaults Pike",
+      "dd": 2.6
+    },
+    "404C": {
+      "description": "Inward 2 Somersaults Tuck",
+      "dd": 2.4
+    },
+    "405B": {
+      "description": "Inward 2\u00bd Somersaults Pike",
+      "dd": 3.0
+    },
+    "405C": {
+      "description": "Inward 2\u00bd Somersaults Tuck",
+      "dd": 2.7
+    },
+    "406B": {
+      "description": "Inward 3 Somersaults Pike",
+      "dd": 3.4
+    },
+    "406C": {
+      "description": "Inward 3 Somersaults Tuck",
+      "dd": 3.1
+    },
+    "407B": {
+      "description": "Inward 3\u00bd Somersaults Pike",
+      "dd": 3.4
+    },
+    "407C": {
+      "description": "Inward 3\u00bd Somersaults Tuck",
+      "dd": 3.2
+    },
+    "409B": {
+      "description": "Inward 4\u00bd Somersaults Pike",
+      "dd": 4.4
+    },
+    "409C": {
+      "description": "Inward 4\u00bd Somersaults Tuck",
+      "dd": 4.1
+    },
+    "412B": {
+      "description": "Inward Flying Somersault Pike",
+      "dd": 1.9
+    },
+    "412C": {
+      "description": "Inward Flying Somersault Tuck",
+      "dd": 1.8
+    },
+    "413B": {
+      "description": "Inward Flying 1\u00bd Somersaults Pike",
+      "dd": 2.6
+    },
+    "413C": {
+      "description": "Inward Flying 1\u00bd Somersaults Tuck",
+      "dd": 2.4
+    },
+    "5111A": {
+      "description": "Forward Dive \u00bd Twist Straight",
+      "dd": 2.0
+    },
+    "5111B": {
+      "description": "Forward Dive \u00bd Twist Pike",
+      "dd": 1.9
+    },
+    "5111C": {
+      "description": "Forward Dive \u00bd Twist Tuck",
+      "dd": 1.8
+    },
+    "5112A": {
+      "description": "Forward Dive 1 Twist Straight",
+      "dd": 2.2
+    },
+    "5112B": {
+      "description": "Forward Dive 1 Twist Pike",
+      "dd": 2.1
+    },
+    "5121D": {
+      "description": "Forward Somersault \u00bd Twist Free",
+      "dd": 1.8
+    },
+    "5122D": {
+      "description": "Forward Somersault 1 Twist Free",
+      "dd": 2.0
+    },
+    "5124D": {
+      "description": "Forward Somersault 2 Twists Free",
+      "dd": 2.4
+    },
+    "5131D": {
+      "description": "Forward 1\u00bd Somersaults \u00bd Twist Free",
+      "dd": 1.9
+    },
+    "5132D": {
+      "description": "Forward 1\u00bd Somersaults 1 Twist Free",
+      "dd": 2.1
+    },
+    "5134D": {
+      "description": "Forward 1\u00bd Somersaults 2 Twists Free",
+      "dd": 2.5
+    },
+    "5136D": {
+      "description": "Forward 1\u00bd Somersaults 3 Twists Free",
+      "dd": 3.0
+    },
+    "5138D": {
+      "description": "Forward 1\u00bd Somersaults 4 Twists Free",
+      "dd": 3.4
+    },
+    "5152B": {
+      "description": "Forward 2\u00bd Somersaults 1 Twist Pike",
+      "dd": 3.0
+    },
+    "5152C": {
+      "description": "Forward 2\u00bd Somersaults 1 Twist Tuck",
+      "dd": 2.8
+    },
+    "5154B": {
+      "description": "Forward 2\u00bd Somersaults 2 Twists Pike",
+      "dd": 3.4
+    },
+    "5154C": {
+      "description": "Forward 2\u00bd Somersaults 2 Twists Tuck",
+      "dd": 3.2
+    },
+    "5156B": {
+      "description": "Forward 2\u00bd Somersaults 3 Twists Pike",
+      "dd": 3.8
+    },
+    "5156C": {
+      "description": "Forward 2\u00bd Somersaults 3 Twists Tuck",
+      "dd": 3.6
+    },
+    "5172B": {
+      "description": "Forward 3\u00bd Somersaults 1 Twist Pike",
+      "dd": 3.7
+    },
+    "5172C": {
+      "description": "Forward 3\u00bd Somersaults 1 Twist Tuck",
+      "dd": 3.4
+    },
+    "5211A": {
+      "description": "Back Dive \u00bd Twist Straight",
+      "dd": 2.0
+    },
+    "5211B": {
+      "description": "Back Dive \u00bd Twist Pike",
+      "dd": 1.9
+    },
+    "5211C": {
+      "description": "Back Dive \u00bd Twist Tuck",
+      "dd": 1.8
+    },
+    "5212A": {
+      "description": "Back Dive 1 Twist Straight",
+      "dd": 2.2
+    },
+    "5221D": {
+      "description": "Back Somersault \u00bd Twist Free",
+      "dd": 1.8
+    },
+    "5222D": {
+      "description": "Back Somersault 1 Twist Free",
+      "dd": 2.0
+    },
+    "5223D": {
+      "description": "Back Somersault 1\u00bd Twists Free",
+      "dd": 2.4
+    },
+    "5225D": {
+      "description": "Back Somersault 2\u00bd Twists Free",
+      "dd": 2.8
+    },
+    "5231D": {
+      "description": "Back 1\u00bd Somersaults \u00bd Twist Free",
+      "dd": 2.0
+    },
+    "5233D": {
+      "description": "Back 1\u00bd Somersaults 1\u00bd Twists Free",
+      "dd": 2.4
+    },
+    "5235D": {
+      "description": "Back 1\u00bd Somersaults 2\u00bd Twists Free",
+      "dd": 2.8
+    },
+    "5237D": {
+      "description": "Back 1\u00bd Somersaults 3\u00bd Twists Free",
+      "dd": 3.3
+    },
+    "5239D": {
+      "description": "Back 1\u00bd Somersaults 4\u00bd Twists Free",
+      "dd": 3.7
+    },
+    "5251B": {
+      "description": "Back 2\u00bd Somersaults \u00bd Twist Pike",
+      "dd": 2.7
+    },
+    "5251C": {
+      "description": "Back 2\u00bd Somersaults \u00bd Twist Tuck",
+      "dd": 2.5
+    },
+    "5253B": {
+      "description": "Back 2\u00bd Somersaults 1\u00bd Twists Pike",
+      "dd": 3.3
+    },
+    "5253C": {
+      "description": "Back 2\u00bd Somersaults 1\u00bd Twists Tuck",
+      "dd": 3.1
+    },
+    "5311A": {
+      "description": "Reverse Dive \u00bd Twist Straight",
+      "dd": 2.1
+    },
+    "5311B": {
+      "description": "Reverse Dive \u00bd Twist Pike",
+      "dd": 2.0
+    },
+    "5311C": {
+      "description": "Reverse Dive \u00bd Twist Tuck",
+      "dd": 1.9
+    },
+    "5312A": {
+      "description": "Reverse Dive 1 Twist Straight",
+      "dd": 2.3
+    },
+    "5321D": {
+      "description": "Reverse Somersault \u00bd Twist Free",
+      "dd": 1.9
+    },
+    "5322D": {
+      "description": "Reverse Somersault 1 Twist Free",
+      "dd": 2.1
+    },
+    "5323D": {
+      "description": "Reverse Somersault 1\u00bd Twists Free",
+      "dd": 2.5
+    },
+    "5325D": {
+      "description": "Reverse Somersault 2\u00bd Twists Free",
+      "dd": 2.9
+    },
+    "5331D": {
+      "description": "Reverse 1\u00bd Somersaults \u00bd Twist Free",
+      "dd": 2.1
+    },
+    "5333D": {
+      "description": "Reverse 1\u00bd Somersaults 1\u00bd Twists Free",
+      "dd": 2.5
+    },
+    "5335D": {
+      "description": "Reverse 1\u00bd Somersaults 2\u00bd Twists Free",
+      "dd": 2.9
+    },
+    "5337D": {
+      "description": "Reverse 1\u00bd Somersaults 3\u00bd Twists Free",
+      "dd": 3.4
+    },
+    "5339D": {
+      "description": "Reverse 1\u00bd Somersaults 4\u00bd Twists Free",
+      "dd": 3.8
+    },
+    "5351B": {
+      "description": "Reverse 2\u00bd Somersaults \u00bd Twist Pike",
+      "dd": 2.8
+    },
+    "5351C": {
+      "description": "Reverse 2\u00bd Somersaults \u00bd Twist Tuck",
+      "dd": 2.6
+    },
+    "5353B": {
+      "description": "Reverse 2\u00bd Somersaults 1\u00bd Twists Pike",
+      "dd": 3.4
+    },
+    "5353C": {
+      "description": "Reverse 2\u00bd Somersaults 1\u00bd Twists Tuck",
+      "dd": 3.2
+    },
+    "5355B": {
+      "description": "Reverse 2\u00bd Somersaults 2\u00bd Twists Pike",
+      "dd": 3.8
+    },
+    "5355C": {
+      "description": "Reverse 2\u00bd Somersaults 2\u00bd Twists Tuck",
+      "dd": 3.6
+    },
+    "5371B": {
+      "description": "Reverse 3\u00bd Somersaults \u00bd Twist Pike",
+      "dd": 3.4
+    },
+    "5371C": {
+      "description": "Reverse 3\u00bd Somersaults \u00bd Twist Tuck",
+      "dd": 3.1
+    },
+    "5411A": {
+      "description": "Inward Dive \u00bd Twist Straight",
+      "dd": 1.9
+    },
+    "5411B": {
+      "description": "Inward Dive \u00bd Twist Pike",
+      "dd": 1.6
+    },
+    "5411C": {
+      "description": "Inward Dive \u00bd Twist Tuck",
+      "dd": 1.5
+    },
+    "5412A": {
+      "description": "Inward Dive 1 Twist Straight",
+      "dd": 2.1
+    },
+    "5412B": {
+      "description": "Inward Dive 1 Twist Pike",
+      "dd": 1.8
+    },
+    "5412C": {
+      "description": "Inward Dive 1 Twist Tuck",
+      "dd": 1.7
+    },
+    "5421D": {
+      "description": "Inward Somersault \u00bd Twist Free",
+      "dd": 1.7
+    },
+    "5422D": {
+      "description": "Inward Somersault 1 Twist Free",
+      "dd": 1.9
+    },
+    "5432D": {
+      "description": "Inward 1\u00bd Somersaults 1 Twist Free",
+      "dd": 2.4
+    },
+    "5434D": {
+      "description": "Inward 1\u00bd Somersaults 2 Twists Free",
+      "dd": 2.8
+    },
+    "610A": {
+      "description": "Armstand Dive Straight",
+      "dd": 1.6
+    },
+    "611A": {
+      "description": "Armstand Forward \u00bd Somersault Straight",
+      "dd": 2.0
+    },
+    "611B": {
+      "description": "Armstand Forward \u00bd Somersault Pike",
+      "dd": 1.9
+    },
+    "611C": {
+      "description": "Armstand Forward \u00bd Somersault Tuck",
+      "dd": 1.7
+    },
+    "6122D": {
+      "description": "Armstand Forward Somersault 1 Twist Free",
+      "dd": 2.5
+    },
+    "6124D": {
+      "description": "Armstand Forward Somersault 2 Twists Free",
+      "dd": 2.8
+    },
+    "612A": {
+      "description": "Armstand Forward 1 Somersault Straight",
+      "dd": 1.9
+    },
+    "612B": {
+      "description": "Armstand Forward 1 Somersault Pike",
+      "dd": 1.8
+    },
+    "612C": {
+      "description": "Armstand Forward 1 Somersault Tuck",
+      "dd": 1.6
+    },
+    "6142D": {
+      "description": "Armstand Forward 2 Somersaults 1 Twist Free",
+      "dd": 3.0
+    },
+    "6144D": {
+      "description": "Armstand Forward 2 Somersaults 2 Twists Free",
+      "dd": 3.3
+    },
+    "614B": {
+      "description": "Armstand Forward 2 Somersaults Pike",
+      "dd": 2.3
+    },
+    "614C": {
+      "description": "Armstand Forward 2 Somersaults Tuck",
+      "dd": 2.0
+    },
+    "616B": {
+      "description": "Armstand Forward 3 Somersaults Pike",
+      "dd": 3.3
+    },
+    "616C": {
+      "description": "Armstand Forward 3 Somersaults Tuck",
+      "dd": 3.1
+    },
+    "621A": {
+      "description": "Armstand Back \u00bd Somersault Straight",
+      "dd": 1.9
+    },
+    "621B": {
+      "description": "Armstand Back \u00bd Somersault Pike",
+      "dd": 1.8
+    },
+    "621C": {
+      "description": "Armstand Back \u00bd Somersault Tuck",
+      "dd": 1.6
+    },
+    "6221D": {
+      "description": "Armstand Back Somersault \u00bd Twist Free",
+      "dd": 1.7
+    },
+    "622A": {
+      "description": "Armstand Back Somersault Straight",
+      "dd": 2.2
+    },
+    "622B": {
+      "description": "Armstand Back Somersault Pike",
+      "dd": 2.1
+    },
+    "622C": {
+      "description": "Armstand Back Somersault Tuck",
+      "dd": 1.9
+    },
+    "623B": {
+      "description": "Armstand Back 1\u00bd Somersaults Pike",
+      "dd": 2.2
+    },
+    "623C": {
+      "description": "Armstand Back 1\u00bd Somersaults Tuck",
+      "dd": 1.9
+    },
+    "6241B": {
+      "description": "Armstand Back 2 Somersaults \u00bd Twist Pike",
+      "dd": 2.6
+    },
+    "6241C": {
+      "description": "Armstand Back 2 Somersaults \u00bd Twist Tuck",
+      "dd": 2.3
+    },
+    "6243D": {
+      "description": "Armstand Back 2 Somersaults 1\u00bd Twists Free",
+      "dd": 3.1
+    },
+    "6245D": {
+      "description": "Armstand Back 2 Somersaults 2\u00bd Twists Free",
+      "dd": 3.5
+    },
+    "624A": {
+      "description": "Armstand Back 2 Somersaults Straight",
+      "dd": 2.9
+    },
+    "624B": {
+      "description": "Armstand Back 2 Somersaults Pike",
+      "dd": 2.7
+    },
+    "624C": {
+      "description": "Armstand Back 2 Somersaults Tuck",
+      "dd": 2.4
+    },
+    "6261B": {
+      "description": "Armstand Back 3 Somersaults \u00bd Twist Pike",
+      "dd": 3.2
+    },
+    "6261C": {
+      "description": "Armstand Back 3 Somersaults \u00bd Twist Tuck",
+      "dd": 3.0
+    },
+    "626B": {
+      "description": "Armstand Back 3 Somersaults Pike",
+      "dd": 3.3
+    },
+    "626C": {
+      "description": "Armstand Back 3 Somersaults Tuck",
+      "dd": 3.1
+    },
+    "631A": {
+      "description": "Armstand Reverse \u00bd Somersault Straight",
+      "dd": 2.0
+    },
+    "631B": {
+      "description": "Armstand Reverse \u00bd Somersault Pike",
+      "dd": 1.9
+    },
+    "631C": {
+      "description": "Armstand Reverse \u00bd Somersault Tuck",
+      "dd": 1.7
+    },
+    "632B": {
+      "description": "Armstand Reverse 1 Somersault Pike",
+      "dd": 2.2
+    },
+    "632C": {
+      "description": "Armstand Reverse 1 Somersault Tuck",
+      "dd": 2.0
+    },
+    "633B": {
+      "description": "Armstand Reverse 1\u00bd Somersaults Pike",
+      "dd": 2.3
+    },
+    "633C": {
+      "description": "Armstand Reverse 1\u00bd Somersaults Tuck",
+      "dd": 2.0
+    },
+    "634B": {
+      "description": "Armstand Reverse 2 Somersaults Pike",
+      "dd": 2.8
+    },
+    "634C": {
+      "description": "Armstand Reverse 2 Somersaults Tuck",
+      "dd": 2.5
+    },
+    "636B": {
+      "description": "Armstand Reverse 3 Somersaults Pike",
+      "dd": 3.2
+    },
+    "640A": {
+      "description": "Armstand Dive Inward Straight",
+      "dd": 1.7
+    },
+    "641B": {
+      "description": "Armstand Inward \u00bd Somersault Pike",
+      "dd": 2.0
+    },
+    "641C": {
+      "description": "Armstand Inward \u00bd Somersault Tuck",
+      "dd": 1.8
+    },
+    "642B": {
+      "description": "Armstand Inward 1 Somersault Pike",
+      "dd": 1.9
+    },
+    "642C": {
+      "description": "Armstand Inward 1 Somersault Tuck",
+      "dd": 1.7
+    },
+    "644B": {
+      "description": "Armstand Inward 2 Somersaults Pike",
+      "dd": 2.4
+    },
+    "644C": {
+      "description": "Armstand Inward 2 Somersaults Tuck",
+      "dd": 2.1
+    }
+  },
+  "10m": {
+    "1011B": {
+      "description": "Forward 5\u00bd Somersaults Pike",
+      "dd": 4.7
+    },
+    "101A": {
+      "description": "Forward Dive Straight",
+      "dd": 1.6
+    },
+    "101B": {
+      "description": "Forward Dive Pike",
+      "dd": 1.5
+    },
+    "101C": {
+      "description": "Forward Dive Tuck",
+      "dd": 1.4
+    },
+    "102A": {
+      "description": "Forward Somersault Straight",
+      "dd": 1.8
+    },
+    "102B": {
+      "description": "Forward Somersault Pike",
+      "dd": 1.7
+    },
+    "102C": {
+      "description": "Forward Somersault Tuck",
+      "dd": 1.6
+    },
+    "103A": {
+      "description": "Forward 1\u00bd Somersaults Straight",
+      "dd": 1.9
+    },
+    "103B": {
+      "description": "Forward 1\u00bd Somersaults Pike",
+      "dd": 1.6
+    },
+    "103C": {
+      "description": "Forward 1\u00bd Somersaults Tuck",
+      "dd": 1.5
+    },
+    "104A": {
+      "description": "Forward 2 Somersaults Straight",
+      "dd": 2.5
+    },
+    "104B": {
+      "description": "Forward 2 Somersaults Pike",
+      "dd": 2.2
+    },
+    "104C": {
+      "description": "Forward 2 Somersaults Tuck",
+      "dd": 2.1
+    },
+    "105A": {
+      "description": "Forward 2\u00bd Somersaults Straight",
+      "dd": 2.7
+    },
+    "105B": {
+      "description": "Forward 2\u00bd Somersaults Pike",
+      "dd": 2.3
+    },
+    "105C": {
+      "description": "Forward 2\u00bd Somersaults Tuck",
+      "dd": 2.1
+    },
+    "106B": {
+      "description": "Forward 3 Somersaults Pike",
+      "dd": 3.0
+    },
+    "106C": {
+      "description": "Forward 3 Somersaults Tuck",
+      "dd": 2.7
+    },
+    "107B": {
+      "description": "Forward 3\u00bd Somersaults Pike",
+      "dd": 3.0
+    },
+    "107C": {
+      "description": "Forward 3\u00bd Somersaults Tuck",
+      "dd": 2.7
+    },
+    "108B": {
+      "description": "Forward 4 Somersaults Pike",
+      "dd": 4.1
+    },
+    "108C": {
+      "description": "Forward 4 Somersaults Tuck",
+      "dd": 3.7
+    },
+    "109B": {
+      "description": "Forward 4\u00bd Somersaults Pike",
+      "dd": 4.1
+    },
+    "109C": {
+      "description": "Forward 4\u00bd Somersaults Tuck",
+      "dd": 3.7
+    },
+    "112B": {
+      "description": "Forward Flying Somersault Pike",
+      "dd": 1.9
+    },
+    "112C": {
+      "description": "Forward Flying Somersault Tuck",
+      "dd": 1.8
+    },
+    "113B": {
+      "description": "Forward Flying 1\u00bd Somersaults Pike",
+      "dd": 1.8
+    },
+    "113C": {
+      "description": "Forward Flying 1\u00bd Somersaults Tuck",
+      "dd": 1.7
+    },
+    "114B": {
+      "description": "Forward Flying 2 Somersaults Pike",
+      "dd": 2.4
+    },
+    "114C": {
+      "description": "Forward Flying 2 Somersaults Tuck",
+      "dd": 2.3
+    },
+    "115B": {
+      "description": "Forward Flying 2\u00bd Somersaults Pike",
+      "dd": 2.6
+    },
+    "115C": {
+      "description": "Forward Flying 2\u00bd Somersaults Tuck",
+      "dd": 2.4
+    },
+    "201A": {
+      "description": "Back Dive Straight",
+      "dd": 1.9
+    },
+    "201B": {
+      "description": "Back Dive Pike",
+      "dd": 1.8
+    },
+    "201C": {
+      "description": "Back Dive Tuck",
+      "dd": 1.7
+    },
+    "202A": {
+      "description": "Back Somersault Straight",
+      "dd": 1.9
+    },
+    "202B": {
+      "description": "Back Somersault Pike",
+      "dd": 1.8
+    },
+    "202C": {
+      "description": "Back Somersault Tuck",
+      "dd": 1.7
+    },
+    "203A": {
+      "description": "Back 1\u00bd Somersaults Straight",
+      "dd": 2.4
+    },
+    "203B": {
+      "description": "Back 1\u00bd Somersaults Pike",
+      "dd": 2.2
+    },
+    "203C": {
+      "description": "Back 1\u00bd Somersaults Tuck",
+      "dd": 1.9
+    },
+    "204A": {
+      "description": "Back 2 Somersaults Straight",
+      "dd": 2.6
+    },
+    "204B": {
+      "description": "Back 2 Somersaults Pike",
+      "dd": 2.4
+    },
+    "204C": {
+      "description": "Back 2 Somersaults Tuck",
+      "dd": 2.1
+    },
+    "205B": {
+      "description": "Back 2\u00bd Somersaults Pike",
+      "dd": 3.3
+    },
+    "205C": {
+      "description": "Back 2\u00bd Somersaults Tuck",
+      "dd": 2.9
+    },
+    "206B": {
+      "description": "Back 3 Somersaults Pike",
+      "dd": 3.0
+    },
+    "206C": {
+      "description": "Back 3 Somersaults Tuck",
+      "dd": 2.7
+    },
+    "207B": {
+      "description": "Back 3\u00bd Somersaults Pike",
+      "dd": 3.6
+    },
+    "207C": {
+      "description": "Back 3\u00bd Somersaults Tuck",
+      "dd": 3.6
+    },
+    "208B": {
+      "description": "Back 4 Somersaults Pike",
+      "dd": 4.1
+    },
+    "208C": {
+      "description": "Back 4 Somersaults Tuck",
+      "dd": 3.8
+    },
+    "209B": {
+      "description": "Back 4\u00bd Somersaults Pike",
+      "dd": 4.5
+    },
+    "209C": {
+      "description": "Back 4\u00bd Somersaults Tuck",
+      "dd": 4.2
+    },
+    "212B": {
+      "description": "Back Flying Somersault Pike",
+      "dd": 1.9
+    },
+    "212C": {
+      "description": "Back Flying Somersault Tuck",
+      "dd": 1.8
+    },
+    "213B": {
+      "description": "Back Flying 1\u00bd Somersaults Pike",
+      "dd": 2.4
+    },
+    "213C": {
+      "description": "Back Flying 1\u00bd Somersaults Tuck",
+      "dd": 2.1
+    },
+    "215B": {
+      "description": "Back Flying 2\u00bd Somersaults Pike",
+      "dd": 3.2
+    },
+    "215C": {
+      "description": "Back Flying 2\u00bd Somersaults Tuck",
+      "dd": 3.0
+    },
+    "301A": {
+      "description": "Reverse Dive Straight",
+      "dd": 2.0
+    },
+    "301B": {
+      "description": "Reverse Dive Pike",
+      "dd": 1.9
+    },
+    "301C": {
+      "description": "Reverse Dive Tuck",
+      "dd": 1.8
+    },
+    "302A": {
+      "description": "Reverse Somersault Straight",
+      "dd": 2.0
+    },
+    "302B": {
+      "description": "Reverse Somersault Pike",
+      "dd": 1.9
+    },
+    "302C": {
+      "description": "Reverse Somersault Tuck",
+      "dd": 1.8
+    },
+    "303A": {
+      "description": "Reverse 1\u00bd Somersaults Straight",
+      "dd": 2.6
+    },
+    "303B": {
+      "description": "Reverse 1\u00bd Somersaults Pike",
+      "dd": 2.3
+    },
+    "303C": {
+      "description": "Reverse 1\u00bd Somersaults Tuck",
+      "dd": 2.0
+    },
+    "304A": {
+      "description": "Reverse 2 Somersaults Straight",
+      "dd": 2.8
+    },
+    "304B": {
+      "description": "Reverse 2 Somersaults Pike",
+      "dd": 2.5
+    },
+    "304C": {
+      "description": "Reverse 2 Somersaults Tuck",
+      "dd": 2.2
+    },
+    "305A": {
+      "description": "Reverse 2\u00bd Somersaults Straight",
+      "dd": 3.4
+    },
+    "305B": {
+      "description": "Reverse 2\u00bd Somersaults Pike",
+      "dd": 3.0
+    },
+    "305C": {
+      "description": "Reverse 2\u00bd Somersaults Tuck",
+      "dd": 3.0
+    },
+    "306B": {
+      "description": "Reverse 3 Somersaults Pike",
+      "dd": 3.2
+    },
+    "306C": {
+      "description": "Reverse 3 Somersaults Tuck",
+      "dd": 2.9
+    },
+    "307B": {
+      "description": "Reverse 3\u00bd Somersaults Pike",
+      "dd": 3.7
+    },
+    "307C": {
+      "description": "Reverse 3\u00bd Somersaults Tuck",
+      "dd": 3.4
+    },
+    "308B": {
+      "description": "Reverse 4 Somersaults Pike",
+      "dd": 4.4
+    },
+    "308C": {
+      "description": "Reverse 4 Somersaults Tuck",
+      "dd": 4.1
+    },
+    "309B": {
+      "description": "Reverse 4\u00bd Somersaults Pike",
+      "dd": 4.8
+    },
+    "309C": {
+      "description": "Reverse 4\u00bd Somersaults Tuck",
+      "dd": 4.5
+    },
+    "312B": {
+      "description": "Reverse Flying Somersault Pike",
+      "dd": 2.0
+    },
+    "312C": {
+      "description": "Reverse Flying Somersault Tuck",
+      "dd": 1.9
+    },
+    "313B": {
+      "description": "Reverse Flying 1\u00bd Somersaults Pike",
+      "dd": 2.5
+    },
+    "313C": {
+      "description": "Reverse Flying 1\u00bd Somersaults Tuck",
+      "dd": 2.2
+    },
+    "401A": {
+      "description": "Inward Dive Straight",
+      "dd": 1.7
+    },
+    "401B": {
+      "description": "Inward Dive Pike",
+      "dd": 1.4
+    },
+    "401C": {
+      "description": "Inward Dive Tuck",
+      "dd": 1.3
+    },
+    "402A": {
+      "description": "Inward Somersault Straight",
+      "dd": 1.9
+    },
+    "402B": {
+      "description": "Inward Somersault Pike",
+      "dd": 1.6
+    },
+    "402C": {
+      "description": "Inward Somersault Tuck",
+      "dd": 1.5
+    },
+    "403B": {
+      "description": "Inward 1\u00bd Somersaults Pike",
+      "dd": 2.0
+    },
+    "403C": {
+      "description": "Inward 1\u00bd Somersaults Tuck",
+      "dd": 1.8
+    },
+    "404B": {
+      "description": "Inward 2 Somersaults Pike",
+      "dd": 2.6
+    },
+    "404C": {
+      "description": "Inward 2 Somersaults Tuck",
+      "dd": 2.4
+    },
+    "405B": {
+      "description": "Inward 2\u00bd Somersaults Pike",
+      "dd": 2.8
+    },
+    "405C": {
+      "description": "Inward 2\u00bd Somersaults Tuck",
+      "dd": 2.5
+    },
+    "406B": {
+      "description": "Inward 3 Somersaults Pike",
+      "dd": 3.5
+    },
+    "406C": {
+      "description": "Inward 3 Somersaults Tuck",
+      "dd": 3.2
+    },
+    "407B": {
+      "description": "Inward 3\u00bd Somersaults Pike",
+      "dd": 3.5
+    },
+    "407C": {
+      "description": "Inward 3\u00bd Somersaults Tuck",
+      "dd": 3.2
+    },
+    "408B": {
+      "description": "Inward 4 Somersaults Pike",
+      "dd": 4.4
+    },
+    "408C": {
+      "description": "Inward 4 Somersaults Tuck",
+      "dd": 4.1
+    },
+    "409B": {
+      "description": "Inward 4\u00bd Somersaults Pike",
+      "dd": 4.4
+    },
+    "409C": {
+      "description": "Inward 4\u00bd Somersaults Tuck",
+      "dd": 4.1
+    },
+    "412B": {
+      "description": "Inward Flying Somersault Pike",
+      "dd": 2.0
+    },
+    "412C": {
+      "description": "Inward Flying Somersault Tuck",
+      "dd": 1.9
+    },
+    "413B": {
+      "description": "Inward Flying 1\u00bd Somersaults Pike",
+      "dd": 2.5
+    },
+    "413C": {
+      "description": "Inward Flying 1\u00bd Somersaults Tuck",
+      "dd": 2.3
+    },
+    "5111A": {
+      "description": "Forward Dive \u00bd Twist Straight",
+      "dd": 2.0
+    },
+    "5111B": {
+      "description": "Forward Dive \u00bd Twist Pike",
+      "dd": 1.9
+    },
+    "5111C": {
+      "description": "Forward Dive \u00bd Twist Tuck",
+      "dd": 1.8
+    },
+    "5112A": {
+      "description": "Forward Dive 1 Twist Straight",
+      "dd": 2.2
+    },
+    "5112B": {
+      "description": "Forward Dive 1 Twist Pike",
+      "dd": 2.1
+    },
+    "5121D": {
+      "description": "Forward Somersault \u00bd Twist Free",
+      "dd": 1.9
+    },
+    "5122D": {
+      "description": "Forward Somersault 1 Twist Free",
+      "dd": 2.1
+    },
+    "5124D": {
+      "description": "Forward Somersault 2 Twists Free",
+      "dd": 2.5
+    },
+    "5131D": {
+      "description": "Forward 1\u00bd Somersaults \u00bd Twist Free",
+      "dd": 1.9
+    },
+    "5132D": {
+      "description": "Forward 1\u00bd Somersaults 1 Twist Free",
+      "dd": 2.1
+    },
+    "5134D": {
+      "description": "Forward 1\u00bd Somersaults 2 Twists Free",
+      "dd": 2.5
+    },
+    "5136D": {
+      "description": "Forward 1\u00bd Somersaults 3 Twists Free",
+      "dd": 3.0
+    },
+    "5138D": {
+      "description": "Forward 1\u00bd Somersaults 4 Twists Free",
+      "dd": 3.4
+    },
+    "5152B": {
+      "description": "Forward 2\u00bd Somersaults 1 Twist Pike",
+      "dd": 2.9
+    },
+    "5152C": {
+      "description": "Forward 2\u00bd Somersaults 1 Twist Tuck",
+      "dd": 2.7
+    },
+    "5154B": {
+      "description": "Forward 2\u00bd Somersaults 2 Twists Pike",
+      "dd": 3.3
+    },
+    "5154C": {
+      "description": "Forward 2\u00bd Somersaults 2 Twists Tuck",
+      "dd": 3.1
+    },
+    "5156B": {
+      "description": "Forward 2\u00bd Somersaults 3 Twists Pike",
+      "dd": 3.8
+    },
+    "5156C": {
+      "description": "Forward 2\u00bd Somersaults 3 Twists Tuck",
+      "dd": 3.6
+    },
+    "5172B": {
+      "description": "Forward 3\u00bd Somersaults 1 Twist Pike",
+      "dd": 3.6
+    },
+    "5172C": {
+      "description": "Forward 3\u00bd Somersaults 1 Twist Tuck",
+      "dd": 3.3
+    },
+    "5211A": {
+      "description": "Back Dive \u00bd Twist Straight",
+      "dd": 2.0
+    },
+    "5211B": {
+      "description": "Back Dive \u00bd Twist Pike",
+      "dd": 1.9
+    },
+    "5211C": {
+      "description": "Back Dive \u00bd Twist Tuck",
+      "dd": 1.8
+    },
+    "5212A": {
+      "description": "Back Dive 1 Twist Straight",
+      "dd": 2.2
+    },
+    "5221D": {
+      "description": "Back Somersault \u00bd Twist Free",
+      "dd": 1.9
+    },
+    "5222D": {
+      "description": "Back Somersault 1 Twist Free",
+      "dd": 2.1
+    },
+    "5223D": {
+      "description": "Back Somersault 1\u00bd Twists Free",
+      "dd": 2.5
+    },
+    "5225D": {
+      "description": "Back Somersault 2\u00bd Twists Free",
+      "dd": 2.9
+    },
+    "5231D": {
+      "description": "Back 1\u00bd Somersaults \u00bd Twist Free",
+      "dd": 2.0
+    },
+    "5233D": {
+      "description": "Back 1\u00bd Somersaults 1\u00bd Twists Free",
+      "dd": 2.4
+    },
+    "5235D": {
+      "description": "Back 1\u00bd Somersaults 2\u00bd Twists Free",
+      "dd": 2.8
+    },
+    "5237D": {
+      "description": "Back 1\u00bd Somersaults 3\u00bd Twists Free",
+      "dd": 3.3
+    },
+    "5239D": {
+      "description": "Back 1\u00bd Somersaults 4\u00bd Twists Free",
+      "dd": 3.7
+    },
+    "5251B": {
+      "description": "Back 2\u00bd Somersaults \u00bd Twist Pike",
+      "dd": 2.6
+    },
+    "5251C": {
+      "description": "Back 2\u00bd Somersaults \u00bd Twist Tuck",
+      "dd": 2.4
+    },
+    "5253B": {
+      "description": "Back 2\u00bd Somersaults 1\u00bd Twists Pike",
+      "dd": 3.2
+    },
+    "5253C": {
+      "description": "Back 2\u00bd Somersaults 1\u00bd Twists Tuck",
+      "dd": 3.0
+    },
+    "5255B": {
+      "description": "Back 2\u00bd Somersaults 2\u00bd Twists Pike",
+      "dd": 3.6
+    },
+    "5255C": {
+      "description": "Back 2\u00bd Somersaults 2\u00bd Twists Tuck",
+      "dd": 3.4
+    },
+    "5257B": {
+      "description": "Back 2\u00bd Somersaults 3\u00bd Twists Pike",
+      "dd": 4.1
+    },
+    "5257C": {
+      "description": "Back 2\u00bd Somersaults 3\u00bd Twists Tuck",
+      "dd": 3.9
+    },
+    "5271B": {
+      "description": "Back 3\u00bd Somersaults \u00bd Twist Pike",
+      "dd": 3.2
+    },
+    "5271C": {
+      "description": "Back 3\u00bd Somersaults \u00bd Twist Tuck",
+      "dd": 2.9
+    },
+    "5273B": {
+      "description": "Back 3\u00bd Somersaults 1\u00bd Twists Pike",
+      "dd": 3.8
+    },
+    "5273C": {
+      "description": "Back 3\u00bd Somersaults 1\u00bd Twists Tuck",
+      "dd": 3.5
+    },
+    "5275B": {
+      "description": "Back 3\u00bd Somersaults 2\u00bd Twists Pike",
+      "dd": 4.2
+    },
+    "5275C": {
+      "description": "Back 3\u00bd Somersaults 2\u00bd Twists Tuck",
+      "dd": 3.9
+    },
+    "5311A": {
+      "description": "Reverse Dive \u00bd Twist Straight",
+      "dd": 2.1
+    },
+    "5311B": {
+      "description": "Reverse Dive \u00bd Twist Pike",
+      "dd": 2.0
+    },
+    "5311C": {
+      "description": "Reverse Dive \u00bd Twist Tuck",
+      "dd": 1.9
+    },
+    "5312A": {
+      "description": "Reverse Dive 1 Twist Straight",
+      "dd": 2.3
+    },
+    "5321D": {
+      "description": "Reverse Somersault \u00bd Twist Free",
+      "dd": 2.0
+    },
+    "5322D": {
+      "description": "Reverse Somersault 1 Twist Free",
+      "dd": 2.2
+    },
+    "5323D": {
+      "description": "Reverse Somersault 1\u00bd Twists Free",
+      "dd": 2.6
+    },
+    "5325D": {
+      "description": "Reverse Somersault 2\u00bd Twists Free",
+      "dd": 3.0
+    },
+    "5331D": {
+      "description": "Reverse 1\u00bd Somersaults \u00bd Twist Free",
+      "dd": 2.1
+    },
+    "5333D": {
+      "description": "Reverse 1\u00bd Somersaults 1\u00bd Twists Free",
+      "dd": 2.5
+    },
+    "5335D": {
+      "description": "Reverse 1\u00bd Somersaults 2\u00bd Twists Free",
+      "dd": 2.9
+    },
+    "5337D": {
+      "description": "Reverse 1\u00bd Somersaults 3\u00bd Twists Free",
+      "dd": 3.4
+    },
+    "5339D": {
+      "description": "Reverse 1\u00bd Somersaults 4\u00bd Twists Free",
+      "dd": 3.8
+    },
+    "5351B": {
+      "description": "Reverse 2\u00bd Somersaults \u00bd Twist Pike",
+      "dd": 2.7
+    },
+    "5351C": {
+      "description": "Reverse 2\u00bd Somersaults \u00bd Twist Tuck",
+      "dd": 2.5
+    },
+    "5353B": {
+      "description": "Reverse 2\u00bd Somersaults 1\u00bd Twists Pike",
+      "dd": 3.3
+    },
+    "5353C": {
+      "description": "Reverse 2\u00bd Somersaults 1\u00bd Twists Tuck",
+      "dd": 3.1
+    },
+    "5355B": {
+      "description": "Reverse 2\u00bd Somersaults 2\u00bd Twists Pike",
+      "dd": 3.7
+    },
+    "5355C": {
+      "description": "Reverse 2\u00bd Somersaults 2\u00bd Twists Tuck",
+      "dd": 3.5
+    },
+    "5371B": {
+      "description": "Reverse 3\u00bd Somersaults \u00bd Twist Pike",
+      "dd": 3.3
+    },
+    "5371C": {
+      "description": "Reverse 3\u00bd Somersaults \u00bd Twist Tuck",
+      "dd": 3.0
+    },
+    "5373C": {
+      "description": "Reverse 3\u00bd Somersaults 1\u00bd Twists Tuck",
+      "dd": 3.6
+    },
+    "5375C": {
+      "description": "Reverse 3\u00bd Somersaults 2\u00bd Twists Tuck",
+      "dd": 4.0
+    },
+    "5411A": {
+      "description": "Inward Dive \u00bd Twist Straight",
+      "dd": 1.9
+    },
+    "5411B": {
+      "description": "Inward Dive \u00bd Twist Pike",
+      "dd": 1.6
+    },
+    "5411C": {
+      "description": "Inward Dive \u00bd Twist Tuck",
+      "dd": 1.5
+    },
+    "5412A": {
+      "description": "Inward Dive 1 Twist Straight",
+      "dd": 2.1
+    },
+    "5412B": {
+      "description": "Inward Dive 1 Twist Pike",
+      "dd": 1.8
+    },
+    "5412C": {
+      "description": "Inward Dive 1 Twist Tuck",
+      "dd": 1.7
+    },
+    "5421D": {
+      "description": "Inward Somersault \u00bd Twist Free",
+      "dd": 1.8
+    },
+    "5422D": {
+      "description": "Inward Somersault 1 Twist Free",
+      "dd": 2.0
+    },
+    "5432D": {
+      "description": "Inward 1\u00bd Somersaults 1 Twist Free",
+      "dd": 2.3
+    },
+    "5434D": {
+      "description": "Inward 1\u00bd Somersaults 2 Twists Free",
+      "dd": 2.7
+    },
+    "5436D": {
+      "description": "Inward 1\u00bd Somersaults 3 Twists Free",
+      "dd": 3.4
+    },
+    "610A": {
+      "description": "Armstand Dive Straight",
+      "dd": 1.6
+    },
+    "611A": {
+      "description": "Armstand Forward \u00bd Somersault Straight",
+      "dd": 2.0
+    },
+    "611B": {
+      "description": "Armstand Forward \u00bd Somersault Pike",
+      "dd": 1.9
+    },
+    "611C": {
+      "description": "Armstand Forward \u00bd Somersault Tuck",
+      "dd": 1.7
+    },
+    "6122D": {
+      "description": "Armstand Forward Somersault 1 Twist Free",
+      "dd": 2.6
+    },
+    "6124D": {
+      "description": "Armstand Forward Somersault 2 Twists Free",
+      "dd": 2.9
+    },
+    "612A": {
+      "description": "Armstand Forward 1 Somersault Straight",
+      "dd": 2.0
+    },
+    "612B": {
+      "description": "Armstand Forward 1 Somersault Pike",
+      "dd": 1.9
+    },
+    "612C": {
+      "description": "Armstand Forward 1 Somersault Tuck",
+      "dd": 1.7
+    },
+    "6142D": {
+      "description": "Armstand Forward 2 Somersaults 1 Twist Free",
+      "dd": 3.1
+    },
+    "6144D": {
+      "description": "Armstand Forward 2 Somersaults 2 Twists Free",
+      "dd": 3.4
+    },
+    "614B": {
+      "description": "Armstand Forward 2 Somersaults Pike",
+      "dd": 2.4
+    },
+    "614C": {
+      "description": "Armstand Forward 2 Somersaults Tuck",
+      "dd": 2.1
+    },
+    "6162B": {
+      "description": "Armstand Forward 3 Somersaults 1 Twist Pike",
+      "dd": 3.9
+    },
+    "616B": {
+      "description": "Armstand Forward 3 Somersaults Pike",
+      "dd": 3.3
+    },
+    "616C": {
+      "description": "Armstand Forward 3 Somersaults Tuck",
+      "dd": 3.1
+    },
+    "621A": {
+      "description": "Armstand Back \u00bd Somersault Straight",
+      "dd": 1.9
+    },
+    "621B": {
+      "description": "Armstand Back \u00bd Somersault Pike",
+      "dd": 1.8
+    },
+    "621C": {
+      "description": "Armstand Back \u00bd Somersault Tuck",
+      "dd": 1.6
+    },
+    "6221D": {
+      "description": "Armstand Back Somersault \u00bd Twist Free",
+      "dd": 1.8
+    },
+    "622A": {
+      "description": "Armstand Back Somersault Straight",
+      "dd": 2.3
+    },
+    "622B": {
+      "description": "Armstand Back Somersault Pike",
+      "dd": 2.2
+    },
+    "622C": {
+      "description": "Armstand Back Somersault Tuck",
+      "dd": 2.0
+    },
+    "623B": {
+      "description": "Armstand Back 1\u00bd Somersaults Pike",
+      "dd": 2.2
+    },
+    "623C": {
+      "description": "Armstand Back 1\u00bd Somersaults Tuck",
+      "dd": 1.9
+    },
+    "6241B": {
+      "description": "Armstand Back 2 Somersaults \u00bd Twist Pike",
+      "dd": 2.7
+    },
+    "6241C": {
+      "description": "Armstand Back 2 Somersaults \u00bd Twist Tuck",
+      "dd": 2.4
+    },
+    "6243D": {
+      "description": "Armstand Back 2 Somersaults 1\u00bd Twists Free",
+      "dd": 3.2
+    },
+    "6245D": {
+      "description": "Armstand Back 2 Somersaults 2\u00bd Twists Free",
+      "dd": 3.6
+    },
+    "6247D": {
+      "description": "Armstand Back 2 Somersaults 3\u00bd Twists Free",
+      "dd": 4.0
+    },
+    "624A": {
+      "description": "Armstand Back 2 Somersaults Straight",
+      "dd": 3.0
+    },
+    "624B": {
+      "description": "Armstand Back 2 Somersaults Pike",
+      "dd": 2.8
+    },
+    "624C": {
+      "description": "Armstand Back 2 Somersaults Tuck",
+      "dd": 2.5
+    },
+    "6261B": {
+      "description": "Armstand Back 3 Somersaults \u00bd Twist Pike",
+      "dd": 3.4
+    },
+    "6261C": {
+      "description": "Armstand Back 3 Somersaults \u00bd Twist Tuck",
+      "dd": 3.2
+    },
+    "6263B": {
+      "description": "Armstand Back 3 Somersaults 1\u00bd Twists Pike",
+      "dd": 4.2
+    },
+    "6263C": {
+      "description": "Armstand Back 3 Somersaults 1\u00bd Twists Tuck",
+      "dd": 4.0
+    },
+    "6265B": {
+      "description": "Armstand Back 3 Somersaults 2\u00bd Twists Pike",
+      "dd": 4.6
+    },
+    "6265C": {
+      "description": "Armstand Back 3 Somersaults 2\u00bd Twists Tuck",
+      "dd": 4.4
+    },
+    "626B": {
+      "description": "Armstand Back 3 Somersaults Pike",
+      "dd": 3.5
+    },
+    "626C": {
+      "description": "Armstand Back 3 Somersaults Tuck",
+      "dd": 3.3
+    },
+    "628B": {
+      "description": "Armstand Back 4 Somersaults Pike",
+      "dd": 4.7
+    },
+    "628C": {
+      "description": "Armstand Back 4 Somersaults Tuck",
+      "dd": 4.5
+    },
+    "631A": {
+      "description": "Armstand Reverse \u00bd Somersault Straight",
+      "dd": 2.0
+    },
+    "631B": {
+      "description": "Armstand Reverse \u00bd Somersault Pike",
+      "dd": 1.9
+    },
+    "631C": {
+      "description": "Armstand Reverse \u00bd Somersault Tuck",
+      "dd": 1.7
+    },
+    "632B": {
+      "description": "Armstand Reverse 1 Somersault Pike",
+      "dd": 2.3
+    },
+    "632C": {
+      "description": "Armstand Reverse 1 Somersault Tuck",
+      "dd": 2.1
+    },
+    "633B": {
+      "description": "Armstand Reverse 1\u00bd Somersaults Pike",
+      "dd": 2.3
+    },
+    "633C": {
+      "description": "Armstand Reverse 1\u00bd Somersaults Tuck",
+      "dd": 2.0
+    },
+    "634B": {
+      "description": "Armstand Reverse 2 Somersaults Pike",
+      "dd": 2.9
+    },
+    "634C": {
+      "description": "Armstand Reverse 2 Somersaults Tuck",
+      "dd": 2.6
+    },
+    "636B": {
+      "description": "Armstand Reverse 3 Somersaults Pike",
+      "dd": 3.6
+    },
+    "636C": {
+      "description": "Armstand Reverse 3 Somersaults Tuck",
+      "dd": 3.4
+    },
+    "638B": {
+      "description": "Armstand Reverse 4 Somersaults Pike",
+      "dd": 4.8
+    },
+    "638C": {
+      "description": "Armstand Reverse 4 Somersaults Tuck",
+      "dd": 4.6
+    },
+    "640A": {
+      "description": "Armstand Dive Inward Straight",
+      "dd": 1.7
+    },
+    "641B": {
+      "description": "Armstand Inward \u00bd Somersault Pike",
+      "dd": 2.0
+    },
+    "641C": {
+      "description": "Armstand Inward \u00bd Somersault Tuck",
+      "dd": 1.8
+    },
+    "642B": {
+      "description": "Armstand Inward 1 Somersault Pike",
+      "dd": 2.0
+    },
+    "642C": {
+      "description": "Armstand Inward 1 Somersault Tuck",
+      "dd": 1.8
+    },
+    "644B": {
+      "description": "Armstand Inward 2 Somersaults Pike",
+      "dd": 2.5
+    },
+    "644C": {
+      "description": "Armstand Inward 2 Somersaults Tuck",
+      "dd": 2.2
+    },
+    "646B": {
+      "description": "Armstand Inward 3 Somersaults Pike",
+      "dd": 3.4
+    },
+    "646C": {
+      "description": "Armstand Inward 3 Somersaults Tuck",
+      "dd": 3.2
+    }
   }
 }
