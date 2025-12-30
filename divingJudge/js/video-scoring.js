@@ -446,6 +446,28 @@ function showVideoFeedback(video, userScore, difference) {
 function watchAgain() {
     const video = videoData[currentVideoIndex];
 
+    // Reset scoring state
+    selectedScore = null;
+    scoreUnit = null;
+    halfActive = false;
+
+    // Reset big score display
+    const displayElement = document.getElementById('big-score-display');
+    if (displayElement) {
+        displayElement.textContent = '--';
+    }
+
+    // Reset button states
+    document.querySelectorAll('.score-grid button').forEach(btn => {
+        btn.classList.remove('selected', 'active');
+    });
+
+    // Disable submit button
+    const submitBtn = document.getElementById('submit-score-btn');
+    if (submitBtn) {
+        submitBtn.disabled = true;
+    }
+
     // Show video, hide scoring and feedback
     document.getElementById('video-container').style.display = 'block';
     document.getElementById('scoring-section').style.display = 'none';
