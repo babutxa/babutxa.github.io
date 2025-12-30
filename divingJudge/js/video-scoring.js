@@ -201,6 +201,21 @@ function showVideo() {
     // Reset scoring interface
     generateScoreNumbers();
     selectedScore = null;
+    scoreUnit = null;
+    halfActive = false;
+
+    // Reset big score display
+    const displayElement = document.getElementById('big-score-display');
+    if (displayElement) {
+        displayElement.textContent = '--';
+    }
+
+    // Disable submit button
+    const submitBtn = document.getElementById('submit-score-btn');
+    if (submitBtn) {
+        submitBtn.disabled = true;
+    }
+
     document.getElementById('video-feedback').style.display = 'none';
 }
 
@@ -218,61 +233,104 @@ function onPlayerStateChange(event) {
 
 // Score selection handling
 let selectedScore = null;
+let scoreUnit = null;  // The whole number part (0-10)
+let halfActive = false;  // Whether the 0.5 is added
 
-// Generate clickable score numbers in two rows
+// Generate clickable score buttons in 3x4 grid
 function generateScoreNumbers() {
-    const container = document.getElementById('score-numbers');
+    const container = document.getElementById('score-grid');
     if (!container) return;
 
     container.innerHTML = '';
 
-    // First row: whole numbers (0, 1, 2, ..., 10)
-    const wholeRow = document.createElement('div');
-    wholeRow.className = 'score-row score-row-whole';
-    for (let i = 0; i <= 10; i++) {
-        const score = i;
-        const scoreElement = document.createElement('div');
-        scoreElement.className = 'score-number';
-        scoreElement.textContent = score.toFixed(1);
-        scoreElement.dataset.score = score;
-        scoreElement.onclick = function() {
-            selectScore(score);
-        };
-        wholeRow.appendChild(scoreElement);
-    }
-    container.appendChild(wholeRow);
+    // Create buttons in a 3x4 grid layout
+    // Row 1: 0, 1, 2
+    // Row 2: 3, 4, 5
+    // Row 3: 6, 7, 8
+    // Row 4: 9, 10, (1/2)
 
-    // Second row: half values (0.5, 1.5, 2.5, ..., 9.5)
-    const halfRow = document.createElement('div');
-    halfRow.className = 'score-row score-row-half';
-    for (let i = 0; i < 10; i++) {
-        const score = i + 0.5;
-        const scoreElement = document.createElement('div');
-        scoreElement.className = 'score-number';
-        scoreElement.textContent = score.toFixed(1);
-        scoreElement.dataset.score = score;
-        scoreElement.onclick = function() {
-            selectScore(score);
-        };
-        halfRow.appendChild(scoreElement);
-    }
-    container.appendChild(halfRow);
+    const buttonLayout = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [9, 10, 'half']
+    ];
+
+    buttonLayout.forEach(row => {
+        row.forEach(value => {
+            const button = document.createElement('button');
+
+            if (value === 'half') {
+                button.textContent = '½';
+                button.className = 'half-button';
+                button.onclick = function() {
+                    toggleHalf();
+                };
+            } else {
+                button.textContent = value;
+                button.dataset.unit = value;
+                button.onclick = function() {
+                    selectUnit(value);
+                };
+            }
+
+            container.appendChild(button);
+        });
+    });
 }
 
-// Select score and submit
-function selectScore(score) {
-    selectedScore = score;
+// Select the unit (0-10) and update score
+function selectUnit(unit) {
+    scoreUnit = unit;
+    updateScore();
+}
 
-    // Update visual state
-    document.querySelectorAll('.score-number').forEach(el => {
-        el.classList.remove('selected');
-        if (parseFloat(el.dataset.score) === score) {
-            el.classList.add('selected');
+// Toggle half value (0.5)
+function toggleHalf() {
+    if (scoreUnit === null) {
+        // If no unit selected, select 0 first
+        scoreUnit = 0;
+    }
+    halfActive = !halfActive;
+    updateScore();
+}
+
+// Update the displayed score and button states
+function updateScore() {
+    // Calculate the current score
+    selectedScore = scoreUnit + (halfActive ? 0.5 : 0);
+
+    // Update the big score display
+    const displayElement = document.getElementById('big-score-display');
+    if (displayElement) {
+        displayElement.textContent = selectedScore.toFixed(1);
+    }
+
+    // Update button visual states
+    document.querySelectorAll('.score-grid button').forEach(btn => {
+        if (btn.classList.contains('half-button')) {
+            // Update half button state
+            if (halfActive) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        } else {
+            // Update unit button state
+            const btnUnit = parseInt(btn.dataset.unit);
+            if (btnUnit === scoreUnit) {
+                btn.classList.add('selected');
+            } else {
+                btn.classList.remove('selected');
+            }
         }
     });
 
-    // Automatically submit the score
-    submitVideoScore();
+    // Enable submit button
+    const submitBtn = document.getElementById('submit-score-btn');
+    if (submitBtn) {
+        submitBtn.disabled = false;
+    }
 }
 
 // Submit score and show feedback
@@ -407,6 +465,8 @@ function nextVideo() {
     if (currentVideoIndex < videoData.length) {
         // Reset for next video
         selectedScore = null;
+        scoreUnit = null;
+        halfActive = false;
         document.getElementById('video-actions').style.display = 'none';
         showVideo();
     } else {
