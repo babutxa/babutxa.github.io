@@ -513,6 +513,33 @@ function showVideoResults() {
     }
 
     document.getElementById('video-final-message').textContent = performanceMessage;
+
+    // Build detailed scores table
+    let scoresTableHTML = userScores.map((score, index) => {
+        const video = videoData.find(v => v.id === score.videoId);
+
+        if (!video) {
+            console.error(`Video not found for ID: ${score.videoId}`);
+            return '';
+        }
+
+        const officialScoresStr = video.officialScores.join(', ');
+        const diffClass = score.difference <= 0.5 ? 'excellent' :
+                         score.difference <= 1.0 ? 'very-good' :
+                         score.difference <= 1.5 ? 'good' : 'needs-work';
+
+        return `
+            <tr>
+                <td>${index + 1}</td>
+                <td><strong>${video.diveCode}</strong></td>
+                <td>${score.userScore.toFixed(1)}</td>
+                <td>${officialScoresStr}</td>
+                <td>${score.officialAverage.toFixed(2)}</td>
+                <td class="${diffClass}">${score.difference.toFixed(2)}</td>
+            </tr>
+        `;
+    }).join('');
+
     document.getElementById('video-stats').innerHTML = `
         <p><strong>${t.averageDifference || 'Average Difference'}:</strong> ${avgDifference.toFixed(2)} ${t.points || 'points'}</p>
         <p><strong>${t.accuracy || 'Accuracy Breakdown'}:</strong></p>
@@ -521,6 +548,22 @@ function showVideoResults() {
             <li>${t.veryGood || 'Very Good'} (0.5-1.0): ${veryGood}/${totalVideos}</li>
             <li>${t.good || 'Good'} (1.0-1.5): ${good}/${totalVideos}</li>
         </ul>
+        <h3>${t.detailedScores || 'Detailed Scores'}</h3>
+        <table class="scores-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>${t.dive || 'Dive'}</th>
+                    <th>${t.yourScore || 'Your Score'}</th>
+                    <th>${t.officialScores || 'Official Scores'}</th>
+                    <th>${t.average || 'Average'}</th>
+                    <th>${t.difference || 'Difference'}</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${scoresTableHTML}
+            </tbody>
+        </table>
     `;
 }
 
