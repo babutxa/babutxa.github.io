@@ -413,6 +413,9 @@ function showVideoFeedback(video, userScore, difference) {
             </div>
             <div class="score-details">
                 <div class="score-info">
+                    <strong>${t.officialScores || 'Official Scores'}:</strong> ${video.officialScores.join(', ')}
+                </div>
+                <div class="score-info">
                     <strong>${t.officialRange || 'Official Range'}:</strong> ${minOfficial.toFixed(1)} - ${maxOfficial.toFixed(1)}
                 </div>
                 <div class="score-info">
