@@ -1,46 +1,34 @@
 # Plan: move anima-fisioessencia.com to GitHub Pages
 
 Goal: the cleaned static site is served at www.anima-fisioessencia.com from a
-GitHub account owned by Aina, and she only pays for the domain.
+GitHub account owned by Aina, and she only pays for the domain
+(around 15-17 EUR/year at cdmon, without VAT).
 
-Current state (2026-10-19):
+Context:
 
-- The site is cleaned (malware and spam removed) and fully static.
 - Preview: https://babutxa.github.io/anima-fisioessencia/ (noindex).
 - Domain and old hosting are both at cdmon, on Aina's account.
-- The old server (WordPress) is still infected. Do not open it.
+- The old server (WordPress) is infected. Do not open it, and do not
+  restore any backup from it.
 
-## 1. Urgent
+## 1. cdmon (Aina)
 
 The domain expires on **2026-11-23** (WHOIS). It has renewed every year since
 2020, so automatic renewal is probably on, but this is not confirmed.
 
 - [ ] Aina calls cdmon support (93 826 49 11) and asks:
-  - [ ] Help to get back into her account (then she changes the password).
+  - [ ] Help to get back into her account (then she sets a new password).
   - [ ] Does the domain renew automatically, and with which card?
   - [ ] If she cancels the hosting, does the domain stay as it is (is it
         part of the hosting package)?
+- [ ] If the domain is not affected, cancel the hosting right away (the old
+      site is infected). The address shows nothing until step 3 is done.
 - [ ] Make sure the domain is renewed before 2026-11-23. With automatic
       renewal, cdmon charges it 14 days before expiry (around 2026-11-09).
       In the panel: Renewals → Renewal center; the auto-renewal icon of the
       domain must be green, and it needs a saved card or account balance.
 
-## 2. Pending content decisions
-
-- [ ] Optional: rename `project/recuperacio-post-part-u-abdominals-hipopressius`
-      ("-u-" typo in the original URL) and update the links.
-
-Done:
-
-- [x] Floating WhatsApp button removed (it used the wrong number).
-- [x] Google Calendar removed from the activity pages.
-- [x] Privacy policy: Aina runs Ànima as a sole trader (not Fisioessència
-      SLP), so she is now the data controller. Address: the activities
-      room, C/ València 196.
-- [x] Contact page shows Aina's personal email instead of hola@ (the domain
-      email will be cancelled).
-
-## 3. GitHub account for Aina
+## 2. GitHub account for Aina
 
 - [ ] Aina creates a free GitHub account with her own email, and enables
       two-factor authentication.
@@ -59,7 +47,7 @@ Done:
 - [ ] Settings → Pages: verify the domain anima-fisioessencia.com
       (TXT record at cdmon). This prevents other accounts from claiming it.
 
-## 4. Point the domain to GitHub Pages
+## 3. Point the domain to GitHub Pages
 
 Do this once the GitHub site works and Aina has cdmon access.
 
@@ -78,10 +66,8 @@ Do this once the GitHub site works and Aina has cdmon access.
       pages, so Google can index the site again.
 - [ ] Check every page and link on the real domain.
 
-## 5. Cleanup
+## 4. Email
 
-- [ ] Cancel the hosting at cdmon. Keep the domain. Do not restore any
-      backup: it is infected.
 - [ ] Aina cancels Google Workspace (the hola@ email), after saving anything
       she wants to keep. Then remove the Google MX/TXT records at cdmon.
 - [ ] Optional: keep receiving mail sent to hola@anima-fisioessencia.com
@@ -91,8 +77,16 @@ Do this once the GitHub site works and Aina has cdmon access.
       the MX record to cdmon. Receive only: she cannot send as hola@.
       Docs: https://helpdesk.cdmon.com/portal/en/kb/articles/how-to-set-up-email-redirects-in-static-dns
 
-Notes: the .com renewal at cdmon costs around 15-17 EUR/year (cdmon shows
-prices without VAT).
+## 5. Cleanup
+
 - [ ] Remove the preview from babutxa.github.io (delete the
       `anima-fisioessencia/` folder there).
 - [ ] Update README.txt with the new repo and URL.
+
+## Optional site tweaks
+
+- [ ] Rename `project/recuperacio-post-part-u-abdominals-hipopressius`
+      ("-u-" typo in the original URL) and update the links.
+- [ ] Set the title-to-content spacing to 60px on the other pages too
+      (Contact 52px, activity pages 52-73px), like the home and activities
+      pages. Add the rules to wp-content/site/overrides.css.
