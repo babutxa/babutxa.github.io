@@ -1,0 +1,34 @@
+/* Mobile only: smaller vertical spacing than the desktop design. */
+@media (max-width: 767px) {
+  body .elementor-29694 .elementor-element.elementor-element-397028f{margin-top:33px;}
+  body .elementor-30888 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
+  body .elementor-30888 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
+  body .elementor-30896 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
+  body .elementor-30896 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
+  body .elementor-31140 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
+  body .elementor-31140 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
+  body .elementor-31155 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
+  body .elementor-31155 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
+  body .elementor-31182 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
+  body .elementor-31182 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
+  body .elementor-31193 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
+  body .elementor-31193 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
+  body .elementor-31203 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
+  body .elementor-31203 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
+  body .elementor-31210 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
+  body .elementor-31210 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
+  body .elementor-31224 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
+  body .elementor-31224 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
+  body .elementor-31277 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
+  body .elementor-31277 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
+  body .elementor-31284 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
+  body .elementor-31284 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
+  body .elementor-5410 .elementor-element.elementor-element-d2653a8{padding-top:38px;padding-bottom:38px;}
+  body .elementor-5410 .elementor-element.elementor-element-d64d5bc > .elementor-element-populated{margin-top:38px;margin-bottom:38px;}
+  body .elementor-5410 .elementor-element.elementor-element-832da38{padding-top:38px;padding-bottom:38px;}
+  body .elementor-5410 .elementor-element.elementor-element-64a95ed > .elementor-element-populated{margin-top:38px;margin-bottom:38px;}
+  body .elementor-5410 .elementor-element.elementor-element-2253f07{padding-top:38px;padding-bottom:38px;}
+  body .elementor-5410 .elementor-element.elementor-element-adf2878{padding-top:38px;padding-bottom:38px;}
+  body .elementor-5410 .elementor-element.elementor-element-aa5fe57{padding-top:38px;padding-bottom:38px;}
+  body .elementor-5410 .elementor-element.elementor-element-13d46c7 > .elementor-element-populated{margin-top:38px;margin-bottom:38px;}
+}
