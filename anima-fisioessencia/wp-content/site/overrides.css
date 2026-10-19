@@ -5,9 +5,16 @@
 body .elementor-5410 .elementor-element.elementor-element-2c65091{padding-top:0;margin-top:-10px;}
 body .elementor-5410 .elementor-element.elementor-element-75db8aa > .elementor-widget-container{margin-top:-10px;}
 
-/* Activities page: 60px between the title line and the filter buttons. */
+/* Interior pages (not the home page, not the footer): 30px from a title to
+   its line, and 52px from the line to the content. */
+body [data-elementor-type="wp-page"]:not(.elementor-5410) .elementor-widget-heading + .elementor-widget-divider,
+body [data-elementor-type="wp-post"] .elementor-widget-heading + .elementor-widget-divider{margin-top:-12px;}
+/* Activity pages: the title has its own section, followed by the photo section. */
+body [data-elementor-type="wp-post"] > .elementor-top-section:first-child{margin-bottom:0;}
+body [data-elementor-type="wp-post"] > .elementor-top-section:first-child + .elementor-top-section{margin-top:10px;}
+/* Activities page: the filter buttons come after the title section. */
 body .elementor-30133 .elementor-element.elementor-element-62b0089{margin-bottom:0;}
-body .elementor-30133 .elementor-element.elementor-element-fcb9c99 > .elementor-element-populated{padding-top:17px;}
+body .elementor-30133 .elementor-element.elementor-element-fcb9c99 > .elementor-element-populated{padding-top:9px;}
 
 /* Mobile only: smaller vertical spacing than the desktop design. */
 @media (max-width: 767px) {
