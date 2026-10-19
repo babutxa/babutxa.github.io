@@ -27,12 +27,9 @@ The domain expires on **2026-11-23** (WHOIS). It has renewed every year since
 
 ## 2. Pending content decisions
 
-- [ ] Privacy policy: it names Fisioessència SL (CIF B-64156011) as the data
-      controller (phone 93 323 33 77, info@fisioessencia.com). That company
-      exists (FISIOESSENCIA SLP, C/ València 198, physiotherapy); there is no
-      registered company named "Ànima Fisioessència". Asked Aina whether
-      Ànima runs under the SLP or as a sole trader. If she is a sole trader,
-      replace the controller with her legal name, NIF and contact email.
+- [ ] Privacy policy: confirm with Aina the postal address for the data
+      controller. It uses C/ València 196 (the activities room, as on the
+      Contact page).
 - [ ] Optional: rename `project/recuperacio-post-part-u-abdominals-hipopressius`
       ("-u-" typo in the original URL) and update the links.
 
@@ -40,6 +37,8 @@ Done:
 
 - [x] Floating WhatsApp button removed (it used the wrong number).
 - [x] Google Calendar removed from the activity pages.
+- [x] Privacy policy: Aina runs Ànima as a sole trader (not Fisioessència
+      SLP), so she is now the data controller.
 - [x] Contact page shows Aina's personal email instead of hola@ (the domain
       email will be cancelled).
 
