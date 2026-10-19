@@ -20,6 +20,9 @@ Notes:
   - Everything loads locally; nothing is fetched from other servers.
     The map on the Contact page is a static image
     (wp-content/uploads/contact-map.jpg) that links to Google Maps.
+  - wp-content/site/mobile-spacing.css reduces the large vertical spacing of
+    the desktop design on phones (max-width 767px). It overrides rules from
+    wp-content/uploads/elementor/css/post-*.css.
 
 IMPORTANT if the site is ever published again on a server:
   - Do NOT restore the old WordPress backup from the hosting provider: it is infected.
