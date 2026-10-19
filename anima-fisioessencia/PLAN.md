@@ -27,9 +27,6 @@ The domain expires on **2026-11-23** (WHOIS). It has renewed every year since
 
 ## 2. Pending content decisions
 
-- [ ] Privacy policy: confirm with Aina the postal address for the data
-      controller. It uses C/ València 196 (the activities room, as on the
-      Contact page).
 - [ ] Optional: rename `project/recuperacio-post-part-u-abdominals-hipopressius`
       ("-u-" typo in the original URL) and update the links.
 
@@ -38,7 +35,8 @@ Done:
 - [x] Floating WhatsApp button removed (it used the wrong number).
 - [x] Google Calendar removed from the activity pages.
 - [x] Privacy policy: Aina runs Ànima as a sole trader (not Fisioessència
-      SLP), so she is now the data controller.
+      SLP), so she is now the data controller. Address: the activities
+      room, C/ València 196.
 - [x] Contact page shows Aina's personal email instead of hola@ (the domain
       email will be cancelled).
 
