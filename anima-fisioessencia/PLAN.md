@@ -18,10 +18,12 @@ Current state (2026-10-19):
 
 ## 2. Pending content decisions
 
-- [ ] Privacy policy: it names Fisioessència SL as the data controller
-      (phone 93 323 33 77, info@fisioessencia.com). Aina now runs the
-      business alone, so ask her who the controller should be. If it is
-      her, she must provide her legal name, NIF and contact email.
+- [ ] Privacy policy: it names Fisioessència SL (CIF B-64156011) as the data
+      controller (phone 93 323 33 77, info@fisioessencia.com). That company
+      exists (FISIOESSENCIA SLP, C/ València 198, physiotherapy); there is no
+      registered company named "Ànima Fisioessència". Asked Aina whether
+      Ànima runs under the SLP or as a sole trader. If she is a sole trader,
+      replace the controller with her legal name, NIF and contact email.
 - [ ] Optional: rename `project/recuperacio-post-part-u-abdominals-hipopressius`
       ("-u-" typo in the original URL) and update the links.
 
