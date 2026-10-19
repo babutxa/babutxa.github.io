@@ -12,9 +12,18 @@ Current state (2026-10-19):
 
 ## 1. Urgent
 
-- [ ] Aina renews the domain at cdmon **before 2026-11-23**.
-- [ ] Aina recovers access to her cdmon account. She will call cdmon support
-      (93 826 49 11), then changes the password.
+The domain expires on **2026-11-23** (WHOIS). It has renewed every year since
+2020, so automatic renewal is probably on, but this is not confirmed.
+
+- [ ] Aina calls cdmon support (93 826 49 11) and asks:
+  - [ ] Help to get back into her account (then she changes the password).
+  - [ ] Does the domain renew automatically, and with which card?
+  - [ ] If she cancels the hosting, does the domain stay as it is (is it
+        part of the hosting package)?
+- [ ] Make sure the domain is renewed before 2026-11-23. With automatic
+      renewal, cdmon charges it 14 days before expiry (around 2026-11-09).
+      In the panel: Renewals → Renewal center; the auto-renewal icon of the
+      domain must be green, and it needs a saved card or account balance.
 
 ## 2. Pending content decisions
 
@@ -78,6 +87,15 @@ Do this once the GitHub site works and Aina has cdmon access.
       backup: it is infected.
 - [ ] Aina cancels Google Workspace (the hola@ email), after saving anything
       she wants to keep. Then remove the Google MX/TXT records at cdmon.
+- [ ] Optional: keep receiving mail sent to hola@anima-fisioessencia.com
+      with a free cdmon email redirect to Aina's Gmail (needs only the
+      domain at cdmon, no hosting). Create the redirect in the panel,
+      validate it with the code sent to the Gmail (valid 48 h), and point
+      the MX record to cdmon. Receive only: she cannot send as hola@.
+      Docs: https://helpdesk.cdmon.com/portal/en/kb/articles/how-to-set-up-email-redirects-in-static-dns
+
+Notes: the .com renewal at cdmon costs around 15-17 EUR/year (cdmon shows
+prices without VAT).
 - [ ] Remove the preview from babutxa.github.io (delete the
       `anima-fisioessencia/` folder there).
 - [ ] Update README.txt with the new repo and URL.
