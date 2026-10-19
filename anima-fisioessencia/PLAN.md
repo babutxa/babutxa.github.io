@@ -18,9 +18,6 @@ Current state (2026-10-19):
 
 ## 2. Pending content decisions
 
-- [ ] Contact page: the email hola@anima-fisioessencia.com will stop working
-      when Aina cancels Google Workspace. Replace it with her personal email
-      or remove the line (keep the WhatsApp number 667 72 42 14).
 - [ ] Optional: rename `project/recuperacio-post-part-u-abdominals-hipopressius`
       ("-u-" typo in the original URL) and update the links.
 
@@ -28,6 +25,8 @@ Done:
 
 - [x] Floating WhatsApp button removed (it used the wrong number).
 - [x] Google Calendar removed from the activity pages.
+- [x] Contact page shows Aina's personal email instead of hola@ (the domain
+      email will be cancelled).
 
 ## 3. GitHub account for Aina
 
