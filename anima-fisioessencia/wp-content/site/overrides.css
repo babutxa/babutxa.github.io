@@ -5,6 +5,10 @@
 body .elementor-5410 .elementor-element.elementor-element-2c65091{padding-top:0;margin-top:-10px;}
 body .elementor-5410 .elementor-element.elementor-element-75db8aa > .elementor-widget-container{margin-top:-10px;}
 
+/* Activities page: 60px between the title line and the filter buttons. */
+body .elementor-30133 .elementor-element.elementor-element-62b0089{margin-bottom:0;}
+body .elementor-30133 .elementor-element.elementor-element-fcb9c99 > .elementor-element-populated{padding-top:17px;}
+
 /* Mobile only: smaller vertical spacing than the desktop design. */
 @media (max-width: 767px) {
   body .elementor-29694 .elementor-element.elementor-element-397028f{margin-top:33px;}
