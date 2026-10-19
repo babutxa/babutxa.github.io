@@ -7,46 +7,20 @@ body .elementor-5410 .elementor-element.elementor-element-75db8aa > .elementor-w
 
 /* Interior pages (not the home page, not the footer): 30px from a title to
    its line, and 52px from the line to the content. */
-body [data-elementor-type="wp-page"]:not(.elementor-5410) .elementor-widget-heading + .elementor-widget-divider,
-body [data-elementor-type="wp-post"] .elementor-widget-heading + .elementor-widget-divider{margin-top:-12px;}
-/* Activity pages: the title has its own section, followed by the photo section. */
-body [data-elementor-type="wp-post"] > .elementor-top-section:first-child{margin-bottom:0;}
-body [data-elementor-type="wp-post"] > .elementor-top-section:first-child + .elementor-top-section{margin-top:10px;}
-/* Activities page: the filter buttons come after the title section. */
-body .elementor-30133 .elementor-element.elementor-element-62b0089{margin-bottom:0;}
-body .elementor-30133 .elementor-element.elementor-element-fcb9c99 > .elementor-element-populated{padding-top:9px;}
+body [data-elementor-type^="wp-"]:not(.elementor-5410) .elementor-widget-heading + .elementor-widget-divider{margin-top:-12px;}
+/* Pages whose first section is only the title and its line (activities page
+   and activity pages): 52px from the line to the next section. */
+body [data-elementor-type^="wp-"]:not(.elementor-5410) > .elementor-top-section:first-child:has(.elementor-widget-divider:last-child){margin-bottom:0;}
+body [data-elementor-type^="wp-"]:not(.elementor-5410) > .elementor-top-section:first-child:has(.elementor-widget-divider:last-child) + .elementor-top-section{margin-top:10px;}
 
-/* Mobile only: smaller vertical spacing than the desktop design. */
+/* Mobile only: smaller vertical spacing than the desktop design (70px -> 38px). */
 @media (max-width: 767px) {
+  /* Home page: sections with their own padding, and text columns next to a photo. */
+  body .elementor-5410 .elementor-element:is(.elementor-element-d2653a8, .elementor-element-832da38, .elementor-element-2253f07, .elementor-element-adf2878, .elementor-element-aa5fe57){padding-top:38px;padding-bottom:38px;}
+  body .elementor-5410 .elementor-element:is(.elementor-element-d64d5bc, .elementor-element-64a95ed, .elementor-element-13d46c7) > .elementor-element-populated{margin-top:38px;margin-bottom:38px;}
+  /* Activity pages (same template, so the same element ids on every page). */
+  body .elementor .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
+  body .elementor .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
+  /* Contact page. */
   body .elementor-29694 .elementor-element.elementor-element-397028f{margin-top:33px;}
-  body .elementor-30888 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
-  body .elementor-30888 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
-  body .elementor-30896 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
-  body .elementor-30896 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
-  body .elementor-31140 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
-  body .elementor-31140 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
-  body .elementor-31155 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
-  body .elementor-31155 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
-  body .elementor-31182 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
-  body .elementor-31182 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
-  body .elementor-31193 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
-  body .elementor-31193 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
-  body .elementor-31203 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
-  body .elementor-31203 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
-  body .elementor-31210 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
-  body .elementor-31210 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
-  body .elementor-31224 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
-  body .elementor-31224 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
-  body .elementor-31277 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
-  body .elementor-31277 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
-  body .elementor-31284 .elementor-element.elementor-element-f2ac1e6{margin-bottom:33px;}
-  body .elementor-31284 .elementor-element.elementor-element-3f1db36f{margin-bottom:38px;}
-  body .elementor-5410 .elementor-element.elementor-element-d2653a8{padding-top:38px;padding-bottom:38px;}
-  body .elementor-5410 .elementor-element.elementor-element-d64d5bc > .elementor-element-populated{margin-top:38px;margin-bottom:38px;}
-  body .elementor-5410 .elementor-element.elementor-element-832da38{padding-top:38px;padding-bottom:38px;}
-  body .elementor-5410 .elementor-element.elementor-element-64a95ed > .elementor-element-populated{margin-top:38px;margin-bottom:38px;}
-  body .elementor-5410 .elementor-element.elementor-element-2253f07{padding-top:38px;padding-bottom:38px;}
-  body .elementor-5410 .elementor-element.elementor-element-adf2878{padding-top:38px;padding-bottom:38px;}
-  body .elementor-5410 .elementor-element.elementor-element-aa5fe57{padding-top:38px;padding-bottom:38px;}
-  body .elementor-5410 .elementor-element.elementor-element-13d46c7 > .elementor-element-populated{margin-top:38px;margin-bottom:38px;}
 }
