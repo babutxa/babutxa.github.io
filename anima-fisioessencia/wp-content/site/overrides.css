@@ -1,3 +1,8 @@
+/* Site-specific fixes on top of the original Elementor styles. */
+
+/* "El nostre equip": same title-to-content spacing (60px) as the other sections. */
+body .elementor-5410 .elementor-element.elementor-element-2c65091{padding-top:0;margin-top:-10px;}
+
 /* Mobile only: smaller vertical spacing than the desktop design. */
 @media (max-width: 767px) {
   body .elementor-29694 .elementor-element.elementor-element-397028f{margin-top:33px;}
