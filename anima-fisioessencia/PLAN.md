@@ -87,6 +87,3 @@ Do this once the GitHub site works and Aina has cdmon access.
 
 - [ ] Rename `project/recuperacio-post-part-u-abdominals-hipopressius`
       ("-u-" typo in the original URL) and update the links.
-- [ ] Set the title-to-content spacing to 60px on the other pages too
-      (Contact 52px, activity pages 52-73px), like the home and activities
-      pages. Add the rules to wp-content/site/overrides.css.
