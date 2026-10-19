@@ -17,9 +17,8 @@ Pages:
 
 Notes:
   - All pages carry <meta name="robots" content="noindex, nofollow">.
-  - The WhatsApp button opens WhatsApp (requires internet).
-  - Everything loads locally except the Google Calendar embedded in the
-    activity detail pages. The map on the Contact page is a static image
+  - Everything loads locally; nothing is fetched from other servers.
+    The map on the Contact page is a static image
     (wp-content/uploads/contact-map.jpg) that links to Google Maps.
 
 IMPORTANT if the site is ever published again on a server:
