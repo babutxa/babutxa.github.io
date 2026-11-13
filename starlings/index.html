@@ -131,14 +131,14 @@ button[aria-pressed="true"] { border-color: var(--warm); color: var(--warm); }
   <p>A starling murmuration flown by drones in a 30 × 12 × 30 m arena. Each drone carries a virtual bird, and six LEDs show you as much light as that bird's wings would show from your seat.</p>
 </div>
 
-<aside class="panel" id="panel">
+<aside class="panel collapsed" id="panel">
   <div class="head">
     <div class="buttons">
       <button class="primary" id="falcon" type="button">Send the falcon</button>
       <button id="wave" type="button">Start a wave</button>
       <button id="pause" type="button" aria-pressed="false">Pause</button>
     </div>
-    <button class="toggle-panel" id="togglePanel" type="button" aria-expanded="true">Hide</button>
+    <button class="toggle-panel" id="togglePanel" type="button" aria-expanded="false">Controls</button>
   </div>
 
   <div class="group">
@@ -197,7 +197,7 @@ button[aria-pressed="true"] { border-color: var(--warm); color: var(--warm); }
     <div class="row"><label for="align">Alignment</label><span class="val" id="alignV"></span><input id="align" type="range" min="0" max="3" step="0.05" value="0.75"></div>
     <div class="row"><label for="cohes">Cohesion</label><span class="val" id="cohesV"></span><input id="cohes" type="range" min="0" max="2" step="0.05" value="0.30"></div>
     <div class="row"><label for="sepw">Separation</label><span class="val" id="sepwV"></span><input id="sepw" type="range" min="0" max="12" step="0.25" value="5.5"></div>
-    <div class="buttons"><button id="trails" type="button" aria-pressed="false">Trails</button><button id="rotate" type="button" aria-pressed="true">Auto-orbit</button></div>
+    <div class="buttons"><button id="trails" type="button" aria-pressed="false">Trails</button></div>
   </div>
 
   <div class="group">
@@ -227,7 +227,6 @@ button[aria-pressed="true"] { border-color: var(--warm); color: var(--warm); }
   const A_WING = 1.0, A_BODY = 0.22;
 
   const $ = id => document.getElementById(id);
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const params = {
     n: +$('count').value, align: +$('align').value, cohes: +$('cohes').value, sepw: +$('sepw').value,
@@ -244,15 +243,12 @@ button[aria-pressed="true"] { border-color: var(--warm); color: var(--warm); }
   const scene = new THREE.Scene();
   scene.fog = new THREE.FogExp2(0x0d0b1d, 0.012);
   const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 400);
-  camera.position.set(0, 2, 26);
+  camera.position.set(0, 2, 34);
   const controls = new THREE.OrbitControls(camera, renderer.domElement);
   controls.target.set(0, 10, 0);
   controls.enableDamping = true;
-  controls.autoRotate = !reduceMotion;
-  controls.autoRotateSpeed = 0.35;
   controls.maxDistance = 90; controls.minDistance = 4;
   controls.maxPolarAngle = Math.PI * 0.88;
-  if (reduceMotion) $('rotate').setAttribute('aria-pressed', 'false');
 
   const grid = new THREE.GridHelper(60, 30, 0x3a3458, 0x221d38);
   grid.material.transparent = true; grid.material.opacity = 0.55;
@@ -718,12 +714,11 @@ button[aria-pressed="true"] { border-color: var(--warm); color: var(--warm); }
     e.currentTarget.textContent = params.limits ? 'Limits on' : 'Limits off'; resetStats();
   });
   $('trails').addEventListener('click', e => { params.trails = !params.trails; trails.visible = params.trails; press(e.currentTarget, params.trails); });
-  $('rotate').addEventListener('click', e => { controls.autoRotate = !controls.autoRotate; press(e.currentTarget, controls.autoRotate); });
   $('bodies').addEventListener('click', e => { params.bodies = !params.bodies; bodies.visible = params.bodies; press(e.currentTarget, params.bodies); });
   $('birds').addEventListener('click', e => { params.birds = !params.birds; birds.visible = params.birds; press(e.currentTarget, params.birds); });
   $('auto').addEventListener('click', e => { params.auto = !params.auto; press(e.currentTarget, params.auto); });
   $('wave').addEventListener('click', startWave);
-  const views = { viewSeat: [0, 2, 26], viewBelow: [0, 1, 5], viewAbove: [0, 34, 14] };
+  const views = { viewSeat: [0, 2, 34], viewBelow: [0, 1, 5], viewAbove: [0, 34, 14] };
   Object.entries(views).forEach(([id, v]) => $(id).addEventListener('click', () => { camera.position.set(v[0], v[1], v[2]); controls.update(); }));
   $('pause').addEventListener('click', e => {
     params.paused = !params.paused; press(e.currentTarget, params.paused);
@@ -765,7 +760,7 @@ button[aria-pressed="true"] { border-color: var(--warm); color: var(--warm); }
     const w = stage.clientWidth, h = stage.clientHeight;
     renderer.setSize(w, h, false);
     camera.aspect = w / h; camera.updateProjectionMatrix();
-    if (w < 680) { camera.position.setLength(34); }
+    if (w < 680) { camera.position.setLength(42); }
   }
   window.addEventListener('resize', resize);
 
