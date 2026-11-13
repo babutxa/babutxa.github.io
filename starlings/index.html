@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Estornells</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: full-bleed night sky canvas; a quiet title at top-left; one control/telemetry panel at right (bottom sheet on phones). Single dusk look by choice. */
+:root {
+  --sky-top: #070a16;
+  --sky-low: #1d1530;
+  --ink: #e9e6f2;
+  --muted: #9a95b3;
+  --line: rgba(233, 230, 242, 0.12);
+  --panel: rgba(12, 12, 26, 0.74);
+  --warm: #ffcf7a;
+  --cool: #8fb6ff;
+  --alert: #ff6a55;
+  --font-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  color-scheme: dark;
+}
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--sky-top);
+  color: var(--ink);
+  font-family: var(--font-display);
+  overflow: hidden;
+}
+#stage { position: fixed; inset: 0; background: linear-gradient(to bottom, var(--sky-top) 0%, var(--sky-top) 35%, var(--sky-low) 100%); }
+#stage canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+
+.title {
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 0px) + 20px);
+  left: max(20px, env(safe-area-inset-left, 0px));
+  max-width: 420px;
+  pointer-events: none;
+}
+.title h1 {
+  margin: 0;
+  font-weight: 300;
+  font-size: clamp(34px, 6vw, 56px);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.title p { margin: 10px 0 0; color: var(--muted); font-size: 14px; line-height: 1.5; max-width: 40ch; text-wrap: balance; }
+
+.panel {
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 0px) + 16px);
+  right: max(16px, env(safe-area-inset-right, 0px));
+  width: 300px;
+  max-height: calc(100% - 32px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  overflow-y: auto;
+  background: var(--panel);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+}
+.group { display: flex; flex-direction: column; gap: 10px; }
+.group + .group { border-top: 1px solid var(--line); padding-top: 14px; }
+.label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.row { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 4px 10px; font-size: 13px; }
+.row input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--warm); margin: 0; }
+.val { font-family: var(--font-mono); font-size: 12px; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+.buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+button {
+  font: 500 13px var(--font-display);
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 13px;
+  cursor: pointer;
+}
+button:hover { border-color: var(--muted); }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--warm); outline-offset: 2px; }
+button.primary { background: var(--warm); color: #1a1208; border-color: var(--warm); font-weight: 600; }
+button[aria-pressed="true"] { border-color: var(--warm); color: var(--warm); }
+
+.telemetry { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.metric { display: flex; flex-direction: column; gap: 2px; }
+.metric b { font-family: var(--font-mono); font-weight: 500; font-size: 17px; font-variant-numeric: tabular-nums; }
+.metric span { font-size: 11.5px; color: var(--muted); }
+.metric.bad b { color: var(--alert); }
+
+.battery { display: flex; flex-direction: column; gap: 6px; }
+.bar { height: 4px; border-radius: 2px; background: var(--line); overflow: hidden; }
+.bar i { display: block; height: 100%; width: 100%; background: var(--warm); transform-origin: left; }
+.note { font-size: 12px; color: var(--muted); line-height: 1.5; margin: 0; }
+.note a { color: var(--cool); }
+.sub[hidden] { display: none !important; }
+.sub { display: flex; flex-direction: column; gap: 10px; }
+
+.panel.collapsed > :not(.head) { display: none; }
+
+@media (max-width: 680px) {
+  .title p { display: none; }
+  .panel {
+    top: auto;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
+    left: max(12px, env(safe-area-inset-left, 0px));
+    right: max(12px, env(safe-area-inset-right, 0px));
+    width: auto;
+    max-height: 46%;
+  }
+}
+.head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+</style>
+
+<div id="stage" aria-label="3D view of a drone murmuration; drag to orbit, scroll or pinch to zoom"></div>
+
+<div class="title">
+  <h1>Estornells</h1>
+  <p>A starling murmuration flown by drones in a 30 × 12 × 30 m arena. Each drone carries a virtual bird, and six LEDs show you as much light as that bird's wings would show from your seat.</p>
+</div>
+
+<aside class="panel" id="panel">
+  <div class="head">
+    <div class="buttons">
+      <button class="primary" id="falcon" type="button">Send the falcon</button>
+      <button id="wave" type="button">Start a wave</button>
+      <button id="pause" type="button" aria-pressed="false">Pause</button>
+    </div>
+    <button class="toggle-panel" id="togglePanel" type="button" aria-expanded="true">Hide</button>
+  </div>
+
+  <div class="group">
+    <div class="label">Show telemetry</div>
+    <div class="telemetry">
+      <div class="metric" id="mSep"><b>–</b><span>closest pair</span></div>
+      <div class="metric" id="mBreach"><b>0</b><span>breaches &lt; 0.6 m (10 s)</span></div>
+      <div class="metric" id="mSpeed"><b>–</b><span>top speed</span></div>
+      <div class="metric" id="mAcc"><b>–</b><span>peak acceleration</span></div>
+      <div class="metric" id="mTilt"><b>–</b><span>peak drone tilt (real)</span></div>
+      <div class="metric" id="mZig"><b>0</b><span>virtual birds in a zig</span></div>
+    </div>
+    <div class="battery">
+      <div class="row"><span>Battery (5 min per charge)</span><span class="val" id="clock">00:00 / 05:00</span></div>
+      <div class="bar"><i id="batt"></i></div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="label">Light</div>
+    <div class="buttons" role="group" aria-label="Light mode">
+      <button id="modeSix" type="button" aria-pressed="true">Six-face LEDs</button>
+      <button id="modeIdeal" type="button" aria-pressed="false">Ideal bird</button>
+      <button id="modeLed" type="button" aria-pressed="false">Single down LED</button>
+      <button id="modeSpeed" type="button" aria-pressed="false">Speed colour</button>
+    </div>
+    <p class="note" id="modeNote"></p>
+    <div class="sub" id="ledSettings" hidden>
+      <div class="row"><label for="gain">Tilt gain</label><span class="val" id="gainV"></span><input id="gain" type="range" min="1" max="6" step="0.1" value="2.5"></div>
+      <div class="row"><label for="diff">Diffuser</label><span class="val" id="diffV"></span><input id="diff" type="range" min="0" max="1" step="0.05" value="0.15"></div>
+    </div>
+    <div class="label">Your seat</div>
+    <div class="buttons" role="group" aria-label="Viewpoint">
+      <button id="viewSeat" type="button">Audience seat</button>
+      <button id="viewBelow" type="button">Below</button>
+      <button id="viewAbove" type="button">Above</button>
+    </div>
+    <div class="buttons">
+      <button id="birds" type="button" aria-pressed="false">Show virtual birds</button>
+      <button id="bodies" type="button" aria-pressed="false">Show drone bodies</button>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="label">Virtual bird</div>
+    <div class="row"><label for="zigmax">Zig roll</label><span class="val" id="zigmaxV"></span><input id="zigmax" type="range" min="20" max="90" step="1" value="75"></div>
+    <div class="row"><label for="react">Reaction time</label><span class="val" id="reactV"></span><input id="react" type="range" min="0.04" max="0.5" step="0.004" value="0.076"></div>
+    <div class="row"><label for="bank">Banking in turns</label><span class="val" id="bankV"></span><input id="bank" type="range" min="0" max="4" step="0.1" value="2"></div>
+    <div class="buttons"><button id="auto" type="button" aria-pressed="true">Auto waves</button></div>
+    <p class="note">A "zig" is a quick roll to one side (0.25 s) and back (0.30 s). Each bird copies a neighbour within 2 m after a 0.05 s cue time plus its reaction time, so the roll spreads as a wave. Timings from <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4564680" target="_blank" rel="noopener">Hemelrijk, van Zuidam &amp; Hildenbrandt (2015)</a>. Longer reaction times give a slower wave.</p>
+  </div>
+
+  <div class="group">
+    <div class="label">Flock</div>
+    <div class="row"><label for="count">Drones</label><span class="val" id="countV"></span><input id="count" type="range" min="40" max="500" step="10" value="500"></div>
+    <div class="row"><label for="align">Alignment</label><span class="val" id="alignV"></span><input id="align" type="range" min="0" max="3" step="0.05" value="0.75"></div>
+    <div class="row"><label for="cohes">Cohesion</label><span class="val" id="cohesV"></span><input id="cohes" type="range" min="0" max="2" step="0.05" value="0.30"></div>
+    <div class="row"><label for="sepw">Separation</label><span class="val" id="sepwV"></span><input id="sepw" type="range" min="0" max="12" step="0.25" value="5.5"></div>
+    <div class="buttons"><button id="trails" type="button" aria-pressed="false">Trails</button><button id="rotate" type="button" aria-pressed="true">Auto-orbit</button></div>
+  </div>
+
+  <div class="group">
+    <div class="label">Drone limits</div>
+    <div class="row"><label for="vmax">Max speed</label><span class="val" id="vmaxV"></span><input id="vmax" type="range" min="1" max="6" step="0.1" value="6"></div>
+    <div class="row"><label for="amax">Max acceleration</label><span class="val" id="amaxV"></span><input id="amax" type="range" min="1" max="10" step="0.1" value="10"></div>
+    <div class="buttons"><button id="limits" type="button" aria-pressed="true">Limits on</button></div>
+    <p class="note">With limits off, the falcon makes the flock scatter like real starlings. That breaks the drones' acceleration budget and safe spacing, and the telemetry turns red.</p>
+  </div>
+</aside>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(() => {
+  // ---- Arena (metres) ----
+  const AX = 15, AZ = 15, YMIN = 6, YMAX = 15, MARGIN = 3;
+  const PERCEPT = 3.2, SEP_R = 1.5, D_MIN = 0.6, BATTERY = 300;
+  // Safety layer: a push that grows steeply below D_SAFE and gets first call on the
+  // acceleration budget, so flocking forces can never squeeze two drones under D_MIN.
+  const D_SAFE = 1.1, K_SAFE = 6;
+  const TRAIL = 14, G = 9.81;
+  // ---- Zig escape (Hemelrijk et al. 2015, Table 1) ----
+  const T_SIDE = 0.25, T_BACK = 0.30, ZT = T_SIDE + T_BACK, T_CUE = 0.05, T_REFR = 1.0;
+  const R_REP = 2.0, ZIG_FORCE = 1.2;
+  // projected areas of the virtual bird: wing plate and body side
+  const A_WING = 1.0, A_BODY = 0.22;
+
+  const $ = id => document.getElementById(id);
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const params = {
+    n: +$('count').value, align: +$('align').value, cohes: +$('cohes').value, sepw: +$('sepw').value,
+    vmax: +$('vmax').value, amax: +$('amax').value, limits: true, trails: false, paused: false,
+    gain: +$('gain').value, diff: +$('diff').value, mode: 'six', bodies: false, birds: false,
+    zigmax: +$('zigmax').value, react: +$('react').value, bank: +$('bank').value, auto: true
+  };
+
+  // ---- three.js scene ----
+  const stage = $('stage');
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  stage.appendChild(renderer.domElement);
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x0d0b1d, 0.012);
+  const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 400);
+  camera.position.set(0, 2, 26);
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.target.set(0, 10, 0);
+  controls.enableDamping = true;
+  controls.autoRotate = !reduceMotion;
+  controls.autoRotateSpeed = 0.35;
+  controls.maxDistance = 90; controls.minDistance = 4;
+  controls.maxPolarAngle = Math.PI * 0.88;
+  if (reduceMotion) $('rotate').setAttribute('aria-pressed', 'false');
+
+  const grid = new THREE.GridHelper(60, 30, 0x3a3458, 0x221d38);
+  grid.material.transparent = true; grid.material.opacity = 0.55;
+  scene.add(grid);
+  const box = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(AX * 2, YMAX - YMIN, AZ * 2)),
+    new THREE.LineBasicMaterial({ color: 0x4c4572, transparent: true, opacity: 0.35 }));
+  box.position.y = (YMIN + YMAX) / 2;
+  scene.add(box);
+  const ringPts = [];
+  for (let k = 0; k <= 128; k++) { const a = k / 128 * Math.PI * 2; ringPts.push(new THREE.Vector3(Math.cos(a) * 24, 0.02, Math.sin(a) * 24)); }
+  scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(ringPts),
+    new THREE.LineBasicMaterial({ color: 0x6b5a8a, transparent: true, opacity: 0.5 })));
+
+  const sprite = (() => {
+    const c = document.createElement('canvas'); c.width = c.height = 64;
+    const g = c.getContext('2d');
+    const grd = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+    grd.addColorStop(0, 'rgba(255,255,255,1)');
+    grd.addColorStop(0.25, 'rgba(255,255,255,0.85)');
+    grd.addColorStop(0.6, 'rgba(255,255,255,0.12)');
+    grd.addColorStop(1, 'rgba(255,255,255,0)');
+    g.fillStyle = grd; g.fillRect(0, 0, 64, 64);
+    return new THREE.CanvasTexture(c);
+  })();
+
+  const COOL = new THREE.Color(0x8fb6ff), WARM = new THREE.Color(0xffcf7a), ALERT = new THREE.Color(0xff6a55);
+  const LED = new THREE.Color(0xfff1d6);
+  const _m = new THREE.Matrix4(), _q = new THREE.Quaternion(), _u = new THREE.Vector3(), _Y = new THREE.Vector3(0, 1, 0),
+        _p = new THREE.Vector3(), _one = new THREE.Vector3(1, 1, 1), _bx = new THREE.Vector3(), _by = new THREE.Vector3(), _bz = new THREE.Vector3();
+
+  // arrowhead bird: local x = forward, y = up, z = right
+  const birdGeo = (() => {
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.BufferAttribute(new Float32Array([
+      0.32, 0, 0,  -0.18, 0, -0.38,  -0.06, 0, 0,
+      0.32, 0, 0,  -0.06, 0, 0,  -0.18, 0, 0.38
+    ]), 3));
+    return g;
+  })();
+
+  // ---- Simulation state ----
+  let N, P, V, A, AF, upv, phase, breachFlag, hist, histHead, points, trails, bodies, birds;
+  let rollTurn, zigAge, zigDir, refr, nextScan, seenDir, BB;
+  const falcon = { active: false, t: 0, from: new THREE.Vector3(), to: new THREE.Vector3(), pos: new THREE.Vector3() };
+  const falconMesh = new THREE.Points(
+    new THREE.BufferGeometry().setAttribute('position', new THREE.BufferAttribute(new Float32Array(3), 3)),
+    new THREE.PointsMaterial({ size: 2.2, map: sprite, color: ALERT, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+  falconMesh.visible = false; scene.add(falconMesh);
+
+  function build(n) {
+    for (const o of [points, trails, bodies, birds]) if (o) { scene.remove(o); o.geometry !== birdGeo && o.geometry.dispose(); }
+    N = n;
+    P = new Float32Array(N * 3); V = new Float32Array(N * 3); A = new Float32Array(N * 3);
+    AF = new Float32Array(N * 3); upv = new Float32Array(N * 3);
+    phase = new Float32Array(N); breachFlag = new Uint8Array(N);
+    rollTurn = new Float32Array(N); zigAge = new Float32Array(N).fill(-1); zigDir = new Int8Array(N);
+    refr = new Float32Array(N); nextScan = new Float32Array(N); seenDir = new Int8Array(N);
+    BB = new Float32Array(N * 9); // per bird: ex(3) forward, ez(3) wing normal, ey(3) left
+    const dir = new THREE.Vector3(1, 0, 0.3).normalize();
+    // start on a loose grid (5 layers, 1.3 m apart) so no pair begins closer than the safe distance
+    const LAYERS = 5, GAP = 1.3, side = Math.ceil(Math.sqrt(N / LAYERS));
+    for (let i = 0; i < N; i++) {
+      const gx = i % side, gz = Math.floor(i / side) % side, gy = Math.floor(i / (side * side));
+      P[i*3] = (gx - (side - 1) / 2) * GAP + (Math.random() - 0.5) * 0.3;
+      P[i*3+1] = 10.5 + (gy - (LAYERS - 1) / 2) * GAP + (Math.random() - 0.5) * 0.3;
+      P[i*3+2] = (gz - (side - 1) / 2) * GAP + (Math.random() - 0.5) * 0.3;
+      const s = params.vmax * 0.7;
+      V[i*3] = dir.x * s + (Math.random() - 0.5) * 0.4;
+      V[i*3+1] = (Math.random() - 0.5) * 0.2;
+      V[i*3+2] = dir.z * s + (Math.random() - 0.5) * 0.4;
+      phase[i] = Math.random() * 100;
+      nextScan[i] = Math.random() * params.react;
+      BB[i*9] = 1; BB[i*9+4] = 1; BB[i*9+8] = -1;
+    }
+    hist = new Float32Array(N * TRAIL * 3);
+    for (let i = 0; i < N; i++) for (let k = 0; k < TRAIL; k++) hist.set(P.subarray(i*3, i*3+3), (i * TRAIL + k) * 3);
+    histHead = 0;
+
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.BufferAttribute(P, 3));
+    g.setAttribute('color', new THREE.BufferAttribute(new Float32Array(N * 3), 3));
+    points = new THREE.Points(g, new THREE.PointsMaterial({
+      size: 0.9, map: sprite, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+    scene.add(points);
+
+    const segs = N * (TRAIL - 1);
+    const tg = new THREE.BufferGeometry();
+    tg.setAttribute('position', new THREE.BufferAttribute(new Float32Array(segs * 6), 3));
+    tg.setAttribute('color', new THREE.BufferAttribute(new Float32Array(segs * 6), 3));
+    trails = new THREE.LineSegments(tg, new THREE.LineBasicMaterial({
+      vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+    trails.visible = params.trails;
+    scene.add(trails);
+
+    bodies = new THREE.InstancedMesh(new THREE.CylinderGeometry(0.28, 0.28, 0.05, 14),
+      new THREE.MeshBasicMaterial({ color: 0x6d6690 }), N);
+    bodies.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+    bodies.visible = params.bodies;
+    scene.add(bodies);
+
+    birds = new THREE.InstancedMesh(birdGeo, new THREE.MeshBasicMaterial({ color: 0x9a92c4, side: THREE.DoubleSide }), N);
+    birds.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+    birds.visible = params.birds;
+    scene.add(birds);
+  }
+
+  function target(t, out) {
+    out[0] = Math.sin(t * 0.071) * 8 + Math.sin(t * 0.193) * 3;
+    out[1] = 10.5 + Math.sin(t * 0.111) * 2.2;
+    out[2] = Math.cos(t * 0.083) * 8 + Math.sin(t * 0.157 + 1) * 3;
+    return out;
+  }
+
+  // left vector of a bird flying along v (level reference), written into out[0..2]
+  function leftOf(vx, vy, vz, out) {
+    // s = normalize(Y x v) = (vz, 0, -vx) / |.|
+    let sx = vz, sz = -vx; const h = Math.hypot(sx, sz) || 1;
+    out[0] = sx / h; out[1] = 0; out[2] = sz / h;
+    return out;
+  }
+
+  function startZig(i, dir) { zigAge[i] = 0; zigDir[i] = dir; }
+
+  // ---- Telemetry ----
+  const breachLog = [];
+  let simTime = 0, showClock = 0, nextAutoWave = 4;
+  const stats = { minSep: Infinity, maxSpeed: 0, maxAcc: 0, maxTilt: 0, zigging: 0 };
+  const sv = [0, 0, 0];
+
+  function step(dt) {
+    const T = target(simTime, [0, 0, 0]);
+    // The target steers the flock's centre, not each drone, so it moves the flock without squeezing it.
+    let Cx = 0, Cy = 0, Cz = 0;
+    for (let i = 0; i < N; i++) { Cx += P[i*3]; Cy += P[i*3+1]; Cz += P[i*3+2]; }
+    Cx /= N; Cy /= N; Cz /= N;
+    const { align, cohes, sepw, vmax, amax, limits } = params;
+    const vmin = vmax * 0.45;
+    const aCap = limits ? amax : amax * 4;
+    const P2 = PERCEPT * PERCEPT, RR2 = R_REP * R_REP;
+    let minSep2 = Infinity, maxSpeed = 0, maxAcc = 0, breaches = 0;
+    breachFlag.fill(0);
+    seenDir.fill(0);
+
+    if (falcon.active) {
+      falcon.t += dt / 3.2;
+      const u = Math.min(falcon.t, 1), e = u * u * (3 - 2 * u);
+      falcon.pos.lerpVectors(falcon.from, falcon.to, e);
+      if (falcon.t >= 1) { falcon.active = false; falconMesh.visible = false; }
+      falconMesh.geometry.attributes.position.array.set([falcon.pos.x, falcon.pos.y, falcon.pos.z]);
+      falconMesh.geometry.attributes.position.needsUpdate = true;
+    }
+
+    for (let i = 0; i < N; i++) {
+      const ix = i*3, px = P[ix], py = P[ix+1], pz = P[ix+2];
+      let cx = 0, cy = 0, cz = 0, vx = 0, vy = 0, vz = 0, sx = 0, sy = 0, sz = 0, cnt = 0, qx = 0, qy = 0, qz = 0;
+      for (let j = 0; j < N; j++) {
+        if (j === i) continue;
+        const jx = j*3;
+        const dx = P[jx] - px, dy = P[jx+1] - py, dz = P[jx+2] - pz;
+        const d2 = dx*dx + dy*dy + dz*dz;
+        if (d2 > P2) continue;
+        if (j > i && d2 < minSep2) minSep2 = d2;
+        if (d2 < D_MIN * D_MIN) { breachFlag[i] = 1; if (j > i) breaches++; }
+        if (d2 < RR2) { const za = zigAge[j]; if (za >= T_CUE && za < ZT) seenDir[i] = zigDir[j]; }
+        cx += dx; cy += dy; cz += dz;
+        vx += V[jx]; vy += V[jx+1]; vz += V[jx+2];
+        cnt++;
+        if (d2 < SEP_R * SEP_R) {
+          const d = Math.sqrt(d2) + 1e-4, w = (SEP_R - d) / SEP_R;
+          const k = w * w / d * (d < D_MIN * 1.3 ? 3 : 1);
+          sx -= dx * k; sy -= dy * k; sz -= dz * k;
+        }
+        if (limits && d2 < D_SAFE * D_SAFE) {
+          const d = Math.sqrt(d2) + 1e-4;
+          const k = K_SAFE * (D_SAFE - d) / Math.max(0.05, d - 0.5 * D_MIN) / d;
+          qx -= dx * k; qy -= dy * k; qz -= dz * k;
+        }
+        // braking curve: two drones may close in only as fast as they can still stop before D_MIN,
+        // each braking at half the budget (with a margin)
+        const d = Math.sqrt(d2) + 1e-4;
+        const closing = -((V[jx] - V[ix]) * dx + (V[jx+1] - V[ix+1]) * dy + (V[jx+2] - V[ix+2]) * dz) / d;
+        if (limits && closing > 0) {
+          const allowed = Math.sqrt(2 * 0.3 * aCap * Math.max(0, d - D_MIN - 0.25));
+          if (closing > allowed) { const k = (closing - allowed) / 0.1 / d; qx -= dx * k; qy -= dy * k; qz -= dz * k; }
+        }
+      }
+      let ax = 0, ay = 0, az = 0;
+      if (cnt) {
+        ax += cohes * cx / cnt * 0.6; ay += cohes * cy / cnt * 0.6; az += cohes * cz / cnt * 0.6;
+        ax += align * (vx / cnt - V[ix]); ay += align * (vy / cnt - V[ix+1]); az += align * (vz / cnt - V[ix+2]);
+      }
+      ax += sepw * sx; ay += sepw * sy; az += sepw * sz;
+      ax += (T[0] - Cx) * 0.06; ay += (T[1] - Cy) * 0.1; az += (T[2] - Cz) * 0.06;
+      const ph = phase[i];
+      ax += Math.sin(simTime * 0.9 + py * 0.35 + ph * 0.01) * 0.35;
+      ay += Math.sin(simTime * 0.6 + pz * 0.3) * 0.2;
+      az += Math.cos(simTime * 0.8 + px * 0.35) * 0.35;
+      if (px >  AX - MARGIN) ax -= (px - (AX - MARGIN)) * 2.5;
+      if (px < -AX + MARGIN) ax -= (px + (AX - MARGIN)) * 2.5;
+      if (pz >  AZ - MARGIN) az -= (pz - (AZ - MARGIN)) * 2.5;
+      if (pz < -AZ + MARGIN) az -= (pz + (AZ - MARGIN)) * 2.5;
+      if (py >  YMAX - 1.5) ay -= (py - (YMAX - 1.5)) * 3;
+      if (py <  YMIN + 1.5) ay -= (py - (YMIN + 1.5)) * 3;
+
+      leftOf(V[ix], V[ix+1], V[ix+2], sv);
+      if (falcon.active) {
+        const fx = px - falcon.pos.x, fy = py - falcon.pos.y, fz = pz - falcon.pos.z;
+        const fd = Math.sqrt(fx*fx + fy*fy + fz*fz) + 1e-3, R = 7;
+        if (fd < R) { const k = (1 - fd / R) * 22 / fd; ax += fx * k; ay += fy * k * 0.6; az += fz * k; }
+        // the birds closest to the falcon start the zig, rolling away from it
+        if (fd < 4.5 && zigAge[i] < 0 && refr[i] <= 0) startZig(i, (fx * sv[0] + fz * sv[2]) >= 0 ? 1 : -1);
+      }
+      // the zig: a small sideways move while the virtual bird rolls
+      const za = zigAge[i];
+      if (za >= 0) {
+        const f = (za < T_SIDE ? 1 : -1) * ZIG_FORCE * zigDir[i];
+        ax += f * sv[0]; az += f * sv[2];
+      }
+      // cruise: below the minimum speed, speed back up along the heading (within the budget, unlike a hard clamp)
+      const sp = Math.hypot(V[ix], V[ix+1], V[ix+2]);
+      if (sp < vmin && sp > 1e-4) { const k = (vmin - sp) / 0.4 / sp; ax += V[ix] * k; ay += V[ix+1] * k; az += V[ix+2] * k; }
+      // safety first: it takes what it needs from the budget, the flocking forces share the rest
+      const qm = Math.sqrt(qx*qx + qy*qy + qz*qz);
+      if (qm > aCap) { const s = aCap / qm; qx *= s; qy *= s; qz *= s; }
+      const room = aCap - Math.min(aCap, qm);
+      const am = Math.sqrt(ax*ax + ay*ay + az*az);
+      if (am > room) { const s = room / am; ax *= s; ay *= s; az *= s; }
+      ax += qx; ay += qy; az += qz;
+      A[ix] = ax; A[ix+1] = ay; A[ix+2] = az;
+
+      // copy a neighbour's zig at the next reaction moment
+      if (simTime >= nextScan[i]) {
+        const u3 = Math.random() + Math.random() + Math.random() - 1.5;
+        nextScan[i] = simTime + Math.max(0.01, params.react * (1 + 0.26 * u3));
+        if (seenDir[i] && zigAge[i] < 0 && refr[i] <= 0) startZig(i, seenDir[i]);
+      }
+    }
+
+    let zigging = 0;
+    for (let i = 0; i < N; i++) {
+      const ix = i*3;
+      let vx = V[ix] + A[ix] * dt, vy = V[ix+1] + A[ix+1] * dt, vz = V[ix+2] + A[ix+2] * dt;
+      let s = Math.sqrt(vx*vx + vy*vy + vz*vz);
+      const cap = params.limits ? params.vmax : params.vmax * 1.8;
+      if (s > cap) { const k = cap / s; vx *= k; vy *= k; vz *= k; s = cap; }
+      const rax = (vx - V[ix]) / dt, ray = (vy - V[ix+1]) / dt, raz = (vz - V[ix+2]) / dt;
+      const realAcc = Math.hypot(rax, ray, raz);
+      const f = dt / (0.12 + dt);
+      AF[ix] += (rax - AF[ix]) * f; AF[ix+1] += (ray - AF[ix+1]) * f; AF[ix+2] += (raz - AF[ix+2]) * f;
+      V[ix] = vx; V[ix+1] = vy; V[ix+2] = vz;
+      P[ix] += vx * dt; P[ix+1] += vy * dt; P[ix+2] += vz * dt;
+      if (s > maxSpeed) maxSpeed = s;
+      if (realAcc > maxAcc) maxAcc = realAcc;
+
+      // ---- virtual bird attitude ----
+      const ex = vx / s, ey_ = vy / s, ez_ = vz / s;
+      leftOf(vx, vy, vz, sv);
+      // level up vector u0 = ex x s (includes the bird's pitch)
+      const u0x = ey_ * sv[2] - ez_ * sv[1], u0y = ez_ * sv[0] - ex * sv[2], u0z = ex * sv[1] - ey_ * sv[0];
+      // coordinated turn: tan(roll) = a_lateral / g
+      const aLat = AF[ix] * sv[0] + AF[ix+2] * sv[2];
+      const tgt = Math.max(-1.4, Math.min(1.4, Math.atan(aLat / G) * params.bank));
+      const rate = Math.abs(tgt) > Math.abs(rollTurn[i]) ? 7 : 4; // roll in faster than out
+      rollTurn[i] += Math.max(-rate * dt, Math.min(rate * dt, tgt - rollTurn[i]));
+      let zr = 0;
+      if (zigAge[i] >= 0) {
+        const t = zigAge[i];
+        zr = (t < T_SIDE ? Math.sin(Math.PI / 2 * t / T_SIDE) : Math.cos(Math.PI / 2 * (t - T_SIDE) / T_BACK));
+        zr *= zigDir[i] * params.zigmax * Math.PI / 180;
+        zigAge[i] += dt; zigging++;
+        if (zigAge[i] >= ZT) { zigAge[i] = -1; refr[i] = T_REFR; }
+      } else if (refr[i] > 0) refr[i] -= dt;
+      const phi = Math.max(-1.56, Math.min(1.56, rollTurn[i] + zr));
+      const c = Math.cos(phi), sn = Math.sin(phi);
+      const b = i * 9;
+      BB[b] = ex; BB[b+1] = ey_; BB[b+2] = ez_;
+      BB[b+3] = c * u0x + sn * sv[0]; BB[b+4] = c * u0y + sn * sv[1]; BB[b+5] = c * u0z + sn * sv[2];
+      BB[b+6] = c * sv[0] - sn * u0x; BB[b+7] = c * sv[1] - sn * u0y; BB[b+8] = c * sv[2] - sn * u0z;
+    }
+
+    stats.minSep = Math.min(stats.minSep, Math.sqrt(minSep2));
+    stats.maxSpeed = Math.max(stats.maxSpeed, maxSpeed);
+    stats.maxAcc = Math.max(stats.maxAcc, maxAcc);
+    stats.zigging = zigging;
+    if (breaches) breachLog.push([simTime, breaches]);
+    simTime += dt;
+  }
+
+  function startWave() {
+    // like the paper: the attack comes from the back of the flock
+    let cx = 0, cy = 0, cz = 0, mx = 0, my = 0, mz = 0;
+    for (let i = 0; i < N; i++) { cx += P[i*3]; cy += P[i*3+1]; cz += P[i*3+2]; mx += V[i*3]; my += V[i*3+1]; mz += V[i*3+2]; }
+    cx /= N; cy /= N; cz /= N;
+    let best = 0, bestD = Infinity;
+    for (let i = 0; i < N; i++) {
+      const d = (P[i*3] - cx) * mx + (P[i*3+1] - cy) * my + (P[i*3+2] - cz) * mz;
+      if (d < bestD) { bestD = d; best = i; }
+    }
+    const dir = Math.random() < 0.5 ? 1 : -1;
+    for (let i = 0; i < N; i++) {
+      const d = Math.hypot(P[i*3] - P[best*3], P[i*3+1] - P[best*3+1], P[i*3+2] - P[best*3+2]);
+      if (d < 1.6 && zigAge[i] < 0) startZig(i, dir);
+    }
+  }
+
+  function paint() {
+    const col = points.geometry.attributes.color.array;
+    const c = new THREE.Color();
+    const cam = camera.position, mode = params.mode;
+    const floor = params.diff * 0.7;
+    let tiltMax = 0;
+    for (let i = 0; i < N; i++) {
+      const ix = i*3, b = i * 9;
+      // real drone attitude: thrust = m(a + g) along the body's up axis
+      const tx = AF[ix], ty = AF[ix+1] + G, tz = AF[ix+2];
+      const tn = Math.hypot(tx, ty, tz) || 1;
+      const Ux = tx / tn, Uy = ty / tn, Uz = tz / tn;
+      const tilt = Math.acos(Math.min(1, Math.max(-1, Uy)));
+      if (tilt > tiltMax) tiltMax = tilt;
+      let ux = Ux, uy = Uy, uz = Uz;
+      const h = Math.hypot(ux, uz);
+      if (params.gain !== 1 && h > 1e-6) {
+        const t2 = Math.min(1.4, tilt * params.gain), k = Math.sin(t2) / h;
+        ux *= k; uz *= k; uy = Math.cos(t2);
+      }
+      upv[ix] = ux; upv[ix+1] = uy; upv[ix+2] = uz;
+
+      // direction from drone to the viewer
+      let dx = cam.x - P[ix], dy = cam.y - P[ix+1], dz = cam.z - P[ix+2];
+      const dn = Math.hypot(dx, dy, dz) || 1; dx /= dn; dy /= dn; dz /= dn;
+
+      if (mode === 'ideal' || mode === 'six') {
+        const wx = BB[b+3], wy = BB[b+4], wz = BB[b+5]; // wing normal
+        const lx = BB[b+6], ly = BB[b+7], lz = BB[b+8]; // bird's left (body side)
+        let I;
+        if (mode === 'ideal') {
+          // exact projected area of the virtual bird toward this viewer
+          I = A_WING * Math.abs(wx*dx + wy*dy + wz*dz) + A_BODY * Math.abs(lx*dx + ly*dy + lz*dz);
+        } else {
+          // six LEDs on the real drone, facing ±F, ±L, ±U, each with a cosine lobe.
+          // The drone sets each pair's power from the virtual bird: a_k = A_w|w·n_k| + A_b|l·n_k|.
+          // A viewer in direction d then sees I(d) = Σ_k a_k |n_k·d|.
+          let Fx = BB[b], Fy = BB[b+1], Fz = BB[b+2];
+          const fu = Fx*Ux + Fy*Uy + Fz*Uz; Fx -= fu*Ux; Fy -= fu*Uy; Fz -= fu*Uz;
+          const fn = Math.hypot(Fx, Fy, Fz) || 1; Fx /= fn; Fy /= fn; Fz /= fn;
+          const Lx = Uy*Fz - Uz*Fy, Ly = Uz*Fx - Ux*Fz, Lz = Ux*Fy - Uy*Fx;
+          const aF = A_WING * Math.abs(wx*Fx + wy*Fy + wz*Fz) + A_BODY * Math.abs(lx*Fx + ly*Fy + lz*Fz);
+          const aL = A_WING * Math.abs(wx*Lx + wy*Ly + wz*Lz) + A_BODY * Math.abs(lx*Lx + ly*Ly + lz*Lz);
+          const aU = A_WING * Math.abs(wx*Ux + wy*Uy + wz*Uz) + A_BODY * Math.abs(lx*Ux + ly*Uy + lz*Uz);
+          I = aF * Math.abs(Fx*dx + Fy*dy + Fz*dz) + aL * Math.abs(Lx*dx + Ly*dy + Lz*dz) + aU * Math.abs(Ux*dx + Uy*dy + Uz*dz);
+        }
+        c.copy(LED).multiplyScalar(Math.min(1.8, 0.05 + 1.45 * I * I + 0.25 * I));
+      } else if (mode === 'led') {
+        const cth = -(ux * dx + uy * dy + uz * dz);
+        const I = floor + (1 - floor) * Math.max(0, cth);
+        c.copy(LED).multiplyScalar(Math.min(1.6, I * 1.5));
+      } else {
+        const s = Math.hypot(V[ix], V[ix+1], V[ix+2]) / params.vmax;
+        c.copy(COOL).lerp(WARM, Math.min(1, Math.max(0, (s - 0.45) / 0.55)));
+      }
+      col[ix] = c.r; col[ix+1] = c.g; col[ix+2] = c.b;
+    }
+    stats.maxTilt = Math.max(stats.maxTilt, tiltMax);
+
+    if (params.bodies) {
+      for (let i = 0; i < N; i++) {
+        const ix = i*3;
+        _u.set(upv[ix], upv[ix+1], upv[ix+2]);
+        _q.setFromUnitVectors(_Y, _u);
+        _p.set(P[ix] + _u.x * 0.12, P[ix+1] + _u.y * 0.12, P[ix+2] + _u.z * 0.12);
+        _m.compose(_p, _q, _one);
+        bodies.setMatrixAt(i, _m);
+      }
+      bodies.instanceMatrix.needsUpdate = true;
+    }
+    if (params.birds) {
+      for (let i = 0; i < N; i++) {
+        const b = i * 9;
+        _bx.set(BB[b], BB[b+1], BB[b+2]);
+        _by.set(BB[b+3], BB[b+4], BB[b+5]);
+        _bz.crossVectors(_bx, _by); // right
+        _m.makeBasis(_bx, _by, _bz);
+        _m.setPosition(P[i*3], P[i*3+1], P[i*3+2]);
+        birds.setMatrixAt(i, _m);
+      }
+      birds.instanceMatrix.needsUpdate = true;
+    }
+
+    points.geometry.attributes.position.needsUpdate = true;
+    points.geometry.attributes.color.needsUpdate = true;
+
+    if (!params.trails) return;
+    const tp = trails.geometry.attributes.position.array, tc = trails.geometry.attributes.color.array;
+    let o = 0;
+    for (let i = 0; i < N; i++) {
+      const base = i * TRAIL;
+      const r = col[i*3], g = col[i*3+1], b = col[i*3+2];
+      for (let k = 0; k < TRAIL - 1; k++) {
+        const a = (base + (histHead - k + TRAIL) % TRAIL) * 3;
+        const bIdx = (base + (histHead - k - 1 + TRAIL) % TRAIL) * 3;
+        const f0 = 0.45 * (1 - k / (TRAIL - 1)), f1 = 0.45 * (1 - (k + 1) / (TRAIL - 1));
+        tp[o] = hist[a]; tp[o+1] = hist[a+1]; tp[o+2] = hist[a+2];
+        tc[o] = r * f0; tc[o+1] = g * f0; tc[o+2] = b * f0; o += 3;
+        tp[o] = hist[bIdx]; tp[o+1] = hist[bIdx+1]; tp[o+2] = hist[bIdx+2];
+        tc[o] = r * f1; tc[o+1] = g * f1; tc[o+2] = b * f1; o += 3;
+      }
+    }
+    trails.geometry.attributes.position.needsUpdate = true;
+    trails.geometry.attributes.color.needsUpdate = true;
+  }
+
+  let histTick = 0;
+  function pushHistory() {
+    if (++histTick % 3) return;
+    histHead = (histHead + 1) % TRAIL;
+    for (let i = 0; i < N; i++) hist.set(P.subarray(i*3, i*3+3), (i * TRAIL + histHead) * 3);
+  }
+
+  // ---- UI ----
+  const fmt = (v, u, d = 1) => `${v.toFixed(d)} ${u}`;
+  const bind = (id, key, unit, d) => {
+    const el = $(id), out = $(id + 'V');
+    const show = () => { out.textContent = unit ? fmt(+el.value, unit, d) : el.value; };
+    el.addEventListener('input', () => { params[key] = +el.value; show(); if (key === 'n') build(params.n); resetStats(); });
+    show();
+  };
+  bind('count', 'n', '', 0);
+  bind('align', 'align', '×', 2);
+  bind('cohes', 'cohes', '×', 2);
+  bind('sepw', 'sepw', '×', 2);
+  bind('vmax', 'vmax', 'm/s', 1);
+  bind('amax', 'amax', 'm/s²', 1);
+  bind('gain', 'gain', '×', 1);
+  bind('diff', 'diff', '', 2);
+  bind('zigmax', 'zigmax', '°', 0);
+  bind('react', 'react', 's', 3);
+  bind('bank', 'bank', '×', 1);
+
+  function resetStats() { stats.minSep = Infinity; stats.maxSpeed = 0; stats.maxAcc = 0; stats.maxTilt = 0; breachLog.length = 0; }
+
+  const press = (btn, on) => btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+  const modeNotes = {
+    six: 'Six LEDs per drone face front, back, left, right, up and down. Each pair is powered from the virtual bird’s wing, so every seat sees roughly the wing area it would see from there. Orbit around: the wave stays visible from every side.',
+    ideal: 'The exact projected area of each virtual bird toward your seat, as in the starling model. This is the target the six-face LEDs approximate.',
+    led: 'One LED under each drone, pointing down. It only follows the drone’s real tilt (10–25°), so the effect is weak.',
+    speed: 'Colour by speed: blue when slow, amber when fast. No orientation information.'
+  };
+  const setMode = m => {
+    params.mode = m;
+    press($('modeSix'), m === 'six'); press($('modeIdeal'), m === 'ideal');
+    press($('modeLed'), m === 'led'); press($('modeSpeed'), m === 'speed');
+    $('ledSettings').hidden = m !== 'led';
+    $('modeNote').textContent = modeNotes[m];
+  };
+  $('modeSix').addEventListener('click', () => setMode('six'));
+  $('modeIdeal').addEventListener('click', () => setMode('ideal'));
+  $('modeLed').addEventListener('click', () => setMode('led'));
+  $('modeSpeed').addEventListener('click', () => setMode('speed'));
+  setMode('six');
+
+  $('limits').addEventListener('click', e => {
+    params.limits = !params.limits; press(e.currentTarget, params.limits);
+    e.currentTarget.textContent = params.limits ? 'Limits on' : 'Limits off'; resetStats();
+  });
+  $('trails').addEventListener('click', e => { params.trails = !params.trails; trails.visible = params.trails; press(e.currentTarget, params.trails); });
+  $('rotate').addEventListener('click', e => { controls.autoRotate = !controls.autoRotate; press(e.currentTarget, controls.autoRotate); });
+  $('bodies').addEventListener('click', e => { params.bodies = !params.bodies; bodies.visible = params.bodies; press(e.currentTarget, params.bodies); });
+  $('birds').addEventListener('click', e => { params.birds = !params.birds; birds.visible = params.birds; press(e.currentTarget, params.birds); });
+  $('auto').addEventListener('click', e => { params.auto = !params.auto; press(e.currentTarget, params.auto); });
+  $('wave').addEventListener('click', startWave);
+  const views = { viewSeat: [0, 2, 26], viewBelow: [0, 1, 5], viewAbove: [0, 34, 14] };
+  Object.entries(views).forEach(([id, v]) => $(id).addEventListener('click', () => { camera.position.set(v[0], v[1], v[2]); controls.update(); }));
+  $('pause').addEventListener('click', e => {
+    params.paused = !params.paused; press(e.currentTarget, params.paused);
+    e.currentTarget.textContent = params.paused ? 'Resume' : 'Pause';
+  });
+  $('falcon').addEventListener('click', () => {
+    let cx = 0, cy = 0, cz = 0;
+    for (let i = 0; i < N; i++) { cx += P[i*3]; cy += P[i*3+1]; cz += P[i*3+2]; }
+    const c = new THREE.Vector3(cx / N, cy / N, cz / N);
+    const a = Math.random() * Math.PI * 2;
+    falcon.from.set(c.x + Math.cos(a) * 18, YMAX + 2, c.z + Math.sin(a) * 18);
+    falcon.to.copy(c).multiplyScalar(2).sub(falcon.from); falcon.to.y = Math.max(YMIN, falcon.to.y);
+    falcon.t = 0; falcon.active = true; falconMesh.visible = true;
+  });
+  $('togglePanel').addEventListener('click', e => {
+    const p = $('panel'); const collapsed = p.classList.toggle('collapsed');
+    e.currentTarget.textContent = collapsed ? 'Controls' : 'Hide';
+    e.currentTarget.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+  });
+
+  function setMetric(id, text, bad) { const m = $(id); m.querySelector('b').textContent = text; m.classList.toggle('bad', !!bad); }
+  let uiTimer = 0;
+  function updateUI() {
+    while (breachLog.length && breachLog[0][0] < simTime - 10) breachLog.shift();
+    const br = breachLog.reduce((s, b) => s + b[1], 0);
+    setMetric('mSep', isFinite(stats.minSep) ? fmt(stats.minSep, 'm', 2) : '–', stats.minSep < D_MIN);
+    setMetric('mBreach', String(br), br > 0);
+    setMetric('mSpeed', fmt(stats.maxSpeed, 'm/s'), stats.maxSpeed > params.vmax + 0.05);
+    setMetric('mAcc', fmt(stats.maxAcc, 'm/s²'), stats.maxAcc > params.amax + 0.1);
+    setMetric('mTilt', `${(stats.maxTilt * 180 / Math.PI).toFixed(0)}°`, false);
+    setMetric('mZig', String(stats.zigging), false);
+    const m = Math.floor(showClock / 60), s = Math.floor(showClock % 60);
+    $('clock').textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')} / 05:00`;
+    $('batt').style.transform = `scaleX(${1 - showClock / BATTERY})`;
+    stats.minSep = Infinity; stats.maxSpeed = 0; stats.maxAcc = 0; stats.maxTilt = 0;
+  }
+
+  function resize() {
+    const w = stage.clientWidth, h = stage.clientHeight;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h; camera.updateProjectionMatrix();
+    if (w < 680) { camera.position.setLength(34); }
+  }
+  window.addEventListener('resize', resize);
+
+  build(params.n);
+  resize();
+
+  let last = performance.now();
+  function loop(now) {
+    const frame = Math.min(0.05, (now - last) / 1000); last = now;
+    if (!params.paused) {
+      const sub = 2, dt = frame / sub;
+      for (let k = 0; k < sub; k++) step(dt);
+      pushHistory();
+      showClock = (showClock + frame) % BATTERY;
+      if (params.auto && simTime >= nextAutoWave) { startWave(); nextAutoWave = simTime + 6 + Math.random() * 5; }
+    }
+    paint();
+    controls.update();
+    renderer.render(scene, camera);
+    uiTimer += frame;
+    if (uiTimer > 0.5) { uiTimer = 0; updateUI(); }
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();
+</script>
